@@ -1,0 +1,2070 @@
+{
+  "schemaVersion": 2,
+  "taxonomyVersion": 1,
+  "taxonomy": {
+    "version": 1,
+    "themes": [
+      "Cardiovascular",
+      "Respiratory",
+      "Gastrointestinal",
+      "Renal",
+      "Endocrinology & Reproduction",
+      "Nutrition & Metabolism",
+      "Neurology",
+      "Musculoskeletal",
+      "Dermatology",
+      "Haematology",
+      "Infection & Immunity",
+      "Oncology",
+      "Psychiatry",
+      "Paediatrics",
+      "Emergency & Critical Care",
+      "Public Health",
+      "General"
+    ],
+    "subjects": [
+      "Anatomy",
+      "Physiology",
+      "Biochemistry",
+      "Pathology",
+      "Pharmacology",
+      "Clinical",
+      "Clinical Skills & Investigations",
+      "Haematology",
+      "Infection & Microbiology",
+      "Immunology",
+      "Genetics",
+      "Nutrition & Metabolism",
+      "Oncology",
+      "Psychology",
+      "Public Health & Epidemiology",
+      "Evidence based medicine & statistics",
+      "Ethics & Law",
+      "Communication & Professionalism",
+      "Radiology & Imaging",
+      "Surgery",
+      "Paediatrics",
+      "Obstetrics & Gynaecology",
+      "Other"
+    ],
+    "domains": [
+      "Anatomy",
+      "Physiology",
+      "Pathology",
+      "Pharmacology",
+      "Clinical",
+      "Investigation / data interpretation",
+      "Clinical numeracy",
+      "Infection & Microbiology",
+      "Immunology",
+      "Genetics",
+      "Oncology",
+      "Ethics & Law",
+      "EBM & statistics",
+      "Population science",
+      "Psychology / sociology",
+      "Other"
+    ],
+    "difficulties": [
+      "Easy",
+      "Moderate",
+      "Hard"
+    ],
+    "rule": "Use these labels exactly. The importer maps common aliases and sends unknown reporting labels to General or Other."
+  },
+  "setId": "general-clinical-sba-bank",
+  "title": "General Clinical SBA Bank",
+  "questions": [
+    {
+      "id": "gen-001",
+      "stem": "A healthy adult stands rapidly from a supine position. There is a transient fall in arterial blood pressure. Which change forms part of the immediate compensatory response?",
+      "options": [
+        "Increased carotid sinus baroreceptor firing",
+        "Increased parasympathetic outflow to the SA node",
+        "Decreased sympathetic stimulation of arterioles",
+        "Increased sympathetic stimulation of the heart",
+        "Decreased renin secretion"
+      ],
+      "answer": 3,
+      "why": "Reduced arterial pressure decreases baroreceptor firing, producing increased sympathetic and reduced parasympathetic output.",
+      "distractors": [
+        "Baroreceptor firing falls when pressure falls.",
+        "Parasympathetic output falls during this reflex.",
+        "Sympathetic arteriolar stimulation rises.",
+        "",
+        "Renin is not the principal immediate neural response and would not be expected to fall."
+      ],
+      "module": "Cardiovascular physiology",
+      "theme": "Cardiovascular",
+      "subjects": [
+        "Physiology"
+      ],
+      "topic": "Baroreceptor reflex",
+      "lo": [
+        "Explain the baroreceptor response to acute hypotension"
+      ],
+      "domain": "Physiology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Baroreceptor reflex",
+        "keyClues": [
+          {
+            "id": "gen-001-clue-1",
+            "quote": "stands rapidly from a supine position",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Baroreceptor reflex."
+            ],
+            "supports": [
+              3
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              2,
+              4
+            ]
+          },
+          {
+            "id": "gen-001-clue-2",
+            "quote": "transient fall in arterial blood pressure",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Baroreceptor reflex."
+            ],
+            "supports": [
+              3
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              2,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Acute hypotension reduces baroreceptor firing and increases sympathetic activity.",
+          "paragraphs": [
+            "Reduced arterial pressure decreases baroreceptor firing, producing increased sympathetic and reduced parasympathetic output."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Acute hypotension reduces baroreceptor firing and increases sympathetic activity."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-002",
+      "stem": "A patient has a tidal volume of 500 mL and a respiratory rate of 12 breaths per minute. What is the minute ventilation?",
+      "options": [
+        "4.0 L/min",
+        "5.0 L/min",
+        "6.0 L/min",
+        "7.0 L/min",
+        "12.0 L/min"
+      ],
+      "answer": 2,
+      "why": "Minute ventilation = tidal volume × respiratory rate = 0.5 L × 12/min = 6.0 L/min.",
+      "distractors": [
+        "Too low for the given values.",
+        "Too low for the given values.",
+        "",
+        "Too high for the given values.",
+        "This treats respiratory rate as a volume."
+      ],
+      "module": "Respiratory physiology",
+      "theme": "Respiratory",
+      "subjects": [
+        "Physiology"
+      ],
+      "topic": "Minute ventilation",
+      "lo": [
+        "Calculate minute ventilation"
+      ],
+      "domain": "Clinical numeracy",
+      "difficulty": "Easy",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Minute ventilation",
+        "keyClues": [
+          {
+            "id": "gen-002-clue-1",
+            "quote": "tidal volume of 500 mL",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Minute ventilation."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-002-clue-2",
+            "quote": "respiratory rate of 12 breaths per minute",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Minute ventilation."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Minute ventilation equals tidal volume multiplied by respiratory rate.",
+          "paragraphs": [
+            "Minute ventilation = tidal volume × respiratory rate = 0.5 L × 12/min = 6.0 L/min."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Minute ventilation equals tidal volume multiplied by respiratory rate."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-003",
+      "stem": "A substance is freely filtered at the glomerulus and is neither reabsorbed nor secreted by the renal tubules. Its renal clearance is therefore most closely related to which physiological measurement?",
+      "options": [
+        "Renal plasma flow",
+        "Glomerular filtration rate",
+        "Filtration fraction",
+        "Urine flow rate",
+        "Renal blood flow"
+      ],
+      "answer": 1,
+      "why": "If a substance is freely filtered and has no tubular handling, excretion equals filtration, so its clearance equals GFR.",
+      "distractors": [
+        "Renal plasma flow requires a different renal handling pattern.",
+        "",
+        "Filtration fraction is GFR divided by renal plasma flow.",
+        "Urine flow contributes to the equation but is not the quantity represented.",
+        "Renal blood flow is not measured by this clearance pattern."
+      ],
+      "module": "Renal physiology",
+      "theme": "Renal",
+      "subjects": [
+        "Physiology"
+      ],
+      "topic": "Renal clearance",
+      "lo": [
+        "Relate renal handling to clearance"
+      ],
+      "domain": "Physiology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Clearance as a marker of GFR",
+        "keyClues": [
+          {
+            "id": "gen-003-clue-1",
+            "quote": "freely filtered at the glomerulus",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Clearance as a marker of GFR."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-003-clue-2",
+            "quote": "neither reabsorbed nor secreted",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Clearance as a marker of GFR."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "A freely filtered substance with no reabsorption or secretion has clearance equal to GFR.",
+          "paragraphs": [
+            "If a substance is freely filtered and has no tubular handling, excretion equals filtration, so its clearance equals GFR."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "A freely filtered substance with no reabsorption or secretion has clearance equal to GFR."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-004",
+      "stem": "A patient with long-standing ulcerative colitis develops jaundice. MRCP shows multifocal stricturing and dilatation of both intrahepatic and extrahepatic bile ducts. What is the most likely diagnosis?",
+      "options": [
+        "Primary biliary cholangitis",
+        "Primary sclerosing cholangitis",
+        "Autoimmune hepatitis",
+        "Choledocholithiasis",
+        "Acute viral hepatitis"
+      ],
+      "answer": 1,
+      "why": "Primary sclerosing cholangitis is strongly associated with ulcerative colitis and produces multifocal stricturing of intrahepatic and extrahepatic bile ducts.",
+      "distractors": [
+        "PBC mainly affects small intrahepatic ducts and has different associations.",
+        "",
+        "Autoimmune hepatitis does not produce this cholangiographic pattern.",
+        "A stone usually causes focal obstruction rather than multifocal stricturing.",
+        "Viral hepatitis does not cause this biliary imaging pattern."
+      ],
+      "module": "Gastrointestinal pathology",
+      "theme": "Gastrointestinal",
+      "subjects": [
+        "Pathology",
+        "Clinical",
+        "Radiology & Imaging"
+      ],
+      "topic": "Primary sclerosing cholangitis",
+      "lo": [
+        "Recognise PSC from association and imaging"
+      ],
+      "domain": "Clinical",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Primary sclerosing cholangitis",
+        "keyClues": [
+          {
+            "id": "gen-004-clue-1",
+            "quote": "long-standing ulcerative colitis",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Primary sclerosing cholangitis."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-004-clue-2",
+            "quote": "multifocal stricturing and dilatation of both intrahepatic and extrahepatic bile ducts",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Primary sclerosing cholangitis."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Ulcerative colitis plus multifocal biliary stricturing strongly suggests PSC.",
+          "paragraphs": [
+            "Primary sclerosing cholangitis is strongly associated with ulcerative colitis and produces multifocal stricturing of intrahepatic and extrahepatic bile ducts."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Ulcerative colitis plus multifocal biliary stricturing strongly suggests PSC."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-005",
+      "stem": "A patient has primary hypothyroidism. Which pattern of thyroid function tests is most likely?",
+      "options": [
+        "Low TSH and low free T4",
+        "Low TSH and high free T4",
+        "High TSH and low free T4",
+        "High TSH and high free T4",
+        "Normal TSH and high free T4"
+      ],
+      "answer": 2,
+      "why": "Primary thyroid failure lowers free T4 and loss of negative feedback causes TSH to rise.",
+      "distractors": [
+        "This suggests central hypothyroidism.",
+        "This suggests primary hyperthyroidism.",
+        "",
+        "This is not the usual untreated primary hypothyroid pattern.",
+        "This does not fit primary hypothyroidism."
+      ],
+      "module": "Endocrine physiology",
+      "theme": "Endocrinology & Reproduction",
+      "subjects": [
+        "Physiology",
+        "Clinical Skills & Investigations"
+      ],
+      "topic": "Thyroid feedback",
+      "lo": [
+        "Interpret thyroid function tests"
+      ],
+      "domain": "Investigation / data interpretation",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Primary hypothyroidism",
+        "keyClues": [
+          {
+            "id": "gen-005-clue-1",
+            "quote": "primary hypothyroidism",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Primary hypothyroidism."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-005-clue-2",
+            "quote": "thyroid function tests",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Primary hypothyroidism."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Primary hypothyroidism produces high TSH with low free T4.",
+          "paragraphs": [
+            "Primary thyroid failure lowers free T4 and loss of negative feedback causes TSH to rise."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Primary hypothyroidism produces high TSH with low free T4."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-006",
+      "stem": "A patient has haemoglobin 152 g/L, MCV 77 fL, ferritin 9 micrograms/L and a normal HbA2. Which finding most strongly supports iron deficiency as a contributor to the microcytosis?",
+      "options": [
+        "Normal haemoglobin concentration",
+        "Low MCV",
+        "Low ferritin",
+        "Normal HbA2",
+        "Raised red cell count"
+      ],
+      "answer": 2,
+      "why": "A clearly low ferritin directly indicates depleted iron stores and therefore strongly supports iron deficiency.",
+      "distractors": [
+        "Normal haemoglobin does not establish adequate iron stores.",
+        "Microcytosis is shared by iron deficiency and thalassaemia traits.",
+        "",
+        "Normal HbA2 may argue against typical beta-thalassaemia trait but does not prove iron deficiency.",
+        "A raised red-cell count may occur in thalassaemia trait."
+      ],
+      "module": "Haematology",
+      "theme": "Haematology",
+      "subjects": [
+        "Haematology",
+        "Clinical Skills & Investigations"
+      ],
+      "topic": "Microcytosis and iron stores",
+      "lo": [
+        "Interpret ferritin and red-cell indices"
+      ],
+      "domain": "Investigation / data interpretation",
+      "difficulty": "Hard",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Iron deficiency in microcytosis",
+        "keyClues": [
+          {
+            "id": "gen-006-clue-1",
+            "quote": "MCV 77 fL",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Iron deficiency in microcytosis."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-006-clue-2",
+            "quote": "ferritin 9 micrograms/L",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Iron deficiency in microcytosis."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-006-clue-3",
+            "quote": "normal HbA2",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Iron deficiency in microcytosis."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Low ferritin is direct evidence of depleted iron stores.",
+          "paragraphs": [
+            "A clearly low ferritin directly indicates depleted iron stores and therefore strongly supports iron deficiency."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Low ferritin is direct evidence of depleted iron stores."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-007",
+      "stem": "A naïve B lymphocyte binds its specific protein antigen and then receives help from a CD4+ T cell. Which process is most directly promoted by this T-cell help?",
+      "options": [
+        "Somatic recombination in the bone marrow",
+        "Class switching and affinity maturation",
+        "Immediate activation of complement by the alternative pathway",
+        "Differentiation of neutrophils",
+        "Negative selection in the thymus"
+      ],
+      "answer": 1,
+      "why": "Cognate CD4+ T-cell help drives germinal-centre responses including class switching, somatic hypermutation and affinity maturation.",
+      "distractors": [
+        "V(D)J recombination occurs before antigen exposure during lymphocyte development.",
+        "",
+        "The alternative complement pathway does not require cognate T-cell help.",
+        "Neutrophil differentiation is not the direct result of B–T-cell interaction.",
+        "Negative selection occurs in the thymus during T-cell development."
+      ],
+      "module": "Immunology",
+      "theme": "Infection & Immunity",
+      "subjects": [
+        "Immunology"
+      ],
+      "topic": "T-dependent B-cell responses",
+      "lo": [
+        "Explain T-cell help in humoral immunity"
+      ],
+      "domain": "Immunology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "T-dependent B-cell activation",
+        "keyClues": [
+          {
+            "id": "gen-007-clue-1",
+            "quote": "naïve B lymphocyte binds its specific protein antigen",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising T-dependent B-cell activation."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-007-clue-2",
+            "quote": "receives help from a CD4+ T cell",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising T-dependent B-cell activation."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "T-cell help promotes class switching and affinity maturation.",
+          "paragraphs": [
+            "Cognate CD4+ T-cell help drives germinal-centre responses including class switching, somatic hypermutation and affinity maturation."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "T-cell help promotes class switching and affinity maturation."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-008",
+      "stem": "A heterozygous affected parent has an autosomal dominant condition and the other parent is unaffected. Assuming full penetrance, what is the probability that each child inherits the condition?",
+      "options": [
+        "0%",
+        "25%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "answer": 2,
+      "why": "A heterozygous affected parent transmits the altered allele in half of gametes, so each child has a 50% risk.",
+      "distractors": [
+        "Incorrect for this cross.",
+        "25% is typical of some autosomal recessive crosses.",
+        "",
+        "There is no 75% pattern in this cross.",
+        "A heterozygous parent cannot transmit the altered allele to every child."
+      ],
+      "module": "Genetics",
+      "theme": "General",
+      "subjects": [
+        "Genetics"
+      ],
+      "topic": "Autosomal dominant inheritance",
+      "lo": [
+        "Calculate autosomal dominant recurrence risk"
+      ],
+      "domain": "Genetics",
+      "difficulty": "Easy",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Autosomal dominant recurrence risk",
+        "keyClues": [
+          {
+            "id": "gen-008-clue-1",
+            "quote": "heterozygous affected parent",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Autosomal dominant recurrence risk."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-008-clue-2",
+            "quote": "other parent is unaffected",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Autosomal dominant recurrence risk."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "A heterozygous autosomal dominant parent gives each child a 50% inheritance risk.",
+          "paragraphs": [
+            "A heterozygous affected parent transmits the altered allele in half of gametes, so each child has a 50% risk."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "A heterozygous autosomal dominant parent gives each child a 50% inheritance risk."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-009",
+      "stem": "A competitive antagonist is added to a tissue preparation containing an agonist. Which change in the agonist concentration-response curve is expected if the antagonism is fully surmountable?",
+      "options": [
+        "Leftward shift with increased maximal effect",
+        "Rightward shift with unchanged maximal effect",
+        "Reduced maximal effect with no change in EC50",
+        "Irreversible loss of all agonist effect",
+        "No change in the curve"
+      ],
+      "answer": 1,
+      "why": "A fully surmountable competitive antagonist reduces apparent agonist potency, shifting the curve rightward while preserving maximal effect.",
+      "distractors": [
+        "A leftward shift implies increased potency.",
+        "",
+        "Reduced Emax is more typical of insurmountable or non-competitive antagonism.",
+        "Standard competitive antagonism is reversible.",
+        "The curve changes because apparent potency falls."
+      ],
+      "module": "Pharmacology",
+      "theme": "General",
+      "subjects": [
+        "Pharmacology"
+      ],
+      "topic": "Competitive antagonism",
+      "lo": [
+        "Interpret concentration-response curves"
+      ],
+      "domain": "Pharmacology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Competitive antagonism",
+        "keyClues": [
+          {
+            "id": "gen-009-clue-1",
+            "quote": "competitive antagonist",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Competitive antagonism."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-009-clue-2",
+            "quote": "fully surmountable",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Competitive antagonism."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Surmountable competitive antagonism shifts the curve right with unchanged Emax.",
+          "paragraphs": [
+            "A fully surmountable competitive antagonist reduces apparent agonist potency, shifting the curve rightward while preserving maximal effect."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Surmountable competitive antagonism shifts the curve right with unchanged Emax."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-010",
+      "stem": "A patient sustains a fracture at the surgical neck of the humerus and subsequently has difficulty abducting the arm from 15 to 90 degrees. Which nerve is most likely injured?",
+      "options": [
+        "Musculocutaneous nerve",
+        "Axillary nerve",
+        "Radial nerve",
+        "Median nerve",
+        "Ulnar nerve"
+      ],
+      "answer": 1,
+      "why": "The axillary nerve winds around the surgical neck and supplies deltoid, the main abductor from roughly 15 to 90 degrees.",
+      "distractors": [
+        "This nerve mainly supplies anterior arm flexors.",
+        "",
+        "The radial nerve is related to the radial groove and supplies extensors.",
+        "The median nerve does not supply deltoid.",
+        "The ulnar nerve is more vulnerable near the medial epicondyle."
+      ],
+      "module": "Upper limb anatomy",
+      "theme": "Musculoskeletal",
+      "subjects": [
+        "Anatomy"
+      ],
+      "topic": "Axillary nerve injury",
+      "lo": [
+        "Relate humeral fracture sites to nerve injury"
+      ],
+      "domain": "Anatomy",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Axillary nerve at the surgical neck",
+        "keyClues": [
+          {
+            "id": "gen-010-clue-1",
+            "quote": "surgical neck of the humerus",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Axillary nerve at the surgical neck."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-010-clue-2",
+            "quote": "difficulty abducting the arm from 15 to 90 degrees",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Axillary nerve at the surgical neck."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Surgical-neck fractures can injure the axillary nerve and weaken deltoid.",
+          "paragraphs": [
+            "The axillary nerve winds around the surgical neck and supplies deltoid, the main abductor from roughly 15 to 90 degrees."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Surgical-neck fractures can injure the axillary nerve and weaken deltoid."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-011",
+      "stem": "A 68-year-old long-term smoker has progressive breathlessness. Spirometry shows FEV1/FVC = 0.55 with little reversibility after bronchodilator. Which physiological abnormality best explains this pattern?",
+      "options": [
+        "Increased airway resistance causing expiratory airflow limitation",
+        "Reduced lung compliance due to pulmonary fibrosis",
+        "Reduced total lung capacity with preserved airflow ratio",
+        "Isolated reduction in pulmonary perfusion",
+        "Increased diffusion distance from acute pulmonary oedema"
+      ],
+      "answer": 0,
+      "why": "A persistently reduced FEV1/FVC ratio indicates obstructive airflow limitation caused by increased airway resistance and reduced expiratory flow.",
+      "distractors": [
+        "",
+        "Pulmonary fibrosis causes restriction with a preserved or increased ratio.",
+        "Restriction reduces lung volumes rather than producing this low ratio.",
+        "Perfusion abnormality alone does not produce obstructive spirometry.",
+        "Pulmonary oedema impairs gas exchange rather than causing this chronic obstructive ratio."
+      ],
+      "module": "Respiratory disease",
+      "theme": "Respiratory",
+      "subjects": [
+        "Physiology",
+        "Clinical Skills & Investigations"
+      ],
+      "topic": "Obstructive spirometry",
+      "lo": [
+        "Interpret obstructive spirometry"
+      ],
+      "domain": "Investigation / data interpretation",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Obstructive ventilatory defect",
+        "keyClues": [
+          {
+            "id": "gen-011-clue-1",
+            "quote": "long-term smoker",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Obstructive ventilatory defect."
+            ],
+            "supports": [
+              0
+            ],
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-011-clue-2",
+            "quote": "FEV1/FVC = 0.55",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Obstructive ventilatory defect."
+            ],
+            "supports": [
+              0
+            ],
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-011-clue-3",
+            "quote": "little reversibility after bronchodilator",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Obstructive ventilatory defect."
+            ],
+            "supports": [
+              0
+            ],
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "A low FEV1/FVC ratio indicates airflow obstruction.",
+          "paragraphs": [
+            "A persistently reduced FEV1/FVC ratio indicates obstructive airflow limitation caused by increased airway resistance and reduced expiratory flow."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "A low FEV1/FVC ratio indicates airflow obstruction."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-012",
+      "stem": "A patient presents with sudden-onset central chest pain. The 12-lead ECG shown was recorded on arrival. What is the single best interpretation of this ECG?",
+      "options": [
+        "Acute inferior ST-elevation myocardial infarction",
+        "Acute anterior ST-elevation myocardial infarction",
+        "Acute pericarditis",
+        "Left bundle branch block",
+        "Normal sinus rhythm without acute ischaemic change"
+      ],
+      "answer": 0,
+      "why": "The ECG shows ST-segment elevation in leads II, III and aVF with reciprocal changes, localising acute myocardial injury to the inferior territory.",
+      "distractors": [
+        "",
+        "Anterior STEMI would primarily produce ST elevation in the anterior precordial leads rather than the inferior pattern shown.",
+        "Acute pericarditis more typically produces widespread rather than territorial ST elevation and does not usually show this reciprocal pattern.",
+        "Left bundle branch block produces broad QRS complexes with characteristic secondary repolarisation abnormalities rather than this territorial inferior ST-elevation pattern.",
+        "The ECG contains clear acute ST-segment abnormalities and is therefore not normal."
+      ],
+      "module": "Cardiovascular medicine",
+      "theme": "Cardiovascular",
+      "subjects": [
+        "Clinical",
+        "Clinical Skills & Investigations"
+      ],
+      "topic": "ECG localisation of myocardial infarction",
+      "lo": [
+        "Recognise and localise acute myocardial infarction from a 12-lead ECG"
+      ],
+      "domain": "Investigation / data interpretation",
+      "difficulty": "Hard",
+      "image": {
+        "optional": false,
+        "src": "https://commons.wikimedia.org/wiki/Special:Redirect/file/12%20lead%20generated%20inferior%20MI.JPG",
+        "alt": "Twelve-lead ECG demonstrating inferior ST-segment elevation with reciprocal changes.",
+        "caption": "12-lead ECG recorded on presentation.",
+        "credit": "Glenlarson, Wikimedia Commons — public domain."
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Recognition of acute inferior STEMI on a 12-lead ECG",
+        "keyClues": [
+          {
+            "id": "gen-012-clue-1",
+            "quote": "sudden-onset central chest pain",
+            "occurrence": 1,
+            "explanation": [
+              "This presentation raises suspicion for acute myocardial ischaemia and makes the ECG abnormalities clinically significant."
+            ],
+            "supports": [
+              0
+            ],
+            "arguesAgainst": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-012-clue-2",
+            "quote": "12-lead ECG shown",
+            "occurrence": 1,
+            "explanation": [
+              "Direct inspection shows ST elevation in the inferior leads II, III and aVF with reciprocal changes."
+            ],
+            "supports": [
+              0
+            ],
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "ST elevation in II, III and aVF localises an acute STEMI to the inferior wall.",
+          "paragraphs": [
+            "Inferior STEMI produces territorial ST-segment elevation in II, III and aVF. Reciprocal ST depression in opposing leads strengthens the diagnosis."
+          ],
+          "comparisonPoints": [
+            {
+              "label": "Inferior STEMI",
+              "text": "ST elevation in II, III and aVF."
+            },
+            {
+              "label": "Anterior STEMI",
+              "text": "ST elevation centred in the anterior precordial leads."
+            },
+            {
+              "label": "Pericarditis",
+              "text": "Usually widespread rather than territorial ST elevation."
+            }
+          ]
+        },
+        "commonTraps": [
+          "Recognising ST elevation but failing to localise it from the affected leads.",
+          "Confusing territorial STEMI changes with the more diffuse changes of pericarditis."
+        ],
+        "recogniseNextTime": [
+          "II, III and aVF are the inferior leads.",
+          "Territorial ST elevation with reciprocal change strongly supports STEMI."
+        ],
+        "followUpQuestions": [
+          {
+            "prompt": "Which standard leads represent the inferior wall?",
+            "answer": "II, III and aVF."
+          },
+          {
+            "prompt": "Which coronary artery most commonly supplies the inferior wall?",
+            "answer": "The right coronary artery in right-dominant circulation."
+          }
+        ],
+        "sourceNotes": [
+          "ECG image: Glenlarson, '12 lead generated inferior MI.JPG', Wikimedia Commons. The copyright holder released the image into the public domain."
+        ]
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-013",
+      "stem": "Which feature is most characteristic of apoptosis rather than necrosis: cell shrinkage with formation of apoptotic bodies, or one of the other listed changes?",
+      "options": [
+        "Cell swelling with membrane rupture",
+        "Prominent neutrophilic inflammation",
+        "Cell shrinkage with formation of apoptotic bodies",
+        "Random enzymatic digestion of tissue",
+        "Leakage of intracellular contents into surrounding tissue"
+      ],
+      "answer": 2,
+      "why": "Apoptosis is characterised by cell shrinkage, chromatin condensation and membrane-bound apoptotic bodies with minimal inflammation.",
+      "distractors": [
+        "Cell swelling and membrane rupture are typical of necrosis.",
+        "Necrosis commonly provokes inflammation.",
+        "",
+        "Random enzymatic tissue digestion is associated with necrosis.",
+        "Leakage of intracellular contents occurs when membranes lose integrity in necrosis."
+      ],
+      "module": "General pathology",
+      "theme": "General",
+      "subjects": [
+        "Pathology"
+      ],
+      "topic": "Apoptosis versus necrosis",
+      "lo": [
+        "Distinguish apoptosis from necrosis"
+      ],
+      "domain": "Pathology",
+      "difficulty": "Easy",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Apoptotic morphology",
+        "keyClues": [
+          {
+            "id": "gen-013-clue-1",
+            "quote": "apoptosis rather than necrosis",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Apoptotic morphology."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-013-clue-2",
+            "quote": "cell shrinkage with formation of apoptotic bodies",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Apoptotic morphology."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Apoptosis causes controlled cell shrinkage and apoptotic-body formation with little inflammation.",
+          "paragraphs": [
+            "Apoptosis is characterised by cell shrinkage, chromatin condensation and membrane-bound apoptotic bodies with minimal inflammation."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Apoptosis causes controlled cell shrinkage and apoptotic-body formation with little inflammation."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-014",
+      "stem": "A diagnostic test has very high sensitivity. In which situation is this property most useful?",
+      "options": [
+        "A positive result is used to rule in disease",
+        "A negative result is used to rule out disease",
+        "Estimating disease prevalence from a case-control study",
+        "Removing spectrum bias from a study",
+        "Ensuring the positive predictive value is always high"
+      ],
+      "answer": 1,
+      "why": "A highly sensitive test has few false negatives, so a negative result is useful for ruling disease out.",
+      "distractors": [
+        "High specificity is more useful for ruling in disease after a positive result.",
+        "",
+        "Sensitivity does not estimate prevalence in a case-control study.",
+        "High sensitivity does not remove spectrum bias.",
+        "Positive predictive value depends on prevalence as well as test characteristics."
+      ],
+      "module": "Evidence based medicine",
+      "theme": "Public Health",
+      "subjects": [
+        "Evidence based medicine & statistics"
+      ],
+      "topic": "Sensitivity",
+      "lo": [
+        "Apply sensitivity and specificity clinically"
+      ],
+      "domain": "EBM & statistics",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Sensitivity and ruling out disease",
+        "keyClues": [
+          {
+            "id": "gen-014-clue-1",
+            "quote": "diagnostic test",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Sensitivity and ruling out disease."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-014-clue-2",
+            "quote": "very high sensitivity",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Sensitivity and ruling out disease."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "A highly sensitive test is especially useful for ruling out disease when negative.",
+          "paragraphs": [
+            "A highly sensitive test has few false negatives, so a negative result is useful for ruling disease out."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "A highly sensitive test is especially useful for ruling out disease when negative."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-015",
+      "stem": "A patient has weakness of the right lower face and right arm, with preserved forehead movement. Which lesion location best explains this pattern?",
+      "options": [
+        "Right facial nerve after it exits the skull",
+        "Left cerebral hemisphere above the facial nucleus",
+        "Right cerebral hemisphere above the facial nucleus",
+        "Left facial nerve after it exits the skull",
+        "Neuromuscular junction"
+      ],
+      "answer": 1,
+      "why": "A left cerebral upper motor neuron lesion causes contralateral lower facial and arm weakness, while bilateral cortical innervation of the upper face can preserve forehead movement.",
+      "distractors": [
+        "A right peripheral facial lesion weakens the whole right face and does not explain arm weakness.",
+        "",
+        "A right cerebral lesion would cause left-sided weakness.",
+        "A left peripheral facial lesion affects the left face including the forehead.",
+        "This focal UMN pattern is not typical of a neuromuscular-junction disorder."
+      ],
+      "module": "Neuroanatomy",
+      "theme": "Neurology",
+      "subjects": [
+        "Anatomy",
+        "Clinical"
+      ],
+      "topic": "Upper motor neuron facial weakness",
+      "lo": [
+        "Localise facial weakness"
+      ],
+      "domain": "Clinical",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Forehead sparing in UMN facial weakness",
+        "keyClues": [
+          {
+            "id": "gen-015-clue-1",
+            "quote": "right lower face and right arm",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Forehead sparing in UMN facial weakness."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-015-clue-2",
+            "quote": "preserved forehead movement",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Forehead sparing in UMN facial weakness."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Contralateral lower facial weakness with forehead sparing suggests a cerebral UMN lesion.",
+          "paragraphs": [
+            "A left cerebral upper motor neuron lesion causes contralateral lower facial and arm weakness, while bilateral cortical innervation of the upper face can preserve forehead movement."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Contralateral lower facial weakness with forehead sparing suggests a cerebral UMN lesion."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-016",
+      "stem": "A patient has severe vomiting for two days. Blood tests show bicarbonate 34 mmol/L and potassium 3.0 mmol/L. Which acid-base disturbance is most likely?",
+      "options": [
+        "Metabolic acidosis with hyperkalaemia",
+        "Respiratory acidosis",
+        "Metabolic alkalosis with hypokalaemia",
+        "Respiratory alkalosis",
+        "Mixed metabolic and respiratory acidosis"
+      ],
+      "answer": 2,
+      "why": "Vomiting removes gastric acid, causing metabolic alkalosis; volume depletion and renal potassium losses commonly produce hypokalaemia.",
+      "distractors": [
+        "Vomiting causes acid loss, not primary metabolic acidosis.",
+        "Respiratory acidosis is due to CO2 retention.",
+        "",
+        "Respiratory alkalosis results from excessive CO2 loss.",
+        "Raised bicarbonate argues against metabolic acidosis."
+      ],
+      "module": "Acid-base physiology",
+      "theme": "Renal",
+      "subjects": [
+        "Physiology",
+        "Clinical Skills & Investigations"
+      ],
+      "topic": "Vomiting-induced metabolic alkalosis",
+      "lo": [
+        "Interpret common acid-base disturbances"
+      ],
+      "domain": "Investigation / data interpretation",
+      "difficulty": "Hard",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Metabolic alkalosis due to vomiting",
+        "keyClues": [
+          {
+            "id": "gen-016-clue-1",
+            "quote": "severe vomiting for two days",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Metabolic alkalosis due to vomiting."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-016-clue-2",
+            "quote": "bicarbonate 34 mmol/L",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Metabolic alkalosis due to vomiting."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-016-clue-3",
+            "quote": "potassium 3.0 mmol/L",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Metabolic alkalosis due to vomiting."
+            ],
+            "supports": [
+              2
+            ],
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Prolonged vomiting classically causes hypokalaemic metabolic alkalosis.",
+          "paragraphs": [
+            "Vomiting removes gastric acid, causing metabolic alkalosis; volume depletion and renal potassium losses commonly produce hypokalaemia."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Prolonged vomiting classically causes hypokalaemic metabolic alkalosis."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-017",
+      "stem": "A patient develops a painful, erythematous skin abscess. Which immune cell is typically most abundant early in an acute bacterial inflammatory response?",
+      "options": [
+        "Eosinophil",
+        "Neutrophil",
+        "Plasma cell",
+        "B lymphocyte",
+        "Fibroblast"
+      ],
+      "answer": 1,
+      "why": "Neutrophils are rapidly recruited and typically dominate the early response to acute bacterial infection.",
+      "distractors": [
+        "Eosinophils are more associated with parasites and allergy.",
+        "",
+        "Plasma cells are antibody-secreting adaptive immune cells.",
+        "B lymphocytes are not usually the dominant early effector in an acute abscess.",
+        "Fibroblasts are mainly involved in repair."
+      ],
+      "module": "Inflammation and infection",
+      "theme": "Infection & Immunity",
+      "subjects": [
+        "Infection & Microbiology",
+        "Pathology"
+      ],
+      "topic": "Acute bacterial inflammation",
+      "lo": [
+        "Identify major cells in acute inflammation"
+      ],
+      "domain": "Infection & Microbiology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Neutrophils in acute bacterial inflammation",
+        "keyClues": [
+          {
+            "id": "gen-017-clue-1",
+            "quote": "painful, erythematous skin abscess",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Neutrophils in acute bacterial inflammation."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-017-clue-2",
+            "quote": "acute bacterial inflammatory response",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Neutrophils in acute bacterial inflammation."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Neutrophils dominate early acute bacterial inflammation.",
+          "paragraphs": [
+            "Neutrophils are rapidly recruited and typically dominate the early response to acute bacterial infection."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Neutrophils dominate early acute bacterial inflammation."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-018",
+      "stem": "Which hormone is the main physiological signal that increases glucose uptake into skeletal muscle after a carbohydrate-containing meal?",
+      "options": [
+        "Glucagon",
+        "Insulin",
+        "Cortisol",
+        "Adrenaline",
+        "Growth hormone"
+      ],
+      "answer": 1,
+      "why": "Insulin promotes skeletal-muscle glucose uptake partly by causing GLUT4 translocation to the cell membrane.",
+      "distractors": [
+        "Glucagon promotes hepatic glucose output.",
+        "",
+        "Cortisol tends to oppose insulin.",
+        "Adrenaline increases glucose availability during acute stress.",
+        "Growth hormone has anti-insulin metabolic effects."
+      ],
+      "module": "Metabolism",
+      "theme": "Nutrition & Metabolism",
+      "subjects": [
+        "Physiology",
+        "Biochemistry",
+        "Nutrition & Metabolism"
+      ],
+      "topic": "Insulin and GLUT4",
+      "lo": [
+        "Explain insulin-mediated post-prandial glucose uptake"
+      ],
+      "domain": "Physiology",
+      "difficulty": "Easy",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Insulin-mediated glucose uptake",
+        "keyClues": [
+          {
+            "id": "gen-018-clue-1",
+            "quote": "glucose uptake into skeletal muscle",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Insulin-mediated glucose uptake."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-018-clue-2",
+            "quote": "after a carbohydrate-containing meal",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Insulin-mediated glucose uptake."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Insulin is the main post-prandial signal promoting skeletal-muscle glucose uptake.",
+          "paragraphs": [
+            "Insulin promotes skeletal-muscle glucose uptake partly by causing GLUT4 translocation to the cell membrane."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Insulin is the main post-prandial signal promoting skeletal-muscle glucose uptake."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-019",
+      "stem": "A diuretic acts by inhibiting the Na+-K+-2Cl− cotransporter in the thick ascending limb of the loop of Henle. Which drug class has this mechanism?",
+      "options": [
+        "Thiazide diuretics",
+        "Loop diuretics",
+        "Potassium-sparing diuretics",
+        "Osmotic diuretics",
+        "Carbonic anhydrase inhibitors"
+      ],
+      "answer": 1,
+      "why": "Loop diuretics inhibit NKCC2, the Na+-K+-2Cl− cotransporter in the thick ascending limb.",
+      "distractors": [
+        "Thiazides inhibit the Na+-Cl− cotransporter in the distal convoluted tubule.",
+        "",
+        "Potassium-sparing diuretics act mainly in the late distal nephron and collecting duct.",
+        "Osmotic diuretics increase tubular fluid osmolarity.",
+        "Carbonic anhydrase inhibitors act mainly in the proximal tubule."
+      ],
+      "module": "Renal pharmacology",
+      "theme": "Renal",
+      "subjects": [
+        "Pharmacology",
+        "Physiology"
+      ],
+      "topic": "Sites of diuretic action",
+      "lo": [
+        "Match diuretic classes to nephron transporters"
+      ],
+      "domain": "Pharmacology",
+      "difficulty": "Moderate",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Loop diuretic mechanism",
+        "keyClues": [
+          {
+            "id": "gen-019-clue-1",
+            "quote": "Na+-K+-2Cl− cotransporter",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Loop diuretic mechanism."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-019-clue-2",
+            "quote": "thick ascending limb of the loop of Henle",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Loop diuretic mechanism."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Loop diuretics inhibit NKCC2 in the thick ascending limb.",
+          "paragraphs": [
+            "Loop diuretics inhibit NKCC2, the Na+-K+-2Cl− cotransporter in the thick ascending limb."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Loop diuretics inhibit NKCC2 in the thick ascending limb."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    },
+    {
+      "id": "gen-020",
+      "stem": "A patient with a posterior duodenal ulcer develops a major upper gastrointestinal haemorrhage. Erosion of which artery is the classic cause?",
+      "options": [
+        "Left gastric artery",
+        "Gastroduodenal artery",
+        "Splenic artery",
+        "Superior mesenteric artery",
+        "Inferior pancreaticoduodenal artery"
+      ],
+      "answer": 1,
+      "why": "The gastroduodenal artery lies posterior to the first part of the duodenum and can be eroded by a posterior duodenal ulcer.",
+      "distractors": [
+        "The left gastric artery is associated with the lesser curvature.",
+        "",
+        "The splenic artery runs along the superior pancreatic border.",
+        "The SMA is not the classic vessel behind the first part of the duodenum.",
+        "This is not the classic vessel implicated in this relationship."
+      ],
+      "module": "Gastrointestinal anatomy",
+      "theme": "Gastrointestinal",
+      "subjects": [
+        "Anatomy",
+        "Clinical",
+        "Surgery"
+      ],
+      "topic": "Posterior duodenal ulcer bleeding",
+      "lo": [
+        "Relate duodenal anatomy to vascular complications"
+      ],
+      "domain": "Anatomy",
+      "difficulty": "Hard",
+      "image": {
+        "optional": true,
+        "src": "",
+        "alt": "",
+        "caption": "",
+        "credit": ""
+      },
+      "deepReview": {
+        "version": 1,
+        "testedConcept": "Gastroduodenal artery behind the duodenum",
+        "keyClues": [
+          {
+            "id": "gen-020-clue-1",
+            "quote": "posterior duodenal ulcer",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Gastroduodenal artery behind the duodenum."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "gen-020-clue-2",
+            "quote": "major upper gastrointestinal haemorrhage",
+            "occurrence": 1,
+            "explanation": [
+              "This phrase contributes directly to recognising Gastroduodenal artery behind the duodenum."
+            ],
+            "supports": [
+              1
+            ],
+            "arguesAgainst": [
+              0,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "keyConcept": {
+          "summary": "Posterior duodenal ulcers classically erode the gastroduodenal artery.",
+          "paragraphs": [
+            "The gastroduodenal artery lies posterior to the first part of the duodenum and can be eroded by a posterior duodenal ulcer."
+          ],
+          "comparisonPoints": []
+        },
+        "commonTraps": [
+          "Do not rely on a single familiar word without integrating all of the stem clues.",
+          "Compare the mechanism, anatomy or physiology of the distractors before choosing."
+        ],
+        "recogniseNextTime": [
+          "Posterior duodenal ulcers classically erode the gastroduodenal artery."
+        ],
+        "followUpQuestions": [],
+        "sourceNotes": []
+      },
+      "taxonomyVersion": 1
+    }
+  ]
+}
+
+
