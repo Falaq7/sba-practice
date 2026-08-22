@@ -4,4 +4,3 @@ node_modules/
 firebase-admin-key.json
 admin/firebase-admin-key.json
 admin/service-account*.json
-

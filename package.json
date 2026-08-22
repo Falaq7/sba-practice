@@ -1,0 +1,13 @@
+{
+  "name": "sba-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node build_mock.js",
+    "test": "node build_mock.js && node qa_v2.js && node qa_mock.js",
+    "admin:reset-pin": "node admin/reset_pin.mjs"
+  },
+  "devDependencies": {
+    "firebase-admin": "^14.2.0"
+  }
+}
