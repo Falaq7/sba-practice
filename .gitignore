@@ -1,3 +1,4 @@
+# SBA Workspace build and private files
 _site/
 node_modules/
 *.log

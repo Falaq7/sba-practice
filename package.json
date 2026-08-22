@@ -1,5 +1,6 @@
 {
   "name": "sba-workspace",
+  "description": "AI-ready single-best-answer practice workspace",
   "version": "1.0.0",
   "private": true,
   "scripts": {

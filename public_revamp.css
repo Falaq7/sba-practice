@@ -1,4 +1,4 @@
-/* Public BM4 SBA Studio direction */
+/* SBA Workspace public interface. */
 html.studio-performance{--shadow:0 14px 34px rgba(15,35,48,.13)}
 html.studio-performance *,html.studio-performance *::before,html.studio-performance *::after{animation:none!important}
 html.studio-performance body{position:relative;isolation:isolate;background:linear-gradient(145deg,color-mix(in srgb,var(--bg) 90%,var(--cyan) 10%),var(--bg) 48%,color-mix(in srgb,var(--bg) 91%,var(--violet) 9%))!important;transition:none!important}

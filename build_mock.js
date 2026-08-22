@@ -1,3 +1,4 @@
+// SBA Workspace standalone build.
 const fs = require('fs');
 const path = require('path');
 

@@ -1,4 +1,4 @@
-name: Deploy SBA Workspace to GitHub Pages
+name: SBA Workspace Pages
 
 on:
   push:

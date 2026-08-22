@@ -1,3 +1,4 @@
+// SBA Workspace practice application.
 (()=>{'use strict';
 const EMBEDDED=JSON.parse(document.getElementById('examData').textContent),DB_KEY='BM4_APP_DATA_v2',OLD_CUSTOM='BM4_CUSTOM_QUESTION_SET_v1',SCHEMA=2,letters='ABCDE';
 const clone=x=>JSON.parse(JSON.stringify(x)),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),uid=p=>p+'-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8),shuffle=a=>{a=[...a];for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a},pct=(a,b)=>b?Math.round(a/b*100):0,fmtTime=s=>{s=Math.round(s||0);return s<60?s+'s':Math.floor(s/60)+'m '+String(s%60).padStart(2,'0')+'s'},date=x=>new Date(x).toLocaleString('en-GB',{dateStyle:'medium',timeStyle:'short'}),finger=q=>String(q.id)+'|'+q.stem;

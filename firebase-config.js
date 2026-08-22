@@ -1,5 +1,5 @@
 /*
-  Public Firebase web-app configuration. These identifiers are safe to expose;
+  SBA Workspace public Firebase configuration. These identifiers are safe to expose;
   Firestore rules in this repository provide the actual access control.
   Replace every REPLACE_ME value after creating the Firebase web app.
 */

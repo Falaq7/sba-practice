@@ -1,4 +1,4 @@
-/* Optional Firebase-backed accounts and community question-bank library. */
+/* SBA Workspace online accounts and community question-bank library. */
 const CLOUD_SDK_VERSION='11.10.0';
 const CLOUD_MAX_BANK_BYTES=780000;
 const cloudState={configured:false,loading:false,ready:false,error:'',auth:null,store:null,api:null,user:null,profile:null,myBanks:[],publicBanks:[],failedPins:0,cooldownUntil:0};

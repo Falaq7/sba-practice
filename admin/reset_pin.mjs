@@ -1,3 +1,4 @@
+// SBA Workspace maintainer utility.
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createInterface } from 'node:readline/promises';

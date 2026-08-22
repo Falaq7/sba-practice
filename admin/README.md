@@ -1,4 +1,4 @@
-# Private PIN reset tool
+# SBA Workspace account recovery
 
 This owner-only utility changes a locked-out learner's PIN without deleting their account or question banks. It also marks the temporary PIN for replacement at the next sign-in.
 

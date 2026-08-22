@@ -1,3 +1,4 @@
+// SBA Workspace assessment integrity checks.
 const fs=require('fs'),assert=require('assert');
 const html=fs.readFileSync('BM4_Year1_Mock_SBA.html','utf8');
 const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];

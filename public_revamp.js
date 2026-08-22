@@ -1,4 +1,4 @@
-/* BM4 SBA Studio public revamp. This file is injected inside app_v2's IIFE. */
+/* SBA Workspace public interface, injected inside app_v2's IIFE. */
 document.title='BM4 SBA Studio';
 let studioRasterKey='';
 function makeStudioRasterBackdrop(){

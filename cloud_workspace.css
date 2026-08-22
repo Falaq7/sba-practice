@@ -1,4 +1,4 @@
-/* Account and Community Library additions. */
+/* SBA Workspace online library and account styles. */
 .cloud-account-btn{max-width:180px;overflow:hidden;text-overflow:ellipsis}.cloud-account-btn.signed-in{border-color:#69f4df70!important;background:#69f4df13!important;color:#85f7e6!important}
 .cloud-notice,.cloud-account-summary{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--paper-2)}.cloud-notice code{color:var(--accent)}
 .cloud-account-summary{display:flex;align-items:center;gap:14px;margin:18px 0}.cloud-account-summary p{margin:.25rem 0 0}.cloud-avatar{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--violet));color:#061018;font-size:1.35rem;font-weight:900}

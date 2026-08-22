@@ -1,6 +1,6 @@
 # SBA Workspace
 
-A browser-based workspace for creating, practising and sharing single-best-answer question banks. Use the included BM4 collection, build your own questions, or turn AI-generated material into a structured practice bank.
+An AI-ready browser workspace for creating, practising and sharing single-best-answer question banks. Use the included BM4 collection, build your own questions, or turn generated material into a structured practice bank.
 
 ## Features
 
