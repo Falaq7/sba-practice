@@ -18,10 +18,10 @@ An AI-ready browser workspace for creating, practising and sharing single-best-a
 
 SBA Workspace is designed to work with questions produced by any capable AI tool rather than depending on one provider.
 
-1. Ask an AI to generate a bank using the workspace JSON format.
-2. Paste the JSON directly or import a downloaded `.json` file.
-3. Review and edit every field in the visual question editor.
-4. Keep the bank private, export it, or publish it for other learners.
+1. Use AI Bank Builder to create a prompt containing an import-ready JSON template.
+2. Give that prompt to any capable AI so it populates the template and returns JSON only.
+3. Paste the completed JSON directly or import a downloaded `.json` file.
+4. Review and edit every field, then keep the bank private, export it, or publish it.
 
 The format supports question stems, answer options, explanations, categories, references, media and structured Deep Review content. Imported banks are validated before they are added.
 
