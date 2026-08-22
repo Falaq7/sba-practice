@@ -1,44 +1,44 @@
 # SBA Workspace
 
-A portable SBA practice workspace with local guest mode, editable JSON question banks, optional four-digit accounts and an opt-in Community Library.
+A browser-based workspace for creating, practising and sharing single-best-answer question banks. Use the included BM4 collection, build your own questions, or turn AI-generated material into a structured practice bank.
 
-## What is included
+## Features
 
-- Instant or end-of-session feedback
-- Deep Review teaching panels
-- Editable and importable question banks
-- Canonical reporting categories
-- Local attempt history and progress reports
-- Optional Firebase accounts with private online banks
-- Published community banks with category weighting and author filters
+- Instant feedback or answers revealed at the end of a session
+- Timed and untimed assessments with custom question selections
+- Editable questions, answer options, feedback, media and formatting
+- Deep Review panels with key clues, positive and negative pointers, highlighted phrases and expanded teaching notes
+- AI-ready JSON workflow with both file upload and paste-in import
+- Standardised reporting categories to keep progress data consistent across banks
+- Attempt history, confidence tracking, focused retries and progress reports
+- Private online banks with optional publishing to the Community Library
+- Community filtering by category weighting and author
 
-## Four-digit accounts
+## AI and JSON workflow
 
-Accounts are intentionally low stakes. Learners choose a username and a four-digit PIN. The browser expands that PIN into a Firebase-compatible credential; the PIN is never stored in Firestore. Signed-in learners can change their PIN, and the owner can issue a temporary PIN with the private utility in `admin/`. Learners should still export important banks as JSON and must not reuse a sensitive PIN.
+SBA Workspace is designed to work with questions produced by any capable AI tool rather than depending on one provider.
 
-## Firebase setup
+1. Ask an AI to generate a bank using the workspace JSON format.
+2. Paste the JSON directly or import a downloaded `.json` file.
+3. Review and edit every field in the visual question editor.
+4. Keep the bank private, export it, or publish it for other learners.
 
-1. Create a Firebase project and add a Web app.
-2. In Authentication, enable **Email/Password**.
-3. Create a Cloud Firestore database.
-4. Replace the placeholders in `firebase-config.js` with the Web app configuration.
-5. Deploy `firestore.rules` using the Firebase CLI or paste the rules into the Firebase console.
-6. Add the GitHub Pages domain to Authentication → Settings → Authorized domains.
+The format supports question stems, answer options, explanations, categories, references, media and structured Deep Review content. Imported banks are validated before they are added.
 
-The Firebase Web configuration is public by design. Access control is enforced by `firestore.rules`. Administrator service-account keys are private and must never be added to the repository.
+## Using the workspace
 
-## Build locally
+Open the deployed site, choose a bank and start an assessment or custom practice session. Signing in keeps private banks connected to the learner's workspace and allows selected banks to be shared publicly.
+
+Community banks are supplied by their authors and may contain incomplete or outdated medical information. Verify clinical guidance, doses and thresholds against current authoritative sources.
+
+## Development
+
+Build the standalone page with:
 
 ```powershell
 node build_mock.js
 ```
 
-Serve this folder over HTTP and open `index.html`. Opening the file directly may prevent the Firebase modules from loading.
+Then serve the folder over HTTP and open `index.html`. The GitHub Actions workflow rebuilds and deploys the site whenever `main` changes.
 
-## Publishing
-
-The GitHub Actions workflow rebuilds and deploys the site whenever `main` changes. Enable GitHub Pages with **GitHub Actions** as its source in the repository settings.
-
-## Educational use
-
-Community question banks are supplied by their authors and may contain incomplete or outdated medical information. Verify clinical guidance, doses and thresholds against current authoritative sources.
+Firebase configuration and maintainer recovery notes are kept in the project setup files and [`admin/README.md`](admin/README.md).
