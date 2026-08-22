@@ -18,6 +18,24 @@ syncDisplayPerformance();let displayPerformanceFrame=0;addEventListener('resize'
 const studioScrollBehavior=()=>document.documentElement.classList.contains('high-pixel-display')?'auto':'smooth';
 const studioBaseSetTheme=setTheme;setTheme=function(){studioBaseSetTheme();requestAnimationFrame(makeStudioRasterBackdrop)};
 
+let glassVoidFrame=0,glassVoidObserver=null;
+function initGlassVoidHero(){
+  cancelAnimationFrame(glassVoidFrame);glassVoidObserver?.disconnect();
+  const canvas=document.querySelector('.glass-void-canvas');if(!canvas)return;
+  const gl=canvas.getContext('webgl',{alpha:true,antialias:false,preserveDrawingBuffer:false});if(!gl){canvas.classList.add('glass-void-fallback');return}
+  try{
+    const vertex='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fragment=`precision mediump float;uniform vec2 r;uniform float t;float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}void main(){vec2 uv=(gl_FragCoord.xy-.5*r)/min(r.x,r.y);float tm=t*.18;vec2 p1=.30*vec2(cos(tm),sin(tm*1.21)),p2=.27*vec2(cos(tm+2.15),sin(tm*.83+1.4)),p3=.23*vec2(cos(tm*.69+4.2),sin(tm*1.13+3.1)),p4=.16*vec2(cos(tm*1.31+5.3),sin(tm*.61+5.));float f=.050/(dot(uv-p1,uv-p1)+.018)+.046/(dot(uv-p2,uv-p2)+.018)+.041/(dot(uv-p3,uv-p3)+.016)+.028/(dot(uv-p4,uv-p4)+.014);float a=atan(uv.y,uv.x),rad=length(uv),rim=smoothstep(.42,.62,f)*(1.-smoothstep(1.18,1.8,f));vec3 bg=vec3(.004,.009,.022),glass=.42+.58*cos(vec3(.3,2.4,4.6)+f*2.1+a);vec3 col=mix(bg,glass,rim);float edge=(smoothstep(.43,.55,f)-smoothstep(.88,1.02,f));col+=edge*vec3(.45,.95,.88);float hollow=1.-smoothstep(.14,.27,rad);col=mix(col,bg,hollow);col+=(hash(gl_FragCoord.xy+floor(t*9.))-.5)*.022;float alpha=smoothstep(.015,.12,max(max(col.r,col.g),col.b));gl_FragColor=vec4(col,alpha);} `;
+    const compile=(type,source)=>{const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(shader));return shader};
+    const program=gl.createProgram();gl.attachShader(program,compile(gl.VERTEX_SHADER,vertex));gl.attachShader(program,compile(gl.FRAGMENT_SHADER,fragment));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.useProgram(program);
+    const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);const position=gl.getAttribLocation(program,'p');gl.enableVertexAttribArray(position);gl.vertexAttribPointer(position,2,gl.FLOAT,false,0,0);
+    const resolution=gl.getUniformLocation(program,'r'),time=gl.getUniformLocation(program,'t'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,highPixel=document.documentElement.classList.contains('high-pixel-display');let visible=true;
+    glassVoidObserver=new IntersectionObserver(entries=>{visible=!!entries[0]?.isIntersecting},{rootMargin:'80px'});glassVoidObserver.observe(canvas);
+    const draw=stamp=>{if(!canvas.isConnected)return;if(visible&&document.visibilityState!=='hidden'){const box=canvas.getBoundingClientRect(),scale=highPixel?.72:Math.min(devicePixelRatio||1,1),width=Math.max(1,Math.round(box.width*scale)),height=Math.max(1,Math.round(box.height*scale));if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;gl.viewport(0,0,width,height)}gl.uniform2f(resolution,width,height);gl.uniform1f(time,reduce?0:stamp*.001);gl.drawArrays(gl.TRIANGLES,0,3)}glassVoidFrame=requestAnimationFrame(draw)};
+    glassVoidFrame=requestAnimationFrame(draw);
+  }catch{canvas.classList.add('glass-void-fallback')}
+}
+
 shell=function(){
   document.body.innerHTML=`<div class="app-shell public-studio orbital-production"><header class="app-top"><button class="app-brand" data-act="home" type="button" aria-label="Return to homepage">BM4 SBA Studio</button><nav class="top-nav" aria-label="Primary"><button class="top-link" data-act="home">Home</button><button class="top-link" data-act="custom">Practice</button><button class="top-link" data-act="banks">Banks</button><button class="top-link" data-act="progress">Progress</button><button class="top-link" data-studio-act="help">Help</button></nav><span class="top-status" id="topStatus"></span><span id="timer"></span><span class="pace" id="pace"></span><button class="icon-btn cloud-account-btn" id="cloudAccountButton" data-cloud-act="account" type="button">Sign in</button><button class="icon-btn" data-act="ranges">▤ Ranges</button><button class="icon-btn" data-act="theme" aria-label="Switch colour mode">◐</button><button class="icon-btn" data-act="settings" aria-label="Open settings">⚙</button></header><main class="view" id="view"></main><aside class="ranges-panel" id="rangesPanel" aria-hidden="true"><div class="ranges-panel-head"><div><span class="eyebrow">UK adult intervals</span><h2>Reference ranges</h2></div><button class="v2-btn" data-act="close-ranges" type="button">Close</button></div><div class="range-panel-note"><b>Lab intervals vary.</b> Prefer the range supplied with the patient result.</div><input id="rangePanelQuery" class="search-input" placeholder="Search e.g. potassium, INR, TSH"><div class="ranges-panel-body" id="rangePanelBody"></div></aside><aside class="deep-review-panel" id="deepReviewPanel" aria-hidden="true" aria-labelledby="deepReviewTitle"><div class="deep-review-head"><div><span class="eyebrow">Question-specific teaching</span><h2 id="deepReviewTitle">Deep Review</h2></div><button class="v2-btn" data-studio-act="close-deep-review" type="button">Close</button></div><div id="deepReviewBody"></div></aside></div><dialog class="modal-v2 orbital-modal" id="modal"></dialog>`;
   document.body.onclick=globalClick;
@@ -40,17 +58,10 @@ renderHome=function(){
             <div class="hero-actions"><button class="v2-btn primary hero-primary" data-act="start-full">Start assessment</button><button class="v2-btn" data-act="custom">Build custom practice</button><button class="v2-btn" data-act="banks">Import a question bank</button></div>
             <p class="privacy-line">Sign in to keep private banks online and access shared community banks</p>
           </div>
-          <div class="hero-flow hero-ambient" aria-hidden="true">
-            <div class="ambient-mark">
-              <div class="ambient-halo ambient-halo-a"></div>
-              <div class="ambient-halo ambient-halo-b"></div>
-              <div class="ambient-orbit ambient-orbit-a"><span></span></div>
-              <div class="ambient-orbit ambient-orbit-b"><span></span></div>
-              <div class="ambient-orbit ambient-orbit-c"><span></span></div>
-              <div class="ambient-core" data-count="${b.data.questions.length}"><i></i><b></b></div>
-              <span class="ambient-spark ambient-spark-a"></span>
-              <span class="ambient-spark ambient-spark-b"></span>
-              <span class="ambient-spark ambient-spark-c"></span>
+          <div class="hero-flow hero-ambient" role="img" aria-label="${b.data.questions.length} questions across ${Object.keys(b.data.blueprint.actualTargets||{}).length} themes in an online workspace">
+            <div class="glass-void-mark">
+              <canvas class="glass-void-canvas" aria-hidden="true"></canvas>
+              <div class="glass-void-count"><b>${b.data.questions.length}</b><small>questions</small></div>
               <span class="orbital-data orbital-data-a"><b>${db.history.length}</b> sessions</span>
               <span class="orbital-data orbital-data-b"><b>${Object.keys(b.data.blueprint.actualTargets||{}).length}</b> themes</span>
               <span class="orbital-data orbital-data-c"><b>Online</b> workspace</span>
@@ -63,6 +74,7 @@ renderHome=function(){
     <section class="quick-grid" aria-label="Main actions"><button class="quick-card" data-act="start-full"><span class="quick-icon">▶</span><b>Start assessment</b><small>Use every question with instant or end-of-session feedback.</small></button><button class="quick-card" data-act="custom"><span class="quick-icon">⌁</span><b>Custom practice</b><small>Choose length, topics, timing and when answers appear.</small></button><button class="quick-card" data-act="resume" ${db.current?'':'disabled'}><span class="quick-icon">↗</span><b>Resume</b><small>${db.current?esc(db.current.title)+' · Q'+(db.current.current+1)+'/'+db.current.questions.length:'No active attempt to resume.'}</small></button><button class="quick-card" data-act="progress"><span class="quick-icon">◫</span><b>Review progress</b><small>${fulls.length} full assessment${fulls.length===1?'':'s'} · ${db.history.length} total sessions.</small></button></section>
     <section class="how-section"><div><span class="eyebrow">How it works</span><h2>One bank. Four useful steps.</h2></div><ol class="how-steps"><li><span>01</span><b>Choose a bank</b><small>Use the included collection or import portable JSON.</small></li><li><span>02</span><b>Set up a session</b><small>Choose question count, topics, timing and when feedback appears.</small></li><li><span>03</span><b>Review your answers</b><small>See the correct answer and option-by-option explanations.</small></li><li><span>04</span><b>Target the gaps</b><small>Retry errors and build focused practice from your history.</small></li></ol></section>
     <section class="home-footer-grid"><article class="home-section"><span class="eyebrow">Question banks</span><h2>Bring your own material</h2><p class="muted">Generate compatible banks with any AI, import JSON and keep each bank separate.</p><div class="button-row"><button class="v2-btn primary" data-act="banks">Question banks</button><button class="v2-btn" data-act="ai-template">AI template</button><button class="v2-btn" data-act="tools">Data & tools</button></div></article><article class="home-section"><span class="eyebrow">Online workspace</span><h2>Your banks, wherever you sign in</h2><p class="muted">Keep private banks with your account, publish only when you choose, and discover banks shared by other learners.</p><div class="button-row"><button class="v2-btn primary" data-cloud-act="account">Open account</button><button class="v2-btn" data-act="banks">Community Library</button></div></article></section>`;
+  initGlassVoidHero();
 };
 
 fullStart=function(){
