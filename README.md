@@ -13,6 +13,7 @@ An AI-ready browser workspace for creating, practising and sharing single-best-a
 - Attempt history, confidence tracking, focused retries and progress reports
 - Private online banks with optional publishing to the Community Library
 - Community filtering by category weighting and author
+- Broad website-usage analytics with a Settings opt-out
 
 ## AI and JSON workflow
 
@@ -31,6 +32,12 @@ Open the deployed site, choose a bank and start an assessment or custom practice
 
 Community banks are supplied by their authors and may contain incomplete or outdated medical information. Verify clinical guidance, doses and thresholds against current authoritative sources.
 
+## Viewing website analytics
+
+Open the `sba-workspace` project in the [Firebase console](https://console.firebase.google.com/project/sba-workspace/analytics), then use **Analytics → Dashboard** for visitors and engagement or **Analytics → Events** for feature usage. The tracked events cover workspace sections, session starts and completions, Deep Review opens, AI prompt copies, question-bank imports and community-bank additions.
+
+Analytics is enabled by default so overall use of the website can be measured without adding another popup. The site's custom events do not include usernames, PINs, question text, answers, bank titles or author names. Visitors can turn it off or back on from **Settings → Basic usage analytics**.
+
 ## Development
 
 Build the standalone page with:
@@ -42,3 +49,4 @@ node build_mock.js
 Then serve the folder over HTTP and open `index.html`. The GitHub Actions workflow rebuilds and deploys the site whenever `main` changes.
 
 Firebase configuration and maintainer recovery notes are kept in the project setup files and [`admin/README.md`](admin/README.md).
+

@@ -9,5 +9,7 @@ window.SBA_FIREBASE_CONFIG={
   projectId:'sba-workspace',
   storageBucket:'sba-workspace.firebasestorage.app',
   messagingSenderId:'874558581399',
-  appId:'1:874558581399:web:88e2abf585145231c897d2'
+  appId:'1:874558581399:web:88e2abf585145231c897d2',
+  measurementId:'G-J5Y65GS9PW'
 };
+
