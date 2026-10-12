@@ -451,3 +451,6 @@ body.practice[data-mode=light][data-shader=on] #shader-surface{opacity:.45}
 
 .question-figure{margin:1rem 0}.enlarge-question-image{display:block;margin:.5rem 0;padding:.4rem .8rem;font-size:.85rem}.question-image-viewport{width:100%;max-height:60vh;overflow:auto;background:white;border-radius:8px}.question-image-viewport img{display:block;width:100%;max-width:none;height:auto}.question-image-viewport:focus-visible{outline:2px solid var(--accent)}
 @media print{.enlarge-question-image{display:none}}
+
+/* Centre the selected-bank tick independently of font metrics. */
+.home-bank-choice .bank-selected-icon{display:grid;place-items:center;justify-self:center;align-self:center;width:20px;height:20px;min-width:20px;padding:0;line-height:1;box-sizing:border-box}.home-bank-choice .bank-selected-icon svg{display:block;width:14px;height:14px}
