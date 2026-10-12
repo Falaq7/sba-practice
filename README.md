@@ -1,6 +1,6 @@
 # BM4 SBA Practice
 
-Live site: https://falaq7.github.io/sba-workspace/
+Live site: https://falaq7.github.io/sba-practice/
 
 The current public app lives in `src/public`, shared logic and styles in `src/shared`, and the separately built publishing studio in `src/studio`. Older root-level app files are retained for history; GitHub Pages builds the current source.
 
