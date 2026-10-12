@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {pacing,fullAttemptReport,shortAnalyticsReport,auditBank} from '../src/shared/practice-extras.mjs';
+import {mergeSession} from '../src/shared/core.mjs';
+test('pacing uses the question count',()=>assert.equal(pacing(90,60),'1m 30s'));
+test('deleted attempts cannot reappear when an older device syncs',()=>{const a={id:'x',updatedAt:2,questions:[],answers:{},deletedAt:3},b={id:'x',updatedAt:9,questions:[],answers:{}};assert.equal(mergeSession(a,b).deletedAt,3);assert.equal(mergeSession(b,a).deletedAt,3);});
+test('full report contains selected answer, skipped questions and unavailable timing',()=>{const q={stem:'Example stem',module:'Cardiology',topic:'Anatomy',options:['a','b','c','d','e'],answer:1,why:'Explanation',distractors:['wrong','','wrong','wrong','wrong']};const s={title:'Test exam',mode:'assessment',finishedAt:1,questions:[{key:'a',order:[1,0,2,3,4]},{key:'b'}],answers:{a:{selected:0,seconds:null}}};const text=fullAttemptReport(s,new Map([['a',q],['b',q]]));assert.match(text,/0\/2 correct; 1 answered; 1 skipped/);assert.match(text,/Your answer: a/);assert.match(text,/A\. b/);assert.match(text,/Unavailable/);assert.match(text,/Your answer: Skipped/);});
+test('short summary excludes unused topics and audit flags repeated stems',()=>{const text=shortAnalyticsReport({rows:[],first:[],topics:[{topic:'Unused',n:0}]});assert.doesNotMatch(text,/Unused/);const q={stem:'Test',options:['a','b','c','d','e'],answer:0,why:'Short',distractors:['','','','',''],module:'X',topic:'Y'};assert(auditBank([q,q]).some(i=>i.message.includes('Same stem')));assert(!auditBank([q]).some(i=>/review date/i.test(i.message)));});

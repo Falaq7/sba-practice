@@ -1,52 +1,28 @@
-# SBA Workspace
+# BM4 SBA Practice
 
-An AI-ready browser workspace for creating, practising and sharing single-best-answer question banks. Use the included BM4 collection, build your own questions, or turn generated material into a structured practice bank.
+Live site: https://falaq7.github.io/sba-workspace/
 
-## Features
+The current public app lives in `src/public`, shared logic and styles in `src/shared`, and the separately built publishing studio in `src/studio`. Older root-level app files are retained for history; GitHub Pages builds the current source.
 
-- Instant feedback or answers revealed at the end of a session
-- Timed and untimed assessments with custom question selections
-- Editable questions, answer options, feedback, media and formatting
-- Deep Review panels with key clues, positive and negative pointers, highlighted phrases and expanded teaching notes
-- AI-ready JSON workflow with both file upload and paste-in import
-- Standardised reporting categories to keep progress data consistent across banks
-- Attempt history, confidence tracking, focused retries and progress reports
-- Private online banks with optional publishing to the Community Library
-- Community filtering by category weighting and author
-- Broad website-usage analytics with a Settings opt-out
+## Build and check
 
-## AI and JSON workflow
+Use Node 24:
 
-SBA Workspace is designed to work with questions produced by any capable AI tool rather than depending on one provider.
-
-1. Use AI Bank Builder to create a prompt containing an import-ready JSON template.
-2. Give that prompt to any capable AI so it populates the template and returns JSON only.
-3. Paste the completed JSON directly or import a downloaded `.json` file.
-4. Review and edit every field, then keep the bank private, export it, or publish it.
-
-The format supports question stems, answer options, explanations, categories, references, media and structured Deep Review content. Imported banks are validated before they are added.
-
-## Using the workspace
-
-Open the deployed site, choose a bank and start an assessment or custom practice session. Signing in keeps private banks connected to the learner's workspace and allows selected banks to be shared publicly.
-
-Community banks are supplied by their authors and may contain incomplete or outdated medical information. Verify clinical guidance, doses and thresholds against current authoritative sources.
-
-## Viewing website analytics
-
-Open the `sba-workspace` project in the [Firebase console](https://console.firebase.google.com/project/sba-workspace/analytics), then use **Analytics → Dashboard** for visitors and engagement or **Analytics → Events** for feature usage. The tracked events cover workspace sections, session starts and completions, Deep Review opens, AI prompt copies, question-bank imports and community-bank additions.
-
-Analytics is enabled by default so overall use of the website can be measured without adding another popup. The site's custom events do not include usernames, PINs, question text, answers, bank titles or author names. Visitors can turn it off or back on from **Settings → Basic usage analytics**.
-
-## Development
-
-Build the standalone page with:
-
-```powershell
-node build_mock.js
+```
+node scripts/build-sites.cjs
+node --test tests/*.test.mjs
 ```
 
-Then serve the folder over HTTP and open `index.html`. The GitHub Actions workflow rebuilds and deploys the site whenever `main` changes.
+The build writes `dist/public` and `dist/studio`. GitHub Actions publishes **only** `dist/public` when `main` changes. The studio is not included in the Pages artifact.
 
-Firebase configuration and maintainer recovery notes are kept in the project setup files and [`admin/README.md`](admin/README.md).
+## Question banks and guest data
 
+`content/library.json` contains the five public Year 1 banks, 70 questions each, including their investigation images and teaching feedback. The bundle has no learner accounts, attempts, reports or private drafts. These bundled bank versions remain available independently of Firebase; update this file and deploy to revise them. Additional Firebase-published collections can appear alongside them.
+
+Guests can practise without signing in. Their progress and personal banks remain in that browser's device storage; use the app's backup/download controls to keep a copy. Data from a local preview URL does not automatically transfer to the hosted site's different origin.
+
+## Optional Firebase features
+
+Account sign-in, cross-device sync, community sharing and sending inaccuracy reports use the configured Firebase project. GitHub Pages deployment does not deploy Firestore rules or Cloud Functions, grant publisher access, or change Firebase authentication settings. Those services require their own setup and validation; the public question banks do not depend on them.
+
+Never commit service account keys, user backups, `.preview`, or local report data. `firebase-config.js` contains public client identifiers, not admin credentials.

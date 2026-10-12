@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {breakdown,weeklyActivity} from '../src/shared/breakdown.mjs';
+import {analyticsTable} from '../dist/public/analytics.mjs';
+const q={uid:'q1',topic:'Endocrine',category:'Physiology',year:'Year 1',module:'M'};
+const a={uid:q.uid,q,key:'q1@1',sessionId:'one',answeredAt:100,correct:false,confidence:'Guess',seconds:10};
+const b={...a,sessionId:'two',answeredAt:200,correct:true,confidence:'Confident',seconds:20};
+test('outcomes count correct and incorrect attempts, including repeats and date filters',()=>{
+ const stats={rows:[a,b],first:[a]};
+ const all=breakdown(stats,[q],'category')[0];
+ assert.deepEqual([all.correct,all.incorrect,all.accuracy],[1,1,50]);
+ const recent=breakdown(stats,[q],'category',150)[0];
+ assert.deepEqual([recent.correct,recent.incorrect,recent.accuracy],[1,0,100]);
+ const empty=breakdown(stats,[q],'category',300)[0];
+ assert.deepEqual([empty.correct,empty.incorrect,empty.accuracy],[0,0,null]);
+ const html=analyticsTable({stats,questions:[q]});
+ assert.match(html,/<th>Category<\/th><th>Accuracy<\/th><th>Correct<\/th><th>Incorrect<\/th>/);
+ assert.match(html,/1 correct, 1 incorrect/);
+ assert.doesNotMatch(html,/Coverage/);
+});
+test('date-filtered breakdown retains first-ever versus repeat classification',()=>{const r=breakdown({rows:[a,b],first:[a]},[q],'topic',150)[0];assert.equal(r.firstN,0);assert.equal(r.repeatN,1);assert.equal(r.repeat,100);assert.equal(r.review,0);assert.equal(r.seconds,20);});
+test('coverage excludes withdrawn questions and cannot exceed current availability',()=>{const old={...a,uid:'withdrawn',q:{...q,uid:'withdrawn'},key:'withdrawn@1'};const r=breakdown({rows:[a,old],first:[a,old]},[q])[0];assert.equal(r.distinct,2);assert.equal(r.covered,1);assert.equal(r.available,1);});
+test('category and year breakdowns keep groups separate',()=>{const other={...b,uid:'q2',q:{...q,uid:'q2',category:'Clinical',year:'Year 2'}};assert.equal(breakdown({rows:[a,other],first:[a,other]},[q,other.q],'category').length,2);assert.equal(breakdown({rows:[a,other],first:[a,other]},[q,other.q],'year').length,2);});
+test('weekly activity counts Monday boundary once',()=>{const now=new Date(2026,8,16,12).getTime(),monday=new Date(2026,8,14).getTime(),weeks=weeklyActivity([{answeredAt:monday,correct:true},{answeredAt:monday-1,correct:false}],now);assert.equal(weeks.length,6);assert.equal(weeks[5].answered,1);assert.equal(weeks[4].answered,1);});

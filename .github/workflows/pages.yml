@@ -27,16 +27,15 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Build standalone site
-        run: node build_mock.js
+      - name: Build public practice and private studio
+        run: node scripts/build-sites.cjs
       - name: Run integrity checks
         run: |
-          node qa_v2.js
-          node qa_mock.js
+          node --test tests/*.test.mjs
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site
-          cp index.html firebase-config.js _site/
+          cp -r dist/public/. _site/
           touch _site/.nojekyll
       - name: Configure Pages
         uses: actions/configure-pages@v5

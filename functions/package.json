@@ -1,0 +1,7 @@
+{
+  "name": "sba-private-account-recovery",
+  "private": true,
+  "main": "index.cjs",
+  "engines": {"node": "22"},
+  "dependencies": {"firebase-admin": "^14.2.0", "firebase-functions": "^6.0.0"}
+}

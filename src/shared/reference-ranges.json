@@ -1,0 +1,284 @@
+[
+  [
+    "Full blood count",
+    [
+      [
+        "Haemoglobin — men",
+        "130–170 g/L"
+      ],
+      [
+        "Haemoglobin — women",
+        "120–150 g/L"
+      ],
+      [
+        "MCV",
+        "83–101 fL"
+      ],
+      [
+        "MCH",
+        "27–32 pg"
+      ],
+      [
+        "WBC",
+        "4.0–11.0 ×10⁹/L"
+      ],
+      [
+        "Neutrophils",
+        "2.0–7.0 ×10⁹/L"
+      ],
+      [
+        "Lymphocytes",
+        "1.0–3.5 ×10⁹/L"
+      ],
+      [
+        "Platelets",
+        "150–400 ×10⁹/L"
+      ]
+    ]
+  ],
+  [
+    "U&E / renal",
+    [
+      [
+        "Sodium",
+        "133–146 mmol/L"
+      ],
+      [
+        "Potassium",
+        "3.5–5.3 mmol/L"
+      ],
+      [
+        "Chloride",
+        "95–108 mmol/L"
+      ],
+      [
+        "Bicarbonate",
+        "22–29 mmol/L"
+      ],
+      [
+        "Urea",
+        "2.5–7.8 mmol/L"
+      ],
+      [
+        "Creatinine — men",
+        "59–104 µmol/L"
+      ],
+      [
+        "Creatinine — women",
+        "45–84 µmol/L"
+      ],
+      [
+        "eGFR",
+        "≥90 mL/min/1.73m² (context-dependent)"
+      ]
+    ]
+  ],
+  [
+    "Liver / proteins",
+    [
+      [
+        "Bilirubin",
+        "0–21 µmol/L"
+      ],
+      [
+        "ALT — men / women",
+        "<41 / <33 U/L"
+      ],
+      [
+        "AST — men / women",
+        "10–50 / 10–35 U/L"
+      ],
+      [
+        "ALP",
+        "30–130 U/L"
+      ],
+      [
+        "GGT — men / women",
+        "<60 / <40 U/L"
+      ],
+      [
+        "Albumin",
+        "35–50 g/L"
+      ],
+      [
+        "Total protein",
+        "60–80 g/L"
+      ]
+    ]
+  ],
+  [
+    "Bone / minerals",
+    [
+      [
+        "Adjusted calcium",
+        "2.20–2.60 mmol/L"
+      ],
+      [
+        "Ionised calcium",
+        "1.15–1.29 mmol/L"
+      ],
+      [
+        "Phosphate",
+        "0.80–1.50 mmol/L"
+      ],
+      [
+        "Magnesium",
+        "0.70–1.00 mmol/L"
+      ],
+      [
+        "PTH",
+        "1.5–7.6 pmol/L (assay-dependent)"
+      ]
+    ]
+  ],
+  [
+    "Glucose / metabolism",
+    [
+      [
+        "Fasting glucose",
+        "3.5–5.4 mmol/L"
+      ],
+      [
+        "HbA1c",
+        "<42 non-diabetic; 42–47 high risk; ≥48 mmol/mol diabetes threshold"
+      ],
+      [
+        "Lactate",
+        "0.5–2.0 mmol/L"
+      ],
+      [
+        "Urate — men / women",
+        "200–430 / 140–360 µmol/L"
+      ],
+      [
+        "Amylase",
+        "<100 U/L"
+      ]
+    ]
+  ],
+  [
+    "Thyroid / endocrine",
+    [
+      [
+        "TSH",
+        "0.30–4.20 mIU/L"
+      ],
+      [
+        "Free T4",
+        "11.9–21.6 pmol/L"
+      ],
+      [
+        "Free T3",
+        "3.1–6.8 pmol/L"
+      ],
+      [
+        "Cortisol / prolactin",
+        "Time-, sex- and assay-dependent: use laboratory interval"
+      ]
+    ]
+  ],
+  [
+    "Inflammation / haematinics",
+    [
+      [
+        "CRP",
+        "0–10 mg/L"
+      ],
+      [
+        "ESR — men / women",
+        "Typically <15 / <20 mm/h (age-dependent)"
+      ],
+      [
+        "Ferritin — men / women",
+        "30–400 / 13–150 µg/L"
+      ],
+      [
+        "Vitamin B12",
+        "200–771 pg/mL (assay-dependent)"
+      ],
+      [
+        "Folate",
+        "5–19 µg/L (assay-dependent)"
+      ]
+    ]
+  ],
+  [
+    "Coagulation",
+    [
+      [
+        "PT",
+        "Approximately 10–14 s"
+      ],
+      [
+        "INR (not anticoagulated)",
+        "0.8–1.2"
+      ],
+      [
+        "APTT",
+        "Approximately 25–35 s"
+      ],
+      [
+        "Fibrinogen",
+        "1.5–4.0 g/L"
+      ],
+      [
+        "D-dimer",
+        "<0.50 mg/L FEU; often age-adjusted if >50 y"
+      ]
+    ]
+  ],
+  [
+    "Arterial blood gas",
+    [
+      [
+        "pH",
+        "7.35–7.45"
+      ],
+      [
+        "PaCO₂",
+        "4.3–6.4 kPa"
+      ],
+      [
+        "PaO₂",
+        "11.4–14.4 kPa on room air"
+      ],
+      [
+        "Bicarbonate",
+        "22–28 mmol/L"
+      ],
+      [
+        "Base excess",
+        "−2 to +2 mmol/L"
+      ],
+      [
+        "SaO₂",
+        "95–98%"
+      ]
+    ]
+  ],
+  [
+    "Lipids / cardiac",
+    [
+      [
+        "Total cholesterol",
+        "Common prevention target <5.0 mmol/L"
+      ],
+      [
+        "HDL — men / women",
+        ">1.0 / >1.2 mmol/L"
+      ],
+      [
+        "Triglycerides (fasting)",
+        "<1.7 mmol/L"
+      ],
+      [
+        "hs-troponin",
+        "Assay- and sex-specific 99th centile"
+      ],
+      [
+        "BNP / NT-proBNP",
+        "Use age/context-specific diagnostic pathway"
+      ]
+    ]
+  ]
+]

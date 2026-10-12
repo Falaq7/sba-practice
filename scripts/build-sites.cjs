@@ -1,0 +1,25 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..');
+const bank=JSON.parse(fs.readFileSync(path.join(root,'content','library.json'),'utf8'));
+function copy(src,dst){fs.mkdirSync(path.dirname(dst),{recursive:true});fs.copyFileSync(src,dst);}
+function page(studio){const title=studio?'BM4 Question Studio':'BM4 SBA Practice';return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${studio?'Private question creation, review and publishing.':'Practise SBAs by topic and keep your personal progress.'}"><meta name="theme-color" content="${studio?'#0a151d':'#101023'}"><title>${title}</title><link rel="stylesheet" href="./shared/site.css"><link rel="stylesheet" href="./shared/themes.css"><link rel="stylesheet" href="./shared/theme-extensions.css"><link rel="stylesheet" href="./shared/appearance.css"></head><body class="${studio?'practice studio':'practice'}" data-theme="prism"><script src="./theme-boot.js"></script><a class="skip button" href="#main">Skip to content</a><header class="top"><div class="brand"><span class="bm4-accent">BM4</span> <span class="brand-name">${studio?'Question Studio':'SBA Practice'}</span></div><nav aria-label="Main navigation"></nav><div class="account-tools"><span class="status" id="save-status" role="status">Loading saved data…</span><button id="account">Sign in</button><button id="themes">Themes</button><button id="settings" aria-label="Settings">Settings</button></div></header><main id="main" tabindex="-1"><section class="panel"><h1>${studio?'Your question studio':'Your SBA practice'}</h1><p>Opening your workspace…</p></section></main><footer>BM4 · Educational practice. Explanations support revision and should be checked against current teaching.</footer><dialog id="dialog"></dialog><script src="./firebase-config.js"></script><script type="module" src="./app.mjs"></script></body></html>`;}
+for(const kind of ['public','studio']){
+ const out=path.join(root,'dist',kind); fs.mkdirSync(out,{recursive:true});
+ for(const name of fs.readdirSync(path.join(root,'src','shared')))copy(path.join(root,'src','shared',name),path.join(out,'shared',name));
+ for(const name of fs.readdirSync(path.join(root,'src',kind)))copy(path.join(root,'src',kind,name),path.join(out,name));
+ if(kind==='studio')for(const name of ['themes.mjs','colour-cycle.mjs','theme-boot.js'])copy(path.join(root,'src','public',name),path.join(out,name));
+ copy(path.join(root,'firebase-config.js'),path.join(out,'firebase-config.js'));
+ fs.writeFileSync(path.join(out,'index.html'),page(kind==='studio'));
+ fs.writeFileSync(path.join(out,'library.json'),JSON.stringify(bank));
+ if(kind==='public'){
+  const assets=['./','./index.html','./app.mjs','./shader-background.mjs','./views.mjs','./review-panel.mjs','./answer-ambient.mjs','./ripple-buttons.mjs','./accordion-motion.mjs','./drawer-motion.mjs','./catalogue.mjs','./custom-study.mjs','./local-banks.mjs','./bank-manager.mjs','./bank-editor.mjs','./generation-prompt.mjs','./analytics.mjs','./daily-practice.mjs','./study-tools.mjs','./analytics-insights.mjs','./analytics-charts.mjs','./deck-morph.mjs','./ui-polish.mjs','./time-wheels.mjs','./anime.umd.min.js','./usage.mjs','./themes.mjs','./colour-cycle.mjs','./theme-boot.js','./firebase-config.js','./library.json',...fs.readdirSync(path.join(out,'shared')).map(n=>'./shared/'+n)];
+  const version=require('node:crypto').createHash('sha256').update(assets.map(n=>n==='./'?'':fs.readFileSync(path.join(out,n))).join('')).digest('hex').slice(0,12);
+  fs.writeFileSync(path.join(out,'sw.js'),`const CACHE='bm4-practice-${version}',ASSETS=${JSON.stringify(assets)};
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('bm4-practice-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==location.origin||u.pathname.includes('/__preview/'))return;
+e.respondWith(fetch(e.request).then(r=>{if(r.ok){const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return r;}).catch(()=>caches.match(e.request).then(r=>r||Response.error())));});`);
+ }
+}
+console.log('Built two separate sites: dist/public and dist/studio');
+

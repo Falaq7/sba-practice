@@ -1,12 +1,14 @@
 {
   "name": "sba-workspace",
-  "description": "AI-ready single-best-answer practice workspace",
+  "description": "Local-first SBA practice and private question publishing studio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node build_mock.js",
-    "test": "node build_mock.js && node qa_v2.js && node qa_mock.js",
-    "admin:reset-pin": "node admin/reset_pin.mjs"
+    "build": "node scripts/build-sites.cjs",
+    "test": "node scripts/build-sites.cjs && node --test tests/*.test.mjs",
+    "admin:reset-pin": "node admin/reset_pin.mjs",
+    "preview": "node scripts/preview.cjs",
+    "admin:grant-publisher": "node admin/grant_publisher.mjs"
   },
   "devDependencies": {
     "firebase-admin": "^14.2.0"

@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {normaliseQuestion,filterQuestions,analytics} from '../src/shared/core.mjs';
+import {placement} from '../src/shared/catalogue.mjs';
+import {auditDraft} from '../dist/studio/authoring.mjs';
+globalThis.matchMedia=()=>({matches:false,addEventListener(){}});
+const {home,bankCards,library}=await import('../dist/public/views.mjs');
+const fixture={scope:'guest',store:{personalScope:'guest',guestScope:'guest',get:()=>null,list:()=>[]},sessions:[],questions:[],releases:[],stats:analytics([],new Map()),notice:''};
+const qs=[{id:'a',year:'1',category:'pharma',topic:'Endocrine'},{id:'b',year:'Year 2',category:'Clinical',topic:'Endocrine'},{id:'c',year:'Year 1',category:'Physiology',topic:'Locomotor'}].map(q=>normaliseQuestion({...q,options:['a','b','c','d','e']},'bank'));
+test('year and category labels are canonical and filters combine independently',()=>{assert.equal(qs[0].category,'Pharmacology');assert.deepEqual(filterQuestions(qs,{year:'Year 2',topic:'Endocrine'}).map(q=>q.id),['b']);assert.equal(filterQuestions(qs,{category:'Physiology'})[0].topic,'Locomotor');});
+test('publication metadata keeps bank placement and year counts',()=>{assert.deepEqual(placement(qs).years,['Year 1','Year 2']);assert.equal(placement(qs).yearCounts['Year 1'],2);assert.deepEqual(placement(qs).categories,['Pharmacology','Clinical','Physiology']);});
+test('publishing cannot omit year or category',()=>{const audit=auditDraft({id:'bank',questions:[normaliseQuestion({options:['a','b','c','d','e']},'bank')]});assert.ok(audit.results[0].errors.some(e=>e.includes('Year 1')));assert.ok(audit.results[0].errors.some(e=>e.includes('category')));});
+test('home always exposes practice and bank access, including an empty library',()=>{const html=home(fixture);assert.match(html,/id="home-start-bank" disabled/);assert.match(html,/View library/);assert.doesNotMatch(html,/at your pace|Ready to practise|on their way/);});
+test('catalogue shows two year sections with year-specific bank actions',()=>{const c={...fixture,releases:[{id:'bank',title:'Endocrine bank',count:3,...placement(qs),topics:['Endocrine'],weeks:[]}],bankQuery:'',notice:'',libraryMode:'banks',view:'library'};const html=bankCards(c);assert.equal((html.match(/class="year-group(?: [^"]*)?"/g)||[]).length,2);assert.match(html,/data-bank-year="Year 1"/);assert.match(html,/data-bank-year="Year 2"/);assert.match(library(c),/Custom study/);assert.doesNotMatch(bankCards({...c,bankQuery:'missing'}),/data-bank=/);});
