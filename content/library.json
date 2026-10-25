@@ -742,12 +742,12 @@
       ],
       "yearCounts": {
         "Year 1": 0,
-        "Year 2": 47
+        "Year 2": 46
       },
       "id": "bm4-y2-week-01-2026",
       "title": "BM4 Year 2 - Week 1: Arthritis",
-      "count": 47,
-      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207",
+      "count": 46,
+      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207-remove-mtx-dosing",
       "status": "published",
       "publishedAt": 1792932872736,
       "modules": [
@@ -787,7 +787,6 @@
         "Common fibular injury at the fibular neck",
         "Osteoporosis versus osteomalacia",
         "Osteomalacia and vitamin D deficiency",
-        "Methotrexate dosing safety",
         "TNF inhibition and latent infection",
         "JAK inhibitor drug class",
         "Hydroxychloroquine monitoring",
@@ -38726,93 +38725,6 @@
       "aiReviewedAt": "2026-10-24",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-208",
-      "revision": 1,
-      "collection": "BM4 Year 2 - Week 1: Arthritis",
-      "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
-    },
-    {
-      "id": "y2-w01-209",
-      "stem": "A patient starting oral methotrexate for rheumatoid arthritis asks how frequently it is usually taken. Which instruction is essential?",
-      "options": [
-        "Take the prescribed dose once weekly on the agreed day",
-        "Take the full weekly dose every morning",
-        "Take an extra dose whenever a joint hurts",
-        "Double the dose whenever a dose is delayed",
-        "Stop all blood monitoring once pain improves"
-      ],
-      "answer": 0,
-      "why": "For rheumatoid arthritis, methotrexate is usually prescribed once weekly. Confusion with daily dosing is a serious preventable medication error. The patient also needs clear monitoring and folic-acid instructions.",
-      "distractors": [
-        "",
-        "Daily dosing of a weekly regimen can cause fatal toxicity.",
-        "Methotrexate is not an as-needed analgesic.",
-        "Missed doses need appropriate advice, not automatic doubling.",
-        "Toxicity monitoring remains necessary despite symptom improvement."
-      ],
-      "module": "Arthritis",
-      "topic": "Methotrexate dosing safety",
-      "year": "Year 2",
-      "week": "Week 1 - Arthritis",
-      "category": "Pharmacology",
-      "difficulty": "Moderate",
-      "sources": [
-        "Southampton/Week 1 - Arthritis/Immunology & Pharmacology of rheumatoid arthritis - student version.pptx — DMARD mechanisms and adverse effects sections",
-        "https://www.nhs.uk/medicines/methotrexate/how-and-when-to-take-methotrexate/"
-      ],
-      "lo": [
-        "Describe the treatment of arthritic conditions including rheumatoid arthritis encompassing the mechanism of action and side effects of conventional synthetic disease-modifying anti-rheumatic drugs (csDMARDs), biologic DMARDs (bDMARDs) and targeted synthetic DMARDs (tsDMARDs). Updated 02/10/2026: see new resource provided within the weekly lecture."
-      ],
-      "loIds": [
-        "Y2-W01-LO13"
-      ],
-      "curriculumSource": "Learning Objectives/Week 1/Learning outcomes - Arthritis.md",
-      "assessmentObjective": "Methotrexate dosing safety",
-      "yield": "high",
-      "questionType": "case",
-      "optional": false,
-      "supplemental": false,
-      "provenance": {
-        "adaptation": "Original AI-authored SBA",
-        "review": "AI editorial review; no independent clinician sign-off"
-      },
-      "deepReview": {
-        "keyClues": [
-          {
-            "quote": "oral methotrexate for rheumatoid arthritis",
-            "explanation": [
-              "A safe prescription includes dose, frequency, monitoring and an understanding of the treatment purpose."
-            ],
-            "supports": [
-              0
-            ],
-            "arguesAgainst": []
-          }
-        ],
-        "keyConcept": {
-          "summary": "Methotrexate dosing safety",
-          "paragraphs": [
-            "A safe prescription includes dose, frequency, monitoring and an understanding of the treatment purpose."
-          ],
-          "comparisonPoints": []
-        },
-        "commonTraps": [
-          "Do not generalise dosing from other medicines or indications."
-        ],
-        "recogniseNextTime": [
-          "A safe prescription includes dose, frequency, monitoring and an understanding of the treatment purpose."
-        ],
-        "followUpQuestions": [
-          {
-            "prompt": "Which major toxicities motivate routine monitoring?",
-            "answer": "Bone-marrow suppression and hepatic toxicity, with renal function relevant to safe clearance."
-          }
-        ],
-        "reviewVersion": 2
-      },
-      "aiReviewedAt": "2026-10-24",
-      "reviewedAt": "",
-      "uid": "bm4-y2-week-01-2026::y2-w01-209",
       "revision": 1,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
