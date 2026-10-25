@@ -747,9 +747,9 @@
       "id": "bm4-y2-week-01-2026",
       "title": "BM4 Year 2 - Week 1: Arthritis",
       "count": 47,
-      "currentVersion": "7ab64f94-2e8d-4f5b-90f8-acde30d64113",
+      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "Arthritis"
       ],
@@ -776,7 +776,7 @@
         "Pannus causes rheumatoid joint destruction",
         "Structural changes in OA",
         "Monosodium urate crystal identification",
-        "Calcium pyrophosphate deposition",
+        "Acute bacterial joint pathology",
         "Psoriatic joint disease and enthesitis",
         "Sequence of secondary fracture healing",
         "Delayed fracture union",
@@ -824,9 +824,9 @@
       "id": "bm4-y2-week-02-2026",
       "title": "BM4 Year 2 - Week 2: Low back pain",
       "count": 27,
-      "currentVersion": "0eb5424f-53af-4682-8a33-be5e5d507aa7",
+      "currentVersion": "f45a04a9-ec96-4633-915d-22e2d759c8f8",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "Low back pain"
       ],
@@ -882,9 +882,9 @@
       "id": "bm4-y2-week-03-2026",
       "title": "BM4 Year 2 - Week 3: Stroke",
       "count": 42,
-      "currentVersion": "1967b744-c850-42a9-a785-588c80a9e4f6",
+      "currentVersion": "628c4156-c5a3-435e-a2c0-6cc608017ac8",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "Nervous and Locomotor",
         "Stroke"
@@ -956,9 +956,9 @@
       "id": "bm4-y2-week-04-2026",
       "title": "BM4 Year 2 - Week 4: CNS injury",
       "count": 41,
-      "currentVersion": "e55e3532-7b18-4fef-99b7-debaf6436dcc",
+      "currentVersion": "947e5b69-a7bf-40e8-b2fa-e35e21a045f2",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "CNS injury"
       ],
@@ -1027,9 +1027,9 @@
       "id": "bm4-y2-week-05-2026",
       "title": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "count": 46,
-      "currentVersion": "07082717-9a03-4478-8c3e-144a0e3ec56c",
+      "currentVersion": "78320863-15df-423d-b7a4-e7137864c365",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "Chronic neurological disorders"
       ],
@@ -1103,16 +1103,16 @@
       "id": "bm4-y2-week-06-2026",
       "title": "BM4 Year 2 - Week 6: Frailty and dementia",
       "count": 37,
-      "currentVersion": "9cce1482-0a58-4107-93e7-e22a71299451",
+      "currentVersion": "e210c71a-3183-43f0-ae17-fced097add66",
       "status": "published",
-      "publishedAt": 1792912410613,
+      "publishedAt": 1792932872736,
       "modules": [
         "Frailty and dementia"
       ],
       "topics": [
         "Population ageing and dementia burden",
         "Unpaid care and service planning",
-        "Decision-specific capacity",
+        "Capacity, consent and confidentiality in dementia",
         "Health and welfare lasting power of attorney",
         "Ageism and diagnostic overshadowing",
         "Clinical Frailty Scale baseline",
@@ -1124,11 +1124,11 @@
         "Alzheimer clinical pattern",
         "Dementia with Lewy bodies",
         "Frontotemporal dementia presentation",
-        "Cognitive testing with sensory impairment",
+        "Initial assessment of suspected dementia",
         "Delirium superimposed on dementia",
         "MDT discharge planning",
         "Episodic versus procedural memory",
-        "Using preserved learning in care",
+        "Errorless learning in dementia care",
         "Recognising safeguarding concerns",
         "Frailty as interacting deficits",
         "Anticholinergic prescribing cascade",
@@ -35567,20 +35567,20 @@
       "id": "y2-w01-001",
       "stem": "A 38-year-old woman with newly diagnosed rheumatoid arthritis is surprised because her mother developed osteoarthritis at 74. Which comparison best explains why these diagnoses can occur at different ages?",
       "options": [
-        "OA is less common than RA in the general adult population",
-        "RA is confined to childhood, whereas OA occurs only after menopause",
-        "RA and OA have the same age distribution because both result from cartilage wear",
+        "OA is usually less prevalent than RA among older adults",
+        "Onset during working life favours primary OA over inflammatory RA",
+        "RA and OA have similar age distributions because both are primarily degenerative diseases",
         "RA can begin in working-age adults, whereas OA becomes more common with increasing age",
-        "RA occurs almost exclusively after 70, whereas OA peaks in early adulthood"
+        "RA prevalence falls throughout adult life, while OA is mainly a disease of young adults"
       ],
       "answer": 3,
       "why": "RA is an inflammatory autoimmune disease that can begin during working life. OA is much more common overall and its prevalence rises with age, although previous injury and loading can produce earlier disease.",
       "distractors": [
-        "OA is the commonest joint disorder, not the less common of the two.",
-        "Neither disease is confined to these groups.",
-        "Different mechanisms and risk factors produce different population patterns.",
+        "OA is substantially more prevalent than RA in older adults.",
+        "RA commonly starts during working life; primary OA becomes more common with increasing age.",
+        "RA is an autoimmune inflammatory disease and is not explained by the degenerative mechanism proposed here.",
         "",
-        "RA commonly begins before old age."
+        "These proposed age patterns do not fit either condition; OA is particularly associated with increasing age."
       ],
       "module": "Arthritis",
       "topic": "Population patterns of RA and OA",
@@ -35654,13 +35654,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-001",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-002",
@@ -35766,20 +35766,20 @@
       "id": "y2-w01-003",
       "stem": "A 61-year-old floor layer has knee OA after decades of frequent kneeling and lifting. A colleague says the occupation must be the sole cause. Which response best interprets this history?",
       "options": [
-        "The job proves an autoimmune cause of the knee disease",
-        "Occupational loading is unrelated to OA because cartilage has no nerves",
+        "The long exposure history is sufficient to establish work as the sole cause",
+        "Work contributes to OA only when a single major knee injury has occurred",
         "Repeated joint loading can contribute, but OA has several interacting risk factors",
-        "Occupational history can show the effect of OA but never its causes",
-        "Any knee pain in a manual worker should be labelled occupational OA without examination"
+        "The occupational history is relevant only to current disability, not disease risk",
+        "An absent family history would establish an exclusively occupational cause"
       ],
       "answer": 2,
       "why": "Repeated loading can contribute to OA risk, alongside age, body weight, alignment, previous injury and genetic factors. An occupational association is not proof of a sole cause.",
       "distractors": [
-        "Mechanical loading does not establish autoimmune inflammation.",
-        "Avascular or aneural cartilage does not make joint loading irrelevant to structural damage.",
+        "Exposure duration strengthens plausibility but cannot exclude other contributors in an individual.",
+        "Repeated occupational loading can contribute even without one discrete major injury.",
         "",
-        "Work can affect risk as well as be limited by disease.",
-        "The clinical pattern and alternative causes still need assessment."
+        "Work may influence both the risk of developing OA and the effects of established disease.",
+        "Absence of a reported family history does not exclude age, weight, alignment, prior injury or other influences."
       ],
       "module": "Arthritis",
       "topic": "Occupational loading and osteoarthritis",
@@ -35854,32 +35854,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-003",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-004",
       "stem": "A hairdresser with RA has morning hand stiffness and fatigue. Disease treatment is being adjusted. She wants to keep working, but repeated gripping early in the day is difficult. What is the most appropriate occupational approach?",
       "options": [
-        "Require complete symptom resolution before any return to work",
-        "Recommend increasing work hours to test whether symptoms are genuine",
+        "Recommend complete absence from work until morning stiffness resolves",
+        "Keep all duties unchanged while waiting to judge the DMARD adjustment",
         "Agree task and schedule adjustments with occupational support, guided by her goals",
-        "Advise permanent retirement before assessing her function",
-        "Advise changing the DMARD solely to avoid discussing workplace adjustments"
+        "Recommend a permanent move to lighter work before assessing task adaptations",
+        "Use grip strength alone to determine fitness for all hairdressing duties"
       ],
       "answer": 2,
       "why": "Task adaptation, pacing and timing can support participation while medical treatment improves disease control. The plan should reflect the patient's priorities and actual functional limits.",
       "distractors": [
-        "Many people can work safely with symptoms when tasks are adapted.",
-        "This does not assess function constructively and risks worsening fatigue.",
+        "A symptom-free state is not always required for safe work; first assess feasible adaptations and the patient’s goals.",
+        "Medical treatment may help, but waiting without addressing the identified task difficulty leaves a modifiable barrier.",
         "",
-        "Permanent retirement is premature without assessing possible adaptations.",
-        "Medication and occupational support address different needs and can be used together."
+        "A permanent occupational change is premature before assessing feasible changes to the present role.",
+        "One strength measure cannot capture fatigue, timing, task demands and practical adaptations."
       ],
       "module": "Arthritis",
       "topic": "Preserving work during inflammatory arthritis",
@@ -35954,13 +35954,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-004",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-005",
@@ -37753,25 +37753,25 @@
     },
     {
       "id": "y2-w01-023",
-      "stem": "An 80-year-old develops an acutely swollen knee. The aspirate contains rhomboid crystals with weak positive birefringence. Which diagnosis is most strongly supported?",
+      "stem": "A 66-year-old with diabetes develops a rapidly painful, swollen knee and fever. Arthrocentesis yields purulent fluid containing Gram-positive cocci. Which pathological finding is most characteristic of this acute joint infection?",
       "options": [
-        "OA established solely by a normal CRP",
-        "Acute calcium pyrophosphate crystal arthritis",
-        "Psoriatic arthritis established by nail pitting",
-        "Gout caused by monosodium urate",
-        "RA established by rheumatoid factor"
+        "Marginal cartilage fibrillation with subchondral sclerosis",
+        "A dense acute neutrophilic infiltrate in synovial fluid",
+        "Lymphoplasmacytic synovitis with invasive pannus",
+        "Urate crystal deposits surrounded by a foreign-body reaction",
+        "Well-formed epithelioid granulomas with central caseation"
       ],
       "answer": 1,
-      "why": "Rhomboid, weakly positively birefringent crystals support calcium pyrophosphate crystal arthritis. The knee and older age are also typical clinical clues.",
+      "why": "Acute bacterial arthritis produces a predominantly neutrophilic inflammatory exudate and can rapidly damage articular cartilage. Purulent fluid and the organisms described support infection. Neutrophils alone are not specific: correlate microscopy with Gram stain, cultures and the clinical presentation.",
       "distractors": [
-        "OA can coexist but does not account for the crystal identification.",
+        "These are degenerative osteoarthritic changes rather than the typical acute suppurative response.",
         "",
-        "No nail disease is described, and nail pitting does not identify these crystals.",
-        "Urate crystals are usually needle-shaped and negatively birefringent.",
-        "No rheumatoid factor result is supplied, and it would not explain these crystals."
+        "This chronic inflammatory pattern is characteristic of rheumatoid synovitis rather than an acute bacterial exudate.",
+        "This describes tophaceous gout; it does not account for the organisms in this specimen.",
+        "Caseating granulomatous inflammation suggests a chronic infection such as tuberculosis, rather than the acute pyogenic pattern described."
       ],
       "module": "Arthritis",
-      "topic": "Calcium pyrophosphate deposition",
+      "topic": "Acute bacterial joint pathology",
       "year": "Year 2",
       "week": "Week 1 - Arthritis",
       "category": "Pathology",
@@ -37780,7 +37780,7 @@
       ],
       "difficulty": "Moderate",
       "sources": [
-        "Southampton/Week 1 - Arthritis/Osteoarticular Pathology BM4 26-27 - STUDENT COPY.pdf — pages 49–50"
+        "Southampton/Week 1 - Arthritis/Osteoarticular Pathology BM4 26-27 - STUDENT COPY.pdf — pages 42–43"
       ],
       "lo": [
         "Describe the pathological changes occurring in a joint in rheumatoid arthritis, contrasting with those occurring in osteoarthritis, gout, septic and psoriatic arthritis."
@@ -37789,7 +37789,7 @@
         "Y2-W01-LO09"
       ],
       "curriculumSource": "Learning Objectives/Week 1/Learning outcomes - Arthritis.md",
-      "assessmentObjective": "Calcium pyrophosphate deposition",
+      "assessmentObjective": "Acute bacterial joint pathology",
       "yield": "high",
       "questionType": "case",
       "optional": false,
@@ -37801,9 +37801,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "80-year-old",
+            "quote": "rapidly painful, swollen knee and fever",
             "explanation": [
-              "CPP deposition becomes more common with age; this raises probability but is not diagnostic."
+              "The acute monoarticular and systemic presentation makes infection a priority."
             ],
             "supports": [
               1
@@ -37811,9 +37811,9 @@
             "arguesAgainst": []
           },
           {
-            "quote": "rhomboid crystals with weak positive birefringence",
+            "quote": "purulent fluid containing Gram-positive cocci",
             "explanation": [
-              "This is the decisive microscopy distinction from gout."
+              "The purulent exudate is dominated by neutrophils; the demonstrated organisms provide evidence beyond inflammation alone."
             ],
             "supports": [
               1
@@ -37822,33 +37822,38 @@
           }
         ],
         "keyConcept": {
-          "summary": "Calcium pyrophosphate deposition",
+          "summary": "Suppurative inflammation in septic arthritis",
           "paragraphs": [
-            "CPP crystal disease can present as acute monoarthritis and can coexist with degenerative changes. Clinical concern for infection still requires microbiological assessment."
+            "Acute bacterial joint infection recruits neutrophils into the synovium and fluid. Enzymes and inflammatory mediators contribute to rapid cartilage injury. Histology or a high neutrophil count must be interpreted alongside microbiological tests."
           ],
-          "comparisonPoints": []
+          "comparisonPoints": [
+            {
+              "label": "Acute infection versus rheumatoid synovitis",
+              "text": "RA usually produces chronic lymphoplasmacytic synovitis with pannus; acute pyogenic arthritis produces a predominantly neutrophilic exudate."
+            }
+          ]
         },
         "commonTraps": [
-          "Do not swap the shape and birefringence of urate and CPP crystals."
+          "Neutrophils can also occur in crystal arthritis, so their presence alone does not prove infection."
         ],
         "recogniseNextTime": [
-          "Rhomboid and positive suggests CPP deposition."
+          "An acutely inflamed joint with organisms in the aspirate requires urgent infection assessment; describe the inflammatory pattern as well as naming the diagnosis."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What radiographic cartilage finding can support CPP deposition?",
-            "answer": "Chondrocalcinosis."
+            "prompt": "Why send synovial fluid for culture even when crystals are also found?",
+            "answer": "Crystal arthritis and septic arthritis can coexist; crystals do not exclude infection."
           }
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-023",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-024",
@@ -38041,19 +38046,19 @@
       "stem": "A fracture remains painful and ununited after repeated displacement in an inadequately stabilised limb. Which factor most directly impairs healing?",
       "options": [
         "Excessive movement at the fracture site",
-        "Normal osteoblast activity",
-        "A resolved initial haematoma followed by callus",
-        "Adequate local blood supply",
-        "Appropriate mechanical stability"
+        "Reduced delivery of oxygen from local vascular injury",
+        "Persistent bacterial contamination of the fracture",
+        "Inadequate calcium and vitamin D availability",
+        "Loss of viable osteoblast-lineage cells after extensive tissue injury"
       ],
       "answer": 0,
       "why": "Excessive interfragmentary motion can prevent an effective bony bridge and contribute to delayed union or non-union. Perfusion, infection, smoking and the nature of the injury also matter.",
       "distractors": [
         "",
-        "Bone-forming activity contributes to repair.",
-        "Progression beyond the initial haematoma is part of healing.",
-        "Perfusion supports repair rather than explaining failure here.",
-        "Stability supports successful healing."
+        "Poor perfusion can impair union, but no vascular injury is described; repeated displacement directly identifies instability.",
+        "Infection can impair healing, but the stem supplies evidence of mechanical instability rather than infection.",
+        "Deficiency can affect repair, but it does not directly explain the repeated displacement described.",
+        "Cell loss may impair repair after severe injury, but the specific evidence here is inadequate stabilisation."
       ],
       "module": "Arthritis",
       "topic": "Delayed fracture union",
@@ -38062,7 +38067,8 @@
       "category": "Pathology",
       "difficulty": "Moderate",
       "sources": [
-        "Southampton/Week 1 - Arthritis/BM4 Y2 Basic bone biology Remodelling vSept 2026 - for upload v3.pptx — bone formation, remodelling and osteoporosis sections"
+        "Southampton/Week 1 - Arthritis/BM4 Y2 Basic bone biology Remodelling vSept 2026 - for upload v3.pptx — bone formation, remodelling and osteoporosis sections",
+        "https://orthoinfo.aaos.org/en/diseases--conditions/nonunions/ — Bone Healing and Causes; stability and blood supply"
       ],
       "lo": [
         "Describe the processes occurring in the fracture and repair of bones."
@@ -38114,13 +38120,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-201",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-202",
@@ -38816,20 +38822,20 @@
       "id": "y2-w01-210",
       "stem": "Before starting a TNF inhibitor, a patient with RA is assessed for latent tuberculosis. What is the main rationale?",
       "options": [
-        "Latent TB causes every case of rheumatoid arthritis",
-        "Screening confirms the severity of cartilage loss",
+        "Screening establishes whether TB is the cause of the patient’s RA",
+        "Latent TB is a biomarker of poor joint response to TNF inhibition",
         "TNF blockade can impair containment of latent infection",
-        "TNF inhibitors directly kill Mycobacterium tuberculosis",
-        "TNF blockade guarantees immunity against infection"
+        "Screening selects patients for routine live BCG vaccination immediately before treatment",
+        "A positive result means all future immunomodulatory treatment is permanently contraindicated"
       ],
       "answer": 2,
       "why": "TNF contributes to immune containment of mycobacteria. Its inhibition can permit reactivation, making pre-treatment assessment and appropriate management important.",
       "distractors": [
-        "RA is not universally caused by TB.",
-        "TB screening evaluates infection risk, not structural joint damage.",
+        "The purpose is to identify infection at risk of reactivation, not to establish TB as the cause of autoimmune RA.",
+        "The assessment addresses treatment safety rather than predicting the anti-arthritic response.",
         "",
-        "They are immunomodulators, not antituberculous antibiotics.",
-        "TNF blockade can increase rather than abolish infection risk."
+        "Latent-infection management is not equivalent to routine live vaccination immediately before immunosuppression.",
+        "A positive result requires assessment and appropriate management; it is not a permanent blanket exclusion from all immunomodulatory care."
       ],
       "module": "Arthritis",
       "topic": "TNF inhibition and latent infection",
@@ -38890,13 +38896,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-210",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-211",
@@ -39160,20 +39166,20 @@
       "id": "y2-w01-214",
       "stem": "A patient hyperventilates and develops perioral tingling and carpopedal spasm. Total calcium is normal. Which change best explains the symptoms?",
       "options": [
-        "All body calcium is lost in the urine within minutes",
+        "A rapid fall in plasma albumin causes a fall in total calcium",
         "Increased albumin binding reduces ionised calcium",
-        "Total calcium must always rise in respiratory alkalosis",
+        "Increased renal calcium excretion causes a fall in total calcium",
         "Alkalosis reduces albumin binding and raises ionised calcium",
-        "Bone mineral dissolves instantly to remove plasma calcium"
+        "An abrupt fall in PTH lowers total extracellular calcium"
       ],
       "answer": 1,
       "why": "Alkalosis increases the negative charge available on albumin to bind calcium, reducing the free ionised fraction. Neuromuscular irritability can occur despite a normal total calcium.",
       "distractors": [
-        "This is too rapid and is not the primary mechanism.",
+        "Acute alkalosis principally changes calcium binding, rather than rapidly lowering the albumin concentration; total calcium is stated to be normal.",
         "",
-        "Total calcium may remain unchanged while the ionised fraction falls.",
-        "The direction of binding is reversed.",
-        "Bone dissolution would add calcium rather than explain the stated rapid decrease."
+        "The abrupt symptoms with normal total calcium are better explained by redistribution between bound and ionised calcium.",
+        "The direction is reversed: alkalosis increases albumin binding and reduces the ionised fraction.",
+        "The described rapid change with normal total calcium reflects altered binding, not a new PTH-deficient reduction in total calcium."
       ],
       "module": "Arthritis",
       "topic": "Alkalosis and ionised calcium",
@@ -39234,13 +39240,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-214",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-215",
@@ -39506,19 +39512,19 @@
       "stem": "A 70-year-old long-term smoker with established cardiovascular disease is being considered for a JAK inhibitor for RA. What is the key prescribing implication of MHRA safety advice?",
       "options": [
         "Consider suitable alternatives because this profile increases concern about major adverse outcomes",
-        "Oral administration removes the risk of serious infection",
-        "The warnings apply only to young nonsmokers",
-        "The main concern is retinal toxicity alone",
-        "JAK inhibitors are preferred solely because cardiovascular disease is present"
+        "Prefer a JAK inhibitor because oral therapy has less serious infection risk than biologic therapy",
+        "Assess latent TB alone because cardiovascular risk does not alter JAK inhibitor selection",
+        "Use retinal screening as the principal additional safety assessment",
+        "Prefer a JAK inhibitor over alternatives because established cardiovascular disease predicts greater safety"
       ],
       "answer": 0,
       "why": "MHRA advice is to avoid JAK inhibitors for chronic inflammatory disease in specified higher-risk groups unless no suitable alternatives exist. Review cardiovascular, malignancy, thromboembolic and infection risk with the specialist and patient.",
       "distractors": [
         "",
-        "Route of administration does not remove immunomodulatory infection risk.",
-        "Older age, smoking and cardiovascular risk are particularly relevant factors.",
-        "Retinal toxicity chiefly characterises hydroxychloroquine monitoring; JAK safety concerns include cardiovascular events, malignancy, VTE and infection.",
-        "Cardiovascular risk is a reason for additional caution and considering alternatives."
+        "Oral administration does not confer this safety advantage; JAK inhibitors carry important infection and other risk warnings.",
+        "Infection assessment matters, but age, smoking and cardiovascular risk also affect selection under MHRA advice.",
+        "Retinal screening relates particularly to hydroxychloroquine; this patient needs assessment of cardiovascular, cancer, thromboembolic and infection risks.",
+        "Established cardiovascular disease increases concern about adverse outcomes rather than establishing greater safety."
       ],
       "module": "Arthritis",
       "topic": "JAK inhibitor safety",
@@ -39580,13 +39586,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-218",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w01-219",
@@ -39972,20 +39978,20 @@
     },
     {
       "id": "y2-w02-200",
-      "stem": "A survey asks workers whether they currently have low back pain. What measure is obtained?",
+      "stem": "A survey records the proportion of workers who currently have low back pain on the survey day. What measure is obtained?",
       "options": [
-        "Treatment efficacy",
+        "Period prevalence over the previous year",
         "Incidence rate",
-        "Case fatality",
+        "Cumulative incidence over the following year",
         "Point prevalence",
         "Lifetime risk"
       ],
       "answer": 3,
       "why": "The proportion with pain at the survey time is point prevalence. Incidence instead requires identifying new cases or episodes in a defined population over time.",
       "distractors": [
-        "No treatment comparison is performed.",
+        "That requires asking whether pain occurred at any time during a defined past interval, not just on the survey day.",
         "Incidence concerns new episodes arising over time.",
-        "The survey does not measure deaths among cases.",
+        "That requires following an initially unaffected population for new episodes after the survey.",
         "",
         "A single current-status survey does not measure lifetime risk."
       ],
@@ -39996,7 +40002,8 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "Winchester/Week 2 - Low back pain/Intro back pain lecture 2025.pptx — causes, red flags, assessment and management"
+        "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section2.html — Measures of Morbidity: point prevalence and incidence",
+        "Learning Objectives/Week 2/Learning outcomes - Low back pain.md — LO1 scope"
       ],
       "lo": [
         "Discuss the incidence and prevalence of low back pain and how this may be associated with physical activity and occupation."
@@ -40048,32 +40055,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-200",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-201",
       "stem": "A cross-sectional study finds more back pain among heavy manual workers. Which conclusion is most defensible?",
       "options": [
         "There is an association, but the design alone cannot establish causation",
-        "Heavy work causes every case of back pain",
-        "Psychosocial factors cannot confound the result",
-        "Occupation can have no relationship with back pain",
-        "Physical activity should be stopped in every worker"
+        "The study establishes that manual loading preceded pain onset in every participant",
+        "The observed association is independent of age and psychosocial factors",
+        "The prevalence comparison gives the same information as the future incidence of pain",
+        "Reducing occupational loading would necessarily prevent future back-pain episodes"
       ],
       "answer": 0,
       "why": "Cross-sectional evidence can show an association but often cannot establish temporal order or adequately separate confounding and selection effects.",
       "distractors": [
         "",
-        "The study cannot establish this universal causal claim.",
-        "Job demands and other factors can contribute to confounding.",
-        "An association was observed, although its interpretation is limited.",
-        "This intervention does not follow from the study design."
+        "Measuring exposure and outcome at one time does not establish their temporal order in every participant.",
+        "Independence from potential confounding requires appropriate assessment and cannot be assumed from the design.",
+        "Existing cases at a point in time and new episodes during follow-up measure different quantities.",
+        "An observational association alone does not establish the effect of an intervention."
       ],
       "module": "Low back pain",
       "topic": "Work exposures and causal inference",
@@ -40082,7 +40089,8 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "Winchester/Week 2 - Low back pain/Intro back pain lecture 2025.pptx — causes, red flags, assessment and management"
+        "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson1/section7.html — Analytic Epidemiology: cross-sectional studies",
+        "Learning Objectives/Week 2/Learning outcomes - Low back pain.md — LO1 scope"
       ],
       "lo": [
         "Discuss the incidence and prevalence of low back pain and how this may be associated with physical activity and occupation."
@@ -40134,13 +40142,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-201",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-202",
@@ -40578,19 +40586,19 @@
       "id": "y2-w02-207",
       "stem": "A patient believes any movement will permanently damage their back and avoids all activity despite reassurance about serious pathology. Which mechanism may perpetuate disability?",
       "options": [
-        "Complete independence of pain from beliefs",
-        "Guaranteed progressive vertebral collapse",
-        "Permanent cure through indefinite bed rest",
-        "Proof that the pain is fabricated",
+        "Peripheral nociceptor sensitisation from ongoing local inflammation",
+        "Mechanical compression of a lumbar nerve root",
+        "Increased responsiveness of spinal nociceptive circuits",
+        "Loss of descending inhibition as the sole cause of activity restriction",
         "Fear-driven avoidance leading to deconditioning and reduced confidence"
       ],
       "answer": 4,
       "why": "Threat beliefs can drive avoidance, reduce activity and contribute to deconditioning and disability. Addressing them does not imply that pain is unreal.",
       "distractors": [
-        "Beliefs and context can influence pain behaviour and disability.",
-        "The belief does not establish structural deterioration.",
-        "Prolonged inactivity can worsen function.",
-        "Psychological influences do not mean symptoms are invented.",
+        "This may contribute to pain, but it does not best explain the stated threat belief and avoidance of all activity.",
+        "No matching radicular neurological pattern is described; the identified barrier is fear-driven avoidance.",
+        "Central sensitisation can contribute to pain, but the specific disability-maintaining cycle described is avoidance driven by fear.",
+        "Descending modulation can influence pain, but this does not account as directly for the stated belief-driven behaviour.",
         ""
       ],
       "module": "Low back pain",
@@ -40652,32 +40660,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-207",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-208",
       "stem": "Two patients with similar degenerative MRI changes report very different levels of pain and disability. Which explanation is best?",
       "options": [
         "Pain is influenced by multiple factors beyond the visible structural changes",
-        "Social context is irrelevant to disability",
-        "MRI provides a complete measure of pain intensity",
-        "All degenerative findings are always symptomatic",
-        "The patient with worse pain must be lying"
+        "Similar scans imply similar capacity to work, even when reported pain differs",
+        "MRI severity measures pain more accurately than the patient’s report",
+        "Any degenerative disc finding should be assumed to explain the current pain",
+        "Discordance means psychological factors alone explain the greater pain"
       ],
       "answer": 0,
       "why": "Imaging findings need clinical correlation. Nociceptive input, sensitisation, mood, expectations, sleep and social circumstances can all influence the experience and impact of pain.",
       "distractors": [
         "",
-        "Context can influence function and coping.",
-        "Structural imaging does not capture every contributor to pain.",
-        "Many degenerative changes occur without symptoms.",
-        "Imaging does not quantify the reality of a person’s pain."
+        "Work capacity also depends on symptoms, task demands, coping and the person’s context.",
+        "Anatomical imaging does not directly measure the person’s pain experience.",
+        "Degenerative findings can be incidental; clinical concordance is needed.",
+        "A mismatch does not establish one exclusive cause; biological, psychological and social factors can interact."
       ],
       "module": "Low back pain",
       "topic": "Pain and tissue findings",
@@ -40738,31 +40746,31 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-208",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-209",
       "stem": "A GP uses STarT Back in a patient with low back pain. What is its main purpose?",
       "options": [
-        "To identify a specific lumbar disc on MRI",
-        "To replace all history and examination",
-        "To diagnose cauda equina syndrome",
-        "To prove malingering",
+        "To grade the anatomical severity of lumbar degeneration",
+        "To quantify current physical impairment from lumbar range of movement",
+        "To distinguish spinal malignancy from mechanical pain",
+        "To diagnose radiculopathy from neuropathic pain features",
         "To help stratify risk of persistent disability and guide matched support"
       ],
       "answer": 4,
       "why": "STarT Back supports prognostic risk stratification, including psychosocial contributors, so treatment intensity can be matched to need. It does not replace safety screening.",
       "distractors": [
-        "The tool does not anatomically localise a lesion.",
-        "It complements clinical assessment.",
-        "Red-flag assessment requires a separate clinical evaluation.",
-        "It is not a deception test.",
+        "STarT Back assesses prognosis and relevant risk factors, not anatomical imaging severity.",
+        "The tool is a prognostic questionnaire, not a direct measurement of spinal movement.",
+        "It does not replace the history, examination and red-flag assessment for specific pathology.",
+        "Root diagnosis depends on the clinical neurological pattern; the tool’s principal role is prognostic stratification.",
         ""
       ],
       "module": "Low back pain",
@@ -40825,32 +40833,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-209",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-210",
       "stem": "A patient has a high risk of persistent back-related disability with substantial fear and distress. Which plan best reflects risk-stratified care?",
       "options": [
-        "Repeat imaging as the only response",
-        "Automatic urgent spinal surgery",
-        "More intensive combined physical and psychologically informed support",
-        "No treatment because psychosocial factors are present",
-        "The same minimal leaflet regardless of need"
+        "Prioritise repeat MRI to determine the intensity of rehabilitation",
+        "Refer directly for decompression because the prognostic risk is high",
+        "More intensive individualised support, including an appropriate exercise programme",
+        "Use passive treatment alone until the patient feels ready for activity",
+        "Offer the same brief advice to everyone without considering prognosis"
       ],
       "answer": 2,
-      "why": "A higher risk of persistent disability can justify more intensive combined support that addresses physical function and psychosocial barriers.",
+      "why": "Higher risk of persistent disability can justify more complex individualised support. An appropriate exercise programme, shared goals and review of progress can be tailored to the person’s needs. Assess fear and distress, but a high-risk score does not itself prescribe a particular psychological intervention.",
       "distractors": [
-        "Imaging alone does not address the identified barriers.",
-        "Prognostic risk alone is not a surgical diagnosis.",
+        "The identified prognostic barriers are not quantified by repeat anatomical imaging alone.",
+        "A poor-prognosis score does not establish a surgically treatable compressive lesion.",
         "",
-        "These factors can be addressed therapeutically.",
-        "Risk stratification is intended to adapt support."
+        "A plan should support active self-management and function while exploring barriers.",
+        "Risk stratification is intended to help tailor the level of support to the person."
       ],
       "module": "Low back pain",
       "topic": "Risk-stratified care",
@@ -40860,7 +40868,8 @@
       "difficulty": "Moderate",
       "sources": [
         "https://www.nice.org.uk/guidance/ng59/chapter/recommendations",
-        "Southampton/Week 2 - Low back pain/Psychological aspects of pain 2026.pptx — biopsychosocial pain and disability"
+        "Southampton/Week 2 - Low back pain/Psychological aspects of pain 2026.pptx — biopsychosocial pain and disability",
+        "https://www.fpm.ac.uk/fpm-position-statement-july-2026-update-nice-ng59 — current professional statement documenting the July 2026 NICE changes"
       ],
       "lo": [
         "Discuss the use of screening tools such as STarT Back and how they contribute to the assessment of chronic low back pain."
@@ -40894,12 +40903,12 @@
         "keyConcept": {
           "summary": "Risk-stratified care",
           "paragraphs": [
-            "Prognosis can guide the amount and type of help while the patient’s goals remain central."
+            "Use prognosis to help tailor support while considering clinical findings and patient goals. NICE NG59 removed its specific psychological-treatment recommendations in July 2026. This withdrawal does not prohibit psychological or multidisciplinary care when individually appropriate."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "High risk does not mean inevitable poor recovery."
+          "Do not turn a prognostic score into a diagnosis or assume it automatically mandates a specific psychological treatment."
         ],
         "recogniseNextTime": [
           "Prognosis can guide the amount and type of help while the patient’s goals remain central."
@@ -40912,32 +40921,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-210",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-211",
       "stem": "A patient’s back pain is improving, but fear of reinjury and lack of workplace adjustments prevent return to work. Which factor is most directly modifiable?",
       "options": [
-        "The existence of every degenerative MRI change",
-        "A permanent ban on discussing work",
+        "The duration of the episode that has already occurred",
+        "The number of previous back-pain episodes",
         "Work demands and beliefs through a supported graded return",
-        "The patient’s date of birth",
-        "The requirement to have absolutely no pain before any work"
+        "The patient’s age at first onset",
+        "Whether the original injury occurred"
       ],
       "answer": 2,
       "why": "Workplace adaptations, graded duties and addressing fear may help restore participation. The plan should fit the person and job, rather than require complete symptom elimination.",
       "distractors": [
-        "Complete reversal of imaging changes is not required for return.",
-        "Discussion can identify practical solutions.",
+        "The past duration cannot be changed, although the future course and participation may be influenced.",
+        "Past episodes are historical factors, not directly modifiable aspects of the current return-to-work plan.",
         "",
-        "Age cannot be modified.",
-        "That may unnecessarily delay suitable activity."
+        "Age at onset is fixed; present workplace conditions and recovery beliefs can be addressed.",
+        "The past event cannot be altered; current demands and expectations can be addressed collaboratively."
       ],
       "module": "Low back pain",
       "topic": "Prolonged work absence",
@@ -40998,13 +41007,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-211",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-212",
@@ -41096,20 +41105,20 @@
       "id": "y2-w02-213",
       "stem": "A patient has uncomplicated nonspecific low back pain without red flags. Which general advice is most appropriate?",
       "options": [
-        "Avoid all bending for life",
-        "Remain in bed until all pain has disappeared",
-        "Use a spinal brace indefinitely as the sole treatment",
+        "Avoid work and usual activity until the pain has fully resolved",
+        "Begin with a week of bed rest before attempting mobilisation",
+        "Use a lumbar corset as the main first-line strategy to restrict movement",
         "Continue normal activities as able and use an appropriate exercise approach",
-        "Obtain repeated imaging before any activity"
+        "Arrange MRI before starting any exercise programme"
       ],
       "answer": 3,
       "why": "Advice should support self-management and staying active, with exercise matched to capabilities and preferences. A new or changing symptom pattern requires reassessment.",
       "distractors": [
-        "This is unnecessarily restrictive.",
-        "Prolonged bed rest can delay functional recovery.",
-        "A brace alone does not provide a general recovery strategy.",
+        "A pain-free state is not usually required before a suitable return to ordinary activities.",
+        "Routine bed rest is not the recommended starting strategy for uncomplicated nonspecific pain.",
+        "NICE does not recommend belts or corsets for managing low back pain; active self-management is central.",
         "",
-        "Routine imaging is not necessary for uncomplicated nonspecific pain."
+        "Imaging is not routinely necessary for uncomplicated low back pain before appropriate activity."
       ],
       "module": "Low back pain",
       "topic": "Advice for uncomplicated low back pain",
@@ -41171,32 +41180,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-213",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-214",
       "stem": "A patient asks whether manual therapy alone should be the complete treatment plan for persistent low back pain. Which response best fits NICE guidance?",
       "options": [
-        "It should always replace exercise",
+        "Use manual therapy initially and defer exercise until all pain has resolved",
         "It may be considered as part of a package that includes exercise",
-        "It removes the need to assess red flags",
-        "It proves the exact cause of pain",
-        "It is mandatory for every patient"
+        "Offer a course of manual therapy without exercise if the pain is longstanding",
+        "Require MRI confirmation of degenerative changes before considering manual therapy",
+        "Combine manual therapy with a lumbar belt as a substitute for active rehabilitation"
       ],
       "answer": 1,
-      "why": "Manual therapy can be considered within a broader package including exercise, with or without psychological therapy. It should not displace active rehabilitation.",
+      "why": "NICE NG59 allows manual therapy to be considered as part of a treatment package that includes exercise. It should support active rehabilitation rather than displace it. The July 2026 update removed the previous reference to psychological therapy from this recommendation.",
       "distractors": [
-        "NICE places it within a package including exercise.",
+        "Exercise need not wait until pain has completely resolved; activity should be appropriate and graded.",
         "",
-        "Safety assessment remains necessary.",
-        "A response to therapy does not establish a unique anatomical diagnosis.",
-        "Suitability depends on context and preference."
+        "Long symptom duration does not remove the recommendation to include exercise in the package.",
+        "Routine imaging is not required to offer an appropriate package for uncomplicated low back pain.",
+        "A belt does not replace the exercise component; NICE does not recommend belts or corsets for managing low back pain."
       ],
       "module": "Low back pain",
       "topic": "Role of manual therapy",
@@ -41205,7 +41214,8 @@
       "category": "Clinical",
       "difficulty": "Moderate",
       "sources": [
-        "https://www.nice.org.uk/guidance/ng59/chapter/recommendations"
+        "https://www.nice.org.uk/guidance/ng59/chapter/recommendations",
+        "https://www.fpm.ac.uk/fpm-position-statement-july-2026-update-nice-ng59 — current professional statement documenting the July 2026 NICE changes"
       ],
       "lo": [
         "Discuss non-pharmacological interventions used in the management of back pain."
@@ -41257,13 +41267,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-214",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-215",
@@ -41356,18 +41366,18 @@
       "stem": "A lesion selectively damages a dorsal spinal nerve root. Which function is primarily affected?",
       "options": [
         "Somatic motor output leaving through the ventral root",
-        "Only cortical visual processing",
+        "Motor and sensory transmission in the dorsal ramus equally",
         "Sensory input entering the spinal cord",
-        "Hormone release by the anterior pituitary",
+        "Autonomic motor output leaving through the ventral root",
         "Motor and sensory fibres of the mixed nerve equally by definition"
       ],
       "answer": 2,
       "why": "Dorsal roots carry sensory afferents into the spinal cord; their cell bodies lie in dorsal-root ganglia. Ventral roots carry motor efferents, and the roots join to form a mixed spinal nerve.",
       "distractors": [
         "That principally travels in the ventral root.",
-        "The lesion is in a spinal sensory pathway.",
+        "The dorsal ramus is mixed, but a selective dorsal-root lesion primarily interrupts sensory afferents, not its motor component.",
         "",
-        "This is not a spinal root function.",
+        "Autonomic efferents at relevant spinal levels leave through ventral roots; a dorsal root carries sensory input.",
         "A dorsal root is not the same structure as the mixed spinal nerve."
       ],
       "module": "Low back pain",
@@ -41429,13 +41439,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-216",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-217",
@@ -41613,19 +41623,19 @@
       "id": "y2-w02-219",
       "stem": "An MRI performed for another reason shows a small lumbar disc bulge in an adult with no back or leg symptoms. Which interpretation is best?",
       "options": [
-        "It proves symptomatic radiculopathy",
-        "It automatically requires surgery",
-        "It predicts certain paralysis",
-        "It makes future history-taking unnecessary",
+        "The level of the bulge establishes a clinical diagnosis of radiculopathy",
+        "Preventive decompression is indicated to avoid later symptoms",
+        "Long-term avoidance of lumbar flexion is needed because the bulge predicts instability",
+        "Serial MRI is needed to monitor progression even if the person remains asymptomatic",
         "The finding may be incidental and requires clinical correlation"
       ],
       "answer": 4,
       "why": "Degenerative imaging findings are common and can be asymptomatic. Their significance depends on level, severity and concordance with symptoms and examination.",
       "distractors": [
-        "Radiculopathy requires compatible clinical findings.",
-        "An asymptomatic imaging finding is not by itself a surgical indication.",
-        "That is not supported by the stated finding.",
-        "Clinical assessment remains essential.",
+        "A radiological level without compatible symptoms or signs does not establish symptomatic root disease.",
+        "An incidental small bulge without symptoms is not by itself an indication for preventive surgery.",
+        "The incidental finding does not establish instability or justify this restriction.",
+        "Routine serial imaging is not justified by this isolated incidental finding alone.",
         ""
       ],
       "module": "Low back pain",
@@ -41688,13 +41698,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-219",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-220",
@@ -41787,18 +41797,18 @@
       "stem": "An NSAID reduces pain associated with inflamed tissue. Which mechanism best explains this effect?",
       "options": [
         "Cyclo-oxygenase inhibition reduces prostaglandin production",
-        "Irreversible blockade of every sensory axon",
-        "Inhibition of thyroid peroxidase",
-        "Complete removal of all inflammatory cells",
+        "Blockade of voltage-gated sodium channels in nociceptive axons",
+        "Inhibition of neuronal noradrenaline and serotonin reuptake",
+        "Binding to the alpha-2-delta subunit of voltage-gated calcium channels",
         "Direct activation of mu-opioid receptors"
       ],
       "answer": 0,
       "why": "NSAIDs inhibit cyclo-oxygenase and reduce prostaglandin synthesis, decreasing sensitisation of nociceptors. The same pathway helps explain gastrointestinal and renal adverse effects.",
       "distractors": [
         "",
-        "NSAIDs do not act as permanent local anaesthetics.",
-        "This is an antithyroid mechanism.",
-        "They do not eliminate every inflammatory cell.",
+        "This is a local-anaesthetic mechanism, rather than the defining NSAID action.",
+        "This mechanism is associated with some antidepressant analgesics rather than NSAIDs.",
+        "This is associated with gabapentinoids, not the principal NSAID mechanism.",
         "This describes opioid action."
       ],
       "module": "Low back pain",
@@ -41860,32 +41870,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-221",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-222",
       "stem": "Activation of a presynaptic mu-opioid receptor reduces nociceptive transmitter release. Which change best explains this?",
       "options": [
-        "Direct activation of postsynaptic NMDA receptors",
+        "Reduced postsynaptic potassium conductance",
         "Reduced calcium entry through voltage-gated calcium channels",
-        "Cyclo-oxygenase inhibition as the defining mechanism",
-        "Increased presynaptic calcium entry",
-        "Complete depletion of synaptic oxygen"
+        "Increased opening of calcium channels at the presynaptic terminal",
+        "Inhibition of prostaglandin synthesis at cyclo-oxygenase",
+        "Local-anaesthetic blockade of voltage-gated sodium channels"
       ],
       "answer": 1,
       "why": "Mu-opioid receptor signalling is inhibitory, including reduced presynaptic calcium-channel activity. Postsynaptic potassium conductance may also increase, reducing excitability.",
       "distractors": [
-        "This does not describe the principal mu-receptor effect.",
+        "Opioid signalling can increase postsynaptic potassium conductance; this reversed postsynaptic effect does not explain reduced presynaptic release.",
         "",
-        "That is the main NSAID pathway.",
-        "That would generally promote vesicle release.",
-        "This is not the receptor-mediated mechanism."
+        "Increased calcium entry would generally favour vesicle release rather than inhibit it.",
+        "This is the principal NSAID pathway rather than the effect of a mu-opioid receptor.",
+        "This describes impaired axonal conduction from a different drug mechanism, not presynaptic mu-receptor signalling."
       ],
       "module": "Low back pain",
       "topic": "Opioid synaptic action",
@@ -41946,32 +41956,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-222",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-223",
       "stem": "Which statement best reflects the analgesic mechanism of paracetamol?",
       "options": [
         "Its mechanism is incompletely resolved and likely includes central pathways",
-        "It is simply a peripheral anti-inflammatory drug identical to ibuprofen",
-        "It is a pure mu-opioid agonist",
-        "It blocks every voltage-gated sodium channel at therapeutic doses",
-        "It has no central nervous system effects"
+        "It acts exclusively through peripheral COX inhibition, with NSAID-like anti-inflammatory potency",
+        "It acts primarily as a direct mu-opioid receptor agonist",
+        "Its analgesia is fully explained by therapeutic blockade of peripheral sodium channels",
+        "It selectively inhibits COX-2 by the same established mechanism as celecoxib"
       ],
       "answer": 0,
       "why": "Paracetamol has analgesic and antipyretic actions, but no single simple mechanism fully accounts for its effects. Central prostaglandin-related and other pathways have been proposed.",
       "distractors": [
         "",
-        "Its clinical anti-inflammatory action and pharmacology differ from conventional NSAIDs.",
-        "It is not a conventional opioid agonist.",
-        "That is not its established analgesic mechanism.",
-        "Central mechanisms are implicated."
+        "Paracetamol has limited conventional peripheral anti-inflammatory activity and its analgesia is not fully explained by this statement.",
+        "Paracetamol is not a conventional direct opioid agonist.",
+        "That is not an established complete explanation of paracetamol analgesia.",
+        "Paracetamol is not classified as a selective COX-2 inhibitor with the same established pharmacology as celecoxib."
       ],
       "module": "Low back pain",
       "topic": "Limits of paracetamol mechanisms",
@@ -42032,13 +42042,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-223",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w02-224",
@@ -42229,7 +42239,7 @@
     },
     {
       "id": "y2-w02-902",
-      "stem": "On the sagittal lumbar images, cerebrospinal fluid in the thecal sac is bright. Which conventional MRI weighting best fits this appearance?",
+      "stem": "Examine the sagittal lumbar images. Which conventional MRI weighting best fits the signal of cerebrospinal fluid in the thecal sac?",
       "options": [
         "A CT bone window",
         "T2 weighting",
@@ -42274,7 +42284,7 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "cerebrospinal fluid in the thecal sac is bright",
+            "quote": "signal of cerebrospinal fluid in the thecal sac",
             "explanation": [
               "T1 and T2 describe different MRI relaxation properties. Recognising fluid signal helps orient a basic scan interpretation, but fat suppression and other sequence modifications must also be considered."
             ],
@@ -42318,31 +42328,31 @@
         "source": "Southampton/Week 3 - Stroke/Spinal Imaging PF.pptx, slide 28",
         "processing": "Raster extraction and JPEG encoding; no anatomical features altered. Maximum dimension 1400 pixels; original aspect ratio preserved."
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-02-2026::y2-w02-902",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 2: Low back pain",
       "collectionId": "bm4-y2-week-02-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-001",
       "stem": "A 56-year-old who has never had a stroke or TIA smokes and has repeatedly raised blood pressure. They ask what primary prevention means in their situation. Which plan most directly addresses the identified preventable stroke risks?",
       "options": [
-        "Bed rest to minimise changes in cerebral blood flow",
-        "Waiting for a TIA before treating blood pressure",
-        "Annual brain CT to detect silent disease",
-        "Long-term anticoagulation solely because they smoke",
+        "Begin aspirin and arrange regular blood-pressure checks",
+        "Support smoking cessation but defer blood-pressure treatment until symptoms develop",
+        "Start a statin and arrange screening carotid ultrasound",
+        "Use oral anticoagulation and recommend regular exercise",
         "Smoking cessation support and effective blood-pressure management"
       ],
       "answer": 4,
       "why": "Smoking and hypertension are modifiable stroke risks. Addressing them before a first cerebrovascular event is primary prevention.",
       "distractors": [
-        "Inactivity does not prevent vascular disease and carries harms.",
-        "Prevention before a first event is precisely the purpose of treating risk factors.",
-        "Screening CT does not address these vascular risk factors.",
-        "Smoking alone is not an indication for anticoagulation.",
+        "Routine aspirin is not the response to smoking and hypertension alone; monitoring without effective risk-factor treatment leaves preventable risk unaddressed.",
+        "Hypertension often causes no symptoms. Waiting for symptoms delays primary prevention.",
+        "Lipid treatment may be appropriate after cardiovascular risk assessment, but this plan does not directly address the two identified risks; screening carotid ultrasound is not their routine preventive treatment.",
+        "Exercise can support prevention, but smoking and hypertension alone are not an indication for oral anticoagulation, and this does not provide blood-pressure treatment or smoking-cessation support.",
         ""
       ],
       "module": "Nervous and Locomotor",
@@ -42353,7 +42363,8 @@
       "difficulty": "Moderate",
       "sources": [
         "https://www.nhs.uk/conditions/stroke/causes/ — Reducing the risk of a stroke",
-        "Graduate Group/Week 3 - Stroke/Stroke Students Notes 2024-25 final.pdf — p2: hypertension and adherence"
+        "Graduate Group/Week 3 - Stroke/Stroke Students Notes 2024-25 final.pdf — p2: hypertension and adherence",
+        "https://www.nice.org.uk/guidance/ng238/chapter/recommendations — Section 1.2: aspirin is not routinely offered for primary prevention of CVD"
       ],
       "lo": [
         "Explain the principles of primary and secondary prevention of cerebrovascular disease, relating these to identifiable risk factors."
@@ -42405,31 +42416,31 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-001",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-002",
       "stem": "A 78-year-old with hypertension and established atrial fibrillation is reviewed after a TIA. There is no mechanical valve, significant mitral stenosis or contraindication to anticoagulation. Which long-term strategy most directly reduces cardioembolic stroke risk?",
       "options": [
-        "Aspirin alone as an equivalent substitute",
-        "Rate control alone once palpitations stop",
-        "No antithrombotic treatment once neurological symptoms resolve",
-        "A short antibiotic course to sterilise the atrial thrombus",
+        "Aspirin with optimal ventricular rate control",
+        "Clopidogrel monotherapy",
+        "Rhythm control without long-term anticoagulation once sinus rhythm returns",
+        "Left atrial appendage occlusion as routine first-line treatment",
         "Oral anticoagulation after individual assessment of bleeding risk"
       ],
       "answer": 4,
       "why": "This patient has a high stroke risk from AF, age, hypertension and prior TIA. Anticoagulation addresses atrial thromboembolism; current NICE guidance usually offers a DOAC when suitable.",
       "distractors": [
-        "Antiplatelet monotherapy is not an equivalent strategy for AF-related embolic risk.",
-        "Rate control relieves symptoms but does not adequately prevent atrial thrombus embolisation.",
-        "Resolution defines a transient event, not resolution of future embolic risk.",
-        "There is no evidence of infective endocarditis; AF thrombi are not treated with antibiotics.",
+        "Neither aspirin nor rate control provides an equivalent substitute for anticoagulation against AF-related thromboembolism.",
+        "An antiplatelet alone is not an equivalent substitute for anticoagulation in this high-risk patient with AF.",
+        "Apparent rhythm control does not remove this patient’s stroke-risk factors. Decisions about anticoagulation require risk assessment rather than an apparently normal rhythm alone.",
+        "NICE reserves consideration of left atrial appendage occlusion for people in whom anticoagulation is contraindicated or not tolerated; neither applies in the stem.",
         ""
       ],
       "module": "Nervous and Locomotor",
@@ -42439,8 +42450,8 @@
       "category": "Pharmacology",
       "difficulty": "Moderate",
       "sources": [
-        "Graduate Group/Week 3 - Stroke/Stroke Students Notes 2024-25 final.pdf — pp2–4",
-        "https://www.nice.org.uk/guidance/ng196/chapter/recommendations — sections 1.2 and 1.6"
+        "Graduate Group/Week 3 - Stroke/Stroke Students Notes 2024-25 final.pdf — pp2–4: historical AF/TIA case",
+        "https://www.nice.org.uk/guidance/NG196/chapter/recommendations — sections 1.6 and 1.11; anticoagulation, left atrial appendage occlusion and stopping anticoagulation"
       ],
       "lo": [
         "Explain the principles of primary and secondary prevention of cerebrovascular disease, relating these to identifiable risk factors."
@@ -42492,17 +42503,17 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-002",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-003",
-      "stem": "After a TIA, a patient stops their anticoagulant because they fear bleeding but feels too embarrassed to tell the team. Which consultation response is most likely to support safe long-term prevention?",
+      "stem": "After a TIA, a patient with atrial fibrillation stops their prescribed anticoagulant because they fear bleeding. They feel too embarrassed to tell the team. Which consultation response is most likely to support safe long-term prevention?",
       "options": [
         "Explore the concern non-judgementally and agree a practical risk-benefit and monitoring plan",
         "Assume the prescription is taken because it was dispensed",
@@ -42579,13 +42590,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-003",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-004",
@@ -42613,8 +42624,8 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "https://www.nhs.uk/conditions/stroke/causes/ — Risk factors",
-        "Graduate Group/Week 3 - Stroke/Stroke Students Notes 2024-25 final.pdf — p9: risk stratification"
+        "https://www.nrscotland.gov.uk/publications/vital-events-general-background-information/?section=age-and-age-standardisation-rates — Age and Age Standardisation (Rates)",
+        "https://www.nhs.uk/conditions/stroke/causes/ — Age and other stroke risk factors"
       ],
       "lo": [
         "Discuss the reasons for the differing incidence of stroke across various population groups, and the risk factors for cerebrovascular disease."
@@ -42666,13 +42677,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-004",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-005",
@@ -44411,19 +44422,19 @@
       "stem": "Tapping the patellar tendon stretches quadriceps. Which afferent is central to the monosynaptic stretch-reflex limb?",
       "options": [
         "A group Ia muscle-spindle afferent",
-        "A sympathetic postganglionic fibre",
-        "A cutaneous pain C fibre",
+        "A group Ib Golgi tendon-organ afferent",
+        "A group II muscle-spindle afferent",
         "A gamma motor efferent",
-        "A visual retinal ganglion axon"
+        "A cutaneous A-beta mechanoreceptor afferent"
       ],
       "answer": 0,
       "why": "Muscle-spindle Ia afferents enter the cord and excite alpha motor neurons supplying the stretched muscle. Additional circuits provide effects such as reciprocal inhibition.",
       "distractors": [
         "",
-        "This is not the somatic stretch-reflex afferent.",
-        "The primary trigger is muscle stretch, not cutaneous nociception.",
-        "Gamma neurons adjust spindle sensitivity rather than carrying the afferent signal.",
-        "The pathway is local spinal proprioception."
+        "Golgi tendon organs signal muscle tension through Ib afferents. The classic short-latency monosynaptic stretch reflex uses spindle Ia afferents.",
+        "Group II fibres convey mainly static muscle-length information and contribute to spinal reflex control, but Ia afferents mediate the classic monosynaptic tendon-jerk connection.",
+        "Gamma motor neurons innervate intrafusal fibres and adjust spindle sensitivity; they do not carry the sensory signal to the cord.",
+        "Cutaneous mechanoreceptors convey touch and pressure. The tendon tap chiefly activates a muscle-spindle stretch pathway."
       ],
       "module": "Stroke",
       "topic": "Patellar reflex circuit",
@@ -44485,32 +44496,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-206",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-207",
       "stem": "Several weeks after a corticospinal lesion, a patient has brisk tendon reflexes and spasticity. What best explains the increased reflex response?",
       "options": [
-        "Failure of all neuromuscular junction transmission",
-        "Severing the tendon",
-        "Complete destruction of the reflex afferent",
+        "Reduced acetylcholine release at the neuromuscular junction",
+        "Increased descending inhibition of the stretch-reflex circuit",
+        "Reduced excitability of the Ia sensory afferents",
         "Altered descending control of intact spinal reflex circuits",
-        "Loss of every alpha motor neuron supplying the muscle"
+        "Degeneration of the segmental alpha motor neurons"
       ],
       "answer": 3,
       "why": "An UMN lesion disrupts descending modulation of spinal motor circuits. After an initial phase, this can produce hyperreflexia and velocity-dependent increased tone.",
       "distractors": [
-        "That would prevent the muscle response.",
-        "That would not create a brisk stretch reflex.",
-        "That would tend to reduce or abolish the reflex.",
+        "Reduced neuromuscular transmission would weaken the muscle response; it does not explain the established UMN pattern.",
+        "Greater inhibitory control would suppress the reflex. UMN injury disrupts the balance of descending control and can increase reflex excitability.",
+        "Reduced afferent drive would tend to diminish, rather than exaggerate, the stretch-reflex response.",
         "",
-        "That would produce an LMN pattern with reduced reflexes."
+        "Loss of the final motor pathway produces an LMN pattern with reduced reflexes, rather than the described spastic hyperreflexia."
       ],
       "module": "Stroke",
       "topic": "Hyperreflexia after an UMN lesion",
@@ -44571,13 +44582,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-207",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-208",
@@ -45476,7 +45487,7 @@
       "curriculumSource": "Learning Objectives/Week 3/Learning outcomes - Stroke.md",
       "assessmentObjective": "Excitatory and inhibitory amino-acid transmitters",
       "yield": "high",
-      "questionType": "case",
+      "questionType": "knowledge",
       "optional": false,
       "supplemental": false,
       "provenance": {
@@ -45517,32 +45528,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-218",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-219",
       "stem": "At a skeletal neuromuscular junction, which process rapidly terminates acetylcholine action?",
       "options": [
-        "Renal filtration of the entire synaptic cleft",
-        "Binding irreversibly to every nicotinic receptor",
+        "Oxidative deamination by monoamine oxidase",
+        "Methylation by catechol-O-methyltransferase",
         "Hydrolysis by acetylcholinesterase in the cleft",
-        "Reuptake of intact acetylcholine as the sole mechanism",
-        "Conversion of acetylcholine into dopamine"
+        "Reuptake of intact acetylcholine into the presynaptic terminal",
+        "Diffusion away from the endplate without enzymatic breakdown"
       ],
       "answer": 2,
       "why": "Acetylcholinesterase hydrolyses acetylcholine, limiting receptor stimulation. Choline can then be recovered by the presynaptic terminal for synthesis.",
       "distractors": [
-        "Local enzymatic breakdown is the relevant rapid mechanism.",
-        "Normal receptor activation is not permanent.",
+        "Monoamine oxidase metabolises monoamine transmitters; acetylcholine is rapidly hydrolysed by acetylcholinesterase at the neuromuscular junction.",
+        "COMT contributes to catecholamine metabolism, not the rapid termination of acetylcholine action at the motor endplate.",
         "",
-        "Choline is taken up for reuse after acetylcholine breakdown.",
-        "These are distinct biosynthetic systems."
+        "The terminal recovers choline after acetylcholine has been hydrolysed. Intact acetylcholine reuptake is not the principal clearance mechanism.",
+        "Diffusion can remove transmitter from the cleft, but rapid termination at the neuromuscular junction depends chiefly on acetylcholinesterase activity."
       ],
       "module": "Stroke",
       "topic": "Acetylcholine clearance",
@@ -45603,13 +45614,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-219",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w03-220",
@@ -45903,19 +45914,19 @@
       "stem": "The graph is a schematic neuronal action potential. During the shaded interval X, which channel change is most responsible for preventing an immediate second action potential of normal amplitude?",
       "options": [
         "Inactivation of many voltage-gated sodium channels",
-        "Loss of all chloride ions from the cell",
-        "Permanent closure of all potassium leak channels",
-        "Complete exhaustion of the extracellular sodium supply",
-        "Reversal of every sodium–potassium pump"
+        "Increased voltage-gated potassium conductance alone",
+        "Closure of sodium channels into a resting, immediately available state",
+        "Opening of postsynaptic GABA-A chloride channels",
+        "An accelerated sodium–potassium pump current"
       ],
       "answer": 0,
       "why": "X falls during early repolarisation, when many voltage-gated sodium channels remain inactivated. They must recover from inactivation as the membrane repolarises before they can support another normal regenerative upstroke.",
       "distractors": [
         "",
-        "Complete chloride loss is neither shown nor responsible for sodium-channel refractoriness.",
-        "Potassium leak channels are not permanently shut during an action potential.",
-        "An individual action potential moves only a small fraction of the available ions; extracellular sodium is not exhausted.",
-        "The sodium–potassium pump maintains gradients but does not reverse to create this refractory period."
+        "Persisting potassium conductance contributes to reduced excitability, particularly later in the relative refractory period. Sodium-channel inactivation is the main reason another normal upstroke cannot immediately occur in the early interval shown.",
+        "A resting closed sodium channel can reopen with sufficient depolarisation. An inactivated channel must first recover before it can participate in another upstroke.",
+        "Inhibitory synaptic input can reduce excitability, but it is not an intrinsic channel-state change produced by the preceding axonal action potential.",
+        "The pump maintains ion gradients over time. Recovery of voltage-gated sodium channels, rather than pump speed, principally determines this immediate refractory interval."
       ],
       "module": "Stroke",
       "topic": "Refractoriness during an action potential",
@@ -45987,13 +45998,13 @@
         "inspected": true,
         "source": "Southampton/Week 3 - Stroke/Transmission of electrical signals 2026Ho.pptx, action-potential section"
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-03-2026::y2-w03-903",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 3: Stroke",
       "collectionId": "bm4-y2-week-03-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-200",
@@ -46021,7 +46032,8 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "Week 4 CNS injury/Southampton/Models of Disability/blackboard-page.txt — medical and social models"
+        "https://www.nice.org.uk/glossary?letter=o — Opportunity costs",
+        "https://indepth.nice.org.uk/how-nice-makes-its-decisions/index.html — Finite NHS budgets and displaced treatment benefits"
       ],
       "lo": [
         "Examine the potential conflict between environmental and economic costs of meeting the health care needs of the individual and population."
@@ -46073,13 +46085,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-200",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-201",
@@ -46107,7 +46119,8 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "Week 4 CNS injury/Southampton/Models of Disability/blackboard-page.txt — medical and social models"
+        "https://www.england.nhs.uk/ahp/greener-ahp-hub/specific-areas-for-consideration/digital-transformation-and-the-application-of-technology/ — Digital care, travel emissions and inclusion",
+        "https://www.england.nhs.uk/long-read/remote-consulting/ — Appropriate remote assessment and face-to-face access"
       ],
       "lo": [
         "Examine the potential conflict between environmental and economic costs of meeting the health care needs of the individual and population."
@@ -46159,13 +46172,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-201",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-202",
@@ -46365,7 +46378,7 @@
       "category": "Other",
       "difficulty": "Moderate",
       "sources": [
-        "Week 4 CNS injury/Southampton/Models of Disability/blackboard-page.txt — medical and social models",
+        "https://www.gmc-uk.org/professional-standards/the-professional-standards/treatment-and-care-towards-the-end-of-life/working-with-the-principles-and-decision-making-models — Paragraphs 40–42: benefits, burdens, risks and individual values",
         "https://www.gov.uk/government/publications/health-and-social-care-workers-mental-capacity-act-decisions/making-decisions-about-your-health-welfare-or-finances"
       ],
       "lo": [
@@ -46418,13 +46431,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-204",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-205",
@@ -47898,13 +47911,13 @@
       "stem": "A patient with progressive thoracic back pain develops a sensory level and worsening leg weakness over weeks. What principle is most important?",
       "options": [
         "Only muscle disease causes a sensory level",
-        "Cord compression can result from malignant or benign lesions and needs timely assessment",
+        "Cord compression can result from malignant or benign lesions and requires emergency assessment",
         "Normal arm power excludes thoracic cord disease",
         "A slow course excludes serious pathology",
         "Compression requires a preceding major accident"
       ],
       "answer": 1,
-      "why": "A sensory level with progressive bilateral neurological deficits raises concern for a cord lesion. Compression is a mechanism, not a single diagnosis, and can have several causes.",
+      "why": "A sensory level with progressive neurological deficits raises concern for a cord lesion. Suspected cord compression requires emergency assessment and urgent spinal imaging, rather than routine outpatient follow-up. Compression can have malignant or benign causes.",
       "distractors": [
         "A sensory level suggests a spinal cord localisation.",
         "",
@@ -47919,7 +47932,8 @@
       "category": "Clinical",
       "difficulty": "Moderate",
       "sources": [
-        "Winchester/Week 4 - CNS injury/BM4 Acute spine anatomy function injury 2026.ppt — spinal pathways and injury patterns"
+        "Winchester/Week 4 - CNS injury/BM4 Acute spine anatomy function injury 2026.ppt — spinal pathways and injury patterns",
+        "https://www.nice.org.uk/guidance/ng234/chapter/recommendations — Sections 1.3 and 1.5: recognition and urgent imaging of suspected metastatic cord compression"
       ],
       "lo": [
         "Identify and distinguish between the common mechanisms by which the spinal cord may be damaged, including direct trauma, vascular causes, and benign and malignant compression."
@@ -47966,18 +47980,18 @@
         "followUpQuestions": [
           {
             "prompt": "Why should worsening deficits change urgency?",
-            "answer": "Continued compression can cause irreversible neurological injury."
+            "answer": "Progressive weakness and a sensory level require emergency assessment because continued compression can cause irreversible neurological injury."
           }
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-222",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-223",
@@ -48177,7 +48191,9 @@
       "category": "Anatomy",
       "difficulty": "Moderate",
       "sources": [
-        "Graduate Group/Week 4 - CNS injury/Student notes CNS injury for 2026-27.pdf — case history, examination and CT findings"
+        "Graduate Group/Week 4 - CNS injury/Student notes CNS injury for 2026-27.pdf — p4: facial-trauma clinical context",
+        "https://surgeryreference.aofoundation.org/cmf/trauma/midface/orbit-floor/definition — Orbital floor fracture, muscle entrapment and eye assessment",
+        "https://surgeryreference.aofoundation.org/cmf/trauma/midface/orbit-floor/reconstruction — Infraorbital nerve course and sensory deficit"
       ],
       "lo": [
         "Outline the anatomy of the facial structures, including the skull, orbit, ear, nose, facial bones and nasal sinuses, relating this to common injuries."
@@ -48229,13 +48245,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-225",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-226",
@@ -48263,7 +48279,7 @@
       "category": "Anatomy",
       "difficulty": "Moderate",
       "sources": [
-        "Graduate Group/Week 4 - CNS injury/Student notes CNS injury for 2026-27.pdf — case history, examination and CT findings"
+        "https://surgeryreference.aofoundation.org/cmf/trauma/skull-base-cranial-vault/skull-base-lateral/definition — Anterior skull base, olfactory fibres through the ethmoid cribriform plate, and traumatic CSF leakage"
       ],
       "lo": [
         "Outline the anatomy of the facial structures, including the skull, orbit, ear, nose, facial bones and nasal sinuses, relating this to common injuries."
@@ -48315,13 +48331,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-226",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-227",
@@ -48963,7 +48979,7 @@
       "curriculumSource": "Learning Objectives/Week 4/Learning outcomes - CNS injury.md",
       "assessmentObjective": "Levetiracetam target",
       "yield": "high",
-      "questionType": "case",
+      "questionType": "knowledge",
       "optional": false,
       "supplemental": false,
       "provenance": {
@@ -49004,13 +49020,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-234",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-235",
@@ -49125,7 +49141,8 @@
       "category": "Clinical",
       "difficulty": "Moderate",
       "sources": [
-        "https://www.nice.org.uk/guidance/ng116/chapter/recommendations"
+        "https://www.nice.org.uk/guidance/ng116/chapter/recommendations",
+        "https://www.nhs.uk/mental-health/conditions/dissociative-disorders/ — Depersonalisation-derealisation disorder"
       ],
       "lo": [
         "Understand emotional trauma, dissociative experiences and PTSD"
@@ -49178,13 +49195,13 @@
         "reviewVersion": 2
       },
       "scopeStatus": "Talis-only objective; absent current Blackboard weekly outcomes",
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-04-2026::y2-w04-236",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 4: CNS injury",
       "collectionId": "bm4-y2-week-04-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w04-237",
@@ -49755,7 +49772,7 @@
       "year": "Year 2",
       "week": "Week 5 - Chronic neurological disorders",
       "category": "Clinical",
-      "difficulty": "Moderate",
+      "difficulty": "Easy",
       "sources": [
         "Southampton/Week 4 - CNS injury/BM4 MS talk Blackboard.pptx — slides 3–9",
         "https://www.nhs.uk/conditions/multiple-sclerosis/"
@@ -49776,7 +49793,7 @@
         "editorialReview": "AI author self-review; independent AI review recorded separately",
         "clinicalSignOff": false
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "deepReview": {
         "keyClues": [
           {
@@ -49813,10 +49830,10 @@
       },
       "reviewedAt": "",
       "uid": "bm4-y2-week-05-2026::y2-w05-003",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "collectionId": "bm4-y2-week-05-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w05-004",
@@ -51403,7 +51420,7 @@
       "year": "Year 2",
       "week": "Week 5 - Chronic neurological disorders",
       "category": "Anatomy",
-      "difficulty": "Moderate",
+      "difficulty": "Easy",
       "sources": [
         "Winchester/Week 5 - Chronic neurological disorders/Cranial Nerve Anatomy and Application.pptx — slides 6–8"
       ],
@@ -51423,7 +51440,7 @@
         "editorialReview": "AI author self-review; independent AI review recorded separately",
         "clinicalSignOff": false
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "deepReview": {
         "keyClues": [
           {
@@ -51460,10 +51477,10 @@
       },
       "reviewedAt": "",
       "uid": "bm4-y2-week-05-2026::y2-w05-022",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "collectionId": "bm4-y2-week-05-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w05-023",
@@ -52005,7 +52022,7 @@
       "year": "Year 2",
       "week": "Week 5 - Chronic neurological disorders",
       "category": "Anatomy",
-      "difficulty": "Moderate",
+      "difficulty": "Easy",
       "sources": [
         "Winchester/Week 5 - Chronic neurological disorders/Cranial Nerve Anatomy and Application.pptx — slides 60–61"
       ],
@@ -52025,7 +52042,7 @@
         "editorialReview": "AI author self-review; independent AI review recorded separately",
         "clinicalSignOff": false
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "deepReview": {
         "keyClues": [
           {
@@ -52062,10 +52079,10 @@
       },
       "reviewedAt": "",
       "uid": "bm4-y2-week-05-2026::y2-w05-029",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "collectionId": "bm4-y2-week-05-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w05-030",
@@ -52695,7 +52712,7 @@
       "year": "Year 2",
       "week": "Week 5 - Chronic neurological disorders",
       "category": "Anatomy",
-      "difficulty": "Moderate",
+      "difficulty": "Easy",
       "sources": [
         "Winchester/Week 5 - Chronic neurological disorders/Cranial Nerve Anatomy and Application.pptx — slides 19–23"
       ],
@@ -52715,7 +52732,7 @@
         "editorialReview": "AI author self-review; independent AI review recorded separately",
         "clinicalSignOff": false
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "deepReview": {
         "keyClues": [
           {
@@ -52752,10 +52769,10 @@
       },
       "reviewedAt": "",
       "uid": "bm4-y2-week-05-2026::y2-w05-037",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "collectionId": "bm4-y2-week-05-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w05-038",
@@ -53297,7 +53314,7 @@
       "year": "Year 2",
       "week": "Week 5 - Chronic neurological disorders",
       "category": "Physiology",
-      "difficulty": "Moderate",
+      "difficulty": "Easy",
       "sources": [
         "Southampton/Week 4 - CNS injury/BM4 MS talk Blackboard.pptx — slide 8"
       ],
@@ -53317,7 +53334,7 @@
         "editorialReview": "AI author self-review; independent AI review recorded separately",
         "clinicalSignOff": false
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "deepReview": {
         "keyClues": [
           {
@@ -53354,10 +53371,10 @@
       },
       "reviewedAt": "",
       "uid": "bm4-y2-week-05-2026::y2-w05-044",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 5: Chronic neurological disorders",
       "collectionId": "bm4-y2-week-05-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w05-901",
@@ -53728,31 +53745,32 @@
     },
     {
       "id": "y2-w06-202",
-      "stem": "A woman with mild dementia understands, retains and weighs information about a blood test and communicates her choice. Her daughter asks to consent for her instead. What is the best response in England and Wales?",
+      "stem": "In England and Wales, a woman with mild dementia can understand, retain and weigh information and communicate decisions about a blood test and sharing its results. She agrees to the test but declines disclosure to her daughter. No legal duty or serious-harm justification for disclosure is identified. The daughter asks to consent and receive the results as next of kin. What is the best response?",
       "options": [
-        "Treat a low cognitive screening score as the legal capacity test",
-        "Use the dementia diagnosis as proof of incapacity",
-        "Ask the daughter to consent simply as next of kin",
-        "Ask the daughter to override any refusal",
-        "Seek the woman’s own consent for this decision"
+        "Obtain the daughter’s consent and disclose because she is listed as next of kin",
+        "Obtain the woman’s consent but disclose routinely to the daughter because she provides daily care",
+        "Use a cognitive screening score to decide whether the woman’s refusal of disclosure counts",
+        "Delay the blood test until the woman and daughter agree on disclosure",
+        "Use the woman’s consent and respect her decision about disclosure, while discussing support and recording her wishes"
       ],
       "answer": 4,
-      "why": "The Mental Capacity Act presumes capacity and requires support with decision-making. A dementia diagnosis alone does not establish inability to make this particular decision.",
+      "why": "A dementia diagnosis does not remove decision-making authority. Treatment consent and permission to share information are separate decisions. Her stated wishes should guide both; relatives do not automatically acquire access to results.",
       "distractors": [
-        "The functional legal assessment is decision-specific and is not a score threshold.",
-        "Capacity cannot be inferred from a diagnosis alone.",
-        "Next-of-kin status does not confer automatic decision-making authority.",
-        "A capacitous decision belongs to the patient.",
+        "Next-of-kin status does not confer authority to consent for a capacitous adult or an automatic right to confidential results.",
+        "Being a carer does not override a capacitous refusal of disclosure; any exception requires a separate justification.",
+        "A cognitive score does not replace assessment of capacity for the particular treatment or disclosure decision.",
+        "The woman has consented to the test; disagreement about family disclosure does not by itself invalidate that consent.",
         ""
       ],
       "module": "Frailty and dementia",
-      "topic": "Decision-specific capacity",
+      "topic": "Capacity, consent and confidentiality in dementia",
       "year": "Year 2",
       "week": "Week 6 - Frailty and dementia",
       "category": "Clinical",
       "difficulty": "Moderate",
       "sources": [
-        "https://www.legislation.gov.uk/ukpga/2005/9"
+        "https://www.legislation.gov.uk/ukpga/2005/9",
+        "https://www.gmc-uk.org/professional-standards/the-professional-standards/confidentiality/using-and-disclosing-patient-information-for-direct-care"
       ],
       "lo": [
         "Identify and discuss the issues of consent and confidentiality that might arise with people with dementia, including the Mental Capacity Act and Lasting Power of Attorney"
@@ -53761,7 +53779,7 @@
         "Y2-W06-LO02"
       ],
       "curriculumSource": "Week 6 Frailty and dementia/Learning outcomes Frailty and dementia/blackboard-page.txt",
-      "assessmentObjective": "Decision-specific capacity",
+      "assessmentObjective": "Capacity, consent and confidentiality in dementia",
       "yield": "high",
       "questionType": "case",
       "optional": false,
@@ -53773,9 +53791,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "understands, retains and weighs",
+            "quote": "declines disclosure to her daughter",
             "explanation": [
-              "The Mental Capacity Act presumes capacity and requires support with decision-making. A dementia diagnosis alone does not establish inability to make this particular decision."
+              "She has capacity for disclosure and no exception has been identified, so the daughter’s relationship does not override her refusal."
             ],
             "supports": [
               4
@@ -53784,37 +53802,37 @@
           }
         ],
         "keyConcept": {
-          "summary": "Decision-specific capacity",
+          "summary": "Capacity, consent and confidentiality in dementia",
           "paragraphs": [
-            "The Mental Capacity Act presumes capacity and requires support with decision-making. A dementia diagnosis alone does not establish inability to make this particular decision."
+            "Assess capacity for each decision and support participation. Record what information the patient permits sharing, with whom and in what circumstances. Receiving concerns from a relative is different from disclosing the patient’s information to them."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Capacity cannot be inferred from a diagnosis alone."
+          "Do not assume that dementia or next-of-kin status transfers consent or confidentiality decisions to family."
         ],
         "recogniseNextTime": [
-          "The Mental Capacity Act presumes capacity and requires support with decision-making. A dementia diagnosis alone does not establish inability to make this particular decision."
+          "Separate capacity, consent to treatment and consent to disclosure."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Does an unwise decision itself demonstrate incapacity?",
-            "answer": "No. The relevant functional abilities and any impairment causing inability must be assessed."
+            "prompt": "Can the clinician listen to the daughter’s concerns without sharing the woman’s confidential results?",
+            "answer": "Yes. Listening to collateral concerns need not involve disclosing confidential information; explain the limits on what can be shared back."
           }
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-202",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-203",
-      "stem": "A man lacks capacity for a proposed treatment decision despite appropriate support. His daughter produces a registered health and welfare LPA covering this decision. What is the correct principle?",
+      "stem": "In England and Wales, a man lacks capacity for a proposed treatment decision despite appropriate support. His daughter produces a registered health and welfare LPA covering this decision. What is the correct principle?",
       "options": [
         "Registration allows her to override him even when he has capacity",
         "Check its scope and involve her as the authorised decision-maker acting in his best interests",
@@ -53890,13 +53908,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-203",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-204",
@@ -54097,7 +54115,7 @@
       "difficulty": "Moderate",
       "sources": [
         "Week 6 Frailty and dementia/Winchester/Common Problems in the Older Adult/Common Problems in the Older Adult Dr Ivan Aganin Oct 2026.pptx — Frailty; 5Ms; prescribing cascade",
-        "https://www.england.nhs.uk/ourwork/clinical%20policy/older%20people/frailty/efi/"
+        "https://www.england.nhs.uk/ourwork/clinical-policy/older-people/frailty/efi/"
       ],
       "lo": [
         "Outline the role and limitations of clinical frailty scoring systems, such as Rockwood and eFI (electronic Frailty Index), and their place in guiding clinical management"
@@ -54149,13 +54167,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-206",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-207",
@@ -54764,25 +54782,25 @@
     },
     {
       "id": "y2-w06-214",
-      "stem": "An older person without their hearing aids scores poorly on a verbal cognitive screen in a noisy room. What is the best interpretation?",
+      "stem": "An older person without their hearing aids scores poorly on a verbal cognitive screen in a noisy room. With hearing aids fitted, they communicate well, but a relative describes a year of worsening memory and difficulty managing bills. Which is the most appropriate initial assessment in primary care?",
       "options": [
-        "A poor score automatically proves lack of capacity for every decision",
-        "Exclude dementia because hearing loss is present",
-        "Optimise communication and interpret the score with history, function and appropriate reassessment",
-        "The score alone proves Alzheimer’s disease",
-        "Hearing has no influence on verbally administered tests"
+        "Obtain an EEG first and use a normal result to exclude a dementia syndrome",
+        "Request APOE genotyping to determine whether the symptoms are caused by Alzheimer’s disease",
+        "Take patient and collateral histories, examine and review medicines, arrange appropriate reversible-cause tests, and use an accessible validated screen such as 6CIT",
+        "Diagnose Alzheimer’s disease from the original screening result and start treatment before further assessment",
+        "Arrange a CT scan as the sole assessment, with no further evaluation if it shows no focal lesion"
       ],
       "answer": 2,
-      "why": "Cognitive test performance can be affected by hearing, language, education, distress and acute illness. Correct avoidable testing barriers and combine results with clinical and collateral information.",
+      "why": "Correct sensory barriers and investigate the reported decline. Initial assessment combines history, daily function, examination, medication review, appropriate blood and urine tests, and a validated cognitive instrument. A screening result alone neither diagnoses a subtype nor excludes dementia.",
       "distractors": [
-        "Capacity requires a decision-specific assessment.",
-        "Sensory impairment and dementia can coexist.",
+        "EEG is not the routine first-line dementia assessment and a normal recording does not exclude dementia.",
+        "APOE is a susceptibility marker, not a test establishing the cause of these symptoms in an individual.",
         "",
-        "A screening score cannot establish a subtype diagnosis.",
-        "Poor access to instructions can impair performance."
+        "The original result was confounded by poor hearing; a score alone does not establish a dementia diagnosis or subtype.",
+        "Imaging can help identify causes and subtypes, but cannot substitute for history, functional assessment and cognitive evaluation."
       ],
       "module": "Frailty and dementia",
-      "topic": "Cognitive testing with sensory impairment",
+      "topic": "Initial assessment of suspected dementia",
       "year": "Year 2",
       "week": "Week 6 - Frailty and dementia",
       "category": "Clinical",
@@ -54798,7 +54816,7 @@
         "Y2-W06-LO08"
       ],
       "curriculumSource": "Week 6 Frailty and dementia/Learning outcomes Frailty and dementia/blackboard-page.txt",
-      "assessmentObjective": "Cognitive testing with sensory impairment",
+      "assessmentObjective": "Initial assessment of suspected dementia",
       "yield": "high",
       "questionType": "case",
       "optional": false,
@@ -54810,9 +54828,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "without their hearing aids",
+            "quote": "a year of worsening memory and difficulty managing bills",
             "explanation": [
-              "Cognitive test performance can be affected by hearing, language, education, distress and acute illness. Correct avoidable testing barriers and combine results with clinical and collateral information."
+              "Progressive functional change remains clinically important after correcting the hearing barrier, so further assessment is needed."
             ],
             "supports": [
               2
@@ -54821,33 +54839,33 @@
           }
         ],
         "keyConcept": {
-          "summary": "Cognitive testing with sensory impairment",
+          "summary": "Initial assessment of suspected dementia",
           "paragraphs": [
-            "Cognitive test performance can be affected by hearing, language, education, distress and acute illness. Correct avoidable testing barriers and combine results with clinical and collateral information."
+            "Use a validated instrument in suitable conditions, alongside the person’s history and collateral information. Investigate reversible contributors and arrange specialist assessment if dementia remains suspected. Structural imaging may assist diagnosis but is not a standalone dementia test."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "A screening score cannot establish a subtype diagnosis."
+          "Do not dismiss persistent decline because hearing impairment explains part of the first test performance."
         ],
         "recogniseNextTime": [
-          "Cognitive test performance can be affected by hearing, language, education, distress and acute illness. Correct avoidable testing barriers and combine results with clinical and collateral information."
+          "Optimise testing, establish change from baseline and investigate contributors before assigning a subtype."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Does a normal brief screening score exclude dementia?",
-            "answer": "No; clinical concern and functional change can warrant further assessment despite a normal screen."
+            "prompt": "Does a normal repeat brief cognitive score exclude dementia?",
+            "answer": "No. Persistent clinical or functional concern can justify further assessment despite a normal score."
           }
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-214",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-215",
@@ -55111,31 +55129,31 @@
     },
     {
       "id": "y2-w06-218",
-      "stem": "A person with dementia becomes anxious when daily tasks change unpredictably. Which strategy best applies knowledge of memory and learning?",
+      "stem": "A person with early Alzheimer’s disease is learning where a daily-use item is stored. The therapist supplies the correct response immediately, prompts before the person guesses, and gradually reduces the prompts after repeated successful practice. Which learning approach is being used?",
       "options": [
-        "Assume no learning or meaningful participation is possible",
-        "Repeatedly test failed recall until the person becomes distressed",
-        "Remove all prompts to maximise memory load",
-        "Use consistent cues and familiar routines, adjusted to the person’s abilities",
-        "Introduce an entirely new sequence at each attempt"
+        "Unguided trial-and-error learning",
+        "Spaced retrieval defined by progressively longer recall intervals",
+        "Extinction of a previously conditioned response",
+        "Errorless learning with gradually reduced cues",
+        "Punishment of incorrect responses to suppress errors"
       ],
       "answer": 3,
-      "why": "Consistent environmental cues and familiar routines can reduce demands on impaired episodic or working memory and draw on preserved abilities. Support should remain person-centred rather than rigid.",
+      "why": "Errorless learning reduces opportunities to encode and repeat errors by supplying effective cues and successful practice. Gradually fading cues can support learning while limiting repeated failure; the task and prompts should match the person’s abilities.",
       "distractors": [
-        "Some learning systems and skills may remain usable.",
-        "Repeated failure can increase distress without improving functional support.",
-        "Appropriate cues can reduce cognitive demand and support success.",
+        "The therapist actively prevents guessing and errors rather than allowing unguided trial and error.",
+        "Spaced retrieval changes the interval between recall attempts; progressively longer intervals are not the defining feature described here.",
+        "Extinction involves reducing a learned response by removing reinforcement or the relevant association, rather than providing immediate correct prompts.",
         "",
-        "Unpredictable demands increase the amount of new learning required."
+        "Correct responses are prompted and practised; no punishment is described or required."
       ],
       "module": "Frailty and dementia",
-      "topic": "Using preserved learning in care",
+      "topic": "Errorless learning in dementia care",
       "year": "Year 2",
       "week": "Week 6 - Frailty and dementia",
       "category": "Clinical",
       "difficulty": "Moderate",
       "sources": [
-        "Week 6 Frailty and dementia/Southampton/Learning and memory/Learning and Memory 2026 BM4 BB.pptx — Memory systems and clinical application"
+        "Week 6 Frailty and dementia/Southampton/Learning and memory/Learning and Memory 2026 BM4 BB.pptx — slides 26–28"
       ],
       "lo": [
         "Describe some key psychological theories regarding human memory and how these apply to the management of a patient with dementia"
@@ -55144,7 +55162,7 @@
         "Y2-W06-LO10"
       ],
       "curriculumSource": "Week 6 Frailty and dementia/Learning outcomes Frailty and dementia/blackboard-page.txt",
-      "assessmentObjective": "Using preserved learning in care",
+      "assessmentObjective": "Errorless learning in dementia care",
       "yield": "high",
       "questionType": "case",
       "optional": false,
@@ -55156,9 +55174,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "tasks change unpredictably",
+            "quote": "prompts before the person guesses",
             "explanation": [
-              "Consistent environmental cues and familiar routines can reduce demands on impaired episodic or working memory and draw on preserved abilities. Support should remain person-centred rather than rigid."
+              "Preventing errors while rehearsing the correct response identifies errorless learning."
             ],
             "supports": [
               3
@@ -55167,33 +55185,33 @@
           }
         ],
         "keyConcept": {
-          "summary": "Using preserved learning in care",
+          "summary": "Errorless learning in dementia care",
           "paragraphs": [
-            "Consistent environmental cues and familiar routines can reduce demands on impaired episodic or working memory and draw on preserved abilities. Support should remain person-centred rather than rigid."
+            "Different learning systems can be affected unequally in dementia. Structured cues and repeated successful practice can support specific functional tasks without implying that all new learning or all memory is preserved."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Repeated failure can increase distress without improving functional support."
+          "Do not equate fading cues with increasing recall intervals; these are different features that can also be combined."
         ],
         "recogniseNextTime": [
-          "Consistent environmental cues and familiar routines can reduce demands on impaired episodic or working memory and draw on preserved abilities. Support should remain person-centred rather than rigid."
+          "Immediate correct prompts and prevention of guessing suggest errorless learning."
         ],
         "followUpQuestions": [
           {
-            "prompt": "How can external memory aids help?",
-            "answer": "Labels, calendars or prompts can reduce recall demands when matched to the person’s abilities and preferences."
+            "prompt": "How does spaced retrieval differ?",
+            "answer": "It practises recall across progressively longer intervals. It may be combined with errorless learning, but increasing the interval is its defining feature."
           }
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-218",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-219",
@@ -55570,10 +55588,12 @@
         "Week 6 Frailty and dementia/Southampton/Pathology of Ageing and Dementia/Pathology of Ageing and Dementia BM4 MF.pptx — Dementia pathology and protein aggregates"
       ],
       "lo": [
-        "Describe the macroscopic and microscopic pathological features of Alzheimer's disease, contrasting these with those of other causes of dementia"
+        "Describe the macroscopic and microscopic pathological features of Alzheimer's disease, contrasting these with those of other causes of dementia",
+        "Describe the causes, risk factors and clinical features of the major types of dementia, and the effects on patients and carers"
       ],
       "loIds": [
-        "Y2-W06-LO13"
+        "Y2-W06-LO13",
+        "Y2-W06-LO07"
       ],
       "curriculumSource": "Week 6 Frailty and dementia/Learning outcomes Frailty and dementia/blackboard-page.txt",
       "assessmentObjective": "Vascular cognitive impairment pathology",
@@ -55619,13 +55639,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-223",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-224",
@@ -55805,19 +55825,19 @@
       "stem": "A patient with mild-to-moderate Alzheimer’s disease starts donepezil. What is its principal intended synaptic effect?",
       "options": [
         "Reduce acetylcholine breakdown and increase cholinergic signalling",
-        "Increase dopamine breakdown by monoamine oxidase",
-        "Block every muscarinic receptor",
-        "Dissolve extracellular amyloid plaques as an antibody",
-        "Directly replace lost cortical neurons"
+        "Inhibit monoamine oxidase B to reduce dopamine breakdown",
+        "Antagonise NMDA receptors to reduce glutamate-mediated excitation",
+        "Inhibit beta-secretase to reduce formation of amyloid-beta",
+        "Block muscarinic receptors to reduce cholinergic signalling"
       ],
       "answer": 0,
       "why": "Donepezil inhibits acetylcholinesterase, increasing available acetylcholine at synapses. It can provide symptomatic benefit but does not cure the underlying neurodegenerative disease.",
       "distractors": [
         "",
-        "This is not its mechanism.",
-        "That would oppose cholinergic signalling.",
-        "Donepezil is an acetylcholinesterase inhibitor, not an antibody.",
-        "Donepezil does not regenerate neurons."
+        "MAO-B inhibition is a strategy used in Parkinson’s disease; it is not donepezil’s mechanism.",
+        "NMDA-receptor antagonism describes memantine rather than donepezil.",
+        "Donepezil acts on acetylcholinesterase and does not inhibit amyloidogenic APP cleavage.",
+        "Muscarinic blockade would oppose cholinergic signalling, whereas donepezil increases available acetylcholine."
       ],
       "module": "Frailty and dementia",
       "topic": "Acetylcholinesterase inhibitor mechanism",
@@ -55866,7 +55886,7 @@
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Donepezil does not regenerate neurons."
+          "Distinguish donepezil’s cholinergic mechanism from memantine’s NMDA-receptor antagonism."
         ],
         "recogniseNextTime": [
           "Donepezil inhibits acetylcholinesterase, increasing available acetylcholine at synapses. It can provide symptomatic benefit but does not cure the underlying neurodegenerative disease."
@@ -55879,32 +55899,32 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-226",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-227",
       "stem": "After starting an acetylcholinesterase inhibitor, an older patient develops nausea, syncope and a slow pulse. Which mechanism is most relevant to the cardiovascular concern?",
       "options": [
-        "Strong antimuscarinic blockade usually slows the heart",
+        "Peripheral muscarinic receptor blockade",
         "Enhanced cholinergic activity can promote bradycardia",
-        "A slow pulse proves therapeutic success",
-        "The medicine must have caused an acute ischaemic stroke",
-        "Amyloid clearance invariably produces complete heart block"
+        "Direct cardiac beta-1 receptor stimulation",
+        "Reduced acetylcholine release at vagal terminals",
+        "Selective enhancement of central dopaminergic signalling"
       ],
       "answer": 1,
       "why": "Acetylcholinesterase inhibitors can produce gastrointestinal and vagotonic effects. Syncope with bradycardia warrants prompt clinical assessment, including other medicines and cardiac conduction disease.",
       "distractors": [
-        "Antimuscarinic activity tends to increase rather than reduce heart rate.",
+        "Blocking cardiac muscarinic effects generally increases heart rate rather than producing this vagotonic response.",
         "",
-        "Symptomatic bradycardia is a potential adverse effect requiring review.",
-        "The stated symptoms require assessment but do not establish stroke.",
-        "The drug is not an amyloid-clearing antibody and heart block is not inevitable."
+        "Beta-1 stimulation generally increases rate and contractility; this is not the action of an acetylcholinesterase inhibitor.",
+        "Reduced vagal acetylcholine release would reduce, rather than enhance, parasympathetic slowing of the heart.",
+        "The relevant drug effect is increased acetylcholine availability, not selective dopamine enhancement."
       ],
       "module": "Frailty and dementia",
       "topic": "Cholinergic adverse effects",
@@ -55966,13 +55986,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-227",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-228",
@@ -56148,7 +56168,7 @@
     },
     {
       "id": "y2-w06-230",
-      "stem": "After neck surgery, a patient develops unilateral vocal-fold paralysis. Which intrinsic laryngeal muscle is normally supplied by the external superior laryngeal nerve rather than the recurrent laryngeal nerve?",
+      "stem": "A recurrent laryngeal nerve is injured during neck surgery. Which intrinsic laryngeal muscle retains its principal motor supply because it is innervated by the external superior laryngeal nerve?",
       "options": [
         "Lateral cricoarytenoid",
         "Cricothyroid",
@@ -56224,13 +56244,13 @@
         ],
         "reviewVersion": 2
       },
-      "aiReviewedAt": "2026-10-24",
+      "aiReviewedAt": "2026-10-25",
       "reviewedAt": "",
       "uid": "bm4-y2-week-06-2026::y2-w06-230",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 6: Frailty and dementia",
       "collectionId": "bm4-y2-week-06-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1792932872736
     },
     {
       "id": "y2-w06-231",
