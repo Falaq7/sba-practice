@@ -427,7 +427,18 @@ body.practice:not(.studio) .home-suggestions .today-footer>.primary{width:100%}
 body.practice:not(.studio) .home-suggestions .today-controls{flex-wrap:wrap}
 body.practice:not(.studio) .home-desk>.home-analytics{grid-column:1/-1;grid-row:auto;width:100%}
 body.practice:not(.studio) .review-layout{display:block}
-@media(min-width:1051px){body.practice:not(.studio):has(.review-layout):has(#deep-review-panel:not([hidden])) #main{width:calc(100% - clamp(380px,34vw,560px) - 48px);max-width:1200px;margin-left:max(24px,calc((100vw - clamp(380px,34vw,560px) - 1200px)/2));margin-right:calc(clamp(380px,34vw,560px) + 24px)}}
+/* Dock teaching only when there is room for a readable question and navigator. */
+@media(min-width:1280px){
+ body.practice.deep-review-open:not(.studio){--deep-dock-width:clamp(380px,30vw,520px)}
+ body.practice.deep-review-open:not(.studio) .deep-review-panel{width:var(--deep-dock-width)}
+ body.practice.deep-review-open:not(.studio) :is(#main,.top,body>footer){width:calc(100% - var(--deep-dock-width) - 48px);max-width:1200px;margin-left:max(24px,calc((100vw - var(--deep-dock-width) - 1200px)/2));margin-right:calc(var(--deep-dock-width) + 24px)}
+ body.practice.deep-review-open:not(.studio) .top{flex-wrap:wrap}
+ body.practice.deep-review-open:not(.studio) .top nav{order:3;flex:1 1 100%}
+ body.practice.deep-review-open:not(.studio) .account-tools{margin-left:auto}
+ body.practice.deep-review-open:not(.studio) .session-layout{grid-template-columns:minmax(0,1fr) 15rem;gap:1rem}
+ body.practice.deep-review-open:not(.studio) .answer-feedback{flex-wrap:wrap}
+}
+@media print{body.practice.deep-review-open:not(.studio) #main{width:auto;max-width:none;margin-inline:auto}}
 @media(max-width:800px){body.practice:not(.studio) .home-desk>.home-middle-row{display:flex;flex-direction:column}.home-middle-row>.home-resume{order:-1;width:100%}.home-suggestions{width:100%}}
 
 #today-plan{box-sizing:border-box}#today-plan[hidden]{display:none!important}
