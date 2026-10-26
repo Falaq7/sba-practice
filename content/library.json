@@ -24,7 +24,7 @@
       "id": "bm4-y1-mixed-bank-1-2026",
       "title": "Mixed Bank 1",
       "count": 70,
-      "currentVersion": "c67bab7d-b82a-4d7e-ab89-3bf16c223dbf",
+      "currentVersion": "c67bab7d-b82a-4d7e-ab89-3bf16c223dbf-feedback-20261025",
       "status": "published",
       "publishedAt": 1792563489455,
       "modules": [
@@ -747,7 +747,7 @@
       "id": "bm4-y2-week-01-2026",
       "title": "BM4 Year 2 - Week 1: Arthritis",
       "count": 46,
-      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207-remove-mtx-dosing",
+      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207-remove-mtx-dosing-feedback-20261025",
       "status": "published",
       "publishedAt": 1792932872736,
       "modules": [
@@ -2991,22 +2991,22 @@
     },
     {
       "id": "mb1-032",
-      "stem": "A patient identifies a pattern: after a stressful shift they think “I have earned food to switch off” and snack despite not being hungry. They want to try a cognitive behavioural approach. Which next step most directly addresses this identified pattern?",
+      "stem": "During CBT for weight management, a patient says, “If I do not snack after a stressful shift, I will stay tense all evening.” A diary has established the pattern. Which agreed task would most directly test this prediction?",
       "options": [
-        "Test an alternative response to the stress cue and review what happens",
-        "Arrange a weigh-in before considering coping strategies",
-        "Provide general information on the health effects of obesity",
-        "Set a calorie target without exploring the stress cue",
-        "Ask the patient to list nutritional values of their usual snacks"
+        "Try a ten-minute walk after a shift and compare predicted with actual tension before deciding whether to snack",
+        "Record snack portions and estimated calories after each shift for the next week",
+        "Keep snacks in a less accessible cupboard and prepare portions at the start of the week",
+        "List evidence for and against the thought that a difficult shift deserves a food reward",
+        "Choose a non-food reward for meeting an agreed weekly snack-frequency target"
       ],
       "answer": 0,
-      "why": "The most targeted step is to **test a different response to the identified cue**, such as a planned decompression activity, and review its effect with the patient.",
+      "why": "A behavioural experiment tests a specific prediction against experience. Trying another response and comparing expected with actual tension tests whether snacking is necessary for the tension to settle.",
       "distractors": [
         "",
-        "Monitoring weight does not directly address the trigger.",
-        "Education alone does not test or change this specific pattern.",
-        "A target may be useful, but it does not directly address the identified thought–behaviour link.",
-        "Food knowledge may help, but the stated difficulty is stress-linked behaviour rather than missing nutritional information."
+        "Self-monitoring provides useful data, but this diary task does not test the prediction about remaining tense.",
+        "Stimulus control changes access and cues; it does not directly compare the predicted emotional outcome with what happens.",
+        "Cognitive restructuring examines a related appraisal. This task debates deserving a reward rather than testing the stated prediction in practice.",
+        "Reinforcement can support behaviour change, but achieving a frequency target does not directly test the prediction about tension."
       ],
       "module": "Metabolic Disorders (Obesity)",
       "topic": "CBT and weight management",
@@ -3027,62 +3027,51 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "after a stressful shift",
+            "quote": "I will stay tense all evening",
             "explanation": [
-              "Stress is the identified trigger, so a relevant behavioural experiment should target what happens after that cue."
+              "This is a testable prediction about what will happen if the usual behaviour changes."
             ],
             "supports": [
               0
             ],
             "arguesAgainst": [
-              1,
-              2
+              3
             ]
           },
           {
-            "quote": "I have earned food to switch off",
+            "quote": "A diary has established the pattern",
             "explanation": [
-              "This appraisal connects stress to eating. CBT examines that thought and tests a different coping response, rather than supplying calorie information alone."
+              "The next task can move from monitoring to testing the maintaining belief."
             ],
             "supports": [
               0
             ],
             "arguesAgainst": [
-              3,
-              4
+              1
             ]
-          },
-          {
-            "quote": "despite not being hungry",
-            "explanation": [
-              "The pattern is not described simply as a response to physiological hunger. This makes the coping function of the behaviour important."
-            ],
-            "supports": [
-              0
-            ],
-            "arguesAgainst": []
           }
         ],
         "keyConcept": {
-          "summary": "The most targeted step is to test a different response to the identified cue, such as a planned decompression activity, and review its effect with the patient.",
+          "summary": "A behavioural experiment tests a specific prediction against experience. Trying another response and comparing expected with actual tension tests whether snacking is necessary for the tension to settle.",
           "paragraphs": [
-            "A behavioural experiment tests a workable alternative rather than assuming that more information will solve the problem. The patient helps choose the strategy and evaluates whether it meets the need that snacking was serving."
+            "Match the CBT technique to its purpose: monitoring identifies patterns; an experiment tests a prediction.",
+            "The patient and clinician agree a feasible alternative, record the prediction, try it and review the result. The outcome may support or weaken the belief; success is learning, not simply meeting a weight target."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "A sensible general intervention can still be less appropriate than one aimed at the identified mechanism."
+          "Several options are legitimate behavioural strategies; identify which one tests this particular prediction."
         ],
         "recogniseNextTime": [
-          "The pattern links a situation, a thought and a behaviour."
+          "Match the CBT technique to its purpose: monitoring identifies patterns; an experiment tests a prediction."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What should be reviewed afterwards?",
-            "answer": "Whether the alternative was feasible and how it affected stress, hunger and snacking."
+            "prompt": "What should be recorded before the experiment?",
+            "answer": "The predicted outcome, for example how tense the patient expects to feel if they try the alternative response."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "file": "BM4_Novel_Harder_Mock_v3.json",
@@ -3090,11 +3079,11 @@
         "adaptation": "Rewritten and expanded for this draft"
       },
       "curriculumSource": "LOs/Metabolic Disorders (Obesity) - LOs.txt",
-      "assessmentObjective": "The most targeted step is to test a different response to the identified cue, such as a planned decompression activity, and review its effect with the patient.",
+      "assessmentObjective": "A behavioural experiment tests a specific prediction against experience. Trying another response and comparing expected with actual tension tests whether snacking is necessary for the tension to settle.",
       "week": "Metabolic Disorders (Obesity)",
-      "revision": 2,
+      "revision": 3,
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-032",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "publishedAt": 1789570300176
@@ -3585,21 +3574,21 @@
     },
     {
       "id": "mb1-036",
-      "stem": "A child has two cell populations: one with 46 chromosomes and another with trisomy 21. Which event best explains this pattern?",
+      "stem": "A child has both 46,XX and 47,XX,+21 cell populations. The embryo initially had a normal 46,XX chromosome complement. Which subsequent event best explains the trisomic cell population?",
       "options": [
-        "Meiotic nondisjunction producing a uniformly trisomic conceptus",
-        "A balanced Robertsonian translocation in every cell",
-        "Uniparental disomy with two copies of chromosome 21",
-        "A single-base substitution in one chromosome-21 gene",
-        "Post-zygotic mitotic chromosome-segregation error"
+        "Failure of homologous chromosome 21 separation during maternal meiosis I",
+        "Failure of chromosome 21 sister-chromatid separation during maternal meiosis II",
+        "Loss of one chromosome 21 by anaphase lag in a trisomic embryonic cell",
+        "A balanced Robertsonian fusion involving chromosomes 14 and 21 in an embryonic cell",
+        "Failure of chromosome 21 sister-chromatid separation during embryonic mitosis"
       ],
       "answer": 4,
-      "why": "A **post-zygotic mitotic error** can generate genetically distinct cell lineages, producing mosaicism.",
+      "why": "Mitotic nondisjunction in a cell of an initially euploid embryo can produce a trisomic daughter cell. Descendants of unaffected cells retain 46 chromosomes, giving a mosaic pattern.",
       "distractors": [
-        "This would initially affect the whole conceptus rather than directly explain two cell populations.",
-        "A balanced rearrangement does not itself create a trisomic cell line.",
-        "This changes parental origin, not the copy-number pattern described.",
-        "This does not change chromosome number.",
+        "Maternal meiosis I occurs before fertilisation. An abnormal gamete would not explain a new trisomic lineage arising from the stated euploid embryo.",
+        "Maternal meiosis II is part of gamete formation, not subsequent embryonic cell division.",
+        "Trisomy rescue can generate a normal lineage from a trisomic embryo, but the question specifies the reverse starting point.",
+        "A balanced Robertsonian fusion rearranges chromosomal material; it does not generate the specified 47-chromosome trisomy.",
         ""
       ],
       "module": "Congenital Disorders (Down's Syndrome)",
@@ -3616,57 +3605,59 @@
       "difficulty": "Moderate",
       "sources": [
         "Down syndrome: MedlinePlus Genetics — https://medlineplus.gov/genetics/condition/down-syndrome/",
-        "Curriculum: BM4 Year 1 learning outcomes — Congenital Disorders (Down's Syndrome)."
+        "Curriculum: BM4 Year 1 learning outcomes — Congenital Disorders (Down's Syndrome).",
+        "NHGRI, Mosaicism — https://www.genome.gov/genetics-glossary/Mosaicism"
       ],
       "deepReview": {
         "keyClues": [
           {
-            "quote": "two cell populations",
+            "quote": "initially had a normal 46,XX chromosome complement",
             "explanation": [
-              "Different chromosome complements within the same person indicate mosaicism and point to an event after fertilisation."
+              "The abnormal lineage must arise after fertilisation from a euploid starting point."
             ],
             "supports": [
               4
             ],
             "arguesAgainst": [
               0,
-              1
+              1,
+              2
             ]
           },
           {
-            "quote": "one with 46 chromosomes and another with trisomy 21",
+            "quote": "47,XX,+21",
             "explanation": [
-              "This is a whole-chromosome dosage difference. A point mutation or uniparental disomy with two copies does not generate these two counts."
+              "The additional whole chromosome is consistent with segregation failure, not a balanced fusion."
             ],
             "supports": [
               4
             ],
             "arguesAgainst": [
-              2,
               3
             ]
           }
         ],
         "keyConcept": {
-          "summary": "A post-zygotic mitotic error can generate genetically distinct cell lineages, producing mosaicism.",
+          "summary": "Mitotic nondisjunction in a cell of an initially euploid embryo can produce a trisomic daughter cell. Descendants of unaffected cells retain 46 chromosomes, giving a mosaic pattern.",
           "paragraphs": [
-            "The clinical effect of mosaicism depends partly on which tissues carry each cell line and in what proportions. A result from one sampled tissue need not describe every organ. This differs from a constitutional abnormality present throughout the conceptus."
+            "Use the starting chromosome complement and the timing of cell division to distinguish meiotic from mitotic errors.",
+            "Mosaic trisomy can also arise through loss of a chromosome from an initially trisomic embryo. The initial normal complement is specified here so that trisomy rescue is not a second defensible answer."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Do not infer identical tissue proportions from a single blood sample."
+          "Mosaicism alone does not prove that the embryo started euploid."
         ],
         "recogniseNextTime": [
-          "Different chromosome complements within one individual point to a post-fertilisation lineage event."
+          "Use the starting chromosome complement and the timing of cell division to distinguish meiotic from mitotic errors."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What does “post-zygotic” mean?",
-            "answer": "After fertilisation."
+            "prompt": "What does trisomy rescue mean?",
+            "answer": "Loss of an extra chromosome from a trisomic cell, potentially leaving a disomic cell lineage."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "file": "BM4_Novel_Harder_Mock_v3.json",
@@ -3674,11 +3665,11 @@
         "adaptation": "Rewritten and expanded for this draft"
       },
       "curriculumSource": "LOs/Congenital Disorders (Down's Syndrome) - LOs.txt",
-      "assessmentObjective": "A post-zygotic mitotic error can generate genetically distinct cell lineages, producing mosaicism.",
+      "assessmentObjective": "Mitotic nondisjunction in a cell of an initially euploid embryo can produce a trisomic daughter cell. Descendants of unaffected cells retain 46 chromosomes, giving a mosaic pattern.",
       "week": "Congenital Disorders (Down's Syndrome)",
-      "revision": 2,
+      "revision": 3,
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-036",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "publishedAt": 1789570300176
@@ -4410,7 +4401,7 @@
     },
     {
       "id": "mb1-007",
-      "stem": "An ECG shows regular P waves at 80/min and regular QRS complexes at 35/min, with changing PR intervals and no consistent relationship between atrial and ventricular activity. Which diagnosis best fits?",
+      "stem": "A 76-year-old presents with recurrent light-headedness. The rhythm strip below is recorded at 25 mm/s and 10 mm/mV. Which diagnosis best fits?",
       "options": [
         "Mobitz I second-degree AV block",
         "Complete heart block",
@@ -4419,7 +4410,7 @@
         "Sinus bradycardia"
       ],
       "answer": 1,
-      "why": "The atria and ventricles are beating independently: **AV dissociation with a slow escape rhythm** is consistent with complete heart block.",
+      "why": "The strip shows regular P waves at about 80/min and a slower regular QRS rhythm at about 35/min. The P waves march through independently, with changing apparent PR intervals. This supports complete heart block with an escape rhythm.",
       "distractors": [
         "PR intervals progressively lengthen before a dropped QRS, rather than persistent independent rhythms.",
         "",
@@ -4446,21 +4437,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "P waves at 80/min and regular QRS complexes at 35/min",
+            "quote": "rhythm strip below",
             "explanation": [
-              "Atrial activity and a slower ventricular escape rhythm coexist. The atrial rate is not simply a slow sinus rate."
-            ],
-            "supports": [
-              1
-            ],
-            "arguesAgainst": [
-              4
-            ]
-          },
-          {
-            "quote": "no consistent relationship between atrial and ventricular activity",
-            "explanation": [
-              "Complete AV dissociation supports third-degree block. First-degree and second-degree blocks preserve conduction of at least some atrial impulses."
+              "On the trace, compare P–P and R–R intervals separately. The atrial and ventricular rhythms are regular but independent."
             ],
             "supports": [
               1
@@ -4468,30 +4447,32 @@
             "arguesAgainst": [
               0,
               2,
-              3
+              3,
+              4
             ]
           }
         ],
         "keyConcept": {
-          "summary": "The atria and ventricles are beating independently: AV dissociation with a slow escape rhythm is consistent with complete heart block.",
+          "summary": "The strip shows regular P waves at about 80/min and a slower regular QRS rhythm at about 35/min. The P waves march through independently, with changing apparent PR intervals. This supports complete heart block with an escape rhythm.",
           "paragraphs": [
-            "A ventricular escape rhythm can maintain some output when atrial impulses do not reach the ventricles. Identify atrial rate, ventricular rate and their relationship separately; a slow rate alone is insufficient to classify the block."
+            "Measure atrial rate, ventricular rate and their relationship separately.",
+            "At 25 mm/s, one large square represents 0.2 seconds. P waves recur every 0.75 seconds; QRS complexes recur about every 1.71 seconds. Some P waves overlap QRS or T waves because the rhythms are independent."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Not every bradycardia is sinus bradycardia."
+          "One P wave appearing just before a QRS does not establish conduction; inspect the relationship across the full strip."
         ],
         "recogniseNextTime": [
-          "The absence of atrioventricular linkage distinguishes complete block from delayed or intermittently failed conduction."
+          "Measure atrial rate, ventricular rate and their relationship separately."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What happens to the PR interval in first-degree AV block?",
-            "answer": "It is prolonged but consistent, with every P wave followed by a QRS."
+            "prompt": "How does first-degree AV block differ?",
+            "answer": "Every P wave conducts, with a prolonged but consistent PR interval."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "file": "BM4_Novel_Harder_Mock_v3.json",
@@ -4499,14 +4480,20 @@
         "adaptation": "Rewritten and expanded for this draft"
       },
       "curriculumSource": "LOs/Cardiac Function (Heart Failure) - LOs.txt",
-      "assessmentObjective": "The atria and ventricles are beating independently: AV dissociation with a slow escape rhythm is consistent with complete heart block.",
+      "assessmentObjective": "The strip shows regular P waves at about 80/min and a slower regular QRS rhythm at about 35/min. The P waves march through independently, with changing apparent PR intervals. This supports complete heart block with an escape rhythm.",
       "week": "Cardiac Function (Heart Failure)",
-      "revision": 2,
+      "revision": 3,
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-007",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
-      "publishedAt": 1789570300176
+      "publishedAt": 1789570300176,
+      "image": {
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACewAAAGuCAIAAABnG0MVAABSM0lEQVR42u3deXwUVb43/hMWo+zCsLiyJCAKPC7R64iKiooL4i56VXwcR7yMu9cRGfW6MKPjVXEdHXevoo5KHBUHLjBuuI/L4ApIAgYEMWETFEzY+vmjf/avJ+mEztJJp/v9fuXlCyud/lSf6nO6ur5Vp3IikUgAAAAAAAAAID200AQAAAAAAAAAQREXAAAAAAAAgKCICwAAAAAAABAUcQEAAAAAAAAIirgAAAAAAAAAQREXAAAAAAAAgKCICwAAAAAAABAUcQEAAAAAAAAIirgAAAAAAAAAQREXAAAAAAAAgKCICwAAAAAAABAUcQEAAAAAAAAIirgAAAAAAAAAQREXAAAAAAAAgKCICwAAAAAAAEBQxAUAAAAAAAAIirgAAAAAAAAABEVcAAAAAAAAgKCICwAAAAAAAEBQxAUAAAAAAAAIirgAAAAAAAAABEVcAAAAAAAAgKCICwAAAAAAAEBQxAUAAAAAAAAIirhZYt68eXl5eXl5eZ9//nn6rNWyZcuia7Vs2bKaH3nBBRfk5eWde+65W1zYaM4999y8vLxZs2Y1VesVFxdfffXVQ4cO3W233QYOHHjkkUfecsstK1eurPSwSCSyxx575FVjzZo16f/u3bRp0x577DFixIhm0df+8pe/5OXl/f3vf0/424qKinvvvfeII47Ydddd99prrzPOOGP69OnNaCRpqG0xevTovLy8ww8/vOaHLV68OD8/Py8vb+bMmYZxAAAAAAAIiriQziZPnnzMMcc888wzpaWlffr06dGjx4IFCx544IHhw4fPmzcv/pGLFi364YcfmvWL/eijj3744YeDDz44/Vf1m2++ue2226r7bUVFxVlnnXX77beXlJTssssu22677fvvv3/++effeOON2bYtRo4cGUJYsGBBzaeVvPDCC5FIpEePHgceeKBeDwAAAAAAzV0rTUAGKykpufLKKzds2HDaaaf97ne/a9euXQjh66+/vuSSS7788svf/OY306dPb9Xq/+sFX3zxRQhht912e/nll5vp633jjTdCCOlfxF2xYsWvf/3r77//vroH3HjjjR999FHfvn0feeSRHXbYIYTw2muvXXTRRY8++uhee+111FFHZc+2GDp06C9+8Yvly5e/9NJLgwYNCtUXcUMIJ598cosWTs0BAAAAAIDgSlxIX08//fT69esHDRr0+9//PlrBDSH07t37z3/+c25ubklJyauvvhp7cPRKx9133735vt433nijY8eOe+yxRzqvZFFR0Yknnjh//vzqHvDdd98999xzIYQJEyZEK7ghhKFDh44dOzaEcOedd2bVtmjZsuUJJ5wQQvjb3/62adOmhI/5+OOPFy5cmJOTc8opp+j1AAAAAAAQFHEhna1atapLly5DhgypdHniDjvssOuuu4YQvvzyy9jC6JW4e+65ZzN9sd999928efMOPPDAli1bpucabtiw4d577z3++OMXL148evTo7t27h2pmwN6wYcOAAQMGDBgQv/yUU05p1apVcXHx3Llzs2pbREuzy5Yte++99xI+4K9//WsIYf/9999xxx31egAAAAAACIq4fP/99xMmTDjqqKMGDhw4aNCgESNG3HfffevWrav6yPfee++yyy47+OCDBw0a1L9///3222/MmDFvvfVW1UfOnj370ksv3X///XfdddfDDjvsjjvu+OmnnzR1Hdx6660ffPDBf/7nf1b9VSQSCSHk5OTElkQLunW7dPLFF1/My8v73e9+t2bNmptvvvnggw/eddddBw8efPXVV0cnDS4uLr7ooov23nvv/v37H3HEEY8//nh0BRrkz0M18/eWlZXddNNNw4YN23XXXQcNGnTkkUfefPPNpaWlTbU53nvvvdtvv71169Z33HHHuHHjqnvYxx9/HELYZ599Ki1v06ZN//79QwgffPBB89oW9XzOvLy86LkFL730Ukh0/+CpU6eGn++eCwAAAAAABPfEzXKff/75ueeeu3z58pYtW/bu3Ts3N/err76aPXv2Cy+88Nhjj8VfFXfTTTc98sgjIYRu3br169fvhx9+WLRo0d///ve///3v48ePP+OMM0JcDenKK6/cuHFjp06dBgwY8M033/zpT3/629/+prUb0JIlS6LX3cau9Vy0aNGaNWtycnJuv/32OXPmLF++fP369T169Bg6dOiYMWO6deuWzNOWlZUde+yxixcvzs/P79mz5/z585955pnPPvvsiiuuGDNmTE5OTl5e3ooVK4qLi8ePH7969eqLL764Af/89ddfz8nJGTJkSOw1nnTSScuWLWvbtm1+fn4IYf78+Q899NCkSZOeffbZ6JLGHm5atRo5cuR//ud/du3aNdR4J+MQQs+ePav+aqeddvriiy++/vrr5rUt6v+cI0eOnDVr1vTp03//+99vvfXW8U/7yiuvrFmzplOnTsOGDdO1AQAAAAAguBI3ZP1Uveedd97y5csPOuigt956a/r06ZMnT3777beHDBmyYMGC3/zmN7EbWL7zzjuPPPJIy5Yt77rrrnfffff555+fMWPGzJkz99tvvxDCnXfeuXnz5ugjFy5c+Lvf/W7jxo2jR4/+xz/+UVhY+N57740bN27hwoUavAHdcMMNmzZt2m677Q466KAQN5dyJBKZNm3ajz/+2K9fv549ey5evPjxxx8/+uijP/3005DcbVA3bdo0efLkadOmTZs2LVq2nz179q9//etDDz30vffemzx58ltvvXX22WeHEB5++OGNGzc21J9v2LDh3XffHTRoUJcuXaJL7rjjjmXLlh155JHvv//+yy+//PLLL8+cOXPgwIHff//9Lbfc0iTNPnjw4D/+8Y81V3BDCCtWrAghdO7cueqvOnbsGEJYuXJl89oW9X/OY445pk2bNmvXro2/i3OIm0v5hBNOaN26ta4NAAAAAABBETfL/c///E9ZWVnv3r3vvffe2N09u3bt+qc//alLly6zZ8+eNm1a+Hl65B133PHYY4895phjYvP3du/e/corrwwhrFy5Mlq1CiE88MAD69evP+CAA8aNG9eqVasQQosWLUaPHn3aaadp8IZy++23v/rqqzk5Ob///e9zc3OjC3/44Ycddthhxx13fOyxx6Ll8+nTp//9738fOHDgqlWrRo8eHZ32dovGjx+/2267Rf89ZMiQ6JW+Xbt2vf322zt06BDdoOeff34IYe3atdFLThvkzz/44IN169bFz6UcnR06WvyLvTmvuuqqbbfd9scff6w6A3D6KC8vDyHENk286EWo0Qc0o21R/+ds06bN0UcfHarMqLx8+fLolOynnnqqrg0AAAAAAEERl+nTp4cQjj/++G222SZ+edu2bQ899NAQwuuvvx5dMnr06JkzZ952222VniE233KsKBX9k6r3toyfb5n6uPvuu++9994Qwm9/+9tDDjkktvzUU0998803Z86cOWTIkFihvXfv3o899lj79u1XrFjxxBNPbPHJt9pqqwMOOKDqJh48eHD8VZJdunRp2bJlCOHHH39sqD+fOXNm+Ncb4m6//fYhhFtvvXX69OmxmzTvu+++H3300dNPPx1/M+C0G5VatAj/erviUP2djJvFtmiQVYoOCzNnzow/n+Cll17atGnTnnvu2bdvX70bAAAAAACCe+Jmuc2bN8+fPz+E8PLLL7/77ruVfvvtt9+GEKIPiFdRUfHNN98sXLiwpKRkzpw5H374YezZQghr164tKysLIfTr16/SH/br169Vq1aVZnylVjZt2jR+/Pgnn3wyhHDZZZeNGTMmmb/q3Lnz8OHDn3nmmTfffLPSfU8TPrjSlLbRy6m33XbbSo9s2bLlpk2bKl0OW58/f+ONN7bddttBgwbFlowZM+btt99euHDh+eef36pVqz322OOAAw4YOnRo7DbAaatt27Zr166tqKio+qvowko3hU3/bdEgq1RQUJCXlzd//vypU6eefvrpIW4u5VNOOUUHBwAAAACAoIjL2rVro5XX4uLi4uLihI9Zs2ZN7N8ff/zxQw899Nprr8VulBtCqHTLzNWrV4efp04NVYo67dq1S3JGX6pat27dhRdeOHPmzBYtWlx33XVnnnlm8n/bp0+fEEJpaekWH1l1w4W4S0tT9+eLFy+eP3/+8ccfH//IffbZZ9KkSXfeeec777yzcePGjz766KOPPrrzzjv79u07fvz4f/u3f0vbjbXtttuWlZWtWrUqJLoRddWOk/7bokFWKYRw8skn//d///dLL70ULeLOmTNn7ty5bdq0GTFihD4OAAAAAABBEZdYPebRRx896KCDan7wlClTLr300s2bN3fq1Cl6OV1+fv6gQYO23XbbX/7yl7GHderUKfxcIQ7VXINIHZSVlf3617+ePXv2Nttsc+eddx522GFVH/PTTz+tWLGiffv2HTt2rPSr9evXhxAqTZqdVqKzcFedv/f//J//8+ijj/7www/vvffee++99+677xYXFxcVFf3qV7+aPn16bDbvdJOfn//VV18tXrw4JCqRhhB69+7d7LZFgzjxxBNvu+22jz/+eMmSJTvssEP0Mtz42x4DAAAAAADBPXGzWcuWLXfaaacQwmeffbbFB994442bN28eNmzYW2+99eCDD1555ZUnnXRSv379Vq5cGf61MNy9e/cQwpdfflnpGb755puffvpJs9fBsmXLTj/99NmzZ3fp0uUvf/lLwgpuCOHwww8/6KCD/vznP1f9VXQT9+/fP21fY/QK4wMPPDDhb9u3bz9s2LDrrrtu+vTphYWFbdu2LS8vnzZtWtq+nD322COE8PHHH4cql1PPnTs3hLDXXns1021RT7/4xS8OOeSQSCQyderUSCQyZcqUkOgW2gAAAAAAQFDEzVqHHnpoCOHJJ5+MTYMcc9pppw0ePPiee+4JIaxZsyY6E+8pp5xS6YK5l156KfqP2M1ujzzyyBDCU089Vel2mM8++6wGr4MNGzaMHj3666+/7t69+3PPPVf1NqUxgwcPDiFMnTp13bp18cuLiopeffXVEMJxxx2Xnq+xoqLi/fff33333WNXcocQvv/++1NOOaWgoGDJkiXxD95zzz3z8vLCz7dhTk9HH310Tk7OrFmzoiXb+F6wadOmXXfddbfddmtG26JhRW9/O3369I8//ri0tLRv37577rmnng4AAAAAAEERl6jRo0d36NBh+fLl559//tKlS8PPMyFfffXVH3744bJly6JV3nbt2kUrOs8880ysQPjjjz/eddddDz30UPR/y8vLo//4j//4jw4dOsyaNeuqq66KPXjSpEkPPvigBq+DBx544PPPP2/VqtW9997bq1evGh553nnntW7desmSJZdddlnsbqyfffbZr3/9602bNg0ZMiS6NdPQP/7xj59++umQQw6JX9ipU6eNGzd+//33v/3tb2N3841EIi+++OIXX3yRk5OTovl+G0SPHj1OPfXUSCRywQUXfP3119GFr7766m233RZCuPDCC9N2zRNui4Z1yCGHdOvW7ZNPPnn88ceDy3ABAAAAACC4J26WOf7446v71bx581q2bNmjR4/777//N7/5zfvvv3/QQQftsssuLVq0WLBgwbp161q2bDlhwoTo9YItWrS49NJLr7/++ldffXW//fbr06fPhg0b5s+fv379+sMOO2zevHmLFi1aunTpgAEDQgjdu3e/5557Lrjggueee27q1Kl9+/b97rvvli5dmpeXt2TJklitl2SsX7/+kUceCSFs3Ljx5JNPTviYUaNGXX/99SGE/Pz8CRMm/Pa3v33llVf233//vLy8ioqK+fPnhxAKCgqiF1WHZnUT1ltuueW000774IMPDjzwwN69e7dv337JkiVlZWUhhCuuuKJfv37pvO3GjRv35Zdffv7550ccccSuu+66du3aaDV39OjR0avVs/CGuOHnidxPOOGEBx54YOrUqa1btz7hhBP0dAAAAAAA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vv3223vvvbe6306bNu2GG27YsGFDbm5ur169ysvLS0pKFixYMGXKlHvvvTcvL887BwAAAAAACIq4Genxxx9//vnnW7RoMWrUqKOOOmqnnXZq1arVihUrPvroo/vvv//bb7+98MILn3/++S5duqRuHUpKShrnxTZCUKO9lkySnY22cuXKiy++ePXq1Ql/u2jRovHjx2/YsOHEE0+85JJL2rZtG1141VVXzZ0794orrnjuuedatTKmAQAAAAAAwXTKmWbz5s1PPPFECGHMmDEXXXRRfn5+bm5uy5Ytu3XrdvTRR99///0dO3b88ccfn3rqqUxtgWHDhn300Ucvvvhilr8TtEMjW7Bgwdlnn11D9fr5559fv379brvtNm7cuGgFN4Sw884733rrrVtttdWiRYvefPNNzQgAAAAAAARF3MyzdOnSNWvWhBAOPfTQqr/dfvvtDz/88Hbt2n333XfaCkID3QD40UcfHTVq1Lfffjtq1Khu3bolfNjq1as7d+683377tWjxLwPXdttt169fvxDC3LlzNSYAAAAAABBMp5x5tt566+g/vvrqq549e1Z9wLhx48aNGxfirg784x//2LFjx+nTp1eayrW0tHTEiBEhhClTpnTt2nXq1KnXXnvtMcccM3bs2Mcee+zVV1/97rvvtt566913333UqFF77bVX9K8mTJjwl7/8Jfrvc889N4RwySWXjBo1Kva0P/744xNPPPHqq68uXbq0TZs2gwYNiv/zEFfxeuqpp2bOnLlkyZKcnJydd9750EMPPe2009q0aVNz0IwZM6666qodd9yx0kWoK1eunDRp0uuvv/7tt9+2bt16hx12OPLII0844YRtttmmusas+bVscQ1jPvzww5deeunzzz9fuXLlxo0bO3bsOHDgwJNPPvmXv/xlqDIfb5IrucVmrNoOSW7BmKKiookTJ86aNWvFihXdunU7/PDDf/WrX/3Hf/zHnDlzHn744T322KNWjfbyyy/fcMMNJ5544tChQ2+//fbFixfvuOOOY8aMGTp0aCqaKPmtU38ffvjhfffd165du//6r/868sgjp0+fnvBh119/faj+PtYhhErF3aqWL18+ceLEd95559tvv23VqlWPHj3233//008/vWvXrrXtPrVtz6VLlz799NPvvvvu0qVLW7VqtfPOOw8dOrTSE9b2DfbVV1898cQTs2bN+v7773v06DFs2LBjjjmmPq8aAAAAAAAIirjpqUuXLgMGDPjyyy9vuummZcuWHXXUUZ07d67h8UccccSECRNWr1797rvvDhkyJP5XU6dO3bx58/777x9fLFm1atWoUaMWLlzYrVu3vn37Lliw4K233nrnnXduvvnmaDVup5122muvvT755JPNmzf369evXbt23bt3j/35Dz/8cNZZZy1atGj77bfPy8srKSmJ/vkf//jH+EuHZ8+efemll65cubJly5Y777xzbm5ucXHxV199NWXKlHvuuWf77bffYlAln3zyydixY1euXNm6dev8/Pz169fPnTt39uzZU6dOvf/++9u1a5fwr2qISGYNo+64447o5NW/+MUv8vLyfvzxxyVLlrzxxhtvvPHGuHHjTj755DqsZJLNmNAWt2DUa6+9ds0116xfv75Dhw677LLL0qVLH3vssTfffLOioqLm5695u8yZM+fll19u165dfn5+cXHxtttum4omSn7rJPTOO+/ce++9ixcv7tev3+WXX77rrrtuYRhq1eq44447//zz63af6aVLl86ZMyeEsMsuu9T8sLPPPnvFihVt2rTp3bt3JBIpKSmZOHHi5MmTH3rooT59+tSq+9SqPd96662rr7563bp1W221VX5+/oYNG+bNmzd37tzJkyfffffdO++8cx3eYFOnTh0/fny0YL/LLrssWbLk4YcfnjFjRp1fNQAAAAAAkEYiVDFv3ryDDz64oKCgoKBgn332OeOMMyZMmPDqq69+//33CR9/1VVXFRQUXHnllZWWn3zyyQUFBa+88kr0f6dMmRJ9zqOOOuqDDz6ILlyzZs3o0aMLCgqOPfbY+L894IADCgoKZs2aFVsS+/PDDz889uerV6+O/vlxxx0Xe+SqVauOOOKIgoKCiy66qLS0NLpw+fLlF154YUFBwemnn75p06YagqZPn17pCVevXj1s2LCCgoLf/va3q1atii5csGDBiBEjCgoKbrzxxprbs2pE8mv4j3/8o6Cg4N/+7d+mT5++efPm6MKysrIxY8YUFBQcdthhsUcmuZLJN2PVdkh+C3777beDBw8uKCi444471q9fH4lENm/e/Oyzz+6zzz7RZ4hvjSQbbfLkydG/veCCC8rLy6PRqWiiWr1/qvriiy9iL7OgoODggw+OPUmSjjrqqIKCgtdffz3Jx1922WUFBQVHH310RUVFDQ+79tprCwoKrrjiinXr1sVe1JlnnllQUHDZZZfV4c2ZZHuWlJTst99+BQUFV1111erVq6MLFy9efNZZZxUUFJxwwgk//fRTbd9gixYtij7nXXfdtWHDhkgksmnTpieeeGLvvfeOPsPy5ctr9aoBAAAAAIC04p64CfTt2/fpp58+5JBDWrRosXnz5rlz5z799NNjx4497LDDzjnnnKlTp0YikfjHH3vssSGEN998c+3atSHuYr6vv/66Q4cOlS7PDSFcc801++yzT/Tf7du3v/jii0MIS5YsKSsrS2b14v+8Q4cOl156aQhh8eLFK1eujC585plnli9fvvPOO99yyy2x24t26dLlv//7vzt37vzVV1+9+uqrtWqQwsLCFStW7LzzzjfddFOnTp2iC3v37n3llVd27tw5Wuiq1RMmv4Zz587dfvvtjzzyyGHDhuXk5EQXdu3a9aKLLgohrFq1atWqVXVbyS02Y5KbIOEWfOyxxyoqKgYPHnzppZe2bt06hJCTkzNy5Mizzz67/u/Piy66KDc3Nxqdiiaq5/tnypQpmzdvDnEXPc+cOTN1vfW+++578803c3Jyfve732211VY1PDJ6x9wjjjgiNtFxly5dLrvssk6dOq1duzb29kj+5SfZng8//PD69esHDhz4+9//vkOHDtGH7bDDDnfffXenTp0WLVr017/+tbZvsMcff3z9+vX77rvvxRdfHJ3FvUWLFqNGjTrhhBPq9qoBAAAAAIC0ooib2HbbbXfrrbdOmzbt2muvPfLII6O1nEgk8tlnn1177bXnnXdefL12n3326d69+/r16+OLW1OmTAkhHHXUUdEaXkxubm6l25T27t07/HyX1i2uWG5u7v777x+/JC8vL/w8C2v4eSLfEMLRRx8du79vVJs2bQ488MAQwltvvVWr1og+fsSIEZVey/777z9jxoy77rorVjtMUvJreNZZZ02ePPmGG26o9AyxKW3Ly8vrsJLJNGMNm6DmLRiJRN54440QQvw8xlGnnXZaPd+Z22yzTd++feOXNHgTNfj7J3UefPDBRx99NIRwwQUXHHDAATU/uEePHiGEP/3pT6+99tq6deuiC/faa69XXnnlgQceiL09kn/5ybTn5s2b33nnnRDCyJEjK92yt2PHjsOHDw8hVCpyJzNEvP322yGE4447rtJrrPqWS/JVAwAAAAAAwT1xm4vOnTsfe+yx0QttFy9e/P777//1r3+dN2/erFmzrrnmmjvuuCP6sBYtWhxzzDGPPPLI1KlTow/etGlT9OaU0f8N/3rP3Uq1nFitaOPGjSGJW/a2bNky/GvJJ3rFcPRmq5s3by4pKQkhzJgx44MPPqj05999910IIfqA5C1atCiEUKl2WGd1W8P169cvXrx48eLF33zzTXQTxJ6tDiu5xWas+W9r3oKrVq2KXs5bdWU6d+7cvXv30tLSUI97NldKb9gmqv/7Z/jw4YWFhbHQ9u3bH3zwwQ3eNzdv3nzrrbdOmjQphDBmzJhkLnE+++yz//GPf3zzzTdjx45t1arVwIED99133wMPPLB///51e/nJtOfKlSvXrFkTQkh4Y+Dddtutantu8Q22bt265cuXhxDy8/MrPWF+fn6rVq3iR5JkXjUAAAAAABAUcZupHXfc8eSTTz755JNvv/32p59++q233iopKenVq1f0tyNGjHj00Uf/+c9/lpWVdevW7Z133lm1alW/fv122WWXSs9T6aK92trin69bty5aP1uwYEF1j0nmkt940SpUmzZtGqQla7uGn3766cSJE996661NmzaFuGpofVayPlthi3/7/fffh5+v3az627Zt29an9RLOGNyATVT/98+AAQPuuOOOe++9d/HixX379r388su7du3asJ1x3bp148aNe/fdd1u0aHHFFVeccsopyfzVnnvu+eijj95///0ffPDBxo0bP/nkk08++eSBBx7o06fPuHHj9tprr9q+/GTaM3bJfsLtHv3b2KXSSb7BorkhhNgMyTEtWrRo27bt6tWra/WqAQAAAACAoIib5i6//PJZs2adffbZZ511VsIHXHjhhZMmTdqwYcOCBQtiRdwdd9xxzz33/Oc//zl9+vRRo0b97//+bwhhxIgRjb/+sbrO3XffPXjw4AZ5zq233vqnn36KzcXamGs4Y8aMa665ZvPmzR06dNhjjz169erVu3fv3XbbrVOnTkcccUTqVrJBXuDatWs7duwYqhQgGzauYZuoQd4/+++/f6XZqhvQ8uXLL7744nnz5m299dY33XRT1XtO12C33Xa7++67f/zxxw9/9vXXXy9YsOCiiy6aNGnS9ttvX6uXn0x7xkq88ROwh7gbBocQYvfTTVLsTZUwuuql5Ft81YZ9AAAAAAAI7omb5nJzc9esWfP6669X22QtWkRvJNmuXbv45dGS7euvv75hw4Z33nmndevWRx11VOOvf8uWLXfYYYcQwpdfftlQz9mzZ88Qwvz580OVeuTQoUP//d//fcmSJSlawzvvvHPz5s2HHHLIlClTbr/99osvvnjEiBF5eXlV71zbsCtZH927d4++N4qKikKVayjrM5dyIzRRKt4/DWjFihXnnXfevHnzOnfu/OCDD9aqghvTrl27Qw45ZOzYsZMmTXrsscfatGlTUVERvRVurV5+Mu3ZpUuX9u3bhxDmzJlT9RmiC2tbRt1mm22id+n+6quvKv3q22+/rXRdbzKvGgAAAAAACIq4aS56F9vPP/984sSJCR/w9NNPr1+/vkOHDgMHDoxffthhh7Vp0+bzzz+fNm3aunXrDjzwwNpeYBcvWieORCJ1+NtoZWvSpEmxaVdjRo8effTRRz/00EO1CopeVTllypT42XpDCK+//vqaNWvKysq6d+9eq9eS5Br+8MMPZWVl0Y1SaebY6LXOIYTYKtVzJRuyU7VocdBBB4UQXnjhhUq/evHFF5Pcpkm+AVLRRLV6/zSmDRs2XHbZZYsWLeratevDDz8cvaFsklavXn3OOecceuihS5cujV8+aNCg6PX0sZv4Jv/yk2nPFi1aRB/23HPPxSJiqzR16tQQQh3uGTx06NAQQmFhYaV3SKW3XPKvGgAAAAAACIq46eyXv/zloYceGkK46667zj///FdeeWXZsmUbN2784Ycf/vnPf1533XX33HNPCGHMmDGV7oW5zTbbHHbYYZFI5O677w4/F4PrLPrklUovSRo1alT79u1Xrlw5duzY2HWf69atu+mmm2bNmrV8+fJoiTH5oFNPPbVjx44LFiy44YYbYrPCzpo1a8KECSGEM888s1WrVrV6LUmuYdu2bTt06BBCeOGFF2Izx65du/bBBx+Mldhj1x3WcyUb1jnnnLPVVlu9/fbb99xzz4YNG6ILp0+ffv/99zfsGyAVTVSr909jevzxx2fPnt2qVatbbrll5513DrWcgnjjxo2rV6++7rrromXvEEIkEpk6dercuXNzcnJi8z8n//KTbM9zzjknNzf3iy+++K//+q9YYfjbb7+95JJLVq9evcMOOxxzzDG1bYr/+3//b/v27T/77LM//OEPP/30U3Th5MmTn3jiibq9agAAAAAAILgnbpr7wx/+0KZNm7/97W8ffPDBBx98UOm3rVu3Hj169MiRI6v+4YgRIyZPnrxq1aouXbrU8360/fv3f/vtt2+88cbCwsLjjjvuuOOOS/5vu3Xrdtttt11xxRUfffTRiBEj8vPzW7ZsWVJS8tNPP7Vs2XL8+PH9+vWrVVDnzp1vvfXWyy+/fOrUqa+99lp+fv7q1au/+eabEMJhhx1W3c2Da4hIcg1btGgxZsyYW2655c033zzqqKN69uy5cePGkpKS9evXH3TQQfPnz1+8eHFZWVn//v3rv5INq2fPntdcc83111//+OOPv/DCC7169SotLS0tLd1tt91mz54dQmjZsmWDvAFS0US1ev80mvXr1z/11FMhhI0bN/7qV79K+JiRI0eOHTu2ume4/vrrR48e/c9//nPEiBE9e/Zs27bt0qVLly9fHkK48MIL8/Lyavvyk2zPPn36/PGPf7z66qunT5/++uuv5+fnb9y4sbi4ePPmzTvuuOOECRPatm1b29bo2rXrzTffPHbs2JdeeumVV17Jy8uLvsF69eq1dOnS+NviJvmqAQAAAACA4ErcNNe6devrrrvu8ccfP+OMM/r379+5c+dWrVp16NChX79+Z5111rPPPnvOOeck/MM999xzp512CiEMHz68RYt6te1VV1114IEHtmzZ8rPPPnvnnXdq++cFBQXPPffcWWed1atXr0WLFi1cuHC77bY76aSTnnvuuSOOOKIOQXvttdezzz777//+7926dZs3b96KFSt23333G2644eabb95iPTJhRJJrOHLkyPvuu2/fffdt06ZNUVHRqlWrhgwZct99902YMGG//fYLIbzxxhsNspIN7uijj/6f//mfoUOHtmzZcvbs2VtttdXo0aNjV+JuvfXWDfUGSEUTJf/+aTTFxcU//PBDfZ6hT58+EydOHDly5E477bRkyZI5c+a0aNHi8MMPf+ihh84+++y6dZ8k23PIkCHPPvvsyJEje/ToUVxcvHTp0v79+19yySVPP/10ncuo++6771NPPXXiiSd27Nhxzpw5OTk5p5566iOPPNK6deu6vWoAAAAAACB95NTtrqskFIlEjj/++CVLlkyaNKl3794ahFDlzqzRybpfeeWV+twyGQAAAAAAgOBKXJLx4YcfLlmyZI899lDBzXJjx4499dRTp0+fXml59Jra7t27q+ACAAAAAAAQFHFTZ+XKlevXry8qKrr55ptDCGeccYY2yXL5+fnz58+/5557FixYEFv40UcfTZgwIYRw6qmnaiIAAAAAAACC6ZRT5w9/+MOLL74Y/ffgwYPvvvtubZLlfvzxx3PPPbe4uDgnJ2ennXbq2LFjWVlZaWlpCOHII48cP358PW+ZDAAAAAAAQFDEpQYvvvjin/70p82bNx9yyCGXX355mzZttAnr16//29/+NmXKlCVLlqxevXrbbbft37//iBEjDjnkEI0DAAAAAABAUMQFAAAAAAAACO6JCwAAAAAAAEBQxAUAAAAAAAAIirgAAAAAAAAABEVcAAAAAAAAgKCICwAAAAAAAEBQxAUAAAAAAAAIirgAAAAAAAAABEVcAAAAAAAAgKCICwAAAAAAAEBQxAUAAAAAAAAIirgAAAAAAAAABEVcAAAAAAAAAIIiLgAAAAAAAEBQxAUAAAAAAAAgKOICAAAAAAAABEVcAAAAAAAAAOrg/wFsW6OuOXqR4AAAAABJRU5ErkJggg==",
+        "alt": "Lead II rhythm strip, 12 seconds at 25 mm/s and 10 mm/mV. Small atrial deflections recur every 0.75 seconds and QRS complexes every 1.71 seconds, with varying alignment.",
+        "caption": "Lead II rhythm strip. Enlarge to inspect the trace.",
+        "credit": "Original synthetic teaching trace; not a patient recording."
+      }
     },
     {
       "id": "mb1-017",
@@ -5510,21 +5497,21 @@
     },
     {
       "id": "mb1-044",
-      "stem": "After being told that their cancer has spread, a patient becomes silent and tearful. The clinician has not yet discussed treatment options. What is the best immediate response?",
+      "stem": "After hearing that their cancer has spread, a patient becomes tearful. The clinician allows a pause. The patient then says, “I thought the treatment had worked.” Which response best explores the patient’s perspective at this point?",
       "options": [
-        "Arrange the next appointment before continuing the conversation",
-        "Begin a detailed comparison of treatment regimens",
-        "Summarise the information again in simpler words immediately",
-        "Ask the relative present to explain what the patient is feeling",
-        "Allow a pause, acknowledge the distress and invite the patient’s response"
+        "“Would you like me to explain what the new scan shows?”",
+        "“Would it help to hear about the treatments we can offer?”",
+        "“What had you understood about the aim of the treatment?”",
+        "“Would you like someone close to you to join us?”",
+        "“What does this news mean for you at the moment?”"
       ],
       "answer": 4,
-      "why": "The immediate task is to **acknowledge and make space for the emotional response**, then establish what the patient wants or is ready to discuss.",
+      "why": "The open invitation explores the meaning of the news for this patient. It follows their emotional cue without assuming whether the main concern is prognosis, family, treatment or something else.",
       "distractors": [
-        "Practical planning matters, but it prematurely closes the immediate emotional discussion.",
-        "This may be needed later, but first check whether the patient can engage with further information.",
-        "Rephrasing can help understanding, but may bypass the emotional response at this moment.",
-        "The patient should be given space to speak for themselves first.",
+        "Offering clarification is reasonable, but the patient has not yet identified a factual question about the scan.",
+        "Treatment planning may follow, but this moves to solutions before the patient’s immediate concerns are understood.",
+        "Checking prior understanding is useful. Here it narrows the discussion to treatment expectations rather than opening up the current impact of the news.",
+        "Support from another person may help, but offering it does not itself explore the patient’s perspective.",
         ""
       ],
       "module": "End of Life",
@@ -5541,27 +5528,25 @@
       "difficulty": "Moderate",
       "sources": [
         "CG138 Full guideline — https://www.nice.org.uk/guidance/cg138/evidence/full-guideline-pdf-185142637",
-        "Curriculum: BM4 Year 1 learning outcomes — End of Life."
+        "Curriculum: BM4 Year 1 learning outcomes — End of Life.",
+        "NCI, Communication in Cancer Care — https://www.cancer.gov/about-cancer/coping/adjusting-to-cancer/communication-hp-pdq"
       ],
       "deepReview": {
         "keyClues": [
           {
-            "quote": "silent and tearful",
+            "quote": "The clinician allows a pause",
             "explanation": [
-              "The patient has an immediate emotional response that needs space and acknowledgement before more information."
+              "Space for the initial response has already been provided; choose what to say next."
             ],
             "supports": [
               4
             ],
-            "arguesAgainst": [
-              1,
-              2
-            ]
+            "arguesAgainst": []
           },
           {
-            "quote": "has not yet discussed treatment options",
+            "quote": "I thought the treatment had worked",
             "explanation": [
-              "Those options can follow when the patient is ready; their absence does not make an immediate information dump the best response."
+              "This cue can carry several meanings. An open question lets the patient identify the most important one."
             ],
             "supports": [
               4
@@ -5570,25 +5555,26 @@
           }
         ],
         "keyConcept": {
-          "summary": "The immediate task is to acknowledge and make space for the emotional response, then establish what the patient wants or is ready to discuss.",
+          "summary": "The open invitation explores the meaning of the news for this patient. It follows their emotional cue without assuming whether the main concern is prognosis, family, treatment or something else.",
           "paragraphs": [
-            "Silence can provide time to absorb difficult news. An open invitation allows the clinician to discover concerns without assuming what the tears mean. Information can then be paced and understanding checked."
+            "Respond to the patient’s cue with an invitation that allows their concerns to emerge.",
+            "All five responses could have a place in the consultation. The distinction is the immediate purpose: exploring meaning rather than explaining the scan, planning treatment, checking previous understanding or arranging support."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "More information is not always the best immediate response."
+          "Do not assume disappointment identifies a particular factual misunderstanding or the patient’s main worry."
         ],
         "recogniseNextTime": [
-          "The cue concerns emotional processing rather than a demonstrated factual misunderstanding."
+          "Respond to the patient’s cue with an invitation that allows their concerns to emerge."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What might you ask after the pause?",
-            "answer": "“What is going through your mind at the moment?”"
+            "prompt": "When should the clinician move on to treatment options?",
+            "answer": "After exploring the response and checking whether the patient wants and is ready for that discussion."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "file": "BM4_Novel_Harder_Mock_v3.json",
@@ -5596,33 +5582,33 @@
         "adaptation": "Rewritten and expanded for this draft"
       },
       "curriculumSource": "LOs/End of Life - LOs.txt",
-      "assessmentObjective": "The immediate task is to acknowledge and make space for the emotional response, then establish what the patient wants or is ready to discuss.",
+      "assessmentObjective": "The open invitation explores the meaning of the news for this patient. It follows their emotional cue without assuming whether the main concern is prognosis, family, treatment or something else.",
       "week": "End of Life",
-      "revision": 2,
+      "revision": 3,
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-044",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "publishedAt": 1789570300176
     },
     {
       "id": "mb1-045",
-      "stem": "A patient receiving palliative care says their pain is controlled but they cannot sleep because they are worried about how their partner will manage financially. Which next action best addresses the problem described?",
+      "stem": "A patient receiving palliative care reports poor sleep despite good pain control. They say, “I am becoming a burden on my partner.” Which question would best guide the next step in a holistic assessment?",
       "options": [
-        "Arrange a routine medication review as the sole response",
-        "Explore the concern and offer help accessing appropriate practical support",
-        "Increase analgesia because insomnia usually indicates hidden pain",
-        "Provide a sleep-hygiene leaflet before discussing finances",
-        "Ask the partner to handle the finances without involving the patient"
+        "“Which personal-care tasks does your partner help you with?”",
+        "“When you say burden, what are you most concerned about?”",
+        "“How has your illness affected your household income?”",
+        "“Have you been feeling low during the daytime as well?”",
+        "“What support could other family members offer your partner?”"
       ],
       "answer": 1,
-      "why": "Palliative assessment includes **psychological and social distress**, not only physical symptoms. Explore the worry and agree practical support with the patient.",
+      "why": "Explore what “burden” means to this patient before choosing an intervention. It could refer to practical care, money, relationships, emotional distress or loss of meaning, each suggesting a different assessment and response.",
       "distractors": [
-        "A review may be useful but is insufficient for an explicit social concern.",
+        "This explores physical dependency, but assumes that care tasks are the concern behind the word “burden”.",
         "",
-        "The patient identifies a different concern; reassess symptoms as needed rather than assuming pain.",
-        "This may support sleep, but does not address the stated source of distress.",
-        "This bypasses the patient’s wishes and may worsen loss of control."
+        "Financial assessment may be appropriate, but the patient has not yet identified finances as the concern.",
+        "Mood assessment may be relevant, but the statement alone does not establish depression as the explanation.",
+        "Family support may help, but this starts planning a solution before identifying the patient’s concern."
       ],
       "module": "End of Life",
       "topic": "Palliative symptom assessment",
@@ -5638,57 +5624,56 @@
       "difficulty": "Moderate",
       "sources": [
         "Recommendations | End of life care for adults: service delivery | Guidance | NICE — https://www.nice.org.uk/guidance/ng142/chapter/Recommendations",
-        "Curriculum: BM4 Year 1 learning outcomes — End of Life."
+        "Curriculum: BM4 Year 1 learning outcomes — End of Life.",
+        "NCI, Communication in Cancer Care — https://www.cancer.gov/about-cancer/coping/adjusting-to-cancer/communication-hp-pdq"
       ],
       "deepReview": {
         "keyClues": [
           {
-            "quote": "their pain is controlled",
+            "quote": "good pain control",
             "explanation": [
-              "The stem does not support increasing analgesia as the answer to this sleep problem."
+              "Poor sleep warrants assessment beyond pain intensity; it is not evidence to increase analgesia."
             ],
-            "supports": [
-              1
-            ],
-            "arguesAgainst": [
-              2
-            ]
+            "supports": [],
+            "arguesAgainst": []
           },
           {
-            "quote": "worried about how their partner will manage financially",
+            "quote": "I am becoming a burden on my partner",
             "explanation": [
-              "The expressed driver is practical and psychosocial distress. Explore it and offer relevant support with the patient’s involvement."
+              "The meaning is ambiguous. A clarifying question guides physical, psychological, social and spiritual assessment."
             ],
             "supports": [
               1
             ],
             "arguesAgainst": [
               0,
+              2,
               3,
               4
             ]
           }
         ],
         "keyConcept": {
-          "summary": "Palliative assessment includes psychological and social distress, not only physical symptoms",
+          "summary": "Explore what “burden” means to this patient before choosing an intervention. It could refer to practical care, money, relationships, emotional distress or loss of meaning, each suggesting a different assessment and response.",
           "paragraphs": [
-            "Practical problems can amplify distress and disrupt sleep even when analgesia is effective. Ask what matters, who the patient wants involved and which services could help. The response should be individual rather than assuming that all distress needs medication."
+            "Use the patient’s own language to identify which dimension of distress needs attention.",
+            "If the concern proves financial, practical or benefits advice may help. If it concerns dependency, relationships or meaning, the assessment and support should follow that formulation instead."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Controlled pain does not mean all palliative needs are met."
+          "A reasonable service or referral is not necessarily the right next step before the concern has been clarified."
         ],
         "recogniseNextTime": [
-          "The patient has identified the dominant concern rather than leaving it to inference."
+          "Use the patient’s own language to identify which dimension of distress needs attention."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Should the partner automatically receive the details?",
-            "answer": "No; involve others in line with the patient’s wishes and consent."
+            "prompt": "Does good pain control exclude significant suffering?",
+            "answer": "No. Psychological, social and spiritual distress can persist despite control of physical pain."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "file": "BM4_Novel_Harder_Mock_v3.json",
@@ -5696,11 +5681,11 @@
         "adaptation": "Rewritten and expanded for this draft"
       },
       "curriculumSource": "LOs/End of Life - LOs.txt",
-      "assessmentObjective": "Palliative assessment includes psychological and social distress, not only physical symptoms",
+      "assessmentObjective": "Explore what “burden” means to this patient before choosing an intervention. It could refer to practical care, money, relationships, emotional distress or loss of meaning, each suggesting a different assessment and response.",
       "week": "End of Life",
-      "revision": 2,
+      "revision": 3,
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-045",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "publishedAt": 1789570300176
@@ -6495,23 +6480,23 @@
     {
       "id": "mb1-055",
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-055",
-      "revision": 1,
-      "stem": "During walking, calf muscles compress deep leg veins. Competent valves prevent reflux. How does this assist circulation?",
+      "revision": 2,
+      "stem": "An ankle-vein pressure recording is taken while a person stands still and then walks. Calf contraction is normal, but the leg’s venous valves are incompetent. Compared with a person with competent valves, what is expected during walking?",
       "options": [
-        "It drives arterial blood across capillary walls",
-        "It maintains raised leg venous pressure during relaxation",
-        "It removes the need for a pressure gradient",
-        "It routes venous blood around the right atrium",
-        "It promotes venous return towards the heart"
+        "A larger sustained fall in ankle venous pressure because blood leaves through more routes",
+        "A smaller fall in ankle venous pressure because reflux refills emptied veins",
+        "A similar fall in ankle venous pressure because calf contraction determines the response",
+        "A smaller fall in ankle venous pressure because valve failure reduces arterial inflow",
+        "A larger sustained fall in ankle venous pressure because venous capacitance increases"
       ],
-      "answer": 4,
-      "why": "Compression displaces venous blood, and valves direct it proximally against gravity.",
+      "answer": 1,
+      "why": "Competent valves limit reflux after the calf pump ejects blood. Incompetent valves allow refilling from above, blunting the normal fall in distal venous pressure during walking.",
       "distractors": [
-        "The pump acts on veins rather than pushing arterial blood through capillary walls.",
-        "Effective emptying reduces dependent venous pooling.",
-        "Flow still depends on a pressure gradient.",
-        "Returning blood still passes through the right atrium.",
-        ""
+        "Extra reflux pathways undermine sustained emptying; they do not improve the normal pressure reduction.",
+        "",
+        "Muscle contraction and valve competence work together. Normal contraction does not compensate fully for reflux.",
+        "The mechanism is venous reflux, not a primary reduction in arterial inflow.",
+        "Increased capacitance is not the mechanism by which valve incompetence affects the walking pressure response."
       ],
       "module": "Circulation (Peripheral Arterial Disease & Venous Thromboembolic Disease)",
       "topic": "Calf muscle pump",
@@ -6527,58 +6512,66 @@
       ],
       "difficulty": "Moderate",
       "curriculumSource": "LOs/Circulation (Peripheral Arterial Disease & Venous Thromboembolic Disease) - LOs.txt",
-      "assessmentObjective": "Calf muscle pump",
+      "assessmentObjective": "Competent valves limit reflux after the calf pump ejects blood. Incompetent valves allow refilling from above, blunting the normal fall in distal venous pressure during walking.",
       "sources": [
         "BM4 Year 1: Circulation (Peripheral Arterial Disease & Venous Thromboembolic Disease) - LOs.txt",
-        "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-2-blood-flow-blood-pressure-and-resistance"
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/20-2-blood-flow-blood-pressure-and-resistance",
+        "Calf muscle pump pressure-flow cycle during ambulation — https://pmc.ncbi.nlm.nih.gov/articles/PMC12433825/",
+        "Mechanisms of Vascular Disease, Chronic Venous Insufficiency — https://www.ncbi.nlm.nih.gov/books/NBK534282/"
       ],
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "deepReview": {
         "keyClues": [
           {
-            "quote": "compress deep leg veins",
+            "quote": "Calf contraction is normal",
             "explanation": [
-              "Compression raises local pressure and displaces blood. Veins serve as a compressible reservoir."
+              "The pump is active, so the question isolates the role of the valves."
             ],
             "supports": [
-              4
+              1
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              2
+            ]
           },
           {
-            "quote": "valves prevent reflux",
+            "quote": "venous valves are incompetent",
             "explanation": [
-              "Valves make displacement directional. Incompetent valves permit backward flow."
+              "Reflux prevents the usual sustained emptying of the distal venous compartment."
             ],
             "supports": [
-              4
+              1
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              0,
+              3,
+              4
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "Calf muscle pump",
+          "summary": "Competent valves limit reflux after the calf pump ejects blood. Incompetent valves allow refilling from above, blunting the normal fall in distal venous pressure during walking.",
           "paragraphs": [
-            "Compression displaces venous blood, and valves direct it proximally against gravity.",
-            "Muscle contraction and valves cooperate; inactivity reduces this assistance to venous return."
+            "Predict pressure changes from both pump action and the direction permitted by valves.",
+            "Walking normally reduces distal venous pressure relative to standing still. Compression generates transient pressure rises in the contracting muscle compartment; this should not be confused with the overall fall in distal ambulatory venous pressure."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Valves are passive gates, not contractile pumps."
+          "Do not confuse pressure during a single contraction with sustained distal venous pressure over walking."
         ],
         "recogniseNextTime": [
-          "Muscle contraction and valves cooperate; inactivity reduces this assistance to venous return."
+          "Predict pressure changes from both pump action and the direction permitted by valves."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Why does immobility favour venous stasis?",
-            "answer": "The calf pump becomes less active."
+            "prompt": "Why can prolonged venous hypertension cause ankle oedema?",
+            "answer": "Raised venous pressure increases capillary hydrostatic pressure and favours fluid filtration into tissues."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "adaptation": "Original Year 1 extension; AI-authored and source-checked, not human-reviewed",
@@ -6877,7 +6870,7 @@
     {
       "id": "mb1-059",
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-059",
-      "revision": 1,
+      "revision": 2,
       "stem": "Prolonged obstruction of bile delivery causes greasy stools. Pancreatic enzyme secretion is preserved. Which process is most directly impaired?",
       "options": [
         "Pepsin activation in the stomach",
@@ -6887,13 +6880,13 @@
         "Starch hydrolysis by amylase"
       ],
       "answer": 3,
-      "why": "Bile salts form micelles that deliver poorly water-soluble lipid products to the absorptive surface.",
+      "why": "Pancreatic lipase breaks triglycerides into fatty acids and monoglycerides. Bile salts help these poorly water-soluble products form mixed micelles, which carry them through the watery intestinal contents towards the enterocyte surface. Biliary obstruction impairs this delivery even when pancreatic enzymes are secreted.",
       "distractors": [
-        "Gastric pepsin activation is not the key bile-dependent process.",
-        "Carbohydrate cleavage is not the primary defect.",
-        "Glucose transport does not require micelles.",
+        "Pepsin activation depends mainly on gastric acidity, not delivery of bile salts.",
+        "Disaccharidases are brush-border enzymes that digest carbohydrates.",
+        "Glucose absorption uses sodium-coupled transport rather than lipid micelles.",
         "",
-        "Starch digestion does not depend on bile micelles."
+        "Amylase digests starch; biliary obstruction does not directly remove pancreatic amylase secretion."
       ],
       "module": "Gastrointestinal (Malabsorption)",
       "topic": "Bile salts and micelles",
@@ -6909,12 +6902,13 @@
       ],
       "difficulty": "Moderate",
       "curriculumSource": "LOs/Gastrointestinal (Malabsorption) - LOs.txt",
-      "assessmentObjective": "Bile salts and micelles",
+      "assessmentObjective": "Pancreatic lipase breaks triglycerides into fatty acids and monoglycerides. Bile salts help these poorly water-soluble products form mixed micelles, which carry them through the watery intestinal contents towards the enterocyte surface. Biliary obstruction impairs this delivery even when pancreatic enzymes are secreted.",
       "sources": [
         "BM4 Year 1: Gastrointestinal (Malabsorption) - LOs.txt",
-        "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-7-chemical-digestion-and-absorption-a-closer-look"
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-7-chemical-digestion-and-absorption-a-closer-look",
+        "Fat Absorption and Lipid Metabolism in Cholestasis — https://www.ncbi.nlm.nih.gov/books/NBK6420/"
       ],
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "deepReview": {
@@ -6922,7 +6916,7 @@
           {
             "quote": "obstruction of bile delivery",
             "explanation": [
-              "Bile salts cannot reach the lumen normally. Micelle formation is impaired."
+              "Loss of intestinal bile salts impairs micellar solubilisation."
             ],
             "supports": [
               3
@@ -6930,37 +6924,40 @@
             "arguesAgainst": []
           },
           {
-            "quote": "enzyme secretion is preserved",
+            "quote": "Pancreatic enzyme secretion is preserved",
             "explanation": [
-              "Lipase deficiency is not the stated problem. Digestion products can still be poorly absorbed without bile salts."
+              "The stated defect is not lack of pancreatic lipase. Preserved enzyme secretion does not guarantee normal fat absorption."
             ],
             "supports": [
               3
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              4
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "Bile salts and micelles",
+          "summary": "Pancreatic lipase breaks triglycerides into fatty acids and monoglycerides. Bile salts help these poorly water-soluble products form mixed micelles, which carry them through the watery intestinal contents towards the enterocyte surface. Biliary obstruction impairs this delivery even when pancreatic enzymes are secreted.",
           "paragraphs": [
-            "Bile salts form micelles that deliver poorly water-soluble lipid products to the absorptive surface.",
-            "Bile salts aid lipid handling but are not lipase enzymes."
+            "Separate triglyceride digestion by lipase from delivery of the digestion products for absorption.",
+            "Bile salts also help emulsify fat, increasing the surface available for digestion. They are not digestive enzymes. Of the listed processes, micellar solubilisation is the one directly dependent on bile salts.",
+            "Lipid products leave micelles at the enterocyte surface; the entire micelle is not absorbed intact. Long-chain lipids are then re-esterified and packaged into chylomicrons."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Do not call bile a triglyceride-hydrolysing enzyme."
+          "Preserved pancreatic secretion does not mean all steps of fat handling remain normal."
         ],
         "recogniseNextTime": [
-          "Bile salts aid lipid handling but are not lipase enzymes."
+          "Separate triglyceride digestion by lipase from delivery of the digestion products for absorption."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Which vitamin group may also be affected?",
-            "answer": "Fat-soluble vitamins A, D, E and K."
+            "prompt": "Why can bile obstruction cause deficiencies of vitamins A, D, E and K?",
+            "answer": "These fat-soluble vitamins rely on effective intestinal handling of lipids, including micellar solubilisation."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "adaptation": "Original Year 1 extension; AI-authored and source-checked, not human-reviewed",
@@ -7715,23 +7712,23 @@
     {
       "id": "mb1-068",
       "uid": "bm4-y1-mixed-bank-1-2026::mb1-068",
-      "revision": 1,
-      "stem": "Preformed antibodies are given after exposure. Protection starts rapidly and declines as those antibodies are cleared. Which explanation fits?",
+      "revision": 2,
+      "stem": "A newborn has circulating maternal IgG against an infection to which the baby has never been exposed. Over the next few months, this antibody concentration falls. Which process best explains the fall?",
       "options": [
-        "The intervention transfers antigen-specific memory B cells",
-        "Passive antibody always persists for the recipient’s lifetime",
-        "Passive immunity supplies antibody without inducing its own durable memory",
-        "Transferred antibody stimulates permanent antibody self-replication",
-        "The rapid effect depends on a new primary antibody response"
+        "Reduced antibody production as maternal plasma cells become inactive",
+        "Replacement of the transferred IgG by an infant IgM response",
+        "Breakdown of transferred IgG without replenishment by antigen-specific infant plasma cells",
+        "Removal of IgG after binding to the infant’s antigen-specific memory B cells",
+        "Redistribution of the transferred IgG from blood into mucosal secretions"
       ],
       "answer": 2,
-      "why": "Ready-made antibody gives rapid temporary protection without itself generating the recipient’s antigen-specific memory.",
+      "why": "Maternal IgG provides passive protection. It is gradually broken down; transfer of antibody does not itself establish antigen-specific plasma cells or memory B cells in the infant.",
       "distractors": [
-        "The intervention described transfers antibody proteins, not memory B cells.",
-        "Antibodies are cleared over time, explaining the stated waning.",
+        "Placental antibody transfer supplies IgG, rather than a population of maternal plasma cells producing it in the infant.",
+        "A new infant IgM response requires stimulation of the infant’s immune system; it does not explain routine loss of transferred IgG.",
         "",
-        "Antibody proteins cannot replicate themselves.",
-        "Ready-made antibody provides protection before a new recipient response would develop."
+        "Passive antibody transfer does not itself generate antigen-specific memory B cells, and their binding is not the mechanism of antibody clearance.",
+        "Redistribution to mucosal secretions is not the explanation for the progressive loss of passive protection."
       ],
       "module": "Respiratory (Infections)",
       "topic": "Passive immunity",
@@ -7747,58 +7744,64 @@
       ],
       "difficulty": "Moderate",
       "curriculumSource": "LOs/Respiratory (Infections) - LOs.txt",
-      "assessmentObjective": "Passive immunity",
+      "assessmentObjective": "Maternal IgG provides passive protection. It is gradually broken down; transfer of antibody does not itself establish antigen-specific plasma cells or memory B cells in the infant.",
       "sources": [
         "BM4 Year 1: Respiratory (Infections) - LOs.txt",
-        "https://openstax.org/books/anatomy-and-physiology-2e/pages/21-4-the-adaptive-immune-response-b-lymphocytes-and-antibodies"
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/21-4-the-adaptive-immune-response-b-lymphocytes-and-antibodies",
+        "CDC, Principles of Vaccination — https://www.cdc.gov/pinkbook/hcp/table-of-contents/chapter-1-principles-of-vaccination.html"
       ],
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "collection": "Mixed Bank 1",
       "collectionId": "bm4-y1-mixed-bank-1-2026",
       "deepReview": {
         "keyClues": [
           {
-            "quote": "Preformed antibodies",
+            "quote": "maternal IgG",
             "explanation": [
-              "The protective product is supplied directly. This bypasses the time required to manufacture an initial response."
+              "The antibody was made by another individual: this is passive immunity."
             ],
             "supports": [
               2
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              0
+            ]
           },
           {
-            "quote": "declines as those antibodies are cleared",
+            "quote": "never been exposed",
             "explanation": [
-              "The intervention has supplied a finite protein pool. Its loss explains waning protection without requiring a failure of memory."
+              "There is no stated active immune response to replenish this antibody."
             ],
             "supports": [
               2
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              1,
+              3
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "Passive immunity",
+          "summary": "Maternal IgG provides passive protection. It is gradually broken down; transfer of antibody does not itself establish antigen-specific plasma cells or memory B cells in the infant.",
           "paragraphs": [
-            "Ready-made antibody gives rapid temporary protection without itself generating the recipient’s antigen-specific memory.",
-            "Exposure itself may stimulate immunity, but the transferred antibody intervention is passive."
+            "Distinguish the source of the antibody from the person receiving protection.",
+            "Active immunisation stimulates the recipient’s lymphocytes. Passive immunisation supplies the antibody product, so protection can begin promptly but fades as antibody is cleared."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Rapid protection is not the same as durable memory."
+          "Do not assume that an antibody-positive person has made those antibodies or acquired immune memory."
         ],
         "recogniseNextTime": [
-          "Exposure itself may stimulate immunity, but the transferred antibody intervention is passive."
+          "Distinguish the source of the antibody from the person receiving protection."
         ],
         "followUpQuestions": [
           {
-            "prompt": "What can active vaccination establish?",
-            "answer": "Antigen-specific memory for a faster subsequent response."
+            "prompt": "What changes after successful active immunisation?",
+            "answer": "The recipient develops an antigen-specific response, including memory cells; later exposure can produce a more rapid response."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "provenance": {
         "adaptation": "Original Year 1 extension; AI-authored and source-checked, not human-reviewed",
@@ -35763,22 +35766,22 @@
     },
     {
       "id": "y2-w01-003",
-      "stem": "A 61-year-old floor layer has knee OA after decades of frequent kneeling and lifting. A colleague says the occupation must be the sole cause. Which response best interprets this history?",
+      "stem": "A 61-year-old with knee osteoarthritis has worked in several manual jobs. Which exposure in the occupational history is most strongly relevant to mechanical loading associated with knee OA?",
       "options": [
-        "The long exposure history is sufficient to establish work as the sole cause",
-        "Work contributes to OA only when a single major knee injury has occurred",
-        "Repeated joint loading can contribute, but OA has several interacting risk factors",
-        "The occupational history is relevant only to current disability, not disease risk",
-        "An absent family history would establish an exclusively occupational cause"
+        "Prolonged seated driving with frequent use of foot pedals",
+        "Prolonged standing at a counter with the knees extended",
+        "Repeated kneeling and squatting while laying flooring",
+        "Frequent seated work with the knees held at a right angle",
+        "Repeated short walks between workstations on level ground"
       ],
       "answer": 2,
-      "why": "Repeated loading can contribute to OA risk, alongside age, body weight, alignment, previous injury and genetic factors. An occupational association is not proof of a sole cause.",
+      "why": "Repeated kneeling and squatting load the knees and are relevant occupational exposures for knee OA. Occupational loading can contribute alongside age, body weight, previous injury and other factors.",
       "distractors": [
-        "Exposure duration strengthens plausibility but cannot exclude other contributors in an individual.",
-        "Repeated occupational loading can contribute even without one discrete major injury.",
+        "Pedal use involves the lower limb but is not the repeated loaded deep-flexion exposure described by kneeling and squatting.",
+        "Standing can cause lower-limb symptoms, but repeated kneeling and squatting are the more characteristic knee-OA exposure among these choices.",
         "",
-        "Work may influence both the risk of developing OA and the effects of established disease.",
-        "Absence of a reported family history does not exclude age, weight, alignment, prior injury or other influences."
+        "Seated knee flexion does not produce the same loading pattern as repeated weight-bearing kneeling and squatting.",
+        "Ordinary short walks are not equivalent to prolonged occupational kneeling or repeated loaded deep flexion."
       ],
       "module": "Arthritis",
       "topic": "Occupational loading and osteoarthritis",
@@ -35791,7 +35794,8 @@
       "difficulty": "Moderate",
       "sources": [
         "Winchester/Week 1 - Arthritis/Rheumatoid and OA overview.pdf — pages 9–11",
-        "Southampton/Week 1 - Arthritis/Osteoarticular Pathology BM4 26-27 - STUDENT COPY.pdf — page 14"
+        "Southampton/Week 1 - Arthritis/Osteoarticular Pathology BM4 26-27 - STUDENT COPY.pdf — page 14",
+        "HSE, Lower limb disorders — https://www.hse.gov.uk/msd/lld/index.htm"
       ],
       "lo": [
         "Outline the relationship between chronic arthritic conditions and occupations, considering both cause and effect."
@@ -35800,7 +35804,7 @@
         "Y2-W01-LO02"
       ],
       "curriculumSource": "Learning Objectives/Week 1/Learning outcomes - Arthritis.md",
-      "assessmentObjective": "Occupational loading and osteoarthritis",
+      "assessmentObjective": "Repeated kneeling and squatting load the knees and are relevant occupational exposures for knee OA. Occupational loading can contribute alongside age, body weight, previous injury and other factors.",
       "yield": "core",
       "questionType": "case",
       "optional": false,
@@ -35812,51 +35816,47 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "decades of frequent kneeling and lifting",
+            "quote": "knee osteoarthritis",
             "explanation": [
-              "Repeated high loading is a plausible contributor to knee joint disease."
+              "Distinguish repeated loaded deep knee flexion from other common lower-limb postures and activities."
             ],
             "supports": [
               2
             ],
-            "arguesAgainst": []
-          },
-          {
-            "quote": "sole cause",
-            "explanation": [
-              "This overstates a multifactorial association and ignores other determinants."
-            ],
-            "supports": [
-              2
-            ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              0,
+              1,
+              3,
+              4
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "Occupational loading and osteoarthritis",
+          "summary": "Repeated kneeling and squatting load the knees and are relevant occupational exposures for knee OA. Occupational loading can contribute alongside age, body weight, previous injury and other factors.",
           "paragraphs": [
-            "Occupational assessment considers exposure intensity, duration and other risk factors. It also asks how symptoms affect tasks and whether changes can preserve employment."
+            "Take an exposure history: the tasks, postures, loads and duration matter more than the job title alone.",
+            "Identifying a relevant exposure supports assessment of risk and possible task modification. It does not establish work as the sole cause of disease."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Avoid converting a risk association into proof of causation in an individual."
+          "Do not treat all manual work as the same exposure for every joint."
         ],
         "recogniseNextTime": [
-          "Consider both what work does to joints and what joint disease does to work."
+          "Take an exposure history: the tasks, postures, loads and duration matter more than the job title alone."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Name one non-occupational contributor to knee OA.",
-            "answer": "Previous knee injury, obesity or malalignment can contribute."
+            "prompt": "What else should be asked about the exposure?",
+            "answer": "How often and for how many years it occurred, associated lifting or injury, and how symptoms affect the person’s current work."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "aiReviewedAt": "2026-10-25",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "uid": "bm4-y2-week-01-2026::y2-w01-003",
-      "revision": 2,
+      "revision": 3,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
       "publishedAt": 1792932872736
@@ -36858,22 +36858,22 @@
     },
     {
       "id": "y2-w01-014",
-      "stem": "A patient newly taking methotrexate for RA is unsure how to arrange monitoring and whom to contact during a flare. Her partner would like to help, and she agrees to their involvement. Which support best addresses these needs?",
+      "stem": "A patient with RA has difficulty fastening clothes and preparing meals because of painful hands. Their partner is taking over these tasks, but the patient wants to remain as independent as possible. Which MDT input is most directly suited to assessing task adaptations and assistive equipment?",
       "options": [
-        "Rheumatology specialist-nurse education and a monitoring/contact plan involving the partner as agreed",
-        "Provide physiotherapy exercises without addressing medicine questions",
-        "Arrange repeat radiographs as the sole follow-up plan",
-        "Defer education until fixed joint deformities develop",
-        "Transfer all monitoring decisions to the partner without clinical oversight"
+        "Occupational therapist",
+        "Physiotherapist",
+        "Rheumatology specialist nurse",
+        "Social worker",
+        "Clinical psychologist"
       ],
       "answer": 0,
-      "why": "A rheumatology specialist nurse can provide treatment education, monitoring coordination and rapid-access advice. Involving the partner with the patient's agreement can support care without replacing professional responsibility.",
+      "why": "Occupational therapy addresses everyday activity and hand-function difficulties through task assessment, joint-protection strategies, adaptations and assistive equipment. The partner can support the agreed approach while preserving the patient’s independence.",
       "distractors": [
         "",
-        "Exercise is useful but leaves the expressed treatment-support needs unmet.",
-        "Radiographs do not replace medicine safety monitoring or flare advice.",
-        "Early education is needed when treatment begins, not only after damage occurs.",
-        "Informal carers can help, but cannot replace clinical monitoring."
+        "Physiotherapy is valuable for strength, mobility and exercise. The stated focus is adaptation of daily tasks and equipment.",
+        "The specialist nurse supports education, treatment monitoring and access to advice; task and equipment assessment is most directly an occupational-therapy role.",
+        "Social work can support care arrangements and social or financial needs; the requested input is practical adaptation of activities.",
+        "Psychology can support coping and adjustment, but the specified need is assessment of tasks and assistive equipment."
       ],
       "module": "Arthritis",
       "topic": "Specialist nurse and carer support",
@@ -36886,7 +36886,8 @@
       "difficulty": "Moderate",
       "sources": [
         "Winchester/Week 1 - Arthritis/Role of the CNS and MDT in the care of patients with Arthritis 2026.pptx — slides 9 and 12–14",
-        "Graduate Group/Week 1 - Arthritis/ARTHRITIS 2026 student notes.pdf — page 4"
+        "Graduate Group/Week 1 - Arthritis/ARTHRITIS 2026 student notes.pdf — page 4",
+        "NICE NG100, Recommendations 1.8.1–1.8.2 — https://www.nice.org.uk/guidance/ng100/chapter/Recommendations"
       ],
       "lo": [
         "Discuss the role of the different health professionals and informal carers involved in the care of a patient with arthritis."
@@ -36895,7 +36896,7 @@
         "Y2-W01-LO06"
       ],
       "curriculumSource": "Learning Objectives/Week 1/Learning outcomes - Arthritis.md",
-      "assessmentObjective": "Specialist nurse and carer support",
+      "assessmentObjective": "Occupational therapy addresses everyday activity and hand-function difficulties through task assessment, joint-protection strategies, adaptations and assistive equipment. The partner can support the agreed approach while preserving the patient’s independence.",
       "yield": "core",
       "questionType": "case",
       "optional": false,
@@ -36907,9 +36908,9 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "arrange monitoring and whom to contact",
+            "quote": "fastening clothes and preparing meals",
             "explanation": [
-              "These needs match specialist-nurse education and access functions."
+              "These are activities of daily living affected by hand function."
             ],
             "supports": [
               0
@@ -36917,41 +36918,47 @@
             "arguesAgainst": []
           },
           {
-            "quote": "she agrees to their involvement",
+            "quote": "task adaptations and assistive equipment",
             "explanation": [
-              "Carer involvement should reflect the patient's wishes and can strengthen the support plan."
+              "This identifies the occupational-therapy focus within an overlapping MDT."
             ],
             "supports": [
               0
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "Specialist nurse and carer support",
+          "summary": "Occupational therapy addresses everyday activity and hand-function difficulties through task assessment, joint-protection strategies, adaptations and assistive equipment. The partner can support the agreed approach while preserving the patient’s independence.",
           "paragraphs": [
-            "Effective arthritis care includes accessible advice, medication safety and support for families or carers. Information should be clear enough for the patient to act on and reviewed as needs change."
+            "Identify the main functional goal, then match it to the professional best placed to assess it.",
+            "MDT roles overlap and several professionals may contribute. The question asks for the most directly suited input, not a claim that one profession has exclusive responsibility."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "A willing informal carer does not remove the team's responsibility to provide monitoring and advice."
+          "A rheumatology diagnosis does not make the specialist nurse the best answer to every support question."
         ],
         "recogniseNextTime": [
-          "Clarify who will do what, when monitoring occurs and how to seek help."
+          "Identify the main functional goal, then match it to the professional best placed to assess it."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Which team member commonly leads strength and movement exercises?",
-            "answer": "A physiotherapist."
+            "prompt": "How can an informal carer help without taking over?",
+            "answer": "With the patient’s agreement, support use of adaptations and the activities the patient wishes to continue doing independently."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "aiReviewedAt": "2026-10-24",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "uid": "bm4-y2-week-01-2026::y2-w01-014",
-      "revision": 1,
+      "revision": 2,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
       "publishedAt": 1792912410613
@@ -39421,22 +39428,22 @@
     },
     {
       "id": "y2-w01-218",
-      "stem": "A 70-year-old long-term smoker with established cardiovascular disease is being considered for a JAK inhibitor for RA. What is the key prescribing implication of MHRA safety advice?",
+      "stem": "A patient with RA is discussing treatment with a JAK inhibitor. Alongside serious infection and malignancy, which pair of adverse outcomes is associated with this drug class?",
       "options": [
-        "Consider suitable alternatives because this profile increases concern about major adverse outcomes",
-        "Prefer a JAK inhibitor because oral therapy has less serious infection risk than biologic therapy",
-        "Assess latent TB alone because cardiovascular risk does not alter JAK inhibitor selection",
-        "Use retinal screening as the principal additional safety assessment",
-        "Prefer a JAK inhibitor over alternatives because established cardiovascular disease predicts greater safety"
+        "Major cardiovascular events and venous thromboembolism",
+        "Retinal toxicity and corneal deposits",
+        "Osteoporosis and posterior subcapsular cataracts",
+        "Peptic ulceration and renal papillary injury",
+        "Gingival overgrowth and hirsutism"
       ],
       "answer": 0,
-      "why": "MHRA advice is to avoid JAK inhibitors for chronic inflammatory disease in specified higher-risk groups unless no suitable alternatives exist. Review cardiovascular, malignancy, thromboembolic and infection risk with the specialist and patient.",
+      "why": "JAK inhibitors are associated with increased risks of major cardiovascular events and venous thromboembolism, as well as serious infection, malignancy and increased mortality. These class risks are explicitly covered in the arthritis teaching.",
       "distractors": [
         "",
-        "Oral administration does not confer this safety advantage; JAK inhibitors carry important infection and other risk warnings.",
-        "Infection assessment matters, but age, smoking and cardiovascular risk also affect selection under MHRA advice.",
-        "Retinal screening relates particularly to hydroxychloroquine; this patient needs assessment of cardiovascular, cancer, thromboembolic and infection risks.",
-        "Established cardiovascular disease increases concern about adverse outcomes rather than establishing greater safety."
+        "This pair points towards antimalarial toxicity rather than the characteristic JAK-inhibitor risk profile.",
+        "This is a characteristic long-term systemic glucocorticoid toxicity pairing.",
+        "Gastrointestinal ulceration and renal injury are associated with NSAID use rather than this JAK-inhibitor risk pairing.",
+        "Gingival overgrowth and hirsutism are classically associated with ciclosporin."
       ],
       "module": "Arthritis",
       "topic": "JAK inhibitor safety",
@@ -39446,7 +39453,9 @@
       "difficulty": "Moderate",
       "sources": [
         "Southampton/Week 1 - Arthritis/Immunology & Pharmacology of rheumatoid arthritis - student version.pptx — DMARD mechanisms and adverse effects",
-        "https://www.gov.uk/drug-safety-update/janus-kinase-jak-inhibitors-new-measures-to-reduce-risks-of-major-cardiovascular-events-malignancy-venous-thromboembolism-serious-infections-and-increased-mortality"
+        "https://www.gov.uk/drug-safety-update/janus-kinase-jak-inhibitors-new-measures-to-reduce-risks-of-major-cardiovascular-events-malignancy-venous-thromboembolism-serious-infections-and-increased-mortality",
+        "BM4 Year 2, Immunology & Pharmacology of rheumatoid arthritis – student version, slide 30.",
+        "MHRA, JAK inhibitor safety review — https://www.gov.uk/drug-safety-update/janus-kinase-jak-inhibitors-new-measures-to-reduce-risks-of-major-cardiovascular-events-malignancy-venous-thromboembolism-serious-infections-and-increased-mortality"
       ],
       "lo": [
         "Describe the treatment of arthritic conditions including rheumatoid arthritis encompassing the mechanism of action and side effects of conventional synthetic disease-modifying anti-rheumatic drugs (csDMARDs), biologic DMARDs (bDMARDs) and targeted synthetic DMARDs (tsDMARDs). Updated 02/10/2026: see new resource provided within the weekly lecture."
@@ -39455,7 +39464,7 @@
         "Y2-W01-LO13"
       ],
       "curriculumSource": "Learning Objectives/Week 1/Learning outcomes - Arthritis.md",
-      "assessmentObjective": "JAK inhibitor safety",
+      "assessmentObjective": "JAK inhibitors are associated with increased risks of major cardiovascular events and venous thromboembolism, as well as serious infection, malignancy and increased mortality. These class risks are explicitly covered in the arthritis teaching.",
       "yield": "high",
       "questionType": "case",
       "optional": false,
@@ -39467,41 +39476,47 @@
       "deepReview": {
         "keyClues": [
           {
-            "quote": "70-year-old long-term smoker",
+            "quote": "JAK inhibitor",
             "explanation": [
-              "MHRA advice is to avoid JAK inhibitors for chronic inflammatory disease in specified higher-risk groups unless no suitable alternatives exist. Review cardiovascular, malignancy, thromboembolic and infection risk with the specialist and patient."
+              "Recall the adverse-effect profile of targeted synthetic DMARDs."
             ],
             "supports": [
               0
             ],
-            "arguesAgainst": []
+            "arguesAgainst": [
+              1,
+              2,
+              3,
+              4
+            ]
           }
         ],
         "keyConcept": {
-          "summary": "JAK inhibitor safety",
+          "summary": "JAK inhibitors are associated with increased risks of major cardiovascular events and venous thromboembolism, as well as serious infection, malignancy and increased mortality. These class risks are explicitly covered in the arthritis teaching.",
           "paragraphs": [
-            "MHRA advice is to avoid JAK inhibitors for chronic inflammatory disease in specified higher-risk groups unless no suitable alternatives exist. Review cardiovascular, malignancy, thromboembolic and infection risk with the specialist and patient."
+            "Learn the characteristic adverse-effect profile alongside each arthritis drug class.",
+            "The teaching lists cardiovascular events, malignancy, venous thromboembolism, serious infections and mortality. The question tests those adverse effects rather than regulatory age cut-offs or prescribing exceptions."
           ],
           "comparisonPoints": []
         },
         "commonTraps": [
-          "Route of administration does not remove immunomodulatory infection risk."
+          "Do not transfer a memorable toxicity from another arthritis treatment to JAK inhibitors."
         ],
         "recogniseNextTime": [
-          "MHRA advice is to avoid JAK inhibitors for chronic inflammatory disease in specified higher-risk groups unless no suitable alternatives exist. Review cardiovascular, malignancy, thromboembolic and infection risk with the specialist and patient."
+          "Learn the characteristic adverse-effect profile alongside each arthritis drug class."
         ],
         "followUpQuestions": [
           {
-            "prompt": "Does a safety warning mean the medicine can never be used?",
-            "answer": "No; it requires appropriate selection, consideration of alternatives and informed assessment of benefit and risk."
+            "prompt": "What does JAK stand for?",
+            "answer": "Janus kinase; these inhibitors act on intracellular cytokine signalling."
           }
         ],
-        "reviewVersion": 2
+        "reviewVersion": 3
       },
       "aiReviewedAt": "2026-10-25",
-      "reviewedAt": "",
+      "reviewedAt": "2026-10-25",
       "uid": "bm4-y2-week-01-2026::y2-w01-218",
-      "revision": 2,
+      "revision": 3,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
       "publishedAt": 1792932872736
