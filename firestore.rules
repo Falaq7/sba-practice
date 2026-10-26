@@ -1,4 +1,3 @@
-// SBA Workspace data access rules.
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -45,6 +44,65 @@ service cloud.firestore {
         && request.resource.data.ownerUid == resource.data.ownerUid
         && request.resource.data.visibility == 'public';
       allow delete: if signedIn() && resource.data.ownerUid == request.auth.uid;
+    }
+
+    function publisher() {
+      return request.auth != null
+        && request.auth.token.get('sbaPublisher', false) == true;
+    }
+
+    match /questionReports/{reportId} {
+      allow get: if publisher() || (signedIn()
+        && (!exists(/databases/$(database)/documents/questionReports/$(reportId))
+          || resource.data.ownerUid == request.auth.uid));
+      allow list: if publisher();
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.id == reportId
+        && request.resource.data.keys().hasOnly(['id', 'uid', 'revision', 'topic', 'kind', 'details', 'createdAt', 'updatedAt', 'sent', 'ownerUid'])
+        && request.resource.data.details is string
+        && request.resource.data.details.size() > 0
+        && request.resource.data.details.size() <= 4000
+        && getAfter(/databases/$(database)/documents/reportSenders/$(request.auth.uid)).data.lastReportId == reportId
+        && getAfter(/databases/$(database)/documents/reportSenders/$(request.auth.uid)).data.sentAt == request.time
+        && (!exists(/databases/$(database)/documents/reportSenders/$(request.auth.uid))
+          || get(/databases/$(database)/documents/reportSenders/$(request.auth.uid)).data.sentAt < request.time - duration.value(30, 's'));
+      allow update: if publisher()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['resolvedAt']);
+      allow delete: if publisher();
+    }
+
+    match /reportSenders/{uid} {
+      allow get: if signedIn() && request.auth.uid == uid;
+      allow create, update: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['sentAt', 'lastReportId'])
+        && request.resource.data.sentAt == request.time
+        && request.resource.data.lastReportId is string
+        && getAfter(/databases/$(database)/documents/questionReports/$(request.resource.data.lastReportId)).data.ownerUid == uid
+        && (!exists(/databases/$(database)/documents/reportSenders/$(uid))
+          || resource.data.sentAt < request.time - duration.value(30, 's'));
+    }
+
+    function progressOwner(uid) {
+      return owns(uid) && request.auth.token.firebase.sign_in_provider != 'anonymous';
+    }
+    function validProgress() {
+      let r = request.resource.data;
+      return r.keys().hasAll(['kind', 'id', 'data', 'serverUpdatedAt'])
+        && r.keys().hasOnly(['kind', 'id', 'data', 'serverUpdatedAt'])
+        && r.kind in ['session', 'question', 'bookmark', 'note', 'preference', 'report', 'bank']
+        && r.id is string && r.id.size() > 0 && r.id.size() <= 1500
+        && r.data is map
+        && r.serverUpdatedAt == request.time;
+    }
+    match /users/{uid}/progress/{recordId} {
+      allow read: if progressOwner(uid);
+      allow create: if progressOwner(uid) && validProgress();
+      allow update: if progressOwner(uid) && validProgress()
+        && request.resource.data.kind == resource.data.kind
+        && request.resource.data.id == resource.data.id;
+      allow delete: if false;
     }
 
     match /{document=**} {
