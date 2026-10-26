@@ -1,6 +1,6 @@
 import {bankManifest,uploadBankQuestions,downloadBank} from './private-banks.mjs';
 import {communityKey,communityFingerprint,duplicateMessage} from './community.mjs';
-import {mergeData,clone,id} from './core.mjs';
+import {mergeData,clone,id,stableStringify} from './core.mjs';
 import {placement} from './catalogue.mjs';
 import {pinCredentials,usernameFor} from './identity.mjs';
 const VERSION='11.10.0';
@@ -34,8 +34,8 @@ export class Cloud extends EventTarget {
     if(this.user?.uid!==uid)return;this.enabled=true;const epoch=this.epoch,a=this.api;
     this.stop=a.onSnapshot(a.collection(this.db,'users',uid,'progress'),async snap=>{
       if(this.epoch!==epoch||this.user?.uid!==uid)return;
-      try{for(const change of snap.docChanges())if(change.type!=='removed'){const r=change.doc.data();if(r.kind&&r.id&&r.data){const data=r.kind==='bank'?await downloadBank(a,this.db,uid,r.data):r.data;if(this.epoch!==epoch||this.user?.uid!==uid)return;await this.store.acceptRemote(uid,r.kind,r.id,data);}}
-        if(epoch!==this.epoch)return;this.error='';this.dispatchEvent(new Event('remote'));this.sync();
+      try{let changed=false;for(const change of snap.docChanges())if(change.type!=='removed'){const r=change.doc.data();if(r.kind&&r.id&&r.data){const data=r.kind==='bank'?await downloadBank(a,this.db,uid,r.data):r.data;if(this.epoch!==epoch||this.user?.uid!==uid)return;const previous=this.store.get(uid,r.kind,r.id);if(stableStringify(previous)!==stableStringify(mergeData(r.kind,previous,data))){await this.store.acceptRemote(uid,r.kind,r.id,data);changed=true;}}}
+        if(epoch!==this.epoch)return;this.error='';if(changed)this.dispatchEvent(new Event('remote'));else this.dispatchEvent(new Event('status'));this.sync();
       }catch(e){this.error=message(e);this.dispatchEvent(new Event('status'));}
     },e=>{this.error=message(e);this.dispatchEvent(new Event('status'));});this.sync();
   }

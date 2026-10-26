@@ -54,10 +54,19 @@ export class LocalStore extends EventTarget {
   }
   async persist(record){
     if(!this.database)return;
+    for(let attempt=0;attempt<3;attempt++){
+      try{await this.persistOnce(record);if(this.error.startsWith('Could not finish saving on this device.'))this.error='';return;}
+      catch(e){if(attempt<2&&!['QuotaExceededError','DataCloneError'].includes(e?.name)){await new Promise(resolve=>setTimeout(resolve,150*2**attempt));continue;}
+        this.error='Could not finish saving on this device. Your answer is kept in this tab; download a backup before closing.';this.dispatchEvent(new Event('change'));throw e;
+      }
+    }
+  }
+  async persistOnce(record){
+    if(!this.database)return;
     await new Promise((resolve,reject)=>{const tx=this.database.transaction('records','readwrite'),table=tx.objectStore('records'),r=table.get(record.key);let merged;
       r.onsuccess=()=>{merged=this.mergeRecord(r.result,record);table.put(merged);};
       tx.oncomplete=()=>{this.records.set(record.key,this.mergeRecord(merged,this.records.get(record.key)||merged));try{const journal=localStorage.getItem(PREFIX+record.key);if(journal&&stableStringify(JSON.parse(journal).data)===stableStringify(record.data))localStorage.removeItem(PREFIX+record.key);}catch{}resolve();};
-      tx.onerror=()=>{this.error='Could not finish saving on this device. Keep this tab open and download a backup.';reject(tx.error);};});
+      tx.onerror=tx.onabort=()=>reject(tx.error||Object.assign(Error('Device save transaction aborted'),{name:'AbortError'}));});
   }
   async acceptRemote(scope,kind,recordId,data){return this.put(scope,kind,recordId,data,false);}
   async markSynced(record){
@@ -84,4 +93,3 @@ export class LocalStore extends EventTarget {
     for(const r of valid.records)await this.put(scope,r.kind,r.id,r.data);
   }
 }
-

@@ -46,3 +46,25 @@ test('progress reset persists, syncs and excludes older sessions without changin
  const b=await new LocalStore().open();assert.equal(b.list('alice','session').length,1);assert.ok(b.dirty('alice').some(r=>r.id==='history-reset'));
  const other=new LocalStore();await other.put('alice','session','old',{id:'old',createdAt:1,questions:[],answers:{}});await other.acceptRemote('alice','preference','history-reset',reset);assert.equal(other.list('alice','session').length,0);
 });
+
+test('transient device writes retry three times and clear the old save error',async()=>{
+ const store=new LocalStore();store.database={};let calls=0;
+ store.error='Could not finish saving on this device. Previous failure';
+ store.persistOnce=async()=>{if(++calls<3)throw Object.assign(Error('temporary'),{name:'AbortError'});};
+ await store.persist({});assert.equal(calls,3);assert.equal(store.error,'');
+});
+test('permanent device write failure preserves journal and answer after bounded retries',async()=>{
+ memory.clear();const store=new LocalStore();store.database={};let calls=0;
+ store.persistOnce=async()=>{calls++;throw Object.assign(Error('temporary'),{name:'AbortError'});};
+ await assert.rejects(store.put('alice','note','retry',{text:'Keep me',updatedAt:1}));
+ assert.equal(calls,3);assert.equal(store.get('alice','note','retry').text,'Keep me');
+ assert.ok(memory.has('BM4_V3_RECORD:alice|note|retry'));assert.match(store.error,/download a backup/);
+});
+test('cloud acknowledgement with unchanged data does not redraw review',async()=>{
+ const data={text:'same',updatedAt:1};let receive,redraws=0,writes=0;
+ const cloud=new Cloud({get:()=>data,dirty:()=>[],acceptRemote:async()=>{writes++;}});
+ cloud.user={uid:'alice'};cloud.api={collection:()=>({}),onSnapshot:(_,fn)=>{receive=fn;return ()=>{};}};
+ cloud.sync=()=>{};cloud.addEventListener('remote',()=>redraws++);cloud.startProgress('alice');
+ await receive({docChanges:()=>[{type:'modified',doc:{data:()=>({kind:'preference',id:'display',data})}}]});
+ assert.equal(redraws,0);assert.equal(writes,0);
+});

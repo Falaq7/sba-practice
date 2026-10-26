@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 globalThis.matchMedia=()=>({matches:true});
 const {bindDeepReview}=await import('../dist/public/review-panel.mjs');
 
-function fixture({mode='learn',locked=true,view='session'}={}){
+function fixture({mode='learn',locked=true,view='session',id}={}){
  const classes=new Set(),listeners=new Map();let panel,focused=false;
  const classList={add:x=>classes.add(x),remove:x=>classes.delete(x),toggle:()=>false};
  const button={focus:()=>{focused=true;}},close={};
@@ -14,7 +14,7 @@ function fixture({mode='learn',locked=true,view='session'}={}){
  globalThis.window={addEventListener(){},removeEventListener(){}};
  globalThis.innerWidth=1440;globalThis.cancelAnimationFrame=()=>{};
  const q={uid:'q',stem:'A patient has a symptom.',options:['Correct','Alternative'],answer:0,why:'Explanation',distractors:['','Why not'],deepReview:{keyClues:[]}};
- const c={view,session:{mode,current:0,questions:[{key:'q@1',order:[0,1]}],answers:{'q@1':{locked,selected:0,seconds:20}}},questionMap:new Map([['q@1',q]]),stats:{rows:[]}};
+ const c={view,session:{id,mode,current:0,questions:[{key:'q@1',order:[0,1]}],answers:{'q@1':{locked,selected:0,seconds:20}}},questionMap:new Map([['q@1',q]]),stats:{rows:[]}};
  bindDeepReview(c);
  return {get panel(){return panel;},classes,close,click:()=>listeners.get('click')({target:{closest:()=>({dataset:{explore:'q@1'}})}}),focused:()=>focused};
 }
@@ -39,4 +39,10 @@ test('draft learning and assessment answers do not automatically reveal teaching
   assert.equal(f.panel.hidden,true);
   assert.equal(f.classes.has('deep-review-open'),false);
  }
+});
+
+test('sync redraw keeps a closed review closed and restores an open review without replaying entrance',async()=>{
+ const first=fixture({id:'stable-session'});await first.close.onclick();
+ const redraw=fixture({id:'stable-session'});assert.equal(redraw.panel.hidden,true);
+ redraw.click();const reopened=fixture({id:'stable-session'});assert.equal(reopened.panel.hidden,false);
 });

@@ -29,12 +29,16 @@ export function answerFeedback(q,a,key,history=[]){
 export function reviewOptions(q,a,order){return `<div class="options review-options">${order.map((n,i)=>`<div class="option ${n===q.answer?'correct':a?.selected===n?'wrong':''}"><b>${'ABCDE'[i]}.</b><span>${rich(q.options[n])}${n===q.answer?'<small class="answer-label">Correct answer</small>':a?.selected===n?'<small class="answer-label">Your answer</small>':''}</span></div>`).join('')}</div>`;}
 
 let cleanup=()=>{};
+let retained=null;
 
 export function bindDeepReview(c){
 
+ const identity=JSON.stringify([c.scope,c.view,c.session.id]);
+ const previous=c.session.id&&retained?.identity===identity?retained:null;
  cleanup();const cards=[...document.querySelectorAll('[data-review-key]')],host=document.querySelector('#review-rail,.session-sidebar');if(!cards.length||!host)return;
 
- let active=null,closed=null,frame=0;const panel=document.createElement('section');panel.id='deep-review-panel';panel.className='deep-review-panel';panel.hidden=true;panel.setAttribute('aria-label','Deep Review');panel.setAttribute('role','complementary');host.prepend(panel);
+ let active=null,closed=previous?.closed||null,frame=0,transition=0,disposed=false;
+ const saved=retained={identity,closed,active:previous?.active||null,scrollTop:previous?.scrollTop||0};const panel=document.createElement('section');panel.id='deep-review-panel';panel.className='deep-review-panel';panel.hidden=true;panel.setAttribute('aria-label','Deep Review');panel.setAttribute('role','complementary');host.prepend(panel);
 
  function animateClues(card){
 
@@ -46,7 +50,7 @@ export function bindDeepReview(c){
 
  }
 
- function show(card,manual=false){const key=card.dataset.reviewKey;if(!manual&&(active===key||closed===key))return;const ref=c.session.questions.find(r=>r.key===key),q=c.questionMap.get(key),a=c.session.answers[key];if(!q||!ref)return;const wasHidden=panel.hidden||active===null;active=key;closed=null;panel.hidden=false;document.body.classList.add('deep-review-open');
+ function show(card,manual=false,restore=false){const key=card.dataset.reviewKey;if(!manual&&(active===key||closed===key))return;const ref=c.session.questions.find(r=>r.key===key),q=c.questionMap.get(key),a=c.session.answers[key];if(!q||!ref)return;const wasHidden=panel.hidden||active===null;++transition;active=key;closed=null;saved.active=key;saved.closed=null;panel.hidden=false;document.body.classList.add('deep-review-open');
 
  const index=c.session.questions.indexOf(ref)+1,clues=q.deepReview?.keyClues||[],count=c.stats.rows.filter(r=>r.uid===q.uid).length;
 
@@ -54,11 +58,12 @@ export function bindDeepReview(c){
 
  panel.innerHTML=`<header class="deep-panel-head"><div><small class="deep-eyebrow">Question-specific teaching · Question ${index}</small><h2>Deep Review</h2></div><button id="close-deep-review" aria-label="Close Deep Review">Close</button></header><div class="deep-panel-body"><div class="deep-metrics"><div><b>${!a?'Skipped':a.selected===q.answer?'Correct':'Incorrect'}</b><small>Result</small></div><div><b>${esc(a?.confidence||'Not rated')}</b><small>Confidence</small></div><div><b>${a?.seconds==null||a.seconds>=600?'Unavailable':Math.round(a.seconds)+'s'}</b><small>Answering time</small></div><div><b>${count}</b><small>Attempts</small></div></div>${clues.length?`<button id="toggle-clues" aria-pressed="true">Hide highlighted clues</button><section class="review-clues"><h3>Key clues</h3>${clues.map(x=>`<div class="review-clue"><mark>${esc(x.quote)}</mark>${[].concat(x.explanation||[]).map(t=>`<p>${rich(t)}</p>`).join('')}${x.supports?.length?`<small>Supports</small><div class="clue-support">${labels(x.supports)}</div>`:''}${x.arguesAgainst?.length?`<small>Argues against</small><div class="clue-against">${labels(x.arguesAgainst)}</div>`:''}</div>`).join('')}</section>`:''}<div class="deep-extra">${deepReview({...q,deepReview:{...q.deepReview,keyClues:[]}})}</div></div>`;
 
- panel.scrollTop=0;
+ panel.scrollTop=restore?saved.scrollTop:0;
+ panel.onscroll=()=>{saved.scrollTop=panel.scrollTop;};
 
  document.querySelectorAll('[data-review-key]').forEach(el=>el.classList.toggle('active-review',el===card));card.classList.remove('clues-hidden');animateClues(card);
 
- panel.querySelector('#close-deep-review').onclick=async()=>{await animateDrawerOut(panel);panel.hidden=true;closed=key;document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus();};
+ panel.querySelector('#close-deep-review').onclick=async()=>{const token=++transition;closed=key;saved.closed=key;saved.active=null;await animateDrawerOut(panel);if(disposed||token!==transition)return;panel.hidden=true;document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus({preventScroll:true});};
 
  panel.querySelector('#toggle-clues')?.addEventListener('click',e=>{const hidden=card.classList.toggle('clues-hidden');e.target.setAttribute('aria-pressed',String(!hidden));e.target.textContent=hidden?'Show highlighted clues':'Hide highlighted clues';if(!hidden)animateClues(card);});
 
@@ -76,6 +81,7 @@ export function bindDeepReview(c){
 
  }
 
+ if(restore)return;
  if(wasHidden)animateDrawerIn(panel);else if(!matchMedia('(prefers-reduced-motion: reduce)').matches)panel.querySelector('.deep-panel-body')?.animate([{opacity:.5,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'cubic-bezier(.16,1,.3,1)'});
 
  }
@@ -91,11 +97,11 @@ export function bindDeepReview(c){
 
  const escape=e=>{if(e.key==='Escape'&&!panel.hidden&&!document.querySelector('#dialog[open]')){e.preventDefault();e.stopPropagation();panel.querySelector('#close-deep-review')?.click();}};
 
+ if(previous?.active){const card=cards.find(el=>el.dataset.reviewKey===previous.active);if(card)show(card,true,true);}
  document.addEventListener('click',click);document.addEventListener('keydown',escape,true);window.addEventListener('scroll',autoScan,{passive:true});window.addEventListener('resize',autoScan);autoScan();
 
  if(c.view==='session'&&c.session.mode==='learn'){const key=c.session.questions[c.session.current]?.key,card=cards.find(el=>el.dataset.reviewKey===key);if(card&&c.session.answers[key]?.locked)show(card);}
 
- cleanup=()=>{cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.body.classList.remove('deep-review-open');};
+ cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.body.classList.remove('deep-review-open');};
 
 }
-
