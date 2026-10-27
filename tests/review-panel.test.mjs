@@ -46,3 +46,8 @@ test('sync redraw keeps a closed review closed and restores an open review witho
  const redraw=fixture({id:'stable-session'});assert.equal(redraw.panel.hidden,true);
  redraw.click();const reopened=fixture({id:'stable-session'});assert.equal(reopened.panel.hidden,false);
 });
+
+test('home page without a session does not crash review binding',()=>{
+ fixture();globalThis.document.querySelectorAll=()=>[];
+ assert.doesNotThrow(()=>bindDeepReview({view:'home',session:null}));
+});

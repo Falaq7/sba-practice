@@ -33,8 +33,8 @@ let retained=null;
 
 export function bindDeepReview(c){
 
- const identity=JSON.stringify([c.scope,c.view,c.session.id]);
- const previous=c.session.id&&retained?.identity===identity?retained:null;
+ const identity=JSON.stringify([c.scope,c.view,c.session?.id]);
+ const previous=c.session?.id&&retained?.identity===identity?retained:null;
  cleanup();const cards=[...document.querySelectorAll('[data-review-key]')],host=document.querySelector('#review-rail,.session-sidebar');if(!cards.length||!host)return;
 
  let active=null,closed=previous?.closed||null,frame=0,transition=0,disposed=false;
@@ -93,7 +93,7 @@ export function bindDeepReview(c){
  // Completed reviews follow the visible question on desktop. In learning mode,
  // checking an answer opens its teaching immediately, including on phones.
 
- const autoScan=()=>{if(document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
+ const autoScan=()=>{if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
 
  const escape=e=>{if(e.key==='Escape'&&!panel.hidden&&!document.querySelector('#dialog[open]')){e.preventDefault();e.stopPropagation();panel.querySelector('#close-deep-review')?.click();}};
 

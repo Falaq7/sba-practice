@@ -68,3 +68,11 @@ test('cloud acknowledgement with unchanged data does not redraw review',async()=
  await receive({docChanges:()=>[{type:'modified',doc:{data:()=>({kind:'preference',id:'display',data})}}]});
  assert.equal(redraws,0);assert.equal(writes,0);
 });
+
+test('closed IndexedDB connection is replaced before retrying a save',async()=>{
+ const previous=globalThis.indexedDB;globalThis.indexedDB={};
+ try{const store=new LocalStore();store.database={};let calls=0,reopened=0;
+ store.persistOnce=async()=>{if(++calls===1)throw Object.assign(Error('closed'),{name:'InvalidStateError'});};store.reconnect=async()=>{reopened++;};
+ await store.persist({});assert.equal(calls,2);assert.equal(reopened,1);
+ }finally{globalThis.indexedDB=previous;}
+});

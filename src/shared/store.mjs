@@ -2,9 +2,9 @@ import {clone,mergeData,id,stableStringify} from './core.mjs';
 import {validateBackup} from './backup-validation.mjs';
 const PREFIX='BM4_V3_RECORD:';
 export class LocalStore extends EventTarget {
-  constructor(name='BM4_SBA_V3'){super();this.name=name;this.records=new Map();this.database=null;this.error='';this.fallback=false;this.pending=new Set();}
+  constructor(name='BM4_SBA_V3'){super();this.name=name;this.records=new Map();this.database=null;this.error='';this.fallback=false;this.pending=new Set();this.reconnecting=null;}
   async open(){
-    try{this.database=await new Promise((resolve,reject)=>{const r=indexedDB.open(this.name,1);r.onupgradeneeded=()=>r.result.createObjectStore('records',{keyPath:'key'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.onblocked=()=>reject(Error('Close another old copy of the site to finish opening storage.'));});
+    try{this.database=await this.openDatabase();
       const rows=await this.readAll();rows.forEach(r=>this.records.set(r.key,r));
     }catch(e){this.fallback=true;this.error='Using limited browser storage. Keep a progress backup.';}
     const recovery=[];
@@ -20,6 +20,15 @@ export class LocalStore extends EventTarget {
       await this.put('meta','setting','bank-scope-migration',{done:true,updatedAt:Date.now()},false);
     }
     return this;
+  }
+  async openDatabase(){
+    const db=await new Promise((resolve,reject)=>{const r=indexedDB.open(this.name,1);r.onupgradeneeded=()=>r.result.createObjectStore('records',{keyPath:'key'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.onblocked=()=>reject(Error('Close another old copy of the site to finish opening storage.'));});
+    db.onversionchange=()=>{db.close();};
+    return db;
+  }
+  async reconnect(){
+    if(!this.reconnecting)this.reconnecting=(async()=>{try{this.database?.close();}catch{}this.database=await this.openDatabase();})().finally(()=>{this.reconnecting=null;});
+    return this.reconnecting;
   }
   get guestScope(){return this.get('meta','setting','guest')?.scope||this.initialGuestScope;}
   set guestScope(value){this.initialGuestScope=value;}
@@ -56,7 +65,7 @@ export class LocalStore extends EventTarget {
     if(!this.database)return;
     for(let attempt=0;attempt<3;attempt++){
       try{await this.persistOnce(record);if(this.error.startsWith('Could not finish saving on this device.'))this.error='';return;}
-      catch(e){if(attempt<2&&!['QuotaExceededError','DataCloneError'].includes(e?.name)){await new Promise(resolve=>setTimeout(resolve,150*2**attempt));continue;}
+      catch(e){if(attempt<2&&!['QuotaExceededError','DataCloneError'].includes(e?.name)){await new Promise(resolve=>setTimeout(resolve,150*2**attempt));if(['InvalidStateError','UnknownError','AbortError'].includes(e?.name)&&globalThis.indexedDB)try{await this.reconnect();}catch{}continue;}
         this.error='Could not finish saving on this device. Your answer is kept in this tab; download a backup before closing.';this.dispatchEvent(new Event('change'));throw e;
       }
     }

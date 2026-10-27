@@ -641,7 +641,7 @@ window.addEventListener('hashchange',()=>{pause();route();});document.addEventLi
 
 
 
-store.addEventListener('change',()=>{status();if(cloud.enabled)cloud.sync();});store.addEventListener('remote',()=>{if(!cloud.user&&state.scope.startsWith('guest-')&&state.scope!==store.guestScope){pause();closeModal();state.scope=store.guestScope;state.sessionId=null;state.view='home';render();return;}if(state.sessionId&&!current()){state.sessionId=null;state.answer=null;navigate('home');return;}status();if(state.view!=='session'&&!document.querySelector('#dialog').open)render();else if(state.view==='session'&&current()?.answers[state.answer?.key]?.locked&&!document.querySelector('.feedback'))render();});cloud.addEventListener('status',status);cloud.addEventListener('remote',()=>{if(state.sessionId&&!current()){state.sessionId=null;state.answer=null;navigate('home');return;}status();if(!document.querySelector('#dialog').open&&(state.view!=='session'||current()?.finishedAt||current()?.answers[state.answer?.key]?.locked))render();});
+store.addEventListener('change',()=>{status();if(cloud.enabled)cloud.sync();});store.addEventListener('remote',()=>{if(!cloud.user&&state.scope.startsWith('guest-')&&state.scope!==store.guestScope){pause();closeModal();state.scope=store.guestScope;state.sessionId=null;state.view='home';render();return;}if(state.sessionId&&!current()){state.sessionId=null;state.answer=null;navigate('home');return;}status();if(!['session','review'].includes(state.view)&&!document.querySelector('#dialog').open)render();else if(state.view==='session'&&current()?.answers[state.answer?.key]?.locked&&!document.querySelector('.feedback'))render();});cloud.addEventListener('status',status);cloud.addEventListener('remote',()=>{if(state.sessionId&&!current()){state.sessionId=null;state.answer=null;navigate('home');return;}status();if(!document.querySelector('#dialog').open&&(!['session','review'].includes(state.view)||current()?.finishedAt&&state.view==='session'||state.view==='session'&&current()?.answers[state.answer?.key]?.locked&&!document.querySelector('.feedback')))render();});
 
 
 
@@ -674,15 +674,3 @@ if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catc
 
 
 for(const event of ['pointerdown','pointermove','keydown','wheel'])document.addEventListener(event,()=>{if(state.view==='session')state.lastInteraction=Date.now();},{passive:true});
-
-
-
-
-
-
-
-
-
-
-
-
