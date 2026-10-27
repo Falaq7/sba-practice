@@ -398,7 +398,7 @@ async function jump(index){
 
 
 
-  const h=document.querySelector('h1');h.setAttribute('tabindex','-1');h.focus({preventScroll:true});
+  const h=document.querySelector('h1');h.setAttribute('tabindex','-1');h.focus({preventScroll:true});window.scrollTo({top:0,left:0,behavior:'instant'});
 
 
 
