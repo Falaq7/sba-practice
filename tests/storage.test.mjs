@@ -77,16 +77,54 @@ test('closed IndexedDB connection is replaced before retrying a save',async()=>{
  }finally{globalThis.indexedDB=previous;}
 });
 
-test('included question content is reused without a network write, but edited content still syncs',async()=>{
+test('bundled question snapshots are archived once so later bank revisions cannot strand progress',async()=>{
  memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store),q={uid:'included-q',revision:1,stem:'Included question',options:['A','B','C','D','E'],answer:0,why:'Explanation'};
- cloud.bundledQuestions=[q];cloud.user={uid:'alice'};cloud.enabled=true;await store.put('alice','question','included-q@1',{...q,updatedAt:1,collection:'Display title'});
- let writes=0;cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>{writes++;return fn({get:async()=>({exists:()=>false}),set(){}});}};
- await cloud.sync();assert.equal(writes,0);assert.equal(store.dirty('alice').length,0);
- await store.put('alice','question','included-q@1',{...q,why:'Edited explanation',updatedAt:2});await cloud.sync();assert.equal(writes,1);assert.equal(store.dirty('alice').length,0);
+ cloud.bundledQuestions=[q];cloud.user={uid:'alice'};cloud.enabled=true;await cloud.saveQuestionSnapshot('alice',q);
+ let writes=0,remote=null;cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async()=>({exists:()=>!!remote,data:()=>({data:remote})}),set:(_,r)=>{writes++;remote=r.data;}})};
+ await cloud.sync();assert.equal(writes,1);assert.equal(store.dirty('alice').length,0);assert.equal(remote.uid,q.uid);
+ await cloud.saveQuestionSnapshot('alice',q);await cloud.sync();assert.equal(writes,1);
+ await store.put('alice','question','included-q@1',{...q,why:'Edited explanation',updatedAt:2});await cloud.sync();assert.equal(writes,2);
 });
+
 test('session progress uploads before question bodies queued earlier',async()=>{
  memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);await store.put('alice','question','private-q',{uid:'private-q',revision:1,updatedAt:1});await store.put('alice','session','attempt',{id:'attempt',questions:[],answers:{},updatedAt:2});
  cloud.user={uid:'alice'};cloud.enabled=true;const kinds=[];cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async()=>({exists:()=>false}),set:(_,r)=>kinds.push(r.kind)})};await cloud.sync();assert.deepEqual(kinds,['session','question']);
+});
+
+test('archive migration queues old clean question copies referenced by sessions, once per account',async()=>{
+ memory.clear();const store=new LocalStore(),cloud=new Cloud(store),q={uid:'old',revision:1,answer:0};
+ await store.put('alice','question','old@1',q,false);
+ await store.put('alice','session','saved',{id:'saved',questions:[{key:'old@1'}],answers:{}},false);
+ await store.put('bob','question','other@1',{uid:'other',revision:1},false);
+ await cloud.archiveSessionQuestions('alice');
+ assert.equal(store.dirty('alice').filter(r=>r.kind==='question').length,1);assert.equal(store.dirty('bob').length,0);
+ await store.markSynced(store.dirty('alice')[0]);await cloud.archiveSessionQuestions('alice');assert.equal(store.dirty('alice').length,0);
+});
+
+test('a fresh device downloads historical questions when the current bank has a different revision',async()=>{
+ memory.clear();const a=new LocalStore(),upload=new Cloud(a),v1={uid:'q',revision:1,answer:0,options:['Old correct','Other']},v2={...v1,revision:2,answer:1};
+ const session={id:'saved',questions:[{key:'q@1',uid:'q',revision:1}],answers:{'q@1':{selected:0,locked:true}},updatedAt:1};
+ await upload.saveQuestionSnapshot('alice',v1);await a.put('alice','session','saved',session);
+ const remote=new Map();upload.user={uid:'alice'};upload.enabled=true;
+ upload.api={doc:(_, ...parts)=>parts.join('/'),serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async ref=>({exists:()=>remote.has(ref),data:()=>remote.get(ref)}),set:(ref,data)=>remote.set(ref,data)})};
+ await upload.sync();assert.equal(remote.size,2);
+ const b=new LocalStore(),download=new Cloud(b);download.user={uid:'alice'};download.bundledQuestions=[v2];let receive;
+ download.api={collection:()=>'',doc:(_, ...parts)=>parts.join('/'),onSnapshot:(_,options,fn)=>{receive=fn;return ()=>{};},getDoc:async ref=>({exists:()=>remote.has(ref),data:()=>remote.get(ref)})};
+ download.sync=()=>{};download.startProgress('alice');
+ await receive({metadata:{fromCache:false},docChanges:()=>[{type:'added',doc:{data:()=>({kind:'session',id:'saved',data:session})}}]});
+ assert.equal(b.get('alice','session','saved').answers['q@1'].selected,0);assert.equal(b.get('alice','question','q@1').answer,0);assert.equal(download.pendingQuestions.size,0);download.resetSync();
+});
+
+test('a session remains visible and retries when its question copy arrives after the session',async()=>{
+ memory.clear();const store=new LocalStore(),cloud=new Cloud(store);cloud.user={uid:'alice'};cloud.enabled=true;
+ let receive,available=false,retry;const originalTimeout=globalThis.setTimeout;
+ globalThis.setTimeout=fn=>{retry=fn;return {unref(){}};};
+ try{
+  cloud.api={collection:()=>'',doc:()=>'',onSnapshot:(_,options,fn)=>{receive=fn;return ()=>{};},getDoc:async()=>({exists:()=>available,data:()=>({data:{uid:'old',revision:1,answer:0}})})};cloud.sync=()=>{};cloud.startProgress('alice');
+  await receive({metadata:{fromCache:false},docChanges:()=>[{type:'added',doc:{data:()=>({kind:'session',id:'saved',data:{id:'saved',questions:[{key:'old@1'}],answers:{}}})}}]});
+  assert.ok(store.get('alice','session','saved'));assert.equal(cloud.pendingQuestions.size,1);assert.match(cloud.syncStatus(),/Restoring 1 saved questions/);assert.ok(retry);
+  available=true;await retry();assert.equal(store.get('alice','question','old@1').answer,0);assert.equal(cloud.pendingQuestions.size,0);
+ }finally{globalThis.setTimeout=originalTimeout;cloud.resetSync();}
 });
 test('progress listener excludes bulk question bodies and retrieves missing private questions for sessions',async()=>{
  memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);cloud.user={uid:'alice'};let receive,filter,reads=0;

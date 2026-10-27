@@ -414,7 +414,7 @@ function finishDialog(){if(questionMoving||answerSubmitting)return;tick();const 
 
 
 
-async function start(qs,options={}){if(state.changing)throw Error('Wait for your account to finish opening.');const s=makeSession(qs,{...options,title:unique(qs.map(q=>q.collectionId)).length===1&&qs[0]?.collection?qs[0].collection:unique(qs.map(q=>q.topic)).length===1?qs[0]?.topic:'Mixed practice'});s.localOnly=false;for(const q of qs)await store.put(state.scope,'question',revisionKey(q),{...q,updatedAt:q.publishedAt||0},!cloud.isBundledQuestion(q));await saveSession(s);usage.track('sba_practice_start',{question_count:qs.length,practice_mode:s.mode});for(const bank of unique(qs.filter(q=>!q.localOnly).map(q=>q.collectionId||'included')))usage.track('sba_bank_practised',{bank_id:bank});navigate('session',s.id);}
+async function start(qs,options={}){if(state.changing)throw Error('Wait for your account to finish opening.');const s=makeSession(qs,{...options,title:unique(qs.map(q=>q.collectionId)).length===1&&qs[0]?.collection?qs[0].collection:unique(qs.map(q=>q.topic)).length===1?qs[0]?.topic:'Mixed practice'});s.localOnly=false;for(const q of qs)await cloud.saveQuestionSnapshot(state.scope,q);await saveSession(s);usage.track('sba_practice_start',{question_count:qs.length,practice_mode:s.mode});for(const bank of unique(qs.filter(q=>!q.localOnly).map(q=>q.collectionId||'included')))usage.track('sba_bank_practised',{bank_id:bank});navigate('session',s.id);}
 
 
 

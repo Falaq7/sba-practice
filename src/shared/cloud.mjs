@@ -14,27 +14,58 @@ export class Cloud extends EventTarget {
     if(!navigator.onLine)return 'Saved on device · waiting for connection';
     const slow=this.waitingSince&&Date.now()-this.waitingSince>=15000;
     if(this.syncing)return slow?'Saved on device · slow sync ('+this.syncProgress.done+'/'+this.syncProgress.total+')':'Syncing '+this.syncProgress.done+'/'+this.syncProgress.total+'…';
+    if(this.preparingArchives)return 'Preparing saved progress for sync';
     if(this.receiving)return slow?'Saved on device · waiting for server':'Checking saved progress…';
+    if(this.pendingQuestions?.size)return 'Restoring '+this.pendingQuestions.size+' saved questions';
     return pending?pending+' changes saved on device':'Saved and synced';
   }
   updateSyncTimer(){
     if((this.syncing||this.receiving)&&!this.statusTimer){this.statusTimer=setInterval(()=>this.dispatchEvent(new Event('status')),5000);this.statusTimer.unref?.();}
     if(!this.syncing&&!this.receiving){clearInterval(this.statusTimer);this.statusTimer=null;}
   }
-  resetSync(){++this.syncRun;this.retryCount=0;this.syncing=false;this.receiving=false;this.stop?.();clearTimeout(this.retryTimer);this.updateSyncTimer();}
+  resetSync(){++this.syncRun;this.retryCount=0;this.syncing=false;this.receiving=false;this.preparingArchives=false;this.stop?.();clearTimeout(this.retryTimer);clearTimeout(this.questionRetryTimer);this.questionRetryTimer=null;this.pendingQuestions=new Set();this.questionRetryCount=0;this.updateSyncTimer();}
   diagnostics(){return {version:1,online:navigator.onLine,state:this.user?this.syncStatus():'Signed out',pending:this.store.dirtyCount?.(this.user?.uid)||0,progress:this.syncProgress,lastUploadAt:this.lastUploadAt,lastDownloadAt:this.lastDownloadAt,events:this.syncLog};}
   bundledQuestion(key){
     if(this.bundledSource!==this.bundledQuestions){this.bundledSource=this.bundledQuestions;this.bundledIndex=new Map((this.bundledQuestions||[]).map(q=>[revisionKey(q),q]));}
     return this.bundledIndex?.get(key);
   }
   isBundledQuestion(q){const known=this.bundledQuestion(revisionKey(q));return !!known&&questionContent(known)===questionContent(q);}
+  async saveQuestionSnapshot(uid,q){
+    const key=revisionKey(q),data={...q,updatedAt:q.publishedAt||0},existing=this.store.get(uid,'question',key);
+    if(existing&&questionContent(existing)===questionContent(data))return;
+    await this.store.put(uid,'question',key,data);
+  }
+  async archiveSessionQuestions(uid){
+    if(!this.store.list||!this.store.put)return;
+    const marker='question-archives-v1:'+uid;
+    if(this.store.get('meta','setting',marker))return;
+    const keys=new Set(this.store.list(uid,'session').flatMap(s=>(s.questions||[]).map(r=>r.key)));
+    for(const key of keys){const q=this.store.get(uid,'question',key)||this.store.get('cache','question',key)||this.bundledQuestion(key);if(q)await this.store.put(uid,'question',key,q);}
+    await this.store.put('meta','setting',marker,{done:true},false);
+  }
+  scheduleQuestionRetry(uid,epoch){
+    if(this.questionRetryTimer||!this.pendingQuestions?.size||!navigator.onLine)return;
+    this.questionRetryTimer=setTimeout(async()=>{
+      this.questionRetryTimer=null;if(epoch!==this.epoch||this.user?.uid!==uid)return;
+      const changed=await this.loadSessionQuestions(uid,{questions:[...this.pendingQuestions].map(key=>({key}))},epoch);
+      if(epoch!==this.epoch||this.user?.uid!==uid)return;
+      if(changed)this.dispatchEvent(new Event('remote'));this.dispatchEvent(new Event('status'));
+    },Math.min(60000,5000*2**Math.min(this.questionRetryCount||0,4)));
+    this.questionRetryCount=(this.questionRetryCount||0)+1;this.questionRetryTimer.unref?.();
+  }
   async loadSessionQuestions(uid,session,epoch){
-    const missing=(session.questions||[]).filter(r=>!this.bundledQuestion(r.key)&&!this.store.get(uid,'question',r.key)&&!this.store.get('cache','question',r.key));
+    this.pendingQuestions??=new Set();let changed=false;
+    const missing=(session.questions||[]).filter(r=>{const known=this.bundledQuestion(r.key)||this.store.get(uid,'question',r.key)||this.store.get('cache','question',r.key);if(known)this.pendingQuestions.delete(r.key);return !known;});
+    missing.forEach(r=>this.pendingQuestions.add(r.key));
     for(let offset=0;offset<missing.length;offset+=4)await Promise.all(missing.slice(offset,offset+4).map(async r=>{
+      try{
       const snap=await this.api.getDoc(this.api.doc(this.db,'users',uid,'progress',encodeURIComponent('question:'+r.key)));
       if(epoch!==this.epoch||this.user?.uid!==uid)return;
-      if(snap.exists()&&snap.data().data)await this.store.acceptRemote(uid,'question',r.key,snap.data().data);
+      if(snap.exists()&&snap.data().data&&revisionKey(snap.data().data)===r.key){await this.store.acceptRemote(uid,'question',r.key,snap.data().data);this.pendingQuestions.delete(r.key);changed=true;}
+      }catch(e){if(epoch===this.epoch)this.trace('question-download-error',{code:String(e?.code||e?.name||'unknown').slice(0,70)});}
     }));
+    if(epoch===this.epoch&&this.user?.uid===uid){if(!this.pendingQuestions.size)this.questionRetryCount=0;this.scheduleQuestionRetry(uid,epoch);}
+    return changed;
   }
   async init(){
     if((['127.0.0.1','localhost'].includes(location.hostname)||/^192\.168\.\d{1,3}\.\d{1,3}$/.test(location.hostname)||/^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(location.hostname)||/^172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}$/.test(location.hostname))){try{const r=await fetch('/__preview/config');if(r.ok){const c=await r.json();if(c.preview){this.preview=c;this.ready=true;this.dispatchEvent(new Event('status'));return;}}}catch{}this.preview={preview:true,offline:true};this.error='Local preview is offline. Device progress is still available.';this.dispatchEvent(new Event('status'));return;}
@@ -45,7 +76,7 @@ export class Cloud extends EventTarget {
       auth.onAuthStateChanged(this.auth,async user=>{if(user?.isAnonymous){this.reportUser=user;this.dispatchEvent(new Event('status'));return;}this.reportUser=null;const epoch=++this.epoch;this.resetSync();this.enabled=false;this.user=user;this.owner=false;
         if(user){try{const token=await user.getIdTokenResult();if(epoch!==this.epoch)return;this.owner=token.claims.sbaPublisher===true;}catch(e){this.error=message(e);}}
         if(epoch===this.epoch)this.dispatchEvent(new Event('auth'));});
-      globalThis.addEventListener('online',()=>this.sync());
+      globalThis.addEventListener('online',()=>{this.sync();if(this.user)this.scheduleQuestionRetry(this.user.uid,this.epoch);});
     }catch(e){this.error='Online connection unavailable. Device saving still works.';this.dispatchEvent(new Event('status'));}
   }
   async signIn(email,password,legacy=false){if(!this.ready)throw Error('Online accounts are unavailable. Check your connection.');
@@ -71,20 +102,21 @@ export class Cloud extends EventTarget {
       if(this.epoch!==epoch||this.user?.uid!==uid)return;
       try{let changed=false;for(const change of snap.docChanges())if(change.type!=='removed'){
         const r=change.doc.data();if(!r.kind||!r.id||!r.data)continue;
-        if(r.kind==='session'&&!r.data.deletedAt)await this.loadSessionQuestions(uid,r.data,epoch);
         const data=r.kind==='bank'?await downloadBank(a,this.db,uid,r.data):r.data;
         if(this.epoch!==epoch||this.user?.uid!==uid)return;
         const previous=this.store.get(uid,r.kind,r.id);if(stableStringify(previous)!==stableStringify(mergeData(r.kind,previous,data))){await this.store.acceptRemote(uid,r.kind,r.id,data);changed=true;}
+        if(r.kind==='session'&&!r.data.deletedAt)changed=await this.loadSessionQuestions(uid,r.data,epoch)||changed;
       }
       if(epoch!==this.epoch)return;
       if(!snap.metadata?.fromCache){this.receiving=false;this.lastDownloadAt=new Date().toISOString();this.trace('received',{records:snap.size||0});}
       this.updateSyncTimer();if(changed)this.dispatchEvent(new Event('remote'));else this.dispatchEvent(new Event('status'));this.sync();
       }catch(e){if(epoch!==this.epoch)return;this.receiving=false;this.error=message(e);this.trace('download-error',{code:String(e?.code||e?.name||'unknown').slice(0,70)});this.updateSyncTimer();this.dispatchEvent(new Event('status'));}
     });
-    this.stop=a.onSnapshot(target,{includeMetadataChanges:true},receive,e=>{if(epoch!==this.epoch)return;this.receiving=false;this.error=message(e);this.trace('listen-error',{code:String(e?.code||'unknown').slice(0,70)});this.updateSyncTimer();this.dispatchEvent(new Event('status'));});this.sync();
+    this.stop=a.onSnapshot(target,{includeMetadataChanges:true},receive,e=>{if(epoch!==this.epoch)return;this.receiving=false;this.error=message(e);this.trace('listen-error',{code:String(e?.code||'unknown').slice(0,70)});this.updateSyncTimer();this.dispatchEvent(new Event('status'));});
+    this.preparingArchives=true;this.archiveSessionQuestions(uid).catch(e=>{if(epoch===this.epoch){this.error=message(e);this.dispatchEvent(new Event('status'));}}).finally(()=>{if(epoch===this.epoch&&this.user?.uid===uid){this.preparingArchives=false;this.sync();}});
   }
   async sync(){
-    if(!this.enabled||!this.user||this.syncing||!navigator.onLine)return;
+    if(!this.enabled||!this.user||this.syncing||this.preparingArchives||!navigator.onLine)return;
     const uid=this.user.uid,epoch=this.epoch,a=this.api;
     const queued=this.store.dirty(uid).filter(r=>SYNC_KINDS.includes(r.kind)).sort((x,y)=>SYNC_KINDS.indexOf(x.kind)-SYNC_KINDS.indexOf(y.kind));
     if(!queued.length){this.dispatchEvent(new Event('status'));return;}
@@ -92,7 +124,6 @@ export class Cloud extends EventTarget {
     let skipped=0,retryable=false;
     try{for(const r of queued){
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
-      if(r.kind==='question'&&this.isBundledQuestion(r.data)){await this.store.markSynced(r);skipped++;this.syncProgress.done++;this.waitingSince=Date.now();this.dispatchEvent(new Event('status'));continue;}
       this.syncProgress.kind=r.kind;const started=Date.now();
       const key=encodeURIComponent(r.kind+':'+r.id),ref=a.doc(this.db,'users',uid,'progress',key);
       if(r.kind==='bank')await uploadBankQuestions(a,this.db,uid,r.data);
@@ -101,7 +132,8 @@ export class Cloud extends EventTarget {
         const old=await tx.get(ref);if(epoch!==this.epoch||this.user?.uid!==uid)throw Object.assign(Error('Account changed'),{code:'account-changed'});
         const data=mergeData(r.kind,old.exists()?old.data().data:null,r.kind==='bank'?bankManifest(r.data):r.data);
         if(new Blob([JSON.stringify(data)]).size>850000)throw Error('A large saved image or record cannot sync. It remains on this device; download a backup.');
-        tx.set(ref,{kind:r.kind,id:r.id,data,serverUpdatedAt:a.serverTimestamp()});return data;
+        if(r.kind!=='question'||!old.exists()||questionContent(old.data().data)!==questionContent(data))tx.set(ref,{kind:r.kind,id:r.id,data,serverUpdatedAt:a.serverTimestamp()});else skipped++;
+        return data;
       });
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
       this.lastUploadAt=new Date().toISOString();this.retryCount=0;
