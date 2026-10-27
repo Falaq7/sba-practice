@@ -4,7 +4,8 @@ import {mergeData,clone,id,stableStringify,revisionKey} from './core.mjs';
 import {placement} from './catalogue.mjs';
 import {pinCredentials,usernameFor} from './identity.mjs';
 const VERSION='11.10.0';
-const SYNC_KINDS=['session','preference','bookmark','note','report','bank','question'];
+// A published session must never depend on question copies still waiting to upload.
+const SYNC_KINDS=['question','session','preference','bookmark','note','report','bank'];
 const questionContent=q=>{const {updatedAt,publishedAt,collection,localOnly,...content}=q;return stableStringify(content);};
 export class Cloud extends EventTarget {
   constructor(store){super();this.store=store;this.user=null;this.owner=false;this.ready=false;this.syncing=false;this.error='';this.epoch=0;this.enabled=false;this.receiving=false;this.syncRun=0;this.syncProgress={done:0,total:0};this.waitingSince=0;this.lastUploadAt=null;this.lastDownloadAt=null;this.syncLog=[];this.retryCount=0;}
@@ -23,7 +24,7 @@ export class Cloud extends EventTarget {
     if((this.syncing||this.receiving)&&!this.statusTimer){this.statusTimer=setInterval(()=>this.dispatchEvent(new Event('status')),5000);this.statusTimer.unref?.();}
     if(!this.syncing&&!this.receiving){clearInterval(this.statusTimer);this.statusTimer=null;}
   }
-  resetSync(){++this.syncRun;this.retryCount=0;this.syncing=false;this.receiving=false;this.preparingArchives=false;this.stop?.();clearTimeout(this.retryTimer);clearTimeout(this.questionRetryTimer);this.questionRetryTimer=null;this.pendingQuestions=new Set();this.questionRetryCount=0;this.updateSyncTimer();}
+  resetSync(){++this.syncRun;this.retryCount=0;this.syncing=false;this.receiving=false;this.preparingArchives=false;this.archivedQuestions=new Set();this.stop?.();clearTimeout(this.retryTimer);clearTimeout(this.questionRetryTimer);this.questionRetryTimer=null;this.pendingQuestions=new Set();this.questionRetryCount=0;this.updateSyncTimer();}
   diagnostics(){return {version:1,online:navigator.onLine,state:this.user?this.syncStatus():'Signed out',pending:this.store.dirtyCount?.(this.user?.uid)||0,progress:this.syncProgress,lastUploadAt:this.lastUploadAt,lastDownloadAt:this.lastDownloadAt,events:this.syncLog};}
   bundledQuestion(key){
     if(this.bundledSource!==this.bundledQuestions){this.bundledSource=this.bundledQuestions;this.bundledIndex=new Map((this.bundledQuestions||[]).map(q=>[revisionKey(q),q]));}
@@ -34,6 +35,22 @@ export class Cloud extends EventTarget {
     const key=revisionKey(q),data={...q,updatedAt:q.publishedAt||0},existing=this.store.get(uid,'question',key);
     if(existing&&questionContent(existing)===questionContent(data))return;
     await this.store.put(uid,'question',key,data);
+  }
+  async ensureSessionQuestions(uid,session,epoch){
+    this.archivedQuestions??=new Set();
+    for(const {key} of session.questions||[]){
+      if(epoch!==this.epoch||this.user?.uid!==uid)throw Object.assign(Error('Account changed'),{code:'account-changed'});
+      if(this.archivedQuestions.has(key))continue;
+      const ref=this.api.doc(this.db,'users',uid,'progress',encodeURIComponent('question:'+key));
+      const read=this.api.getDocFromServer||this.api.getDoc;
+      const snap=await read(ref);
+      if(epoch!==this.epoch||this.user?.uid!==uid)throw Object.assign(Error('Account changed'),{code:'account-changed'});
+      if(snap.exists()&&snap.data().data&&revisionKey(snap.data().data)===key){this.archivedQuestions.add(key);continue;}
+      const q=this.store.get(uid,'question',key)||this.store.get('cache','question',key)||this.bundledQuestion(key);
+      if(q)await this.store.put(uid,'question',key,q);
+      else{this.pendingQuestions??=new Set();this.pendingQuestions.add(key);this.scheduleQuestionRetry(uid,epoch);}
+      throw Object.assign(Error('A saved question is still being restored. Your progress remains on this device.'),{code:'sync-dependency-pending'});
+    }
   }
   async archiveSessionQuestions(uid){
     if(!this.store.list||!this.store.put)return;
@@ -61,7 +78,7 @@ export class Cloud extends EventTarget {
       try{
       const snap=await this.api.getDoc(this.api.doc(this.db,'users',uid,'progress',encodeURIComponent('question:'+r.key)));
       if(epoch!==this.epoch||this.user?.uid!==uid)return;
-      if(snap.exists()&&snap.data().data&&revisionKey(snap.data().data)===r.key){await this.store.acceptRemote(uid,'question',r.key,snap.data().data);this.pendingQuestions.delete(r.key);changed=true;}
+      if(snap.exists()&&snap.data().data&&revisionKey(snap.data().data)===r.key){await this.store.acceptRemote(uid,'question',r.key,snap.data().data);if(snap.metadata?.fromCache===false){this.archivedQuestions??=new Set();this.archivedQuestions.add(r.key);}this.pendingQuestions.delete(r.key);changed=true;}
       }catch(e){if(epoch===this.epoch)this.trace('question-download-error',{code:String(e?.code||e?.name||'unknown').slice(0,70)});}
     }));
     if(epoch===this.epoch&&this.user?.uid===uid){if(!this.pendingQuestions.size)this.questionRetryCount=0;this.scheduleQuestionRetry(uid,epoch);}
@@ -125,17 +142,21 @@ export class Cloud extends EventTarget {
     try{for(const r of queued){
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
       this.syncProgress.kind=r.kind;const started=Date.now();
+      if(r.kind==='session'&&!r.data.deletedAt)await this.ensureSessionQuestions(uid,r.data,epoch);
       const key=encodeURIComponent(r.kind+':'+r.id),ref=a.doc(this.db,'users',uid,'progress',key);
       if(r.kind==='bank')await uploadBankQuestions(a,this.db,uid,r.data);
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
       const merged=await a.runTransaction(this.db,async tx=>{
         const old=await tx.get(ref);if(epoch!==this.epoch||this.user?.uid!==uid)throw Object.assign(Error('Account changed'),{code:'account-changed'});
-        const data=mergeData(r.kind,old.exists()?old.data().data:null,r.kind==='bank'?bankManifest(r.data):r.data);
+        let data=mergeData(r.kind,old.exists()?old.data().data:null,r.kind==='bank'?bankManifest(r.data):r.data);
+        // Use the same defaults as the device merge so the first upload can be acknowledged.
+        if(r.kind==='session')data=mergeData('session',data,data);
         if(new Blob([JSON.stringify(data)]).size>850000)throw Error('A large saved image or record cannot sync. It remains on this device; download a backup.');
         if(r.kind!=='question'||!old.exists()||questionContent(old.data().data)!==questionContent(data))tx.set(ref,{kind:r.kind,id:r.id,data,serverUpdatedAt:a.serverTimestamp()});else skipped++;
         return data;
       });
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
+      if(r.kind==='question'){this.archivedQuestions??=new Set();this.archivedQuestions.add(r.id);}
       this.lastUploadAt=new Date().toISOString();this.retryCount=0;
       const hydrated=r.kind==='bank'?await downloadBank(a,this.db,uid,merged):merged;
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
@@ -143,7 +164,7 @@ export class Cloud extends EventTarget {
       this.syncProgress.done++;this.waitingSince=Date.now();this.trace('uploaded',{kind:r.kind,milliseconds:Date.now()-started});this.dispatchEvent(new Event('status'));
     }
     if(epoch===this.epoch){this.error='';this.trace('upload-complete',{completed:this.syncProgress.done,reusedQuestions:skipped});}
-    }catch(e){if(epoch===this.epoch){retryable=/unavailable|deadline-exceeded|aborted|network/.test(e?.code||'');this.error=message(e);this.trace('upload-error',{kind:this.syncProgress.kind,code:String(e?.code||e?.name||'unknown').slice(0,70)});}}
+    }catch(e){if(epoch===this.epoch){retryable=/unavailable|deadline-exceeded|aborted|network|sync-dependency-pending/.test(e?.code||'');this.error=message(e);this.trace('upload-error',{kind:this.syncProgress.kind,code:String(e?.code||e?.name||'unknown').slice(0,70)});}}
     finally{if(run===this.syncRun){this.syncing=false;this.updateSyncTimer();this.dispatchEvent(new Event('status'));
       if(epoch===this.epoch&&this.store.dirty(uid).some(r=>SYNC_KINDS.includes(r.kind))&&(!this.error||retryable&&this.retryCount<5)){const delay=this.error?Math.min(60000,5000*2**this.retryCount++):1000;this.trace('retry-scheduled',{milliseconds:delay});this.retryTimer=setTimeout(()=>this.sync(),delay);this.retryTimer.unref?.();}
     }}

@@ -86,9 +86,40 @@ test('bundled question snapshots are archived once so later bank revisions canno
  await store.put('alice','question','included-q@1',{...q,why:'Edited explanation',updatedAt:2});await cloud.sync();assert.equal(writes,2);
 });
 
-test('session progress uploads before question bodies queued earlier',async()=>{
+test('question snapshots are committed before the sessions that reference them',async()=>{
  memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);await store.put('alice','question','private-q',{uid:'private-q',revision:1,updatedAt:1});await store.put('alice','session','attempt',{id:'attempt',questions:[],answers:{},updatedAt:2});
- cloud.user={uid:'alice'};cloud.enabled=true;const kinds=[];cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async()=>({exists:()=>false}),set:(_,r)=>kinds.push(r.kind)})};await cloud.sync();assert.deepEqual(kinds,['session','question']);
+ cloud.user={uid:'alice'};cloud.enabled=true;const kinds=[];cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async()=>({exists:()=>false}),set:(_,r)=>kinds.push(r.kind)})};await cloud.sync();assert.deepEqual(kinds,['question','session']);
+});
+
+test('an interrupted question upload cannot publish its session; retry completes both in order',async()=>{
+ memory.clear();const store=new LocalStore(),cloud=new Cloud(store),remote=new Map(),commits=[];
+ const q={uid:'q',revision:1,answer:0},session={id:'attempt',questions:[{key:'q@1'}],answers:{},updatedAt:1};
+ await cloud.saveQuestionSnapshot('alice',q);await store.put('alice','session','attempt',session);
+ cloud.user={uid:'alice'};cloud.enabled=true;let offline=true;
+ cloud.api={doc:(_, ...parts)=>parts.at(-1),serverTimestamp:()=>0,runTransaction:async(_,fn)=>{
+  if(offline)throw Object.assign(Error('Disconnected'),{code:'unavailable'});
+  return fn({get:async ref=>({exists:()=>remote.has(ref),data:()=>remote.get(ref)}),set:(ref,data)=>{remote.set(ref,data);commits.push(data.kind);}});
+ }};
+ await cloud.sync();assert.equal(remote.size,0);assert.equal(store.dirty('alice').length,2);
+ offline=false;await cloud.sync();assert.deepEqual(commits,['question','session']);assert.equal(store.dirty('alice').length,0);cloud.resetSync();
+});
+
+test('missing server archives are queued before a clean local question can publish a session',async()=>{
+ memory.clear();const store=new LocalStore(),cloud=new Cloud(store),remote=new Map(),commits=[];
+ await store.put('alice','question','q@1',{uid:'q',revision:1,answer:0},false);
+ await store.put('alice','session','attempt',{id:'attempt',questions:[{key:'q@1'}],answers:{},updatedAt:1});
+ cloud.user={uid:'alice'};cloud.enabled=true;
+ cloud.api={doc:(_, ...parts)=>parts.at(-1),serverTimestamp:()=>0,getDocFromServer:async ref=>({exists:()=>remote.has(ref),data:()=>remote.get(ref)}),runTransaction:async(_,fn)=>fn({get:async ref=>({exists:()=>remote.has(ref),data:()=>remote.get(ref)}),set:(ref,data)=>{remote.set(ref,data);commits.push(data.kind);}})};
+ await cloud.sync();assert.equal(remote.size,0);assert.equal(store.dirty('alice').length,2);assert.ok(cloud.retryTimer);
+ await cloud.sync();assert.deepEqual(commits,['question','session']);assert.equal(store.dirty('alice').length,0);cloud.resetSync();
+});
+
+test('an unavailable question cannot be bypassed by a session or another account archive cache',async()=>{
+ memory.clear();const store=new LocalStore(),cloud=new Cloud(store);cloud.user={uid:'alice'};cloud.archivedQuestions=new Set(['q@1']);
+ ++cloud.epoch;cloud.resetSync();cloud.user={uid:'bob'};cloud.enabled=true;
+ await store.put('bob','session','attempt',{id:'attempt',questions:[{key:'q@1'}],answers:{},updatedAt:1});
+ let writes=0;cloud.api={doc:()=>'',getDocFromServer:async()=>({exists:()=>false}),runTransaction:async()=>{writes++;}};
+ await cloud.sync();assert.equal(writes,0);assert.equal(store.dirty('bob').length,1);assert.equal(cloud.pendingQuestions.size,1);assert.notEqual(cloud.syncStatus(),'Saved and synced');cloud.resetSync();
 });
 
 test('archive migration queues old clean question copies referenced by sessions, once per account',async()=>{
