@@ -588,7 +588,7 @@ function bindView(context){if(state.view==='home'||state.view==='progress')bindD
 
 
 
-  bind('#bookmark',async()=>{const session=current(),key=state.answer.key,q=questionMap().get(key),saved=!session.flags?.[key]?.flagged;session.flags={...session.flags,[key]:{flagged:saved,updatedAt:Date.now()}};await saveSession(session);const b=document.querySelector('#bookmark');b.textContent=saved?'⚑ Flagged':'⚐ Flag question';b.setAttribute('aria-pressed',saved);document.querySelectorAll('[data-jump]').forEach(button=>{const ref=current().questions[Number(button.dataset.jump)];if(questionMap().get(ref.key)?.uid===q.uid){button.classList.toggle('flagged',saved);button.setAttribute('aria-label',`Question ${Number(button.dataset.jump)+1}${current().answers[ref.key]?', answered':''}${saved?', flagged':''}`);}});});bind('#report-question',()=>reportProblem(questionMap().get(state.answer.key)));
+  bind('#bookmark',async()=>{const session=current(),key=state.answer.key,q=questionMap().get(key),saved=!session.flags?.[key]?.flagged;session.flags={...session.flags,[key]:{flagged:saved,updatedAt:Date.now()}};await saveSession(session);const b=document.querySelector('#bookmark');b.textContent=saved?'⚑ Flagged':'⚐ Flag question';b.setAttribute('aria-pressed',saved);document.querySelectorAll('[data-jump]').forEach(button=>{const ref=current().questions[Number(button.dataset.jump)];if(questionMap().get(ref.key)?.uid===q.uid){button.classList.toggle('flagged',saved);button.setAttribute('aria-label',button.getAttribute('aria-label').replace(/, flagged$/,'')+(saved?', flagged':''));}});});bind('#report-question',()=>reportProblem(questionMap().get(state.answer.key)));
 
 
 

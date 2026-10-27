@@ -526,3 +526,7 @@ dialog{max-height:90dvh;overscroll-behavior:contain;-webkit-overflow-scrolling:t
  .practice .deep-panel-head{position:static}
  .practice .deep-question-navigation{display:none}
 }
+
+/* Keep answer results visible when a question is current or flagged. */
+body.practice:not(.studio) .session-sidebar .navigator button.correct{background:color-mix(in srgb,var(--good) 18%,var(--surface))!important;border-color:var(--good)!important;color:var(--good)}
+body.practice:not(.studio) .session-sidebar .navigator button.incorrect{background:color-mix(in srgb,var(--bad) 18%,var(--surface))!important;border-color:var(--bad)!important;color:var(--bad)}
