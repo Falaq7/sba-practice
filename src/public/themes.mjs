@@ -60,6 +60,10 @@ export function applyTheme(value){
  const body=document.body;
  Object.assign(body.dataset,{theme:theme.id,mode:mode==='system'?(device.matches?'dark':'light'):mode,appearance:mode,colourway:colour.id,finish:theme.id==='prism'&&active.colourCycle?'y2k':colour.finish||'soft',cycle:active.colourCycle?'on':'off'});
  paintColour();runCycle();
+ // A tiny synchronous mirror prevents a light flash while account storage opens.
+ try{localStorage.setItem('BM4_APPEARANCE_BOOT',JSON.stringify({...body.dataset,h:parseFloat(body.style.getPropertyValue('--prism-h')),h2:parseFloat(body.style.getPropertyValue('--prism-h2'))}));}catch{}
+ document.documentElement.style.colorScheme=body.dataset.mode;
+ document.documentElement.style.backgroundColor=body.dataset.mode==='dark'?'#101023':'#f4f2fa';
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',getComputedStyle(body).backgroundColor);
  document.querySelector('#appearance-status')?.replaceChildren(document.createTextNode(mode==='system'?`Following your device: ${body.dataset.mode}`:`Always ${mode}`));
  return theme.id;
@@ -89,4 +93,3 @@ export function themePicker(store,scope){
  d.querySelector('#appearance-mode').onchange=e=>action(e.target,()=>update({appearance:e.target.value}));
  refresh();
 }
-
