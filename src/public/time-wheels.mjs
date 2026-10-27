@@ -3,7 +3,7 @@ export function bindTimeWheels(form,onChange){
  const sync=[];for(const wheel of form.querySelectorAll('[data-time-wheel]')){
   const input=form.elements[wheel.dataset.timeWheel],rows=[...wheel.querySelectorAll('[data-wheel-value]')],values=rows.map(r=>Number(r.dataset.wheelValue));let drag=null,frame;
   const height=()=>rows[0].getBoundingClientRect().height;
-  const update=()=>{const index=Math.max(0,Math.min(rows.length-1,Math.round(wheel.scrollTop/height()))),value=values[index];rows.forEach((r,i)=>r.classList.toggle('selected',i===index));wheel.setAttribute('aria-valuenow',value);wheel.setAttribute('aria-valuetext',String(value));if(input.value!==String(value)){input.value=String(value);onChange();}};
+  const update=()=>{const rowHeight=height();if(!rowHeight)return;const index=Math.max(0,Math.min(rows.length-1,Math.round(wheel.scrollTop/rowHeight))),value=values[index];rows.forEach((r,i)=>r.classList.toggle('selected',i===index));wheel.setAttribute('aria-valuenow',value);wheel.setAttribute('aria-valuetext',String(value));if(input.value!==String(value)){input.value=String(value);onChange();}};
   const move=index=>{wheel.scrollTo({top:Math.max(0,Math.min(rows.length-1,index))*height(),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
   wheel.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(update);});
   wheel.addEventListener('pointerdown',e=>{if(e.button!==0)return;drag={id:e.pointerId,y:e.clientY,top:wheel.scrollTop,moved:false};wheel.setPointerCapture(e.pointerId);wheel.classList.add('dragging');});

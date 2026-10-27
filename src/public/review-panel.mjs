@@ -74,7 +74,7 @@ export function bindDeepReview(c){
 
  document.querySelectorAll('[data-review-key]').forEach(el=>el.classList.toggle('active-review',el===card));card.classList.remove('clues-hidden');animateClues(card);
 
- panel.querySelector('#close-deep-review').onclick=async()=>{const token=++transition;closed=key;saved.closed=key;saved.active=null;await animateDrawerOut(panel);if(disposed||token!==transition)return;panel.hidden=true;positionNext();document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus({preventScroll:true});};
+ panel.querySelector('#close-deep-review').onclick=async()=>{const token=++transition;closed=key;saved.closed=key;saved.active=null;if(innerWidth>700)await animateDrawerOut(panel);if(disposed||token!==transition)return;panel.hidden=true;positionNext();document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus({preventScroll:true});};
 
  panel.querySelector('#toggle-clues')?.addEventListener('click',e=>{const hidden=card.classList.toggle('clues-hidden');e.target.setAttribute('aria-pressed',String(!hidden));e.target.textContent=hidden?'Show highlighted clues':'Hide highlighted clues';if(!hidden)animateClues(card);});
 
@@ -92,7 +92,7 @@ export function bindDeepReview(c){
 
  }
 
- if(restore)return;
+ if(restore||innerWidth<=700)return;
  if(wasHidden)animateDrawerIn(panel);else if(!matchMedia('(prefers-reduced-motion: reduce)').matches)panel.querySelector('.deep-panel-body')?.animate([{opacity:.5,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'cubic-bezier(.16,1,.3,1)'});
 
  }
@@ -102,7 +102,7 @@ export function bindDeepReview(c){
  const scroll=()=>{if(!frame)frame=requestAnimationFrame(scan);};const click=e=>{const b=e.target.closest('[data-explore]');if(b){const card=cards.find(x=>x.dataset.reviewKey===b.dataset.explore);if(card)show(card,true);}};
 
  // Completed reviews follow the visible question on desktop. In learning mode,
- // checking an answer opens its teaching immediately, including on phones.
+ // checking an answer expands teaching below the question on phones.
 
  const autoScan=()=>{positionNext();if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
 

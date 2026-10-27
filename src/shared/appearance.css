@@ -514,3 +514,15 @@ body.practice:not(.studio) .home-middle-row .home-suggestions>:is(.today-practic
 /* Opening teaching preserves the page layout; only Next avoids the drawer. */
 body.practice:not(.studio) #next{transition:translate 320ms cubic-bezier(.16,1,.3,1)}
 @media(prefers-reduced-motion:reduce){body.practice:not(.studio) #next{transition:none}}
+
+/* Dialog gestures stay in the dialog, including at either end of its content. */
+html:has(dialog[open]){overflow:hidden}
+dialog{max-height:90dvh;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#setup .time-picker[hidden]{display:none}
+
+/* Mobile teaching is part of the page and can be read by scrolling down. */
+@media(max-width:700px){
+ body.practice:not(.studio) .deep-review-panel{position:static;inset:auto;width:100%;height:auto;max-height:none;overflow:visible;scrollbar-gutter:auto;border:1px solid var(--line);border-radius:16px;box-shadow:none;animation:none;will-change:auto}
+ .practice .deep-panel-head{position:static}
+ .practice .deep-question-navigation{display:none}
+}

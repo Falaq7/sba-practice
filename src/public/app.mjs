@@ -346,7 +346,7 @@ async function submitAnswer(){
 
 
 
-  state.openDeepReview=answer.key;render();const el=document.querySelector('.feedback,#answer-status');el?.setAttribute('tabindex','-1');el?.focus();
+  state.openDeepReview=answer.key;render();const el=document.querySelector('.feedback,#answer-status');el?.setAttribute('tabindex','-1');el?.focus({preventScroll:true});
 
 
 
@@ -451,6 +451,9 @@ function setup(qs,requestedCount){
 
 
  let changedByUser=false;const syncWheels=bindTimeWheels(f,()=>{changedByUser=true;updateTime();});
+ const timePicker=f.querySelector('.time-picker');
+ function updateCountdown(){timePicker.hidden=!f.elements.timed.checked;if(!timePicker.hidden)syncWheels();}
+ f.elements.timed.addEventListener('change',updateCountdown);updateCountdown();
 
 
 
