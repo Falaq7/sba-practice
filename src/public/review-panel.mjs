@@ -14,13 +14,14 @@ export function highlightedStem(q){
 
 }
 
-export function answerFeedback(q,a,key,history=[]){
+export function answerFeedback(q,a,key,history=[],sessionNavigation=false,hasNext=true){
 
  const attempts=history.filter(x=>Number.isInteger(x.selected));
 
  const choiceHistory=attempts.length<2?'':`<details class="personal-choice-history"><summary>Your answer history · ${attempts.length} attempts</summary><p class="muted">These counts use only your recorded attempts at this question.</p><ul class="choice-history-list">${q.options.map((option,index)=>{const count=attempts.filter(x=>x.selected===index).length,share=Math.round(count/attempts.length*100);return `<li class="choice-history-item ${index===q.answer?'correct':''}"><span>${esc(option)}${index===q.answer?'<small>Correct answer</small>':''}</span><progress max="${attempts.length}" value="${count}" aria-label="${count} of ${attempts.length} attempts"></progress><small>${count} · ${share}%</small></li>`;}).join('')}</ul></details>`;
 
- return `<section class="feedback answer-feedback ${!a?'skipped':a.selected===q.answer?'':'wrong'}"><div><b class="feedback-result">${!a?'Skipped':a.selected===q.answer?'Correct':'Incorrect'}</b><p><strong>Best answer:</strong> ${esc(q.options[q.answer])}</p><p>${rich(q.why)}</p></div>${choiceHistory}<button class="explore-further" data-explore="${esc(key)}" aria-controls="deep-review-panel">Deep review <span aria-hidden="true"><svg class="diagonal-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-.125em;flex-shrink:0"><path d="M6 18 18 6M6 6h12v12"/></svg></span></button></section>`;
+ const takeaway=q.deepReview?.keyConcept?.summary||q.deepReview?.recogniseNextTime?.[0]||q.why;
+ return `<section class="feedback answer-feedback answer-feedback-flow ${!a?'skipped':a.selected===q.answer?'':'wrong'}"><div class="answer-result"><b class="feedback-result">${!a?'Skipped':a.selected===q.answer?'✓ Correct':'× Incorrect'}</b></div><p class="best-answer-summary"><strong>Best answer</strong>${esc(q.options[q.answer])}</p><aside class="key-takeaway"><h3>Key takeaway</h3><p>${rich(takeaway)}</p></aside><section class="short-explanation"><h3>Why this answer</h3><p>${rich(q.why)}</p></section>${choiceHistory}<div class="feedback-actions"><button class="explore-further" data-explore="${esc(key)}" aria-controls="deep-review-panel">Deep review <span aria-hidden="true">↓</span></button>${sessionNavigation?`<button type="button" class="primary" data-feedback-next ${hasNext?'':'disabled'}>Next question <span aria-hidden="true">→</span></button>`:''}</div></section>`;
 
 }
 
@@ -40,12 +41,21 @@ export function bindDeepReview(c){
  let active=null,closed=previous?.closed||null,frame=0,transition=0,disposed=false;
  const saved=retained={identity,closed,active:previous?.active||null,scrollTop:previous?.scrollTop||0};const panel=document.createElement('section');panel.id='deep-review-panel';panel.className='deep-review-panel';panel.hidden=true;panel.setAttribute('aria-label','Deep Review');panel.setAttribute('role','complementary');host.prepend(panel);
 
+ function placePanel(card=cards.find(el=>el.dataset.reviewKey===active)){
+  const inline=innerWidth<=700&&c.view==='session',target=inline?card:host;
+  if(!target)return;
+  if(panel.parentElement!==target){if(inline)target.append(panel);else host.prepend(panel);}
+  if(inline){const footer=card.querySelector('.question-footer');if(footer&&footer.previousElementSibling!==panel)card.append(footer);}
+ }
+
  function positionNext(){
-  const next=document.querySelector('#next');if(!next)return;
-  if(panel.hidden||innerWidth<=700){next.style.removeProperty('translate');return;}
-  const rect=next.getBoundingClientRect(),shift=parseFloat(getComputedStyle(next).translate)||0;
-  const edge=innerWidth-panel.offsetWidth-16;
-  next.style.translate=Math.min(0,edge-(rect.right-shift))+'px 0';
+  for(const selector of ['#next','[data-feedback-next]']){
+   const next=document.querySelector(selector);if(!next)continue;
+   if(panel.hidden||innerWidth<=700){next.style.removeProperty('translate');continue;}
+   const rect=next.getBoundingClientRect(),shift=parseFloat(getComputedStyle(next).translate)||0;
+   const edge=innerWidth-panel.offsetWidth-16;
+   next.style.translate=Math.min(0,edge-(rect.right-shift))+'px 0';
+  }
  }
 
  function animateClues(card){
@@ -58,11 +68,12 @@ export function bindDeepReview(c){
 
  }
 
- function show(card,manual=false,restore=false){const key=card.dataset.reviewKey;if(!manual&&(active===key||closed===key))return;const ref=c.session.questions.find(r=>r.key===key),q=c.questionMap.get(key),a=c.session.answers[key];if(!q||!ref)return;const wasHidden=panel.hidden||active===null;++transition;active=key;closed=null;saved.active=key;saved.closed=null;panel.hidden=false;document.body.classList.add('deep-review-open');
+ function show(card,manual=false,restore=false){const key=card.dataset.reviewKey;if(!manual&&(active===key||closed===key))return;const ref=c.session.questions.find(r=>r.key===key),q=c.questionMap.get(key),a=c.session.answers[key];if(!q||!ref)return;const wasHidden=panel.hidden||active===null;++transition;active=key;closed=null;saved.active=key;saved.closed=null;panel.hidden=false;document.body.classList.add('deep-review-open');placePanel(card);
 
  const index=c.session.questions.indexOf(ref)+1,clues=q.deepReview?.keyClues||[],count=c.stats.rows.filter(r=>r.uid===q.uid).length;
 
- const labels=indices=>(indices||[]).filter(n=>q.options[n]!=null).map(n=>`<span class="tag">${'ABCDE'[ref.order.indexOf(n)]}. ${esc(q.options[n])}</span>`).join('');
+
+ const labels=indices=>(indices||[]).filter(n=>q.options[n]!=null).map(n=>`<span class="tag" aria-label="Option ${'ABCDE'[ref.order.indexOf(n)]}: ${esc(q.options[n])}">Option ${'ABCDE'[ref.order.indexOf(n)]}</span>`).join('');
 
  panel.innerHTML=`<header class="deep-panel-head"><div><small class="deep-eyebrow">Question-specific teaching · Question ${index}</small><h2>Deep Review</h2></div><button id="close-deep-review" aria-label="Close Deep Review">Close</button>${c.view==='session'?`<nav class="deep-question-navigation" aria-label="Question navigation"><button type="button" data-deep-previous ${index===1?'disabled':''}>← Previous</button><button type="button" data-deep-next ${index===c.session.questions.length?'disabled':''}>Next →</button></nav>`:''}</header><div class="deep-panel-body"><div class="deep-metrics"><div><b>${!a?'Skipped':a.selected===q.answer?'Correct':'Incorrect'}</b><small>Result</small></div><div><b>${esc(a?.confidence||'Not rated')}</b><small>Confidence</small></div><div><b>${a?.seconds==null||a.seconds>=600?'Unavailable':Math.round(a.seconds)+'s'}</b><small>Answering time</small></div><div><b>${count}</b><small>Attempts</small></div></div>${clues.length?`<button id="toggle-clues" aria-pressed="true">Hide highlighted clues</button><section class="review-clues"><h3>Key clues</h3>${clues.map(x=>`<div class="review-clue"><mark>${esc(x.quote)}</mark>${[].concat(x.explanation||[]).map(t=>`<p>${rich(t)}</p>`).join('')}${x.supports?.length?`<small>Supports</small><div class="clue-support">${labels(x.supports)}</div>`:''}${x.arguesAgainst?.length?`<small>Argues against</small><div class="clue-against">${labels(x.arguesAgainst)}</div>`:''}</div>`).join('')}</section>`:''}<div class="deep-extra">${deepReview({...q,deepReview:{...q.deepReview,keyClues:[]}})}</div></div>`;
 
@@ -99,12 +110,12 @@ export function bindDeepReview(c){
 
  function scan(){frame=0;const target=innerHeight*.35;const visible=cards.filter(el=>{const r=el.getBoundingClientRect();return r.bottom>120&&r.top<innerHeight;});const card=visible.sort((a,b)=>{const dist=el=>{const r=el.getBoundingClientRect();return r.top<=target&&r.bottom>=target?0:Math.min(Math.abs(r.top-target),Math.abs(r.bottom-target));};return dist(a)-dist(b);})[0];if(card)show(card);}
 
- const scroll=()=>{if(!frame)frame=requestAnimationFrame(scan);};const click=e=>{const b=e.target.closest('[data-explore]');if(b){const card=cards.find(x=>x.dataset.reviewKey===b.dataset.explore);if(card){show(card,true);if(innerWidth<=700){const header=document.querySelector('.top')?.getBoundingClientRect().height||0;window.scrollTo({top:Math.max(0,scrollY+panel.getBoundingClientRect().top-header-12),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}}}};
+ const scroll=()=>{if(!frame)frame=requestAnimationFrame(scan);};const click=e=>{const b=e.target.closest('[data-explore]');if(b){const card=cards.find(x=>x.dataset.reviewKey===b.dataset.explore);if(card){show(card,true);if(innerWidth<=700){const chrome=document.querySelector('.top'),header=chrome&&['fixed','sticky'].includes(getComputedStyle(chrome).position)?chrome.getBoundingClientRect().height:0;window.scrollTo({top:Math.max(0,scrollY+panel.getBoundingClientRect().top-header-12),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}}}};
 
  // Completed reviews follow the visible question on desktop. In learning mode,
  // checking an answer expands teaching below the question on phones.
 
- const autoScan=()=>{positionNext();if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
+ const autoScan=()=>{placePanel();positionNext();if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
 
  const escape=e=>{if(e.key==='Escape'&&!panel.hidden&&!document.querySelector('#dialog[open]')){e.preventDefault();e.stopPropagation();panel.querySelector('#close-deep-review')?.click();}};
 
@@ -113,6 +124,6 @@ export function bindDeepReview(c){
 
  if(c.view==='session'&&c.session.mode==='learn'){const key=c.session.questions[c.session.current]?.key,card=cards.find(el=>el.dataset.reviewKey===key);if(card&&c.session.answers[key]?.locked&&c.openDeepReview===key)show(card);}
 
- cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.querySelector('#next')?.style.removeProperty('translate');document.body.classList.remove('deep-review-open');};
+ cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.querySelector('#next')?.style.removeProperty('translate');document.querySelector('[data-feedback-next]')?.style.removeProperty('translate');document.body.classList.remove('deep-review-open');};
 
 }

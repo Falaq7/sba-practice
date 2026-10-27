@@ -530,3 +530,54 @@ dialog{max-height:90dvh;overscroll-behavior:contain;-webkit-overflow-scrolling:t
 /* Keep answer results visible when a question is current or flagged. */
 body.practice:not(.studio) .session-sidebar .navigator button.correct{background:color-mix(in srgb,var(--good) 18%,var(--surface))!important;border-color:var(--good)!important;color:var(--good)}
 body.practice:not(.studio) .session-sidebar .navigator button.incorrect{background:color-mix(in srgb,var(--bad) 18%,var(--surface))!important;border-color:var(--bad)!important;color:var(--bad)}
+
+/* Short feedback and deeper teaching share the existing theme colours. */
+.answer-feedback-flow{display:block!important;background:transparent!important;border:0!important;border-top:1px solid var(--line)!important;padding:24px 0 0!important;margin-top:24px!important}
+.answer-result{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.answer-result .feedback-result{font-size:18px;color:var(--good);letter-spacing:0}
+.answer-feedback-flow.wrong .feedback-result{color:var(--bad)}
+.answer-result>span{font-size:12px;color:var(--muted)}
+.best-answer-summary{font-size:15px;line-height:1.6;margin:16px 0 24px}
+.best-answer-summary>strong{display:block;margin-bottom:4px;font-size:12px;font-weight:500;color:var(--muted)}
+.key-takeaway{margin:0 0 24px;padding:16px 18px;border-left:3px solid var(--accent);border-radius:0 14px 14px 0;background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.key-takeaway h3{margin:0 0 6px;font-size:13px;font-weight:650;color:var(--accent)}
+.key-takeaway p{margin:0;font-size:17px;line-height:1.5;font-weight:550}
+.short-explanation h3{font-size:15px;margin:0 0 8px}
+.short-explanation p{margin:0;font-size:15px;line-height:1.7}
+.feedback-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:24px 0 28px}
+body.practice:not(.studio) .feedback-actions button{min-height:46px;white-space:nowrap;font-size:14px;padding:10px 16px}
+.feedback-actions .explore-further{align-self:auto;margin:0;font-weight:400}
+.feedback-actions .primary{flex:1}
+.session-layout .deep-metrics{display:none}
+.session-layout .deep-extra>h3:first-child,.session-layout .deep-extra>h3:first-child+p{display:none}
+.session-layout .deep-section{background:transparent!important;box-shadow:none!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;padding:22px 0!important;margin:0!important}
+.session-layout .deep-panel-head h2{font-size:23px;margin:4px 0 0}
+.session-layout .deep-panel-head .deep-eyebrow{font-size:11px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--muted)}
+.session-layout .deep-panel-head{padding:20px 0;background:transparent!important;backdrop-filter:none}
+.session-layout .deep-panel-body{padding:18px 0 28px;font-size:15px;line-height:1.7}
+.session-layout .question-footer{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+@media(max-width:700px){
+ body.practice:not(.studio) .session-layout .deep-review-panel{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent!important;backdrop-filter:none}
+ .session-layout .deep-panel-head{flex-wrap:nowrap;gap:12px}
+ .session-layout .deep-panel-head>div{min-width:0}
+ .session-layout .deep-panel-head h2{font-size:23px}
+ .session-layout .deep-panel-head .deep-eyebrow{display:none}
+ body.practice:not(.studio) .session-layout .deep-panel-head button{font-size:12px;min-height:36px;padding:6px 12px}
+ .session-layout .deep-panel-body{padding-top:4px}
+ .session-layout .deep-panel-body #toggle-clues{font-size:13px;min-height:40px}
+ .session-layout .review-clues>h3{font-size:15px;letter-spacing:0;text-transform:none;color:var(--text);margin-top:22px}
+}
+@media(max-width:350px){body.practice:not(.studio) .feedback-actions button{font-size:12px;padding:10px 11px}.feedback-actions{gap:8px}}
+
+/* Keep result labels quiet and the takeaway separated from the answer. */
+body.practice:not(.studio) .answer-feedback-flow .feedback-result{text-transform:none;font-size:18px;letter-spacing:0}
+body.practice:not(.studio) .best-answer-summary{margin-top:16px!important;margin-bottom:24px!important}
+body.practice:not(.studio) .answer-feedback-flow{border-radius:0!important}
+.session-layout .clue-support .tag,.session-layout .clue-against .tag{font-size:12px;padding:4px 10px;border-radius:8px;line-height:1.5}
+
+/* Compact mobile feedback, retaining readable text and 44px tap targets. */
+body.practice:not(.studio) .best-answer-summary{font-size:14px;line-height:1.55;margin-top:12px!important;margin-bottom:18px!important}
+body.practice:not(.studio) .key-takeaway{padding:14px 16px;margin-bottom:18px}
+body.practice:not(.studio) .key-takeaway p{font-size:16px;line-height:1.5}
+body.practice:not(.studio) .feedback-actions{margin-top:20px;margin-bottom:22px}
+body.practice:not(.studio) .session-layout .deep-panel-body #toggle-clues{width:auto;min-height:44px;font-size:12px;padding:8px 12px}

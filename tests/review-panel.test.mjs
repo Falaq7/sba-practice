@@ -2,14 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 globalThis.matchMedia=()=>({matches:true});
-const {bindDeepReview}=await import('../dist/public/review-panel.mjs');
+const {bindDeepReview,answerFeedback}=await import('../dist/public/review-panel.mjs');
 
 function fixture({mode='learn',locked=true,view='session',id,justAnswered=true,width=1440}={}){
  const classes=new Set(),listeners=new Map();let panel,focused=false,focusOptions,drawerCalls=0,scrolls=[];
  const classList={add:x=>classes.add(x),remove:x=>classes.delete(x),toggle:()=>false};
  const button={focus:options=>{focused=true;focusOptions=options;}},close={};
- const card={dataset:{reviewKey:'q@1'},classList,offsetWidth:1,querySelector:()=>button};
- const host={prepend:p=>{panel=p;}};
+ const card={dataset:{reviewKey:'q@1'},classList,offsetWidth:1,append(el){el.parentElement=this;},querySelector:s=>s==='.question-footer'||s==='[data-feedback-next]'?null:button};
+ const host={prepend:p=>{panel=p;p.parentElement=host;}};
  globalThis.document={body:{classList},querySelector:s=>s==='#review-rail'?null:s==='#review-rail,.session-sidebar'?host:null,querySelectorAll:()=>[card],createElement:()=>({hidden:false,setAttribute(){},classList,getBoundingClientRect:()=>({top:1000}),getAnimations:()=>{drawerCalls++;return [];},querySelector:s=>s==='#close-deep-review'?close:null,querySelectorAll:()=>[],remove(){}}),addEventListener:(name,fn)=>listeners.set(name,fn),removeEventListener:name=>listeners.delete(name)};
  globalThis.window={addEventListener(){},removeEventListener(){},scrollTo:options=>scrolls.push(options)};globalThis.scrollY=600;
  globalThis.innerWidth=width;globalThis.cancelAnimationFrame=()=>{};
@@ -63,4 +63,14 @@ test('home page without a session does not crash review binding',()=>{
 
 test('returning to an answered question leaves teaching closed until manually opened',()=>{
  const f=fixture({id:'revisited-session',justAnswered:false});assert.equal(f.panel.hidden,true);f.click();assert.equal(f.panel.hidden,false);
+});
+
+test('feedback puts existing takeaway and short explanation before the session Next action',()=>{
+ const q={options:['Correct','Alternative'],answer:0,why:'The specific explanation.',deepReview:{keyConcept:{summary:'The existing teaching point.'}}};
+ const html=answerFeedback(q,{selected:0},'q',[],true);
+ assert.match(html,/Key takeaway/);assert.match(html,/The existing teaching point\./);
+ assert.ok(html.indexOf('The existing teaching point.')<html.indexOf('The specific explanation.'));
+ assert.ok(html.indexOf('The specific explanation.')<html.indexOf('data-feedback-next'));
+ assert.doesNotMatch(answerFeedback(q,{selected:1},'q'),/data-feedback-next/);
+ assert.match(answerFeedback(q,{selected:0},'q',[],true,false),/data-feedback-next disabled/);
 });

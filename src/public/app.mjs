@@ -677,3 +677,6 @@ if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catc
 
 
 for(const event of ['pointerdown','pointermove','keydown','wheel'])document.addEventListener(event,()=>{if(state.view==='session')state.lastInteraction=Date.now();},{passive:true});
+
+// Both Next controls use the same saved-session navigation.
+document.addEventListener('click',event=>{if(event.target.closest('[data-feedback-next]'))document.querySelector('#next')?.click();});
