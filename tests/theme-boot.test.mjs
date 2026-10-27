@@ -14,10 +14,14 @@ test('saved dark appearance is already dark before account storage opens on a li
 });
 test('explicit light and system settings are respected at startup',()=>{
  assert.equal(boot(JSON.stringify({appearance:'light'}),{deviceDark:true}).body.dataset.mode,'light');
- assert.equal(boot(JSON.stringify({appearance:'system'}),{deviceDark:true}).body.dataset.mode,'dark');
- assert.equal(boot(JSON.stringify({appearance:'system'})).body.dataset.mode,'light');
+ assert.equal(boot(JSON.stringify({appearance:'system',appearanceChosen:true}),{deviceDark:true}).body.dataset.mode,'dark');
+ assert.equal(boot(JSON.stringify({appearance:'system',appearanceChosen:true})).body.dataset.mode,'light');
 });
 test('missing, corrupt or blocked startup storage safely starts dark',()=>{
  for(const saved of [null,'broken'])assert.equal(boot(saved).body.dataset.mode,'dark');
  assert.equal(boot(null,{blocked:true}).body.dataset.mode,'dark');
+});
+
+test('legacy automatic device mode does not opt a learner out of dark mode',()=>{
+ assert.equal(boot(JSON.stringify({appearance:'system'})).body.dataset.mode,'dark');
 });

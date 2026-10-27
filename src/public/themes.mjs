@@ -51,9 +51,9 @@ export function applyTheme(value){
  const pref=typeof value==='string'?{theme:value}:value||{};
  const id=pref.theme==='light'?'dark':pref.theme;
  const theme=THEMES.find(x=>x.id===id)||THEMES[0];
- const mode=['light','dark'].includes(pref.appearance)?pref.appearance:'system';
+ const mode=['light','dark'].includes(pref.appearance)?pref.appearance:pref.appearance==='system'&&pref.appearanceChosen===true?'system':'dark';
  const colour=COLOURWAYS.find(x=>x.id===pref.colourway)||COLOURWAYS.find(c=>c.id==='digital-dream');
- active={theme:theme.id,appearance:mode,colourway:colour.id,colourCycle:pref.colourCycle!==false};
+ active={theme:theme.id,appearance:mode,appearanceChosen:pref.appearanceChosen===true,colourway:colour.id,colourCycle:pref.colourCycle!==false};
  const nextKey=theme.id+'|'+active.colourCycle+'|'+colour.id;
  if(nextKey!==cycleKey){cycleKey=nextKey;elapsed=0;}
 
@@ -61,7 +61,7 @@ export function applyTheme(value){
  Object.assign(body.dataset,{theme:theme.id,mode:mode==='system'?(device.matches?'dark':'light'):mode,appearance:mode,colourway:colour.id,finish:theme.id==='prism'&&active.colourCycle?'y2k':colour.finish||'soft',cycle:active.colourCycle?'on':'off'});
  paintColour();runCycle();
  // A tiny synchronous mirror prevents a light flash while account storage opens.
- try{localStorage.setItem('BM4_APPEARANCE_BOOT',JSON.stringify({...body.dataset,h:parseFloat(body.style.getPropertyValue('--prism-h')),h2:parseFloat(body.style.getPropertyValue('--prism-h2'))}));}catch{}
+ try{localStorage.setItem('BM4_APPEARANCE_BOOT',JSON.stringify({...body.dataset,appearanceChosen:active.appearanceChosen,h:parseFloat(body.style.getPropertyValue('--prism-h')),h2:parseFloat(body.style.getPropertyValue('--prism-h2'))}));}catch{}
  document.documentElement.style.colorScheme=body.dataset.mode;
  document.documentElement.style.backgroundColor=body.dataset.mode==='dark'?'#101023':'#f4f2fa';
  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',getComputedStyle(body).backgroundColor);
@@ -90,6 +90,6 @@ export function themePicker(store,scope){
  d.querySelectorAll('[data-theme-choice]').forEach(b=>b.onclick=()=>action(b,()=>update({theme:b.dataset.themeChoice})));
  d.querySelectorAll('[data-colourway]').forEach(b=>b.onclick=()=>action(b,()=>update({colourway:b.dataset.colourway,colourCycle:false})));
  d.querySelector('#colour-cycle').onchange=e=>action(e.target,()=>update({colourCycle:e.target.checked}));
- d.querySelector('#appearance-mode').onchange=e=>action(e.target,()=>update({appearance:e.target.value}));
+ d.querySelector('#appearance-mode').onchange=e=>action(e.target,()=>update({appearance:e.target.value,appearanceChosen:true}));
  refresh();
 }

@@ -3,7 +3,7 @@
  const body=document.body;
  let saved=null;
  try{saved=JSON.parse(localStorage.getItem('BM4_APPEARANCE_BOOT'));}catch{}
- const appearance=['dark','light','system'].includes(saved?.appearance)?saved.appearance:'dark';
+ const appearance=['dark','light'].includes(saved?.appearance)?saved.appearance:saved?.appearance==='system'&&saved.appearanceChosen===true?'system':'dark';
  const mode=appearance==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):appearance;
  Object.assign(body.dataset,{theme:saved?.theme||'prism',mode,appearance,colourway:saved?.colourway||'digital-dream',finish:saved?.finish||'y2k',cycle:saved?.cycle||'on'});
  body.style.setProperty('--prism-h',String(Number.isFinite(saved?.h)?saved.h:235));

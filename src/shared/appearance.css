@@ -465,3 +465,20 @@ body.practice[data-mode=light][data-shader=on] #shader-surface{opacity:.45}
 
 /* Centre the selected-bank tick independently of font metrics. */
 .home-bank-choice .bank-selected-icon{display:grid;place-items:center;justify-self:center;align-self:center;width:20px;height:20px;min-width:20px;padding:0;line-height:1;box-sizing:border-box}.home-bank-choice .bank-selected-icon svg{display:block;width:14px;height:14px}
+
+/* Keep the current session beside the setup, with older attempts available on demand. */
+body.practice:not(.studio) .home-latest-resume{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);min-width:0}
+.home-latest-resume h3{margin:0;font-size:1.15rem;letter-spacing:-.025em}
+body.practice:not(.studio) .home-latest-resume .home-resume-item{margin-top:10px;padding-bottom:0;border-bottom:0;gap:8px}
+.resume-session-heading{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:baseline;min-width:0}
+.resume-session-heading strong{overflow-wrap:anywhere}
+body.practice:not(.studio) .home-latest-resume small{margin:0;color:var(--muted)}
+.home-latest-resume .older-sessions{margin-top:16px;padding-bottom:0}
+.older-sessions summary{font-size:.85rem;color:var(--muted)}
+.older-sessions-list{max-height:320px;overflow:auto;overscroll-behavior:contain;padding-right:6px}
+body.practice:not(.studio) .older-sessions-list .home-resume-item{padding-block:14px;border-bottom:1px solid var(--line)}
+body.practice:not(.studio) .home-desk>.home-middle-row{display:block}
+body.practice:not(.studio) .home-middle-row>.home-suggestions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media(max-width:800px){body.practice:not(.studio) .home-middle-row>.home-suggestions{grid-template-columns:minmax(0,1fr)}}
+
+body.practice:not(.studio) .home-middle-row .home-suggestions>:is(.today-practice,.home-review){grid-column:auto;grid-row:auto;margin:0;min-width:0}

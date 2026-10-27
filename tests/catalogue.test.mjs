@@ -12,3 +12,18 @@ test('publication metadata keeps bank placement and year counts',()=>{assert.dee
 test('publishing cannot omit year or category',()=>{const audit=auditDraft({id:'bank',questions:[normaliseQuestion({options:['a','b','c','d','e']},'bank')]});assert.ok(audit.results[0].errors.some(e=>e.includes('Year 1')));assert.ok(audit.results[0].errors.some(e=>e.includes('category')));});
 test('home always exposes practice and bank access, including an empty library',()=>{const html=home(fixture);assert.match(html,/id="home-start-bank" disabled/);assert.match(html,/View library/);assert.doesNotMatch(html,/at your pace|Ready to practise|on their way/);});
 test('catalogue shows two year sections with year-specific bank actions',()=>{const c={...fixture,releases:[{id:'bank',title:'Endocrine bank',count:3,...placement(qs),topics:['Endocrine'],weeks:[]}],bankQuery:'',notice:'',libraryMode:'banks',view:'library'};const html=bankCards(c);assert.equal((html.match(/class="year-group(?: [^"]*)?"/g)||[]).length,2);assert.match(html,/data-bank-year="Year 1"/);assert.match(html,/data-bank-year="Year 2"/);assert.match(library(c),/Custom study/);assert.doesNotMatch(bankCards({...c,bankQuery:'missing'}),/data-bank=/);});
+
+const {unfinishedSessions}=await import('../dist/public/catalogue.mjs');
+const paused=(id,updatedAt,extra={})=>({id,title:id,updatedAt,createdAt:1,questions:[{key:'q'}],answers:{q:{selected:0}},...extra});
+test('continue sessions sort by latest activity and omit empty, deleted and completed attempts',()=>{
+ const input=[paused('older',2),paused('empty',90,{answers:{}}),paused('deleted',100,{deletedAt:100}),paused('finished',100,{finishedAt:100}),paused('latest',3),paused('draft',1,{answers:{},pending:{q:{selected:1}}})];
+ assert.deepEqual(unfinishedSessions(input).map(s=>s.id),['latest','older','draft']);assert.equal(input[0].id,'older');
+});
+test('home puts newest progress in setup and collapses older sessions without dropping saved progress',()=>{
+ const html=home({...fixture,sessions:[paused('older',2),paused('latest',3)]});
+ const start=html.indexOf('class="home-start-panel"'),bank=html.indexOf('class="home-bank-panel"');
+ const latest=html.indexOf('data-resume="latest"');assert.ok(latest>start&&latest<bank);
+ assert.ok(html.includes('<details class="older-sessions"><summary>Other saved sessions (1)'));
+ assert.ok(html.indexOf('data-resume="older"')>html.indexOf('class="older-sessions"'));
+ assert.match(html,/data-delete-session="older"/);
+});
