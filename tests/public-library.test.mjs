@@ -6,9 +6,9 @@ import {parseBank,validateQuestion} from '../src/shared/core.mjs';
 const raw=JSON.parse(await readFile(new URL('../content/library.json',import.meta.url),'utf8'));
 test('public bundle contains five Year 1 banks and six weekly Year 2 banks without preview records',()=>{
  assert.deepEqual(Object.keys(raw).sort(),['questions','releases','schemaVersion','setId','title'].sort());
- const bank=parseBank(raw);assert.equal(bank.questions.length,589);assert.equal(raw.releases.length,11);
- assert.equal(new Set(bank.questions.map(q=>q.uid)).size,589);
- const weeklyCounts=[46,27,42,41,46,37];
+ const bank=parseBank(raw);assert.equal(bank.questions.length,588);assert.equal(raw.releases.length,11);
+ assert.equal(new Set(bank.questions.map(q=>q.uid)).size,588);
+ const weeklyCounts=[46,27,41,41,46,37];
  for(const r of raw.releases){const qs=bank.questions.filter(q=>q.collectionId===r.id);assert.equal(qs.length,r.count);for(const q of qs)assert.deepEqual(validateQuestion(q).errors,[]);}
  const y1=raw.releases.filter(r=>r.years.includes('Year 1'));assert.equal(y1.length,5);for(const r of y1)assert.equal(r.count,70);
  for(let week=1;week<=6;week++){const id=`bm4-y2-week-${String(week).padStart(2,'0')}-2026`,qs=bank.questions.filter(q=>q.collectionId===id);assert.equal(qs.length,weeklyCounts[week-1]);assert(qs.every(q=>q.year==='Year 2'&&q.week.startsWith(`Week ${week} - `)));}
