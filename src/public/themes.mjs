@@ -1,5 +1,5 @@
 import {modal,action} from './shared/ui.mjs';
-import {cycleFrame} from './colour-cycle.mjs';
+import {cycleFrame,cycleStep} from './colour-cycle.mjs';
 export const DEFAULT_THEME='prism';
 export const THEMES=[
  {id:'prism',name:'Prism',description:'Floating navigation, translucent panels and ambient light.',source:'https://linear.app/now/linear-liquid-glass',reference:'Linear'},
@@ -41,7 +41,7 @@ function runCycle(){
  document.body.dataset.cycleState=active.theme!=='prism'||!active.colourCycle?'off':shouldRun?'running':'paused';
  if(!shouldRun&&timer){clearInterval(timer);timer=null;}
  if(shouldRun&&!timer){lastTick=performance.now();
-  timer=setInterval(()=>{const now=performance.now();elapsed+=now-lastTick;lastTick=now;paintColour();},250);
+  timer=setInterval(()=>{const now=performance.now();elapsed+=cycleStep(now-lastTick);lastTick=now;paintColour();},100);
  }
  const status=document.querySelector('#cycle-description');if(status)status.textContent=reducedMotion.matches?'Paused while your device requests reduced motion.':'30 seconds per colour, then a 30-second transition.';
 }
