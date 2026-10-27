@@ -40,6 +40,14 @@ export function bindDeepReview(c){
  let active=null,closed=previous?.closed||null,frame=0,transition=0,disposed=false;
  const saved=retained={identity,closed,active:previous?.active||null,scrollTop:previous?.scrollTop||0};const panel=document.createElement('section');panel.id='deep-review-panel';panel.className='deep-review-panel';panel.hidden=true;panel.setAttribute('aria-label','Deep Review');panel.setAttribute('role','complementary');host.prepend(panel);
 
+ function positionNext(){
+  const next=document.querySelector('#next');if(!next)return;
+  if(panel.hidden||innerWidth<=700){next.style.removeProperty('translate');return;}
+  const rect=next.getBoundingClientRect(),shift=parseFloat(getComputedStyle(next).translate)||0;
+  const edge=innerWidth-panel.offsetWidth-16;
+  next.style.translate=Math.min(0,edge-(rect.right-shift))+'px 0';
+ }
+
  function animateClues(card){
 
   card.classList.remove('clue-ink-active');
@@ -60,12 +68,13 @@ export function bindDeepReview(c){
 
  panel.querySelector('[data-deep-previous]')?.addEventListener('click',()=>document.querySelector('#previous')?.click());
  panel.querySelector('[data-deep-next]')?.addEventListener('click',()=>document.querySelector('#next')?.click());
+ positionNext();
  panel.scrollTop=restore?saved.scrollTop:0;
  panel.onscroll=()=>{saved.scrollTop=panel.scrollTop;};
 
  document.querySelectorAll('[data-review-key]').forEach(el=>el.classList.toggle('active-review',el===card));card.classList.remove('clues-hidden');animateClues(card);
 
- panel.querySelector('#close-deep-review').onclick=async()=>{const token=++transition;closed=key;saved.closed=key;saved.active=null;await animateDrawerOut(panel);if(disposed||token!==transition)return;panel.hidden=true;document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus({preventScroll:true});};
+ panel.querySelector('#close-deep-review').onclick=async()=>{const token=++transition;closed=key;saved.closed=key;saved.active=null;await animateDrawerOut(panel);if(disposed||token!==transition)return;panel.hidden=true;positionNext();document.body.classList.remove('deep-review-open');card.querySelector('[data-explore]')?.focus({preventScroll:true});};
 
  panel.querySelector('#toggle-clues')?.addEventListener('click',e=>{const hidden=card.classList.toggle('clues-hidden');e.target.setAttribute('aria-pressed',String(!hidden));e.target.textContent=hidden?'Show highlighted clues':'Hide highlighted clues';if(!hidden)animateClues(card);});
 
@@ -95,7 +104,7 @@ export function bindDeepReview(c){
  // Completed reviews follow the visible question on desktop. In learning mode,
  // checking an answer opens its teaching immediately, including on phones.
 
- const autoScan=()=>{if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
+ const autoScan=()=>{positionNext();if(!panel.hidden&&!closed&&document.querySelector('#review-rail')&&innerWidth>1050)scroll();};
 
  const escape=e=>{if(e.key==='Escape'&&!panel.hidden&&!document.querySelector('#dialog[open]')){e.preventDefault();e.stopPropagation();panel.querySelector('#close-deep-review')?.click();}};
 
@@ -104,6 +113,6 @@ export function bindDeepReview(c){
 
  if(c.view==='session'&&c.session.mode==='learn'){const key=c.session.questions[c.session.current]?.key,card=cards.find(el=>el.dataset.reviewKey===key);if(card&&c.session.answers[key]?.locked&&c.openDeepReview===key)show(card);}
 
- cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.body.classList.remove('deep-review-open');};
+ cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.querySelector('#next')?.style.removeProperty('translate');document.body.classList.remove('deep-review-open');};
 
 }
