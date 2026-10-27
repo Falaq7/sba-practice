@@ -454,11 +454,14 @@ body.practice:not(.studio) #report-export.primary{box-shadow:0 0 24px color-mix(
 
 /* Ambient FlowingGradient: text and controls remain normal HTML. */
 body.practice:not(.studio){isolation:isolate}
-#shader-surface{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1s ease}
+/* Cover Safari's fully expanded viewport even while its toolbar is moving. */
+body.practice:not(.studio)[data-theme=prism]{background-image:none;background-attachment:scroll;min-height:100vh;min-height:100svh}
+body.practice:not(.studio)[data-theme=prism]::before{content:"";position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 12% 10%,var(--glow-one),transparent 46%),radial-gradient(ellipse at 95% 40%,var(--glow-two),transparent 48%),var(--bg)}
+#shader-surface{position:fixed;inset:0 auto auto 0;width:100%!important;height:100vh!important;height:100lvh!important;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1s ease}
 body.practice[data-shader=on] #shader-surface{opacity:.65}
 body.practice[data-mode=light][data-shader=on] #shader-surface{opacity:.45}
 @media(prefers-reduced-motion:reduce){#shader-surface{display:none;transition:none}}
-@media print{#shader-surface{display:none}}
+@media print{#shader-surface,body.practice[data-theme=prism]::before{display:none}}
 
 .question-figure{margin:1rem 0}.enlarge-question-image{display:block;margin:.5rem 0;padding:.4rem .8rem;font-size:.85rem}.question-image-viewport{width:100%;max-height:60vh;overflow:auto;background:white;border-radius:8px}.question-image-viewport img{display:block;width:100%;max-width:none;height:auto}.question-image-viewport:focus-visible{outline:2px solid var(--accent)}
 @media print{.enlarge-question-image{display:none}}
