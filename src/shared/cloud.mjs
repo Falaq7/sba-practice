@@ -1,18 +1,48 @@
 import {bankManifest,uploadBankQuestions,downloadBank} from './private-banks.mjs';
 import {communityKey,communityFingerprint,duplicateMessage} from './community.mjs';
-import {mergeData,clone,id,stableStringify} from './core.mjs';
+import {mergeData,clone,id,stableStringify,revisionKey} from './core.mjs';
 import {placement} from './catalogue.mjs';
 import {pinCredentials,usernameFor} from './identity.mjs';
 const VERSION='11.10.0';
+const SYNC_KINDS=['session','preference','bookmark','note','report','bank','question'];
+const questionContent=q=>{const {updatedAt,publishedAt,collection,localOnly,...content}=q;return stableStringify(content);};
 export class Cloud extends EventTarget {
-  constructor(store){super();this.store=store;this.user=null;this.owner=false;this.ready=false;this.syncing=false;this.error='';this.epoch=0;this.enabled=false;}
+  constructor(store){super();this.store=store;this.user=null;this.owner=false;this.ready=false;this.syncing=false;this.error='';this.epoch=0;this.enabled=false;this.receiving=false;this.syncRun=0;this.syncProgress={done:0,total:0};this.waitingSince=0;this.lastUploadAt=null;this.lastDownloadAt=null;this.syncLog=[];this.retryCount=0;}
+  trace(event,details={}){this.syncLog.push({at:new Date().toISOString(),event,...details});this.syncLog=this.syncLog.slice(-40);}
+  syncStatus(){
+    const pending=this.store.dirtyCount?.(this.user?.uid)||0;
+    if(!navigator.onLine)return 'Saved on device · waiting for connection';
+    const slow=this.waitingSince&&Date.now()-this.waitingSince>=15000;
+    if(this.syncing)return slow?'Saved on device · slow sync ('+this.syncProgress.done+'/'+this.syncProgress.total+')':'Syncing '+this.syncProgress.done+'/'+this.syncProgress.total+'…';
+    if(this.receiving)return slow?'Saved on device · waiting for server':'Checking saved progress…';
+    return pending?pending+' changes saved on device':'Saved and synced';
+  }
+  updateSyncTimer(){
+    if((this.syncing||this.receiving)&&!this.statusTimer){this.statusTimer=setInterval(()=>this.dispatchEvent(new Event('status')),5000);this.statusTimer.unref?.();}
+    if(!this.syncing&&!this.receiving){clearInterval(this.statusTimer);this.statusTimer=null;}
+  }
+  resetSync(){++this.syncRun;this.retryCount=0;this.syncing=false;this.receiving=false;this.stop?.();clearTimeout(this.retryTimer);this.updateSyncTimer();}
+  diagnostics(){return {version:1,online:navigator.onLine,state:this.user?this.syncStatus():'Signed out',pending:this.store.dirtyCount?.(this.user?.uid)||0,progress:this.syncProgress,lastUploadAt:this.lastUploadAt,lastDownloadAt:this.lastDownloadAt,events:this.syncLog};}
+  bundledQuestion(key){
+    if(this.bundledSource!==this.bundledQuestions){this.bundledSource=this.bundledQuestions;this.bundledIndex=new Map((this.bundledQuestions||[]).map(q=>[revisionKey(q),q]));}
+    return this.bundledIndex?.get(key);
+  }
+  isBundledQuestion(q){const known=this.bundledQuestion(revisionKey(q));return !!known&&questionContent(known)===questionContent(q);}
+  async loadSessionQuestions(uid,session,epoch){
+    const missing=(session.questions||[]).filter(r=>!this.bundledQuestion(r.key)&&!this.store.get(uid,'question',r.key)&&!this.store.get('cache','question',r.key));
+    for(let offset=0;offset<missing.length;offset+=4)await Promise.all(missing.slice(offset,offset+4).map(async r=>{
+      const snap=await this.api.getDoc(this.api.doc(this.db,'users',uid,'progress',encodeURIComponent('question:'+r.key)));
+      if(epoch!==this.epoch||this.user?.uid!==uid)return;
+      if(snap.exists()&&snap.data().data)await this.store.acceptRemote(uid,'question',r.key,snap.data().data);
+    }));
+  }
   async init(){
     if((['127.0.0.1','localhost'].includes(location.hostname)||/^192\.168\.\d{1,3}\.\d{1,3}$/.test(location.hostname)||/^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(location.hostname)||/^172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}$/.test(location.hostname))){try{const r=await fetch('/__preview/config');if(r.ok){const c=await r.json();if(c.preview){this.preview=c;this.ready=true;this.dispatchEvent(new Event('status'));return;}}}catch{}this.preview={preview:true,offline:true};this.error='Local preview is offline. Device progress is still available.';this.dispatchEvent(new Event('status'));return;}
     const config=globalThis.SBA_FIREBASE_CONFIG;if(!config?.projectId)return;
     try{const base=`https://www.gstatic.com/firebasejs/${VERSION}`;
       const [app,auth,db,functions]=await Promise.all([import(`${base}/firebase-app.js`),import(`${base}/firebase-auth.js`),import(`${base}/firebase-firestore.js`),import(`${base}/firebase-functions.js`)]);
       this.api={...auth,...db,...functions};this.auth=auth.getAuth(app.initializeApp(config));this.db=db.getFirestore();this.functions=functions.getFunctions(undefined,'europe-west2');this.ready=true;
-      auth.onAuthStateChanged(this.auth,async user=>{if(user?.isAnonymous){this.reportUser=user;this.dispatchEvent(new Event('status'));return;}this.reportUser=null;const epoch=++this.epoch;this.stop?.();this.enabled=false;this.user=user;this.owner=false;
+      auth.onAuthStateChanged(this.auth,async user=>{if(user?.isAnonymous){this.reportUser=user;this.dispatchEvent(new Event('status'));return;}this.reportUser=null;const epoch=++this.epoch;this.resetSync();this.enabled=false;this.user=user;this.owner=false;
         if(user){try{const token=await user.getIdTokenResult();if(epoch!==this.epoch)return;this.owner=token.claims.sbaPublisher===true;}catch(e){this.error=message(e);}}
         if(epoch===this.epoch)this.dispatchEvent(new Event('auth'));});
       globalThis.addEventListener('online',()=>this.sync());
@@ -29,31 +59,62 @@ export class Cloud extends EventTarget {
   async needsPinChange(){if(!this.user||this.preview)return false;const profile=await this.api.getDoc(this.api.doc(this.db,'profiles',this.user.uid));return profile.exists()&&profile.data().pinResetRequired===true;}
   async register(email,password){if(this.preview)throw Error('Account creation is available on the hosted site. Local preview saves on this computer.');if(!this.ready)throw Error('Online accounts are unavailable.');return this.api.createUserWithEmailAndPassword(this.auth,email.trim(),password);}
   async reset(email){if(this.preview)throw Error('Password reset is available on the hosted site.');if(!this.ready)throw Error('Online accounts are unavailable.');return this.api.sendPasswordResetEmail(this.auth,email.trim());}
-  async signOut(){++this.epoch;this.enabled=false;this.stop?.();await this.api.signOut(this.auth);}
+  async signOut(){++this.epoch;this.enabled=false;this.resetSync();await this.api.signOut(this.auth);}
   startProgress(uid){
-    if(this.user?.uid!==uid)return;this.enabled=true;const epoch=this.epoch,a=this.api;
-    this.stop=a.onSnapshot(a.collection(this.db,'users',uid,'progress'),async snap=>{
+    if(this.user?.uid!==uid)return;this.stop?.();this.enabled=true;this.receiving=true;this.waitingSince=Date.now();this.updateSyncTimer();const epoch=this.epoch,a=this.api;
+    const progress=a.collection(this.db,'users',uid,'progress');
+    // Question bodies already ship with the site. Listen to small progress records,
+    // and fetch missing private/historical questions only when a session needs them.
+    const target=a.query?a.query(progress,a.where('kind','in',SYNC_KINDS.filter(k=>k!=='question'))):progress;
+    let incoming=Promise.resolve();
+    const receive=snap=>incoming=incoming.then(async()=>{
       if(this.epoch!==epoch||this.user?.uid!==uid)return;
-      try{let changed=false;for(const change of snap.docChanges())if(change.type!=='removed'){const r=change.doc.data();if(r.kind&&r.id&&r.data){const data=r.kind==='bank'?await downloadBank(a,this.db,uid,r.data):r.data;if(this.epoch!==epoch||this.user?.uid!==uid)return;const previous=this.store.get(uid,r.kind,r.id);if(stableStringify(previous)!==stableStringify(mergeData(r.kind,previous,data))){await this.store.acceptRemote(uid,r.kind,r.id,data);changed=true;}}}
-        if(epoch!==this.epoch)return;this.error='';if(changed)this.dispatchEvent(new Event('remote'));else this.dispatchEvent(new Event('status'));this.sync();
-      }catch(e){this.error=message(e);this.dispatchEvent(new Event('status'));}
-    },e=>{this.error=message(e);this.dispatchEvent(new Event('status'));});this.sync();
+      try{let changed=false;for(const change of snap.docChanges())if(change.type!=='removed'){
+        const r=change.doc.data();if(!r.kind||!r.id||!r.data)continue;
+        if(r.kind==='session'&&!r.data.deletedAt)await this.loadSessionQuestions(uid,r.data,epoch);
+        const data=r.kind==='bank'?await downloadBank(a,this.db,uid,r.data):r.data;
+        if(this.epoch!==epoch||this.user?.uid!==uid)return;
+        const previous=this.store.get(uid,r.kind,r.id);if(stableStringify(previous)!==stableStringify(mergeData(r.kind,previous,data))){await this.store.acceptRemote(uid,r.kind,r.id,data);changed=true;}
+      }
+      if(epoch!==this.epoch)return;
+      if(!snap.metadata?.fromCache){this.receiving=false;this.lastDownloadAt=new Date().toISOString();this.trace('received',{records:snap.size||0});}
+      this.updateSyncTimer();if(changed)this.dispatchEvent(new Event('remote'));else this.dispatchEvent(new Event('status'));this.sync();
+      }catch(e){if(epoch!==this.epoch)return;this.receiving=false;this.error=message(e);this.trace('download-error',{code:String(e?.code||e?.name||'unknown').slice(0,70)});this.updateSyncTimer();this.dispatchEvent(new Event('status'));}
+    });
+    this.stop=a.onSnapshot(target,{includeMetadataChanges:true},receive,e=>{if(epoch!==this.epoch)return;this.receiving=false;this.error=message(e);this.trace('listen-error',{code:String(e?.code||'unknown').slice(0,70)});this.updateSyncTimer();this.dispatchEvent(new Event('status'));});this.sync();
   }
   async sync(){
     if(!this.enabled||!this.user||this.syncing||!navigator.onLine)return;
-    const uid=this.user.uid,epoch=this.epoch,a=this.api;this.syncing=true;this.dispatchEvent(new Event('status'));
-    try{for(const r of this.store.dirty(uid)){
+    const uid=this.user.uid,epoch=this.epoch,a=this.api;
+    const queued=this.store.dirty(uid).filter(r=>SYNC_KINDS.includes(r.kind)).sort((x,y)=>SYNC_KINDS.indexOf(x.kind)-SYNC_KINDS.indexOf(y.kind));
+    if(!queued.length){this.dispatchEvent(new Event('status'));return;}
+    clearTimeout(this.retryTimer);const run=++this.syncRun;this.syncing=true;this.waitingSince=Date.now();this.syncProgress={done:0,total:queued.length};this.trace('upload-start',{total:queued.length});this.updateSyncTimer();this.dispatchEvent(new Event('status'));
+    let skipped=0,retryable=false;
+    try{for(const r of queued){
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
-      if(!['session','question','bookmark','note','preference','report','bank'].includes(r.kind))continue;
-      const key=encodeURIComponent(`${r.kind}:${r.id}`),ref=a.doc(this.db,'users',uid,'progress',key);
+      if(r.kind==='question'&&this.isBundledQuestion(r.data)){await this.store.markSynced(r);skipped++;this.syncProgress.done++;this.waitingSince=Date.now();this.dispatchEvent(new Event('status'));continue;}
+      this.syncProgress.kind=r.kind;const started=Date.now();
+      const key=encodeURIComponent(r.kind+':'+r.id),ref=a.doc(this.db,'users',uid,'progress',key);
       if(r.kind==='bank')await uploadBankQuestions(a,this.db,uid,r.data);
       if(epoch!==this.epoch||this.user?.uid!==uid)break;
-      const merged=await a.runTransaction(this.db,async tx=>{const old=await tx.get(ref);const data=mergeData(r.kind,old.exists()?old.data().data:null,r.kind==='bank'?bankManifest(r.data):r.data);
+      const merged=await a.runTransaction(this.db,async tx=>{
+        const old=await tx.get(ref);if(epoch!==this.epoch||this.user?.uid!==uid)throw Object.assign(Error('Account changed'),{code:'account-changed'});
+        const data=mergeData(r.kind,old.exists()?old.data().data:null,r.kind==='bank'?bankManifest(r.data):r.data);
         if(new Blob([JSON.stringify(data)]).size>850000)throw Error('A large saved image or record cannot sync. It remains on this device; download a backup.');
-        tx.set(ref,{kind:r.kind,id:r.id,data,serverUpdatedAt:a.serverTimestamp()});return data;});
-      if(epoch!==this.epoch)break;
-      const hydrated=r.kind==='bank'?await downloadBank(a,this.db,uid,merged):merged;if(epoch!==this.epoch||this.user?.uid!==uid)break;await this.store.acceptRemote(uid,r.kind,r.id,hydrated);await this.store.markSynced({...r,data:hydrated});
-    }this.error='';}catch(e){this.error=message(e);}finally{this.syncing=false;this.dispatchEvent(new Event('status'));if(!this.error&&epoch===this.epoch&&this.store.dirty(uid).length)queueMicrotask(()=>this.sync());}
+        tx.set(ref,{kind:r.kind,id:r.id,data,serverUpdatedAt:a.serverTimestamp()});return data;
+      });
+      if(epoch!==this.epoch||this.user?.uid!==uid)break;
+      this.lastUploadAt=new Date().toISOString();this.retryCount=0;
+      const hydrated=r.kind==='bank'?await downloadBank(a,this.db,uid,merged):merged;
+      if(epoch!==this.epoch||this.user?.uid!==uid)break;
+      await this.store.acceptRemote(uid,r.kind,r.id,hydrated);await this.store.markSynced({...r,data:hydrated});
+      this.syncProgress.done++;this.waitingSince=Date.now();this.trace('uploaded',{kind:r.kind,milliseconds:Date.now()-started});this.dispatchEvent(new Event('status'));
+    }
+    if(epoch===this.epoch){this.error='';this.trace('upload-complete',{completed:this.syncProgress.done,reusedQuestions:skipped});}
+    }catch(e){if(epoch===this.epoch){retryable=/unavailable|deadline-exceeded|aborted|network/.test(e?.code||'');this.error=message(e);this.trace('upload-error',{kind:this.syncProgress.kind,code:String(e?.code||e?.name||'unknown').slice(0,70)});}}
+    finally{if(run===this.syncRun){this.syncing=false;this.updateSyncTimer();this.dispatchEvent(new Event('status'));
+      if(epoch===this.epoch&&this.store.dirty(uid).some(r=>SYNC_KINDS.includes(r.kind))&&(!this.error||retryable&&this.retryCount<5)){const delay=this.error?Math.min(60000,5000*2**this.retryCount++):1000;this.trace('retry-scheduled',{milliseconds:delay});this.retryTimer=setTimeout(()=>this.sync(),delay);this.retryTimer.unref?.();}
+    }}
   }
   async manifest(){
     if(this.preview&&!this.preview.offline)return (await fetch('/__preview/manifest')).json();

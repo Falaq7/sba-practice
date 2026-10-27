@@ -81,7 +81,7 @@ export class LocalStore extends EventTarget {
   async markSynced(record){
     const current=this.records.get(record.key);if(!current||stableStringify(current.data)!==stableStringify(record.data))return;
     const clean={...current,dirty:false};
-    if(this.database)await new Promise((resolve,reject)=>{const tx=this.database.transaction('records','readwrite'),table=tx.objectStore('records'),r=table.get(record.key);r.onsuccess=()=>{if(stableStringify(r.result?.data)===stableStringify(record.data))table.put(clean);};tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});
+    if(this.database)await new Promise((resolve,reject)=>{const tx=this.database.transaction('records','readwrite'),table=tx.objectStore('records'),r=table.get(record.key);r.onsuccess=()=>{if(stableStringify(r.result?.data)===stableStringify(record.data))table.put(clean);};tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(tx.error||Object.assign(Error('Device sync acknowledgement aborted'),{name:'AbortError'}));});
     if(stableStringify(this.records.get(record.key)?.data)!==stableStringify(record.data))return;
     this.records.set(record.key,clean);if(this.fallback)try{localStorage.setItem(PREFIX+record.key,JSON.stringify(clean));}catch{this.error='Device storage is unavailable. Download a backup before closing.';}
   }

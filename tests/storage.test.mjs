@@ -63,7 +63,7 @@ test('permanent device write failure preserves journal and answer after bounded 
 test('cloud acknowledgement with unchanged data does not redraw review',async()=>{
  const data={text:'same',updatedAt:1};let receive,redraws=0,writes=0;
  const cloud=new Cloud({get:()=>data,dirty:()=>[],acceptRemote:async()=>{writes++;}});
- cloud.user={uid:'alice'};cloud.api={collection:()=>({}),onSnapshot:(_,fn)=>{receive=fn;return ()=>{};}};
+ cloud.user={uid:'alice'};cloud.api={collection:()=>({}),onSnapshot:(_,options,fn)=>{receive=fn;return ()=>{};}};
  cloud.sync=()=>{};cloud.addEventListener('remote',()=>redraws++);cloud.startProgress('alice');
  await receive({docChanges:()=>[{type:'modified',doc:{data:()=>({kind:'preference',id:'display',data})}}]});
  assert.equal(redraws,0);assert.equal(writes,0);
@@ -75,4 +75,37 @@ test('closed IndexedDB connection is replaced before retrying a save',async()=>{
  store.persistOnce=async()=>{if(++calls===1)throw Object.assign(Error('closed'),{name:'InvalidStateError'});};store.reconnect=async()=>{reopened++;};
  await store.persist({});assert.equal(calls,2);assert.equal(reopened,1);
  }finally{globalThis.indexedDB=previous;}
+});
+
+test('included question content is reused without a network write, but edited content still syncs',async()=>{
+ memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store),q={uid:'included-q',revision:1,stem:'Included question',options:['A','B','C','D','E'],answer:0,why:'Explanation'};
+ cloud.bundledQuestions=[q];cloud.user={uid:'alice'};cloud.enabled=true;await store.put('alice','question','included-q@1',{...q,updatedAt:1,collection:'Display title'});
+ let writes=0;cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>{writes++;return fn({get:async()=>({exists:()=>false}),set(){}});}};
+ await cloud.sync();assert.equal(writes,0);assert.equal(store.dirty('alice').length,0);
+ await store.put('alice','question','included-q@1',{...q,why:'Edited explanation',updatedAt:2});await cloud.sync();assert.equal(writes,1);assert.equal(store.dirty('alice').length,0);
+});
+test('session progress uploads before question bodies queued earlier',async()=>{
+ memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);await store.put('alice','question','private-q',{uid:'private-q',revision:1,updatedAt:1});await store.put('alice','session','attempt',{id:'attempt',questions:[],answers:{},updatedAt:2});
+ cloud.user={uid:'alice'};cloud.enabled=true;const kinds=[];cloud.api={doc:()=>'',serverTimestamp:()=>0,runTransaction:async(_,fn)=>fn({get:async()=>({exists:()=>false}),set:(_,r)=>kinds.push(r.kind)})};await cloud.sync();assert.deepEqual(kinds,['session','question']);
+});
+test('progress listener excludes bulk question bodies and retrieves missing private questions for sessions',async()=>{
+ memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);cloud.user={uid:'alice'};let receive,filter,reads=0;
+ cloud.api={collection:()=>'',where:(...args)=>(filter=args),query:()=>'',doc:(_, ...parts)=>parts.join('/'),onSnapshot:(_,options,fn)=>{assert.equal(options.includeMetadataChanges,true);receive=fn;return ()=>{};},getDoc:async()=>{reads++;return {exists:()=>true,data:()=>({data:{uid:'private',revision:1}})};}};cloud.sync=()=>{};cloud.startProgress('alice');
+ assert.equal(filter[0],'kind');assert(!filter[2].includes('question'));
+ await receive({size:1,metadata:{fromCache:false},docChanges:()=>[{type:'added',doc:{data:()=>({kind:'session',id:'attempt',data:{id:'attempt',questions:[{key:'private@1'}],answers:{},updatedAt:1}})}}]});
+ assert.equal(reads,1);assert.equal(store.get('alice','question','private@1').uid,'private');assert.equal(cloud.receiving,false);assert.ok(cloud.lastDownloadAt);cloud.resetSync();
+});
+test('a stalled connection is labelled honestly and diagnostics never include question text or credentials',()=>{
+ const cloud=new Cloud({dirtyCount:()=>3});cloud.user={uid:'private-user',password:'secret'};cloud.syncing=true;cloud.waitingSince=Date.now()-20000;cloud.syncProgress={done:1,total:3};cloud.trace('uploaded',{kind:'session',milliseconds:500});
+ assert.match(cloud.syncStatus(),/Saved on device.*slow sync/);const report=JSON.stringify(cloud.diagnostics());assert(!report.includes('private-user'));assert(!report.includes('secret'));assert.match(report,/uploaded/);
+});
+
+test('an aborted sync acknowledgement rejects promptly and preserves the queued record',async()=>{
+ const store=new LocalStore(),record={key:'alice|note|n',scope:'alice',kind:'note',id:'n',data:{updatedAt:1},dirty:true};store.records.set(record.key,record);
+ store.database={transaction:()=>{const request={result:record},tx={objectStore:()=>({get:()=>request,put(){}})};queueMicrotask(()=>{request.onsuccess();tx.onabort();});return tx;}};
+ await assert.rejects(store.markSynced(record),/acknowledgement aborted/);assert.equal(store.dirtyCount('alice'),1);
+});
+test('temporary network errors schedule a delayed retry without clearing queued progress',async()=>{
+ memory.clear();const store=await new LocalStore().open(),cloud=new Cloud(store);await store.put('alice','preference','display',{appearance:'dark',updatedAt:1});cloud.user={uid:'alice'};cloud.enabled=true;cloud.api={doc:()=>'',runTransaction:async()=>{throw {code:'unavailable'};}};
+ await cloud.sync();assert.equal(store.dirtyCount('alice'),1);assert.ok(cloud.retryTimer);assert.equal(cloud.syncing,false);assert.ok(cloud.diagnostics().events.some(e=>e.event==='retry-scheduled'));cloud.resetSync();
 });

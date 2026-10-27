@@ -182,7 +182,7 @@ const ctx=()=>{
 
 
 
-function status(){const el=document.querySelector('#save-status'),pending=store.dirtyCount(state.scope);el.textContent=state.changing?'Opening account…':store.error||cloud.error||(cloud.user?(cloud.syncing?'Syncing…':pending?`${pending} changes saved on device`:'Saved and synced'):'Saved on this device');el.classList.toggle('error',!!(store.error||cloud.error));document.querySelector('#account').textContent=cloud.user||state.scope!==store.guestScope?'Account':'Sign in / Sign up';}
+function status(){const el=document.querySelector('#save-status'),pending=store.dirtyCount(state.scope);el.textContent=state.changing?'Opening account…':store.error||cloud.error||(cloud.user?(cloud.syncStatus()):'Saved on this device');el.classList.toggle('error',!!(store.error||cloud.error));document.querySelector('#account').textContent=cloud.user||state.scope!==store.guestScope?'Account':'Sign in / Sign up';}
 
 
 
@@ -198,7 +198,7 @@ function render(){if(['session','review'].includes(state.view)&&(!current()||cur
 
 
 
-  const context=ctx();main().innerHTML=views[state.view](context);bindView(context);bindReviewFilters();bindYearAccordions();bindDeepReview(context);bindUiPolish();if(state.view==='session')bindAnswerAmbient();if(state.rangesOpen&&state.view==='session')ranges().catch(error);if(state.view==='session'){state.lastTick=Date.now();state.timer=setInterval(tick,1000);}
+  const context=ctx();main().innerHTML=views[state.view](context);bindView(context);bindReviewFilters();bindYearAccordions();bindDeepReview(context);state.openDeepReview=null;bindUiPolish();if(state.view==='session')bindAnswerAmbient();if(state.rangesOpen&&state.view==='session')ranges().catch(error);if(state.view==='session'){state.lastTick=Date.now();state.timer=setInterval(tick,1000);}
 
 
 
@@ -346,7 +346,7 @@ async function submitAnswer(){
 
 
 
-  render();const el=document.querySelector('.feedback,#answer-status');el?.setAttribute('tabindex','-1');el?.focus();
+  state.openDeepReview=answer.key;render();const el=document.querySelector('.feedback,#answer-status');el?.setAttribute('tabindex','-1');el?.focus();
 
 
 
@@ -414,7 +414,7 @@ function finishDialog(){if(questionMoving||answerSubmitting)return;tick();const 
 
 
 
-async function start(qs,options={}){if(state.changing)throw Error('Wait for your account to finish opening.');const s=makeSession(qs,{...options,title:unique(qs.map(q=>q.collectionId)).length===1&&qs[0]?.collection?qs[0].collection:unique(qs.map(q=>q.topic)).length===1?qs[0]?.topic:'Mixed practice'});s.localOnly=false;for(const q of qs)await store.put(state.scope,'question',revisionKey(q),{...q,updatedAt:q.publishedAt||0});await saveSession(s);usage.track('sba_practice_start',{question_count:qs.length,practice_mode:s.mode});for(const bank of unique(qs.filter(q=>!q.localOnly).map(q=>q.collectionId||'included')))usage.track('sba_bank_practised',{bank_id:bank});navigate('session',s.id);}
+async function start(qs,options={}){if(state.changing)throw Error('Wait for your account to finish opening.');const s=makeSession(qs,{...options,title:unique(qs.map(q=>q.collectionId)).length===1&&qs[0]?.collection?qs[0].collection:unique(qs.map(q=>q.topic)).length===1?qs[0]?.topic:'Mixed practice'});s.localOnly=false;for(const q of qs)await store.put(state.scope,'question',revisionKey(q),{...q,updatedAt:q.publishedAt||0},!cloud.isBundledQuestion(q));await saveSession(s);usage.track('sba_practice_start',{question_count:qs.length,practice_mode:s.mode});for(const bank of unique(qs.filter(q=>!q.localOnly).map(q=>q.collectionId||'included')))usage.track('sba_bank_practised',{bank_id:bank});navigate('session',s.id);}
 
 
 
@@ -561,7 +561,7 @@ function resetProgressDialog(){
 
 
 
-function settings(){const pending=store.list(state.scope,'report').filter(r=>!r.sent),d=modal('Settings',`<div class="stack"><button id="choose-theme">Choose a theme</button><p>Progress saves in this browser. Sign in to sync across devices. Your backup includes progress, unfinished sessions, notes and custom banks. Clearing browser data removes unsynced data.</p><div class="row"><button id="backup">Download all my data</button><label class="button">Restore my data<input id="restore" type="file" accept="application/json,.json" hidden></label><button id="retry-sync">Retry sync</button></div>${pending.length?`<button id="send-reports" ${cloud.ready&&navigator.onLine?'':'disabled'}>Send ${pending.length} saved question reports</button>`:''}<details><summary>Keyboard shortcuts</summary><p>A–E or 1–5: select answer. I / O / P: guess, unsure, confident. Left / right or 8 / 0: previous / next. F: flag question. Shift + A–E: rule out an option.</p></details><button id="usage-settings">Usage analytics preferences</button><button id="reset-progress">Reset progress &amp; history</button></div>`);d.querySelector('#reset-progress').onclick=resetProgressDialog;d.querySelector('#usage-settings').onclick=()=>usage.settings();d.querySelector('#choose-theme').onclick=()=>themePicker(store,state.scope);d.querySelector('#backup').onclick=()=>download('BM4-data-backup.json',store.export(state.scope));d.querySelector('#restore').onchange=e=>action(null,async()=>{const f=e.target.files[0];if(!f)return;if(f.size>20000000)throw Error('Use a backup under 20 MB.');await store.import(state.scope,JSON.parse(await f.text()));closeModal();render();toast('Backup merged');});d.querySelector('#retry-sync').onclick=()=>cloud.sync();d.querySelector('#send-reports')?.addEventListener('click',e=>action(e.target,async()=>{for(const r of pending){await cloud.report(r);await store.put(state.scope,'report',r.id,{...r,sent:true,updatedAt:Date.now()});}closeModal();toast('Saved reports sent');}));}
+function settings(){const pending=store.list(state.scope,'report').filter(r=>!r.sent),d=modal('Settings',`<div class="stack"><button id="choose-theme">Choose a theme</button><p>Progress saves in this browser. Sign in to sync across devices. Your backup includes progress, unfinished sessions, notes and custom banks. Clearing browser data removes unsynced data.</p><div class="row"><button id="backup">Download all my data</button><label class="button">Restore my data<input id="restore" type="file" accept="application/json,.json" hidden></label><button id="retry-sync">Retry sync</button><button id="sync-diagnostics">Copy sync diagnostics</button></div>${pending.length?`<button id="send-reports" ${cloud.ready&&navigator.onLine?'':'disabled'}>Send ${pending.length} saved question reports</button>`:''}<details><summary>Keyboard shortcuts</summary><p>A–E or 1–5: select answer. I / O / P: guess, unsure, confident. Left / right or 8 / 0: previous / next. F: flag question. Shift + A–E: rule out an option.</p></details><button id="usage-settings">Usage analytics preferences</button><button id="reset-progress">Reset progress &amp; history</button></div>`);d.querySelector('#reset-progress').onclick=resetProgressDialog;d.querySelector('#usage-settings').onclick=()=>usage.settings();d.querySelector('#choose-theme').onclick=()=>themePicker(store,state.scope);d.querySelector('#backup').onclick=()=>download('BM4-data-backup.json',store.export(state.scope));d.querySelector('#restore').onchange=e=>action(null,async()=>{const f=e.target.files[0];if(!f)return;if(f.size>20000000)throw Error('Use a backup under 20 MB.');await store.import(state.scope,JSON.parse(await f.text()));closeModal();render();toast('Backup merged');});d.querySelector('#retry-sync').onclick=()=>{cloud.sync();toast(cloud.syncStatus());};d.querySelector('#sync-diagnostics').onclick=e=>action(e.target,()=>copy(JSON.stringify(cloud.diagnostics(),null,2)));d.querySelector('#send-reports')?.addEventListener('click',e=>action(e.target,async()=>{for(const r of pending){await cloud.report(r);await store.put(state.scope,'report',r.id,{...r,sent:true,updatedAt:Date.now()});}closeModal();toast('Saved reports sent');}));}
 
 
 
@@ -653,7 +653,7 @@ registerTools([{name:'list_practice_topics',description:'Read available topics a
 
 
 
-try{const response=await fetch('./library.json');if(!response.ok)throw Error();const raw=await response.json();const bank=raw.questions?.length?parseBank(raw):{title:raw.title,questions:[]};state.embedded=bank.questions;cloud.bundled=raw.releases||[];cloud.bundledQuestions=bank.questions;state.releases=[...new Map([...state.releases,...cloud.bundled].map(r=>[r.id,r])).values()];await store.put('cache','manifest','library',{items:state.releases,updatedAt:Date.now()},false);for(const q of state.embedded)await store.put('cache','question',revisionKey(q),{...q,collection:q.collection||bank.title,updatedAt:q.publishedAt||0},false);await store.put('cache','catalog','included',{keys:state.embedded.map(revisionKey),updatedAt:Date.now()},false);}catch{state.embedded=(store.get('cache','catalog','included')?.keys||[]).map(k=>store.get('cache','question',k)).filter(Boolean);state.notice=state.embedded.length?'Using questions saved on this device.':'No questions are available offline yet.';}
+try{const response=await fetch('./library.json');if(!response.ok)throw Error();const raw=await response.json();const bank=raw.questions?.length?parseBank(raw):{title:raw.title,questions:[]};state.embedded=bank.questions;cloud.bundled=raw.releases||[];cloud.bundledQuestions=bank.questions;state.releases=[...new Map([...state.releases,...cloud.bundled].map(r=>[r.id,r])).values()];await store.put('cache','manifest','library',{items:state.releases,updatedAt:Date.now()},false);for(const q of state.embedded)await store.put('cache','question',revisionKey(q),{...q,collection:q.collection||bank.title,updatedAt:q.publishedAt||0},false);await store.put('cache','catalog','included',{keys:state.embedded.map(revisionKey),updatedAt:Date.now()},false);}catch{state.embedded=(store.get('cache','catalog','included')?.keys||[]).map(k=>store.get('cache','question',k)).filter(Boolean);cloud.bundledQuestions=state.embedded;state.notice=state.embedded.length?'Using questions saved on this device.':'No questions are available offline yet.';}
 
 
 

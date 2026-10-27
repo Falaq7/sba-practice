@@ -33,9 +33,9 @@ let retained=null;
 
 export function bindDeepReview(c){
 
- const identity=JSON.stringify([c.scope,c.view,c.session?.id]);
+ const identity=JSON.stringify([c.scope,c.view,c.session?.id,c.view==='session'?c.session?.questions[c.session.current]?.key:null]);
  const previous=c.session?.id&&retained?.identity===identity?retained:null;
- cleanup();const cards=[...document.querySelectorAll('[data-review-key]')],host=document.querySelector('#review-rail,.session-sidebar');if(!cards.length||!host)return;
+ cleanup();const cards=[...document.querySelectorAll('[data-review-key]')],host=document.querySelector('#review-rail,.session-sidebar');if(!cards.length||!host){retained=null;return;}
 
  let active=null,closed=previous?.closed||null,frame=0,transition=0,disposed=false;
  const saved=retained={identity,closed,active:previous?.active||null,scrollTop:previous?.scrollTop||0};const panel=document.createElement('section');panel.id='deep-review-panel';panel.className='deep-review-panel';panel.hidden=true;panel.setAttribute('aria-label','Deep Review');panel.setAttribute('role','complementary');host.prepend(panel);
@@ -100,7 +100,7 @@ export function bindDeepReview(c){
  if(previous?.active){const card=cards.find(el=>el.dataset.reviewKey===previous.active);if(card)show(card,true,true);}
  document.addEventListener('click',click);document.addEventListener('keydown',escape,true);window.addEventListener('scroll',autoScan,{passive:true});window.addEventListener('resize',autoScan);autoScan();
 
- if(c.view==='session'&&c.session.mode==='learn'){const key=c.session.questions[c.session.current]?.key,card=cards.find(el=>el.dataset.reviewKey===key);if(card&&c.session.answers[key]?.locked)show(card);}
+ if(c.view==='session'&&c.session.mode==='learn'){const key=c.session.questions[c.session.current]?.key,card=cards.find(el=>el.dataset.reviewKey===key);if(card&&c.session.answers[key]?.locked&&c.openDeepReview===key)show(card);}
 
  cleanup=()=>{disposed=true;++transition;cancelAnimationFrame(frame);document.removeEventListener('click',click);document.removeEventListener('keydown',escape,true);window.removeEventListener('scroll',autoScan);window.removeEventListener('resize',autoScan);panel.remove();document.body.classList.remove('deep-review-open');};
 
