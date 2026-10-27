@@ -485,3 +485,29 @@ body.practice:not(.studio) .home-middle-row>.home-suggestions{display:grid;grid-
 @media(max-width:800px){body.practice:not(.studio) .home-middle-row>.home-suggestions{grid-template-columns:minmax(0,1fr)}}
 
 body.practice:not(.studio) .home-middle-row .home-suggestions>:is(.today-practice,.home-review){grid-column:auto;grid-row:auto;margin:0;min-width:0}
+
+/* Keep question actions outside the teaching drawer at tablet widths too. */
+.deep-question-navigation{display:none}
+@media(min-width:701px) and (max-width:1279px){
+ body.practice.deep-review-open:not(.studio){--deep-dock-width:clamp(300px,42vw,480px)}
+ body.practice.deep-review-open:not(.studio) .deep-review-panel{width:var(--deep-dock-width)}
+ body.practice.deep-review-open:not(.studio) :is(#main,.top,body>footer){width:calc(100% - var(--deep-dock-width) - 24px);max-width:none;margin-left:12px;margin-right:calc(var(--deep-dock-width) + 12px)}
+ body.practice.deep-review-open:not(.studio) #main{padding-inline:8px}
+ body.practice.deep-review-open:not(.studio) .session-layout{grid-template-columns:minmax(0,1fr)}
+ body.practice.deep-review-open:not(.studio) .session-layout>article{min-width:0}
+ body.practice.deep-review-open:not(.studio) .top{flex-wrap:wrap;padding-inline:12px}
+ body.practice.deep-review-open:not(.studio) .top nav{order:3;flex:1 1 100%}
+ body.practice.deep-review-open:not(.studio) .account-tools{flex-wrap:wrap;gap:6px}
+ body.practice.deep-review-open:not(.studio) .answer-feedback{flex-wrap:wrap}
+}
+@media(max-width:700px){
+ .practice .deep-panel-head{flex-wrap:wrap}
+ .practice .deep-question-navigation{display:flex;flex:1 1 100%;justify-content:space-between;gap:12px;margin-top:8px}
+ .practice .deep-question-navigation button{flex:none}
+}
+@media print{.deep-question-navigation{display:none!important}}
+
+@media(min-width:701px) and (max-width:1279px){
+ .practice.deep-review-open .deep-review-panel .deep-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .practice.deep-review-open .deep-review-panel .deep-panel-head h2{font-size:1.2rem}
+}
