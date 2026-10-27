@@ -511,3 +511,17 @@ body.practice:not(.studio) .home-middle-row .home-suggestions>:is(.today-practic
  .practice.deep-review-open .deep-review-panel .deep-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
  .practice.deep-review-open .deep-review-panel .deep-panel-head h2{font-size:1.2rem}
 }
+
+/* Session score: keep the fraction and percentage together in the existing metric. */
+.practice .session-score-metric{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.session-score-value{min-width:0}
+.practice .session-score-metric strong{white-space:nowrap;font-size:clamp(1.2rem,2.4vw,1.8rem)}
+.session-score-value>span{display:block}
+.session-score-ring{position:relative;display:grid;place-items:center;flex:none;width:76px;height:76px;margin-left:auto;color:var(--accent);font-variant-numeric:tabular-nums}
+.session-score-ring svg{display:block;width:100%;height:100%;overflow:visible;transform:rotate(-90deg)}
+.session-score-ring circle{fill:none;stroke-width:7}
+.score-ring-track{stroke:var(--line);opacity:.6}
+.score-ring-progress{stroke:url(#session-score-gradient);stroke-linecap:round}
+.practice .session-score-ring .score-ring-number{position:absolute;color:var(--text);font-size:1rem;font-weight:750;line-height:1}
+@media(max-width:600px){.practice .session-score-metric{padding:12px;gap:8px}.session-score-ring{width:54px;height:54px}.practice .session-score-ring .score-ring-number{font-size:.8rem}}
+@media print{.score-ring-progress{stroke:#222}.practice .session-score-ring .score-ring-number{color:#111}}
