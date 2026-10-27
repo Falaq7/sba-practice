@@ -99,7 +99,7 @@ export function bindDeepReview(c){
 
  function scan(){frame=0;const target=innerHeight*.35;const visible=cards.filter(el=>{const r=el.getBoundingClientRect();return r.bottom>120&&r.top<innerHeight;});const card=visible.sort((a,b)=>{const dist=el=>{const r=el.getBoundingClientRect();return r.top<=target&&r.bottom>=target?0:Math.min(Math.abs(r.top-target),Math.abs(r.bottom-target));};return dist(a)-dist(b);})[0];if(card)show(card);}
 
- const scroll=()=>{if(!frame)frame=requestAnimationFrame(scan);};const click=e=>{const b=e.target.closest('[data-explore]');if(b){const card=cards.find(x=>x.dataset.reviewKey===b.dataset.explore);if(card)show(card,true);}};
+ const scroll=()=>{if(!frame)frame=requestAnimationFrame(scan);};const click=e=>{const b=e.target.closest('[data-explore]');if(b){const card=cards.find(x=>x.dataset.reviewKey===b.dataset.explore);if(card){show(card,true);if(innerWidth<=700){const header=document.querySelector('.top')?.getBoundingClientRect().height||0;window.scrollTo({top:Math.max(0,scrollY+panel.getBoundingClientRect().top-header-12),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}}}};
 
  // Completed reviews follow the visible question on desktop. In learning mode,
  // checking an answer expands teaching below the question on phones.
