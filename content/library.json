@@ -747,9 +747,9 @@
       "id": "bm4-y2-week-01-2026",
       "title": "BM4 Year 2 - Week 1: Arthritis",
       "count": 46,
-      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207-remove-mtx-dosing-feedback-20261027",
+      "currentVersion": "c8044e70-867c-4fe7-97ab-8b754218a207-remove-mtx-dosing-feedback-20261027-urate-20261101",
       "status": "published",
-      "publishedAt": 1793109553000,
+      "publishedAt": 1793562781258,
       "modules": [
         "Arthritis"
       ],
@@ -36369,7 +36369,7 @@
     },
     {
       "id": "y2-w01-008",
-      "stem": "A 52-year-old develops severe redness and pain at the first MTP joint overnight. He has had two similar self-limiting attacks. Serum urate measured during the attack is 320 micromol/L. What is the best interpretation?",
+      "stem": "A 52-year-old develops severe redness and pain at the first MTP joint overnight. He has had two similar self-limiting attacks. Serum urate measured during the attack is 320 micromol/L, below the 360 micromol/L diagnostic threshold. What is the best interpretation?",
       "options": [
         "The episode is more likely CPP arthritis because urate is below the diagnostic threshold",
         "The recurrent episodes are most consistent with first-MTP osteoarthritis",
@@ -36460,13 +36460,13 @@
         ],
         "reviewVersion": 3
       },
-      "aiReviewedAt": "2026-10-27",
+      "aiReviewedAt": "2026-11-01",
       "reviewedAt": "",
       "uid": "bm4-y2-week-01-2026::y2-w01-008",
-      "revision": 2,
+      "revision": 3,
       "collection": "BM4 Year 2 - Week 1: Arthritis",
       "collectionId": "bm4-y2-week-01-2026",
-      "publishedAt": 1792912410613
+      "publishedAt": 1793562781258
     },
     {
       "id": "y2-w01-009",
