@@ -581,3 +581,33 @@ body.practice:not(.studio) .key-takeaway{padding:14px 16px;margin-bottom:18px}
 body.practice:not(.studio) .key-takeaway p{font-size:16px;line-height:1.5}
 body.practice:not(.studio) .feedback-actions{margin-top:20px;margin-bottom:22px}
 body.practice:not(.studio) .session-layout .deep-panel-body #toggle-clues{width:auto;min-height:44px;font-size:12px;padding:8px 12px}
+
+/* Shared insets and restrained corners for feedback and teaching. */
+body.practice:not(.studio) .answer-feedback-flow{padding:20px!important;border:1px solid var(--line)!important;border-radius:20px!important;background:color-mix(in srgb,var(--surface) 65%,transparent)!important}
+body.practice:not(.studio) .answer-feedback-flow .key-takeaway{border:1px solid color-mix(in srgb,var(--accent) 24%,var(--line));border-left:3px solid var(--accent);border-radius:12px;padding:14px 16px;margin:0 0 18px}
+body.practice:not(.studio) .answer-feedback-flow .feedback-actions{margin:20px 0 0;flex-wrap:wrap;justify-content:flex-start}
+body.practice:not(.studio) .answer-feedback-flow .feedback-actions .primary{flex:0 1 auto;margin-left:auto;min-width:170px}
+body.practice:not(.studio) .session-layout .deep-panel-head{padding:20px 24px;gap:16px}
+body.practice:not(.studio) .session-layout .deep-panel-body{padding:20px 24px 28px;overflow-wrap:anywhere}
+body.practice:not(.studio) .session-layout .review-clues>h3{margin:20px 0 8px;font-size:12px;letter-spacing:.06em}
+body.practice:not(.studio) .session-layout .review-clue{padding:16px 0}
+body.practice:not(.studio) .session-layout .review-clue p{margin:12px 0;line-height:1.6}
+body.practice:not(.studio) .session-layout .review-clue>small{display:block;margin:10px 0 3px;font-size:12px}
+body.practice:not(.studio) .session-layout .deep-section{padding:20px 0!important}
+body.practice:not(.studio) .session-layout .deep-section>h3{font-size:12px;letter-spacing:.06em;line-height:1.5;margin:0 0 14px}
+body.practice:not(.studio) .session-layout .alternative-list{padding:0;margin:0;display:grid;gap:12px;list-style:none}
+body.practice:not(.studio) .session-layout .alternative-card{border-radius:14px!important;padding:16px!important;margin:0!important}
+body.practice:not(.studio) .session-layout .alternative-card p{margin:12px 0 0;line-height:1.6}
+body.practice:not(.studio) .session-layout .alternative-heading{gap:12px}
+body.practice:not(.studio) .session-layout .alternative-heading strong{font-size:15px;line-height:1.45}
+@media(max-width:700px){
+ body.practice:not(.studio) .session-layout .deep-review-panel{border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--surface) 96%,var(--bg))!important}
+ body.practice:not(.studio) .session-layout .deep-panel-head{padding:16px 20px}
+ body.practice:not(.studio) .session-layout .deep-panel-body{padding:16px 20px 28px}
+ body.practice:not(.studio) .answer-feedback-flow{padding:16px!important;border-radius:16px!important}
+ body.practice:not(.studio) .answer-feedback-flow .feedback-actions{gap:10px}
+ body.practice:not(.studio) .answer-feedback-flow .feedback-actions .primary{min-width:0}
+}
+
+body.practice:not(.studio) .session-layout .deep-review-panel .deep-section{background:transparent!important;border:0!important;border-top:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important}
+@media(max-width:700px){body.practice:not(.studio) .session-layout .deep-panel-head{border-radius:15px 15px 0 0}}
