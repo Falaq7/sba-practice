@@ -35,6 +35,7 @@ function paintColour(){
  const colour=COLOURWAYS.find(c=>c.id===active.colourway)||COLOURWAYS.find(c=>c.id==='digital-dream');
  const frame=cycling?cycleFrame(cyclingColours,elapsed,'digital-dream'):colour;
  document.body.style.setProperty('--prism-h',frame.h.toFixed(3));document.body.style.setProperty('--prism-h2',frame.h2.toFixed(3));
+ if(!document.body.classList.contains('studio')){const root=document.documentElement;root.style.setProperty('--page-h',frame.h.toFixed(3));root.style.setProperty('--page-h2',frame.h2.toFixed(3));if(root.dataset.pageTheme!==document.body.dataset.theme||root.dataset.pageMode!==document.body.dataset.mode||root.dataset.pageFinish!==document.body.dataset.finish)Object.assign(root.dataset,{pageTheme:document.body.dataset.theme,pageMode:document.body.dataset.mode,pageFinish:document.body.dataset.finish});}
 }
 function runCycle(){
  const shouldRun=active.theme==='prism'&&active.colourCycle&&!reducedMotion.matches&&!document.hidden;

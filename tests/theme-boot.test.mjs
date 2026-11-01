@@ -4,13 +4,13 @@ import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const source=readFileSync(new URL('../src/public/theme-boot.js',import.meta.url),'utf8');
 function boot(saved,{deviceDark=false,blocked=false}={}){
- const body={dataset:{},style:{setProperty(){}}},root={style:{}};
+ const props={};const body={dataset:{},classList:{contains:()=>false},style:{setProperty(k,v){props[k]=v;},getPropertyValue:k=>props[k]}},root={dataset:{},style:{setProperty(){}}};
  vm.runInNewContext(source,{document:{body,documentElement:root},localStorage:{getItem(){if(blocked)throw Error('blocked');return saved;}},matchMedia:()=>({matches:deviceDark})});
  return {body,root};
 }
 test('saved dark appearance is already dark before account storage opens on a light device',()=>{
  const {body,root}=boot(JSON.stringify({appearance:'dark',theme:'prism'}));
- assert.equal(body.dataset.mode,'dark');assert.equal(root.style.colorScheme,'dark');
+ assert.equal(body.dataset.mode,'dark');assert.equal(root.style.colorScheme,'dark');assert.equal(root.dataset.pageMode,'dark');assert.equal(root.dataset.pageTheme,'prism');
 });
 test('explicit light and system settings are respected at startup',()=>{
  assert.equal(boot(JSON.stringify({appearance:'light'}),{deviceDark:true}).body.dataset.mode,'light');

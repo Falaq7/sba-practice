@@ -244,3 +244,30 @@ body.practice:not(.studio) .setup-options{grid-auto-rows:max-content;align-conte
 
 @media(max-width:700px),(pointer:coarse){body.practice:not(.studio){--ambient-bleed:96px}}
 @supports(-webkit-touch-callout:none){body.practice:not(.studio){--ambient-bleed:96px}}
+
+/* The root paints the same palette behind Safari's safe areas and overscroll. */
+html[data-page-theme=prism]{--page-base:hsl(var(--page-h) 30% 9%);--page-glow-one:hsl(var(--page-h) 35% 26%);--page-glow-two:hsl(var(--page-h2) 30% 20%);background-image:radial-gradient(ellipse at 12% 10%,var(--page-glow-one),transparent 46%),radial-gradient(ellipse at 95% 40%,var(--page-glow-two),transparent 48%),linear-gradient(var(--page-base),var(--page-base));background-size:100vw 100lvh;background-attachment:fixed}
+html[data-page-theme=prism][data-page-finish=y2k]{--page-base:hsl(var(--page-h) 16% 8%);--page-glow-one:hsl(var(--page-h) 70% 28%);--page-glow-two:hsl(var(--page-h2) 66% 21%)}
+html[data-page-theme=prism][data-page-mode=light]{--page-base:hsl(var(--page-h) 35% 96%);--page-glow-one:hsl(var(--page-h) 65% 88%);--page-glow-two:hsl(var(--page-h2) 60% 90%)}
+html[data-page-theme=prism][data-page-mode=light][data-page-finish=y2k]{--page-base:hsl(var(--page-h) 20% 94%);--page-glow-one:hsl(var(--page-h) 100% 84%);--page-glow-two:hsl(var(--page-h2) 95% 85%)}
+body.practice:not(.studio) .header-identity{display:contents}
+@media(min-width:1101px){body.practice:not(.studio) .top nav{order:1}body.practice:not(.studio) .header-identity #save-status{order:2}body.practice:not(.studio) .account-tools{order:3}}
+@media(min-width:701px) and (max-width:1100px){body.practice:not(.studio) .header-identity #save-status{margin-left:auto}}
+@media(max-width:700px){
+ body.practice:not(.studio) .top{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,44px);grid-template-rows:auto auto;gap:12px 8px;padding:12px;border-radius:24px;align-items:center;position:relative;top:auto}
+ body.practice:not(.studio) .header-identity{display:flex;flex-direction:column;gap:3px;grid-column:1;grid-row:1;min-width:0;align-self:center}
+ body.practice:not(.studio) .top .header-identity .brand{font-size:13px;line-height:1.3;letter-spacing:-.03em;white-space:nowrap}
+ body.practice:not(.studio) .top .header-identity #save-status{font-size:10px;line-height:1.4;max-width:none;margin:0;min-width:0;overflow-wrap:anywhere}
+ body.practice:not(.studio) .top .account-tools{display:contents}
+ body.practice:not(.studio) .top :is(#account,#themes,#settings){grid-row:1;min-width:44px;width:44px;height:44px;min-height:44px;padding:0!important;font-size:0!important;border-radius:50%;gap:0;display:grid;place-items:center}
+ body.practice:not(.studio) .top #account{grid-column:2}
+ body.practice:not(.studio) .top #themes{grid-column:3}
+ body.practice:not(.studio) .top #settings{grid-column:4}
+ body.practice:not(.studio) .top :is(#account,#themes,#settings)::before{content:"";display:block;width:20px;height:20px;background:currentColor;mask:var(--header-icon) center/contain no-repeat;-webkit-mask:var(--header-icon) center/contain no-repeat}
+ body.practice:not(.studio) .top #account{--header-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='9' r='3'/%3E%3Cpath d='M5.5 18c1-5 12-5 13 0'/%3E%3C/svg%3E")}
+ body.practice:not(.studio) .top #themes{--header-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1-3.7c-.8-.6-.4-2.3.8-2.3H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8Z'/%3E%3Cpath d='M7 10h.01M10 7h.01M15 7h.01M17 10h.01' stroke-width='3'/%3E%3C/svg%3E")}
+ body.practice:not(.studio) .top #settings{--header-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 3h6l.7 2.5 2.3 1L20.5 6l3 5-2 1.8v2.4l2 1.8-3 5-2.5-.5-2.3 1L15 25H9l-.7-2.5-2.3-1-2.5.5-3-5 2-1.8v-2.4L.5 11l3-5 2.5.5 2.3-1Z' transform='translate(2 0) scale(.83)'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E")}
+ body.practice:not(.studio) .top nav{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:.8fr 1.4fr 1fr;gap:4px;padding:4px;min-width:0;width:100%;border-radius:24px;background:color-mix(in srgb,var(--text) 3%,transparent)}
+ body.practice:not(.studio) .top nav button{min-height:44px;padding:8px!important;font-size:13px;line-height:1.3;white-space:nowrap}
+ body.practice:not(.studio) .top nav .main-selection-surface{border-radius:20px}
+}

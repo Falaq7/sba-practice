@@ -182,7 +182,7 @@ const ctx=()=>{
 
 
 
-function status(){const el=document.querySelector('#save-status'),pending=store.dirtyCount(state.scope);el.textContent=state.changing?'Opening account…':store.error||cloud.error||(cloud.user?(cloud.syncStatus()):'Saved on this device');el.classList.toggle('error',!!(store.error||cloud.error));document.querySelector('#account').textContent=cloud.user||state.scope!==store.guestScope?'Account':'Sign in / Sign up';}
+function status(){const el=document.querySelector('#save-status'),pending=store.dirtyCount(state.scope);el.textContent=state.changing?'Opening account…':store.error||cloud.error||(cloud.user?(cloud.syncStatus()):'Saved on this device');el.classList.toggle('error',!!(store.error||cloud.error));document.querySelector('#account').textContent=cloud.user||state.scope!==store.guestScope?'Account':'Sign in / Sign up';document.querySelector('#account').setAttribute('aria-label',document.querySelector('#account').textContent);document.querySelector('#account').title=document.querySelector('#account').textContent;}
 
 
 
