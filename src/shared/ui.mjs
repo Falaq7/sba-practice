@@ -2,7 +2,7 @@ import {esc,safeImage} from './core.mjs';
 import {usernameFor} from './identity.mjs';
 export const main=()=>document.querySelector('#main');
 export function toast(text){document.querySelector('.toast')?.remove();const el=document.createElement('div');el.className='toast';el.setAttribute('role','status');el.textContent=text;document.body.append(el);setTimeout(()=>el.remove(),4000);}
-export function modal(title,body){const d=document.querySelector('#dialog');d.innerHTML=`<div class="dialog-head"><h2>${esc(title)}</h2><button type="button" id="close-dialog">Close</button></div>${body}<p class="error-message" id="dialog-error" role="alert"></p>`;d.querySelector('#close-dialog').onclick=()=>d.close();if(!d.open)d.showModal();return d;}
+export function modal(title,body){const d=document.querySelector('#dialog');d.classList.remove('setup-dialog');d.innerHTML=`<div class="dialog-head"><h2>${esc(title)}</h2><button type="button" id="close-dialog">Close</button></div>${body}<p class="error-message" id="dialog-error" role="alert"></p>`;d.querySelector('#close-dialog').onclick=()=>d.close();if(!d.open)d.showModal();return d;}
 export function closeModal(){document.querySelector('#dialog').close();}
 export function error(e){const target=document.querySelector('#dialog[open] #dialog-error');if(target)target.textContent=e.message||String(e);else toast(e.message||String(e));}
 export async function action(button,fn){if(button)button.disabled=true;try{await fn();}catch(e){error(e);}finally{if(button?.isConnected)button.disabled=false;}}

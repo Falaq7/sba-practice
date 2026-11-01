@@ -198,3 +198,49 @@ body.practice:not(.studio) .option{text-align:left;justify-content:flex-start}
 body.practice:not(.studio) .year-group>summary{grid-template-columns:minmax(0,1fr) auto auto}
 body.practice:not(.studio) .year-group>summary>small{white-space:nowrap;min-width:max-content}
 @media(max-width:700px){body.practice:not(.studio) .metrics .metric:last-child strong{font-size:clamp(1.1rem,5.5vw,1.5rem)}}
+
+/* Safari full-bleed canvas, including the safe areas and retracting chrome. */
+body.practice:not(.studio){--ambient-bleed:0px;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body.practice:not(.studio)[data-theme=prism]::before,body.practice:not(.studio) #shader-surface{top:calc(-1 * (var(--ambient-bleed) + env(safe-area-inset-top,0px)));height:calc(100vh + 2 * var(--ambient-bleed) + env(safe-area-inset-top,0px) + env(safe-area-inset-bottom,0px))!important;height:calc(100lvh + 2 * var(--ambient-bleed) + env(safe-area-inset-top,0px) + env(safe-area-inset-bottom,0px))!important}
+body.practice:not(.studio) .pause-label-short{display:none}
+body.practice:not(.studio) .clue-support .tag,body.practice:not(.studio) .clue-against .tag{max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.5;text-align:left}
+/* The options scroll independently; Start is always in the dialog's fixed footer. */
+body.practice:not(.studio) .setup-dialog[open]{display:flex;flex-direction:column;overflow:hidden;max-height:calc(100dvh - 24px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+body.practice:not(.studio) .setup-dialog>.dialog-head{flex:none}
+body.practice:not(.studio) .setup-dialog>p:not(.error-message){flex:none;margin:0 0 16px}
+body.practice:not(.studio) .setup-dialog #setup{min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:16px}
+body.practice:not(.studio) .setup-options{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px;scroll-padding-block:12px}
+body.practice:not(.studio) .setup-start{min-height:48px;flex:none;margin:0}
+body.practice:not(.studio) .setup-dialog>#dialog-error:empty{display:none}
+@media(max-width:700px){
+ body.practice:not(.studio) .session-tools{display:flex;flex-wrap:nowrap;gap:8px;width:100%;align-items:center}
+ body.practice:not(.studio) .session-tools button{min-height:44px;padding:8px 12px;font-size:13px;white-space:nowrap;flex:none}
+ body.practice:not(.studio) .session-tools #session-clock{font-size:12px;padding:6px 10px;white-space:nowrap;flex:none}
+ body.practice:not(.studio) .session-tools .pause-label-full{display:none}
+ body.practice:not(.studio) .session-tools .pause-label-short{display:inline}
+ body.practice:not(.studio) .session-tools #pacing-guidance{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ body.practice:not(.studio) .setup-dialog{padding:16px}
+ body.practice:not(.studio) .setup-dialog>.dialog-head{margin-bottom:12px;gap:12px}
+ body.practice:not(.studio) .setup-dialog>.dialog-head h2{font-size:19px}
+ body.practice:not(.studio) .setup-dialog>p:not(.error-message){font-size:13px;line-height:1.5;margin-bottom:8px}
+ body.practice:not(.studio) .setup-dialog #setup,body.practice:not(.studio) .setup-options{gap:12px}
+ body.practice:not(.studio) #setup fieldset:first-of-type{padding:12px}
+ body.practice:not(.studio) #setup fieldset:first-of-type .refine-fields{grid-template-columns:minmax(0,1fr) 88px;gap:12px}
+ body.practice:not(.studio) #setup label{font-size:13px;gap:4px}
+ body.practice:not(.studio) #setup .check{margin-top:4px;line-height:1.4}
+ body.practice:not(.studio) #setup #selection-count{font-size:12px;line-height:1.4}
+ body.practice:not(.studio) #setup .mode-field legend{margin-bottom:4px;font-size:13px}
+ body.practice:not(.studio) #setup .fluid-tabs button{font-size:14px;padding:8px!important;line-height:1.4}
+ body.practice:not(.studio) #setup .fluid-tabs button small{font-size:11px}
+ body.practice:not(.studio) #setup .countdown-toggle{padding:4px 0;min-height:44px}
+ body.practice:not(.studio) #setup .countdown-toggle small{font-size:12px}
+ body.practice:not(.studio) #setup .time-picker{padding:12px}
+}
+@media(max-width:360px){body.practice:not(.studio) .session-tools{gap:6px}body.practice:not(.studio) .session-tools button{padding-inline:10px}}
+@media(orientation:landscape) and (max-height:600px){body.practice:not(.studio) #main{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}}
+body.practice:not(.studio) .setup-dialog #setup .setup-start{min-height:48px}
+@media(max-width:700px){body.practice:not(.studio) .session-tools :is(#pause-session,#ranges){min-height:44px;padding:8px 12px;font-size:13px;white-space:nowrap}}
+body.practice:not(.studio) .setup-options{grid-auto-rows:max-content;align-content:start}
+
+@media(max-width:700px),(pointer:coarse){body.practice:not(.studio){--ambient-bleed:96px}}
+@supports(-webkit-touch-callout:none){body.practice:not(.studio){--ambient-bleed:96px}}
