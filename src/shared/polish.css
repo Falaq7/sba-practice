@@ -1,0 +1,200 @@
+/* Appllama polish: keep the established palette/materials; lock geometry and rhythm.
+   Scale: 4/8/12/16/24/32 spacing; outer cards 24, inset cards 16,
+   fields 12, actions pills. Theme colours remain in appearance.css. */
+body.practice:not(.studio){--ui-card:24px;--ui-inset:16px;--ui-field:12px;--ui-gap:16px;--ui-ease:cubic-bezier(.23,1,.32,1)}
+body.practice:not(.studio) :is(.panel,.metric,.year-group,.session-builder,dialog){border-radius:var(--ui-card)}
+body.practice:not(.studio) :is(.notice,.empty,.time-picker,.ai-handoff){border-radius:var(--ui-inset)}
+body.practice:not(.studio) :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=hidden]),select,textarea){border-radius:var(--ui-field);min-width:0;max-width:100%;font-size:16px;line-height:1.5}
+body.practice:not(.studio) :is(input,select,textarea):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+body.practice:not(.studio) :is(button,.button){min-height:44px;touch-action:manipulation}
+body.practice:not(.studio) :is(button,.button):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+body.practice:not(.studio) button:not(.option):not(.home-bank-choice){transition:background-color 140ms,border-color 140ms,box-shadow 160ms,transform 140ms var(--ui-ease)}
+body.practice:not(.studio) :is(.top nav,.today-times,.fluid-tabs) button:active{transform:none}
+body.practice:not(.studio) button:disabled{cursor:default}
+body.practice:not(.studio) :is(h1,h2,h3,strong,p,label,summary){overflow-wrap:break-word}
+body.practice:not(.studio) :is(.panel,.grid,.row,.refine-fields,.page-intro,.session-layout,.library-dashboard)>*{min-width:0}
+body.practice:not(.studio) .page-intro{margin-bottom:24px;gap:16px}
+body.practice:not(.studio) .page-intro p{margin:12px 0 0;line-height:1.6;max-width:64ch}
+body.practice:not(.studio) :is(.metric strong,.analytics-kpi strong,.time-picker output,.session-timer,.navigator button,progress){font-variant-numeric:tabular-nums}
+body.practice:not(.studio) :is(.panel,.metric)>:last-child{margin-bottom:0}
+body.practice:not(.studio) .panel>h2{line-height:1.3;margin-bottom:12px}
+body.practice:not(.studio) .panel>p{line-height:1.6}
+body.practice:not(.studio) .empty{padding:24px 16px;line-height:1.6;min-height:96px;display:grid;place-items:center}
+body.practice:not(.studio) .row{gap:12px}
+
+/* Header and home share a readable control size and the same inset rhythm. */
+body.practice:not(.studio) .top{width:calc(100% - 32px);gap:16px}
+body.practice:not(.studio) .top nav{gap:4px;min-width:0}
+body.practice:not(.studio) .top nav button{min-height:44px}
+body.practice:not(.studio) .home-desk{gap:16px}
+body.practice:not(.studio) .home-desk :is(.home-start-panel,.home-bank-panel,.panel){padding:24px}
+body.practice:not(.studio) .home-desk .session-builder{border-radius:var(--ui-card)}
+body.practice:not(.studio) .home-current-deck{border-radius:16px 16px 0 0;min-width:0}
+body.practice:not(.studio) #home-start-bank{border-radius:0 0 16px 16px;min-height:48px;white-space:normal;line-height:1.45;padding:12px 16px}
+body.practice:not(.studio) .home-current-deck strong{line-height:1.4;overflow-wrap:anywhere}
+body.practice:not(.studio) .home-bank-choice{padding:12px;gap:12px;border-radius:12px;min-height:72px}
+body.practice:not(.studio) .home-bank-choice strong{font-size:14px;line-height:1.45}
+body.practice:not(.studio) .home-bank-choice :is(.home-bank-count,.home-bank-progress){font-size:12px;line-height:1.5}
+body.practice:not(.studio) .home-bank-choice .home-bank-year{font-size:11px;line-height:1.5}
+body.practice:not(.studio) .home-bank-icon{width:22px;height:28px}
+body.practice:not(.studio) .home-desk .year-group{border-radius:0}
+body.practice:not(.studio) .home-desk .year-group>summary{min-height:48px;padding:12px 0}
+body.practice:not(.studio) .home-desk .today-practice{padding:20px 24px;gap:12px 16px}
+body.practice:not(.studio) .today-controls{gap:12px;flex-wrap:wrap}
+body.practice:not(.studio) .today-controls :is(label,select){font-size:12px}
+body.practice:not(.studio) .today-controls select{min-height:44px}
+body.practice:not(.studio) .today-times{width:208px;padding:4px}
+body.practice:not(.studio) .today-times button{min-height:44px;font-size:14px;padding:8px 12px}
+body.practice:not(.studio) #today-explanation{font-size:12px;min-height:44px}
+body.practice:not(.studio) .today-footer>small{font-size:12px;line-height:1.6}
+body.practice:not(.studio) .home-latest-resume{margin-top:24px;padding-top:20px}
+body.practice:not(.studio) .home-latest-resume h3{margin:0 0 12px}
+body.practice:not(.studio) .home-desk .home-analytics .analytics-kpis{gap:16px;margin:24px 0}
+body.practice:not(.studio) .home-desk .home-analytics.home-analytics .analytics-kpi{padding-right:16px}
+body.practice:not(.studio) .home-analytics .analytics-kpi :is(span,small){font-size:12px;line-height:1.5}
+
+/* Bank rows and analytics: retain content, remove accidental dead space. */
+body.practice:not(.studio) .year-group>summary{padding:20px 24px;gap:12px;min-height:72px}
+body.practice:not(.studio) .year-group>summary>span:first-child{line-height:1.35}
+body.practice:not(.studio) .year-chevron{flex:none}
+body.practice:not(.studio) .library-bank-row{padding-block:16px}
+body.practice:not(.studio) .library-bank-row .bank-identity{min-width:0;gap:12px}
+body.practice:not(.studio) .library-bank-row .bank-identity strong{line-height:1.45}
+body.practice:not(.studio) .bank-row-details>summary{min-height:44px!important;display:flex;align-items:center}
+body.practice:not(.studio) .bank-create-actions{gap:12px;align-items:stretch}
+body.practice:not(.studio) .bank-create-actions button{white-space:normal;text-wrap:pretty}
+body.practice:not(.studio) .managed-bank{padding-block:20px}
+body.practice:not(.studio) .analytics-kpis{gap:16px}
+body.practice:not(.studio) .analytics-kpis>.analytics-kpi{margin:0;min-width:0;align-items:center}
+body.practice:not(.studio) .analytics-chart-grid{gap:16px;margin-block:16px}
+body.practice:not(.studio) .analytics-chart-grid>.panel{margin:0}
+body.practice:not(.studio) .analytics-kpi strong{line-height:1.25}
+body.practice:not(.studio) .analytics-kpi :is(span,small){line-height:1.5}
+body.practice:not(.studio) :is(.analytics-controls,.refine-fields){gap:16px}
+body.practice:not(.studio) .table-wrap{border-radius:12px;overscroll-behavior-x:contain}
+body.practice:not(.studio) :is(th,td){vertical-align:middle;line-height:1.5}
+body.practice:not(.studio) .ai-export-callout{gap:8px}
+body.practice:not(.studio) .ai-export-callout small{line-height:1.5;max-width:48ch}
+
+/* Dialogs and forms: fields belong to one calm inset surface. */
+body.practice:not(.studio) dialog{padding:24px;max-width:min(680px,calc(100vw - 32px));max-height:calc(100dvh - 32px);scroll-padding-block:24px}
+body.practice:not(.studio) .dialog-head{gap:16px;align-items:start;margin-bottom:16px}
+body.practice:not(.studio) .dialog-head h2{margin:4px 0 0;line-height:1.3}
+body.practice:not(.studio) .dialog-head button{flex:none}
+body.practice:not(.studio) dialog .stack{gap:16px}
+body.practice:not(.studio) dialog label{gap:8px;line-height:1.5}
+body.practice:not(.studio) label.check{min-height:44px;gap:12px}
+body.practice:not(.studio) #setup fieldset:first-of-type{margin:0;padding:16px;border:1px solid var(--line);border-radius:16px;min-width:0;background:color-mix(in srgb,var(--surface) 35%,transparent)}
+body.practice:not(.studio) #setup fieldset:first-of-type legend{padding:0 8px;font-size:13px;color:var(--muted)}
+body.practice:not(.studio) #setup .refine-fields{gap:16px}
+body.practice:not(.studio) #setup .check{margin-top:8px}
+body.practice:not(.studio) #setup .mode-field{border:0;border-radius:0;padding:0;background:none}
+body.practice:not(.studio) .fluid-tabs{--mode-radius:12px}
+body.practice:not(.studio) #setup .fluid-tabs button,body.practice:not(.studio) #setup .fluid-tab-indicator{border-radius:12px!important}
+body.practice:not(.studio) .fluid-tabs .fluid-tab-indicator{transition:transform 280ms var(--ui-ease),background-color 140ms}
+body.practice:not(.studio) .countdown-toggle{padding:8px 0}
+body.practice:not(.studio) .countdown-toggle small{line-height:1.5}
+body.practice:not(.studio) #setup .time-picker{border-radius:16px}
+
+/* Practice and teaching retain the question's stable reading layout. */
+body.practice:not(.studio) .session-layout>article{min-width:0}
+body.practice:not(.studio) .option{border-radius:16px;min-height:56px;gap:12px;padding:16px;overflow-wrap:anywhere}
+body.practice:not(.studio) .option>span{min-width:0}
+body.practice:not(.studio) .question-image{border-radius:12px;max-width:100%;height:auto}
+body.practice:not(.studio) .question-footer .question-report{min-height:44px!important;margin-bottom:8px}
+body.practice:not(.studio) .question-footer .question-navigation{gap:12px}
+body.practice:not(.studio) .session-sidebar{align-self:start}
+body.practice:not(.studio) .session-sidebar .navigator{gap:8px}
+body.practice:not(.studio) .session-sidebar .navigator button{min-height:44px;font-variant-numeric:tabular-nums}
+body.practice:not(.studio) :is(.deep-panel-head,.deep-panel-body){padding-inline:24px}
+body.practice:not(.studio) .deep-panel-head{gap:16px}
+body.practice:not(.studio) .deep-panel-head h2{line-height:1.3}
+body.practice:not(.studio) .deep-panel-body{overflow-wrap:anywhere;line-height:1.65}
+body.practice:not(.studio) .deep-panel-body :is(table,.alternative-list){max-width:100%}
+body.practice:not(.studio) .deep-panel-body .alternative-card{border-radius:16px!important}
+body.practice:not(.studio) .reference-panel .deep-panel-head{padding:20px 24px}
+body.practice:not(.studio) .reference-panel .deep-panel-body{padding:20px 24px 32px}
+
+@media(hover:hover){
+ body.practice:not(.studio) .home-bank-choice:hover{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+ body.practice:not(.studio) :is(.home-bank-choice,.year-group>summary):active{transform:none}
+}
+@media(min-width:701px) and (max-width:1100px){
+ body.practice:not(.studio) .top{flex-wrap:wrap;margin:16px auto}
+ body.practice:not(.studio) .top nav{order:3;flex:1 1 100%}
+ body.practice:not(.studio) .account-tools{margin-left:auto;flex-wrap:wrap;gap:8px}
+ body.practice:not(.studio) .analytics-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:801px){
+ body.practice:not(.studio) #setup fieldset:first-of-type .refine-fields{grid-template-columns:minmax(0,1.6fr) minmax(120px,1fr)}
+}
+@media(max-width:800px){
+ body.practice:not(.studio) .home-desk :is(.home-start-panel,.home-bank-panel,.panel){padding:20px}
+ body.practice:not(.studio) .home-desk .today-practice{padding:20px}
+ body.practice:not(.studio) .home-desk .session-builder{border-radius:24px}
+ body.practice:not(.studio) .today-footer>.primary{width:100%}
+ body.practice:not(.studio) .library-bank-row .bank-row-details{grid-row:5}
+}
+@media(max-width:700px){
+ body.practice:not(.studio) .top{width:calc(100% - 24px);margin:12px;gap:8px;padding:12px 16px;border-radius:24px}
+ body.practice:not(.studio) .top nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:0}
+ body.practice:not(.studio) .top nav button{font-size:13px;padding:8px 4px}
+ body.practice:not(.studio) .top .brand{font-size:13px}
+ body.practice:not(.studio) #main{margin-top:24px;margin-bottom:40px}
+ body.practice:not(.studio) :is(.panel,.year-group,.metric,dialog){border-radius:20px}
+ body.practice:not(.studio) .panel{padding:20px}
+ body.practice:not(.studio) .page-intro{margin-bottom:24px}
+ body.practice:not(.studio) .page-intro h1{font-size:clamp(2rem,9.2vw,3rem)}
+ body.practice:not(.studio) .home-bank-choice{grid-template-columns:minmax(0,1fr) 88px 20px;padding:12px 8px;gap:8px}
+ body.practice:not(.studio) .home-bank-identity{gap:8px}
+ body.practice:not(.studio) .home-bank-choice strong{font-size:14px}
+ body.practice:not(.studio) .home-bank-choice .home-bank-progress{font-size:11px}
+ body.practice:not(.studio) .year-group>summary{padding:20px;grid-template-columns:minmax(0,auto) minmax(0,1fr) auto}
+ body.practice:not(.studio) .year-group>summary small{font-size:12px;line-height:1.4}
+ body.practice:not(.studio) .analytics-kpis{grid-template-columns:minmax(0,1fr);gap:12px}
+ body.practice:not(.studio) .analytics-kpis>.analytics-kpi{padding:20px}
+ body.practice:not(.studio) .home-analytics .analytics-kpis{margin-block:16px}
+ body.practice:not(.studio) .home-desk .home-analytics.home-analytics .analytics-kpi{padding:12px 0;border-bottom:1px solid var(--polish-line)!important}
+ body.practice:not(.studio) .home-desk .home-analytics.home-analytics .analytics-kpi:last-child{border-bottom:0!important}
+ body.practice:not(.studio) dialog{padding:20px;max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px)}
+ body.practice:not(.studio) .dialog-head h2{font-size:20px}
+ body.practice:not(.studio) .appearance-controls{gap:16px}
+ body.practice:not(.studio) .colourway-gallery{gap:12px}
+ body.practice:not(.studio) .reference-panel .deep-panel-head,body.practice:not(.studio) .reference-panel .deep-panel-body{padding-inline:20px}
+ body.practice:not(.studio) .main-mobile-start{padding-bottom:max(12px,env(safe-area-inset-bottom));gap:12px}
+ body.practice:not(.studio) .main-mobile-start .mobile-deck-title{overflow-wrap:anywhere;line-height:1.4}
+}
+@media(max-width:380px){
+ body.practice:not(.studio) .home-bank-choice{grid-template-columns:minmax(0,1fr) 64px 18px}
+ body.practice:not(.studio) .feedback-actions{flex-wrap:wrap}
+ body.practice:not(.studio) .feedback-actions button{flex:1 1 100%!important;margin:0!important}
+ body.practice:not(.studio) .year-group>summary{gap:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ body.practice:not(.studio) *,body.practice:not(.studio) *::before,body.practice:not(.studio) *::after{scroll-behavior:auto!important;transition-duration:0s!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+@media print{
+ body.practice:not(.studio) .panel{box-shadow:none!important;break-inside:avoid}
+ body.practice:not(.studio) .top{display:none}
+}
+/* Choice grids must yield to narrow screens and keep selections explicit. */
+body.practice:not(.studio) .study-choices{grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+body.practice:not(.studio) .study-choices button{min-width:0;white-space:normal;border-radius:16px;padding:12px;gap:8px;line-height:1.5}
+body.practice:not(.studio) .study-choices button span{min-width:0;overflow-wrap:anywhere}
+body.practice:not(.studio) .study-choices button small{flex:none;padding-left:0;font-variant-numeric:tabular-nums}
+body.practice:not(.studio) :is(.study-choices,.catalogue-modes,.auth-switch) button[aria-pressed=true]{border-color:var(--accent)!important;background:color-mix(in srgb,var(--accent) 15%,transparent)!important;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 30%,transparent)!important;color:var(--text)}
+body.practice:not(.studio) .manual-options{border:1px solid var(--line);border-radius:16px;padding:16px;margin:0;min-width:0}
+body.practice:not(.studio) .manual-options legend{padding:0 8px;font-size:13px;max-width:100%}
+body.practice:not(.studio) .manual-options>div{padding:16px 0;gap:12px;border-bottom:1px solid var(--line)}
+body.practice:not(.studio) .manual-options>div:last-child{border-bottom:0}
+body.practice:not(.studio) .option{text-align:left;justify-content:flex-start}
+@media(max-width:500px){body.practice:not(.studio) .study-choices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){
+ body.practice:not(.studio) .study-choices{grid-template-columns:minmax(0,1fr)}
+ body.practice:not(.studio) .metrics .metric strong{font-size:1.25rem}
+ body.practice:not(.studio) .session-layout .deep-panel-head h2{font-size:20px}
+}
+
+body.practice:not(.studio) .year-group>summary{grid-template-columns:minmax(0,1fr) auto auto}
+body.practice:not(.studio) .year-group>summary>small{white-space:nowrap;min-width:max-content}
+@media(max-width:700px){body.practice:not(.studio) .metrics .metric:last-child strong{font-size:clamp(1.1rem,5.5vw,1.5rem)}}
