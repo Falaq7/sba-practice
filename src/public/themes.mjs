@@ -29,13 +29,14 @@ export const COLOURWAYS=[
 const device=matchMedia('(prefers-color-scheme: dark)');
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const cyclingColours=COLOURWAYS.filter(c=>c.finish==='y2k');
-let active={},cycleKey='',elapsed=0,lastTick=0,timer=null;
+let active={},cycleKey='',elapsed=0,lastTick=0,timer=null,lastPalette='';
 function paintColour(){
  const cycling=active.theme==='prism'&&active.colourCycle;
  const colour=COLOURWAYS.find(c=>c.id===active.colourway)||COLOURWAYS.find(c=>c.id==='digital-dream');
  const frame=cycling?cycleFrame(cyclingColours,elapsed,'digital-dream'):colour;
  document.body.style.setProperty('--prism-h',frame.h.toFixed(3));document.body.style.setProperty('--prism-h2',frame.h2.toFixed(3));
  if(!document.body.classList.contains('studio')){const root=document.documentElement;root.style.setProperty('--page-h',frame.h.toFixed(3));root.style.setProperty('--page-h2',frame.h2.toFixed(3));if(root.dataset.pageTheme!==document.body.dataset.theme||root.dataset.pageMode!==document.body.dataset.mode||root.dataset.pageFinish!==document.body.dataset.finish)Object.assign(root.dataset,{pageTheme:document.body.dataset.theme,pageMode:document.body.dataset.mode,pageFinish:document.body.dataset.finish});}
+ const palette=frame.h.toFixed(3)+'|'+frame.h2.toFixed(3)+'|'+document.body.dataset.mode;if(palette!==lastPalette){lastPalette=palette;document.dispatchEvent(new Event('bm4-palette'));}
 }
 function runCycle(){
  const shouldRun=active.theme==='prism'&&active.colourCycle&&!reducedMotion.matches&&!document.hidden;

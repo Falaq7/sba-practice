@@ -25,3 +25,13 @@ test('missing, corrupt or blocked startup storage safely starts dark',()=>{
 test('legacy automatic device mode does not opt a learner out of dark mode',()=>{
  assert.equal(boot(JSON.stringify({appearance:'system'})).body.dataset.mode,'dark');
 });
+
+
+test('startup palette matches the running cycle instead of flashing a stale cached colour',()=>{
+ const animated=boot(JSON.stringify({theme:'prism',cycle:'on',h:85,h2:155})).body;
+ assert.equal(animated.style.getPropertyValue('--prism-h'),'235');
+ assert.equal(animated.style.getPropertyValue('--prism-h2'),'310');
+ const fixed=boot(JSON.stringify({theme:'prism',cycle:'off',h:85,h2:155})).body;
+ assert.equal(fixed.style.getPropertyValue('--prism-h'),'85');
+ assert.equal(fixed.style.getPropertyValue('--prism-h2'),'155');
+});
